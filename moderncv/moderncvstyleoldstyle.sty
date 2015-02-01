@@ -1,0 +1,310 @@
+%% start of file `moderncvstyleoldstyle.sty'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+%-------------------------------------------------------------------------------
+%                identification
+%-------------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{moderncvstyleoldstyle}[2013/04/29 v1.5.1 modern curriculum vitae and letter style scheme: oldstyle]
+
+
+%-------------------------------------------------------------------------------
+%                required packages
+%-------------------------------------------------------------------------------
+% change the layout of the page on the fly, for resume or letter layout
+\RequirePackage{changepage}
+
+
+%-------------------------------------------------------------------------------
+%                overall style definition
+%-------------------------------------------------------------------------------
+% fonts
+%\ifxetexorluatex
+%  \setmainfont[Numbers={OldStyle,Proportional}, BoldFont={Kurier Bold}, ItalicFont={Kurier Light Italic}, BoldItalicFont={Kurier Bold Italic}]{Kurier Light}
+%  \setsansfont[Numbers={OldStyle,Proportional}, BoldFont={Kurier Bold}, ItalicFont={Kurier Light Italic}, BoldItalicFont={Kurier Bold Italic}]{Kurier Light}
+%  \setmathfont{Kurier Light}
+%  \setmathfont[range=\mathit,\mathsfit]{Kurier Light Italic}
+%  \setmathfont[range=\mathbfup,\mathbfsfup]{Kurier Bold}
+%  \setmathfont[range=\mathbfit,\mathbfsfit]{Kurier Bold Italic}
+%\else
+  \IfFileExists{kurier.sty}%
+    {\RequirePackage[light,math]{kurier}}%
+    {}
+%\fi
+
+% symbols
+\moderncvicons{letters}
+
+
+%-------------------------------------------------------------------------------
+%                resume style definition
+%-------------------------------------------------------------------------------
+% fonts
+\renewcommand*{\namefont}{\fontsize{34}{36}\mdseries\upshape}
+\renewcommand*{\titlefont}{\LARGE\mdseries\slshape}
+\renewcommand*{\addressfont}{\small\mdseries}
+\renewcommand*{\quotefont}{\large\itshape}
+\renewcommand*{\sectionfont}{\Large\bfseries\upshape}
+\renewcommand*{\subsectionfont}{\large\bfseries\itshape}
+\renewcommand*{\hintfont}{\bfseries}
+
+% styles
+\renewcommand*{\namestyle}[1]{{\namefont\textcolor{color0}{#1}}}
+\renewcommand*{\titlestyle}[1]{{\titlefont\textcolor{color2}{#1}}}
+\renewcommand*{\addressstyle}[1]{{\addressfont\textcolor{color2}{#1}}}
+\renewcommand*{\quotestyle}[1]{{\quotefont\textcolor{color1}{#1}}}
+\renewcommand*{\sectionstyle}[1]{{\sectionfont\textcolor{color1}{#1}}}
+\renewcommand*{\subsectionstyle}[1]{{\subsectionfont\textcolor{color1}{#1}}}
+\renewcommand*{\hintstyle}[1]{{\hintfont\textcolor{color0}{#1}}}
+
+% lengths
+\newlength{\quotewidth}
+\newlength{\hintscolumnwidth}
+\setlength{\hintscolumnwidth}{0.3\textwidth}%
+\newlength{\separatorcolumnwidth}
+\setlength{\separatorcolumnwidth}{0.025\textwidth}%
+\newlength{\maincolumnwidth}
+\newlength{\doubleitemcolumnwidth}
+\newlength{\listitemsymbolwidth}
+\settowidth{\listitemsymbolwidth}{\listitemsymbol}
+\newlength{\listitemmaincolumnwidth}
+\newlength{\listdoubleitemmaincolumnwidth}
+
+% commands
+\setlength{\marginparwidth}{0\p@}%
+\setlength{\marginparsep}{0\p@}
+\renewcommand*{\recomputecvlengths}{%
+  % regular lengths
+  \changepage{}{+\marginparwidth+\marginparsep}{}{}{}{}{}{}{}% if a letter was typeset before the resume, \marginparwidth and \marginparsep will be non-zero; otherwise, this has no effect
+  \setlength{\marginparwidth}{0\p@}%
+  \setlength{\marginparsep}{0\p@}
+  \setlength{\parskip}{0\p@}%
+  % maketitle lengths
+  \setlength{\quotewidth}{0.65\textwidth}%
+  % main lenghts
+  \setlength{\maincolumnwidth}{\textwidth-\hintscolumnwidth-\separatorcolumnwidth}%
+  % listitem lengths
+  \setlength{\listitemmaincolumnwidth}{\maincolumnwidth-\listitemsymbolwidth}%
+  % doubleitem lengths
+  \setlength{\doubleitemcolumnwidth}{\maincolumnwidth-\separatorcolumnwidth}%
+  \setlength{\doubleitemcolumnwidth}{0.5\doubleitemcolumnwidth}%
+  % listdoubleitem lengths
+  \setlength{\listdoubleitemmaincolumnwidth}{\maincolumnwidth-\listitemsymbolwidth-\separatorcolumnwidth-\listitemsymbolwidth}%
+  \setlength{\listdoubleitemmaincolumnwidth}{0.5\listdoubleitemmaincolumnwidth}%
+  % fancyhdr lengths
+  \renewcommand{\headwidth}{\textwidth}}
+
+\newcommand{\makecvinfo}[1]{%
+  \newbox{\makecvinfobox}%
+  \savebox{\makecvinfobox}{\parbox[t]{\hintscolumnwidth}{#1}}%
+  \newlength{\makecvinfoheight}%
+  \setlength{\makecvinfoheight}{\totalheightof{\usebox{\makecvinfobox}}}% the total height of the parbox is the sum of its height (\the\ht\makeinfobox) and its depth (\the\dp\makeinfobox); the \totalheightof command is provided by the "calc" package
+  \usebox{\makecvinfobox}\vspace{-\makecvinfoheight}%
+  \newlength{\leftcolumnwidth}%
+  \setlength{\leftcolumnwidth}{\hintscolumnwidth+\separatorcolumnwidth}%
+  \par\vspace{-\baselineskip}\vspace{-\parskip}\leftskip=\leftcolumnwidth}
+
+\renewcommand*{\makecvtitle}{
+  % recompute lengths (in case we are switching from letter to resume, or vice versa)
+  \recomputecvlengths%
+  % optional picture box
+  \newbox{\makecvtitlepicturebox}%
+  \savebox{\makecvtitlepicturebox}{%
+    \ifthenelse{\isundefined{\@photo}}%
+    {}%
+    {%
+      \color{color1}%
+      \setlength\fboxrule{\@photoframewidth}%
+      \ifdim\@photoframewidth=0pt%
+        \setlength{\fboxsep}{0pt}\fi%
+      \framebox{\includegraphics[width=\@photowidth]{\@photo}}}}%
+  % name and title
+  \newlength{\makecvtitlepicturewidth}\settowidth{\makecvtitlepicturewidth}{\usebox{\makecvtitlepicturebox}}%
+  \newlength{\makecvtitlenamewidth}\setlength{\makecvtitlenamewidth}{\textwidth-\makecvtitlepicturewidth}%
+  \begin{minipage}[b]{\makecvtitlenamewidth}%
+    \namestyle{\@firstname\ \@lastname}%
+    \ifthenelse{\equal{\@title}{}}{}{\\[1.25em]\titlestyle{\@title}}%
+  \end{minipage}%
+  % optional photo
+  \usebox{\makecvtitlepicturebox}\\[2.5em]%
+   % optional quote
+  \ifthenelse{\isundefined{\@quote}}%
+    {}%
+    {{\centering\begin{minipage}{\quotewidth}\centering\quotestyle{\@quote}\end{minipage}\\[2.5em]}}%
+  % optional details
+  \makecvinfo{%
+    \addressfont\color{color2}%
+    \ifthenelse{\isundefined{\@addressstreet}}{}{\makenewline\addresssymbol\@addressstreet%
+      \ifthenelse{\equal{\@addresscity}{}}{}{\makenewline\@addresscity}% if \addresstreet is defined, \addresscity and \addresscountry will always be defined but could be empty
+      \ifthenelse{\equal{\@addresscountry}{}}{}{\makenewline\@addresscountry}}%
+    \collectionloop{phones}{% the key holds the phone type (=symbol command prefix), the item holds the number
+      \makenewline\csname\collectionloopkey phonesymbol\endcsname\collectionloopitem}%
+    \ifthenelse{\isundefined{\@email}}{}{\makenewline\emailsymbol\emaillink{\@email}}%
+    \ifthenelse{\isundefined{\@homepage}}{}{\makenewline\homepagesymbol\httplink{\@homepage}}%
+    \collectionloop{socials}{% the key holds the social type (=symbol command prefix), the item holds the link
+      \makenewline\csname\collectionloopkey socialsymbol\endcsname\collectionloopitem}%
+    \ifthenelse{\isundefined{\@extrainfo}}{}{\makenewline\@extrainfo}}}
+
+\RenewDocumentCommand{\section}{sm}{%
+  \par\addvspace{2.5ex}%
+  \phantomsection{}% reset the anchor for hyperrefs
+  \addcontentsline{toc}{section}{#2}%
+  \strut\sectionstyle{#2}%
+  \par\nobreak\addvspace{1ex}\@afterheading}% to avoid a pagebreak after the heading
+
+\RenewDocumentCommand{\subsection}{sm}{%
+  \par\addvspace{1ex}%
+  \phantomsection{}% reset the anchor for hyperrefs
+  \addcontentsline{toc}{subsection}{#2}%
+  \strut\subsectionstyle{#2}%
+  \par\nobreak\addvspace{0.5ex}\@afterheading}% to avoid a pagebreak after the heading
+
+\renewcommand*{\cvitem}[3][.25em]{%
+  \ifthenelse{\equal{#2}{}}{}{\hintstyle{#2}: }{#3}%
+  \par\addvspace{#1}}
+
+\renewcommand*{\cvdoubleitem}[5][.25em]{%
+  \begin{minipage}[t]{\doubleitemcolumnwidth}\hintstyle{#2}: #3\end{minipage}%
+  \hfill% fill of \separatorcolumnwidth
+  \begin{minipage}[t]{\doubleitemcolumnwidth}\ifthenelse{\equal{#4}{}}{}{\hintstyle{#4}: }#5\end{minipage}%
+  \par\addvspace{#1}}
+
+\renewcommand*{\cvlistitem}[2][.25em]{%
+  \cvitem[#1]{}{\listitemsymbol\begin{minipage}[t]{\listitemmaincolumnwidth}#2\end{minipage}}}
+
+\renewcommand*{\cvlistdoubleitem}[3][.25em]{%
+  \cvitem[#1]{}{\listitemsymbol\begin{minipage}[t]{\listdoubleitemmaincolumnwidth}#2\end{minipage}%
+  \hfill% fill of \separatorcolumnwidth
+  \ifthenelse{\equal{#3}{}}%
+    {}%
+    {\listitemsymbol\begin{minipage}[t]{\listdoubleitemmaincolumnwidth}#3\end{minipage}}}}
+
+\newbox{\cventryyearbox}
+\newlength{\cventrytitleboxwidth}
+\renewcommand*{\cventry}[7][.25em]{%
+  \savebox{\cventryyearbox}{%
+    \hspace*{2\separatorcolumnwidth}%
+    \hintstyle{#2}}%
+  \setlength{\cventrytitleboxwidth}{\widthof{\usebox{\cventryyearbox}}}%
+  \setlength{\cventrytitleboxwidth}{\maincolumnwidth-\cventrytitleboxwidth}%
+  \begin{minipage}{\maincolumnwidth}%
+    \parbox[t]{\cventrytitleboxwidth}{%
+      \strut%
+      {\bfseries#3}%
+      \ifthenelse{\equal{#4}{}}{}{, {\slshape#4}}%
+      \ifthenelse{\equal{#5}{}}{}{, #5}%
+      \ifthenelse{\equal{#6}{}}{}{, #6}%
+      .\strut}%
+    \usebox{\cventryyearbox}%
+  \end{minipage}%
+  \ifx&#7&%
+    \else{%
+      \newline{}%
+      \begin{minipage}[t]{\maincolumnwidth}%
+        \small%
+        #7%
+      \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
+\newbox{\cvitemwithcommentmainbox}
+\newlength{\cvitemwithcommentmainlength}
+\newlength{\cvitemwithcommentcommentlength}
+\renewcommand*{\cvitemwithcomment}[4][.25em]{%
+  \savebox{\cvitemwithcommentmainbox}{\ifthenelse{\equal{#2}{}}{}{\hintstyle{#2}: }#3}%
+  \setlength{\cvitemwithcommentmainlength}{\widthof{\usebox{\cvitemwithcommentmainbox}}}%
+  \setlength{\cvitemwithcommentcommentlength}{\maincolumnwidth-\separatorcolumnwidth-\cvitemwithcommentmainlength}%
+  \begin{minipage}[t]{\cvitemwithcommentmainlength}\ifthenelse{\equal{#2}{}}{}{\hintstyle{#2}: }#3\end{minipage}%
+  \hfill% fill of \separatorcolumnwidth
+  \begin{minipage}[t]{\cvitemwithcommentcommentlength}\raggedleft\small\itshape#4\end{minipage}%
+  \par\addvspace{#1}}
+
+\renewenvironment{thebibliography}[1]%
+  {%
+    \bibliographyhead{\refname}%
+%    \small%
+    \begin{list}{\bibliographyitemlabel}%
+      {%
+        \setlength{\topsep}{0pt}%
+        \setlength{\labelwidth}{\hintscolumnwidth}%
+        \setlength{\labelsep}{\separatorcolumnwidth}%
+        \leftmargin\labelwidth%
+        \advance\leftmargin\labelsep%
+        \@openbib@code%
+        \usecounter{enumiv}%
+        \let\p@enumiv\@empty%
+        \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+        \sloppy\clubpenalty4000\widowpenalty4000%
+%        \sfcode`\.\@m%
+%        \sfcode `\=1000\relax%
+  }%
+  {%
+    \def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}%
+    \end{list}%
+  }
+
+
+%-------------------------------------------------------------------------------
+%                letter style definition
+%-------------------------------------------------------------------------------
+% commands
+%\newlength{\textwidthdelta}%
+\renewcommand*{\recomputeletterlengths}{%
+  \recomputecvlengths%
+  \setlength{\parskip}{6\p@}%
+  \leftskip=0pt%
+%  \setlength{\textwidthdelta}{+\marginparwidth+\marginparsep}%
+  \setlength{\marginparwidth}{\hintscolumnwidth}%
+  \setlength{\marginparsep}{2\separatorcolumnwidth}%
+%  \addtolength{\textwidthdelta}{-\marginparwidth-\marginparsep}%
+%  \changepage{}{\textwidthdelta}{-\textwidthdelta}{}{}{}{}{}{}%\changepage{<textheight>}{<textwidth>}{<evensidemargin>}{<oddsidemargin>}{<columnsep>}{<topmargin>}{<headheight>}{<headsep>}{<footskip>}
+  \changepage{}{-\marginparwidth-\marginparsep}{}{}{}{}{}{}{}%\changepage{<textheight>}{<textwidth>}{<evensidemargin>}{<oddsidemargin>}{<columnsep>}{<topmargin>}{<headheight>}{<headsep>}{<footskip>}
+  }
+
+\renewcommand*{\makelettertitle}{%
+  % recompute lengths (in case we are switching from letter to resume, or vice versa)
+  \recomputeletterlengths%
+  % recipient block
+  {\addressfont%
+    {\bfseries\upshape\@recipientname}\\%
+    \@recipientaddress}\\[1em]%
+  % date
+  \@date\\[2em]%
+  % opening
+  \@opening\\[1.5em]%
+  % sender contact info
+  \hspace{0pt}%
+  \marginpar{%
+    \addressfont\textcolor{color2}{%
+      {\bfseries\@firstname~\@lastname}\@firstdetailselementfalse%
+      \ifthenelse{\isundefined{\@addressstreet}}{}{\makenewline\addresssymbol\@addressstreet%
+        \ifthenelse{\equal{\@addresscity}{}}{}{\makenewline\@addresscity}% if \addresstreet is defined, \addresscity and \addresscountry will always be defined but could be empty
+        \ifthenelse{\equal{\@addresscountry}{}}{}{\makenewline\@addresscountry}}%
+      \collectionloop{phones}{% the key holds the phone type (=symbol command prefix), the item holds the number
+        \makenewline\csname\collectionloopkey phonesymbol\endcsname\collectionloopitem}%
+      \ifthenelse{\isundefined{\@email}}{}{\makenewline\emailsymbol\emaillink{\@email}}%
+      \ifthenelse{\isundefined{\@homepage}}{}{\makenewline\homepagesymbol\httplink{\@homepage}}%
+      \collectionloop{socials}{% the key holds the social type (=symbol command prefix), the item holds the link
+        \makenewline\csname\collectionloopkey socialsymbol\endcsname\collectionloopitem}%
+      \ifthenelse{\isundefined{\@extrainfo}}{}{\makenewline\@extrainfo}}}%
+  % ensure no extra spacing after \makelettertitle due to a possible blank line
+%  \ignorespacesafterend% not working
+  \par\vspace{-\baselineskip}\vspace{-\parskip}}
+
+\renewcommand*{\makeletterclosing}{
+  \@closing\\[3em]%
+  {\bfseries\@firstname~\@lastname}%
+  \ifthenelse{\isundefined{\@enclosure}}{}{%
+    \\%
+    \vfill%
+    {\color{color2}\itshape\enclname: \@enclosure}}}
+
+
+\endinput
+
+
+%% end of file `moderncvstyleoldstyle.sty'.

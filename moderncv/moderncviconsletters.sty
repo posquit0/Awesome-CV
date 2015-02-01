@@ -1,0 +1,53 @@
+%% start of file `moderncviconsletters.sty'.
+%% Copyright 2013-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+%-------------------------------------------------------------------------------
+%                identification
+%-------------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{moderncviconsmarvosym}[2013/04/29 v1.5.1 modern curriculum vitae and letter icons: letters]
+
+
+%-------------------------------------------------------------------------------
+%                required packages
+%-------------------------------------------------------------------------------
+% MarVoSym font
+%\RequirePackage{marvosym}
+\newcommand*{\marvosymbol}[1]{}
+%\ifxetexorluatex
+%  \renewcommand*{\marvosymbol}[1]{{\fontspec{MarVoSym}\char#1}}
+%\else
+  \renewcommand*{\marvosymbol}[1]{{\fontfamily{mvs}\fontencoding{U}\fontseries{m}\fontshape{n}\selectfont\char#1}}
+%\fi
+
+
+%-------------------------------------------------------------------------------
+%                symbols definition
+%-------------------------------------------------------------------------------
+\renewcommand*{\labelitemi}          {\strut\textcolor{color1}{\marvosymbol{123}}}            % equivalent to \Neutral from marvosym package; alternative: \fontencoding{U}\fontfamily{ding}\selectfont\tiny\symbol{'102}
+%\renewcommand*{\labelitemii}         {\strut\textcolor{color1}{\large\bfseries-}}            % no change from default in moderncv.cls
+%\renewcommand*{\labelitemiii}        {\strut\textcolor{color1}{\rmfamily\textperiodcentered}}% no change from default in moderncv.cls
+%\renewcommand*{\labelitemiv}         {\labelitemiii}                                         % no change from default in moderncv.cls
+
+\renewcommand*{\addresssymbol}       {}
+\renewcommand*{\mobilephonesymbol}   {\hbox to 1.1em{\textbf{M}}~}% 1em is the width of the M capital in most fonts
+\renewcommand*{\fixedphonesymbol}    {\hbox to 1.1em{\textbf{T}}~}
+\renewcommand*{\faxphonesymbol}      {\hbox to 1.1em{\textbf{F}}~}
+\renewcommand*{\emailsymbol}         {\hbox to 1.1em{\textbf{E}}~}
+\renewcommand*{\homepagesymbol}      {\hbox to 1.1em{\textbf{W}}~}
+\renewcommand*{\linkedinsocialsymbol}{\hbox to 1.1em{\textbf{in}}~}
+\renewcommand*{\twittersocialsymbol} {\hbox to 1.1em{\textbf{tw}}~}
+\renewcommand*{\githubsocialsymbol}  {\hbox to 1.1em{\textbf{gh}}~}
+
+\renewcommand*{\listitemsymbol}      {\labelitemi~}
+
+
+\endinput
+
+
+%% end of file `moderncviconsletters.sty'.

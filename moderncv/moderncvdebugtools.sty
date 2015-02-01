@@ -1,0 +1,54 @@
+%% start of file `moderncvdebugtools.sty'.
+%% Copyright 2013-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+%-------------------------------------------------------------------------------
+%                identification
+%-------------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{moderncvdebugtools}[2013/04/29 v1.5.1 modern curriculum vitae and letter debug tools]
+
+
+%-------------------------------------------------------------------------------
+%                required packages
+%-------------------------------------------------------------------------------
+\RequirePackage{tikz}
+
+
+%-------------------------------------------------------------------------------
+%                debug tools
+%-------------------------------------------------------------------------------
+% code of \tracedebugvrule and \tracedebughrule provided by Gonzalo Medina on TeX.SX (cfr tex.stackexchange.com/a/110805/10102)
+\newcounter{debugrule}
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+\DeclareDocumentCommand{\tracedebugvrule}{oO{0pt}}{%
+  \stepcounter{debugrule}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \begin{pgfonlayer}{background}
+      \coordinate (a\thedebugrule);
+      \draw[red,thin,#1] 
+        ([xshift=#2]a\thedebugrule|-current page.north) -- ([xshift=#2]a\thedebugrule|-current page.south);
+    \end{pgfonlayer}
+  \end{tikzpicture}}
+
+\DeclareDocumentCommand{\tracedebughrule}{oO{0pt}}{%
+  \stepcounter{debugrule}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \begin{pgfonlayer}{background}
+    \coordinate (b\thedebugrule);
+      \draw[red,thin,#1] 
+       ([yshift=#2]b\thedebugrule-|current page.west) -- ([yshift=#2]b\thedebugrule-|current page.east);
+    \end{pgfonlayer}
+  \end{tikzpicture}}
+
+
+\endinput
+
+
+%% end of file `moderncvdebugtools.sty'.

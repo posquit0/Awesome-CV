@@ -1,0 +1,104 @@
+%% start of file `moderncvcompatibility.sty'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+%-------------------------------------------------------------------------------
+%                identification
+%-------------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{moderncvcompatibility}[2013/04/29 v1.5.1 modern curriculum vitae and letter compatibility patches]
+
+
+%-------------------------------------------------------------------------------
+%                required packages
+%-------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------
+%                package options
+%-------------------------------------------------------------------------------
+% old casual option (version 0.1)
+%\DeclareOption{casual}{\input{moderncvstylecasual.sty}}
+
+% old classic option (version 0.1)
+%\DeclareOption{classic}{\input{moderncvstyleclassic.sty}}
+
+\DeclareOption*{}
+
+% process given options
+\ProcessOptions\relax
+
+%-------------------------------------------------------------------------------
+%                definitions
+%-------------------------------------------------------------------------------
+% compatibility with version 0.1
+\newcommand*{\cvresume}[2]{\cvlistdoubleitem{#1}{#2}}
+
+% compatibility with versions <= 0.2
+% section, cvline, ... with width argument...
+%\newcommand*{\section}[2][0.825]{%
+%  \closesection{}%
+%  \@sectionopentrue%
+%  \addcontentsline{toc}{part}{#2}
+%  \begin{longtable}[t]{@{}r@{\hspace{.025\textwidth}}@{}p{#1\textwidth}@{}}%
+%%  \colorrule{.15\textwidth}&\mbox{\color{sectiontitlecolor}\sectionfont#2}\\[1ex]}%
+%  {\color{sectionrectanglecolor}\rule{0.15\textwidth}{1ex}}&\mbox{\color{sectiontitlecolor}\sectionfont#2}\\[1ex]}%
+%\newcommand*{\cvline}[3][.825]{%
+%  \begin{minipage}[t]{\hintscolumnwidth}\raggedleft\small\sffamily#2\end{minipage}&\begin{minipage}[t]{\maincolumnwidth}#3\end{minipage}\\}
+%\newcommand*{\cvitem}[3][.825]{%
+%  \cvline[#1]{#2}{#3\vspace*{.75em}}}   % the \vspace*{} inside the cvline environment is a hack... (should conceptually be outside the environment)
+
+% compatibility with versions <= 0.5
+%\newcommand*{\cvitem}[2]{\cvline{#1}{#2}}
+%\newcommand*{\moderncvstyle}[1]{\moderncvtheme{#1}}
+
+% compatibility with versions <= 0.7
+\newcommand*{\closesection}{}
+\newcommand*{\emptysection}{}
+\newcommand*{\sethintscolumnlength}[1]{%
+  \setlength{\hintscolumnwidth}{#1}%
+  \recomputelengths}
+\newcommand*{\sethintscolumntowidth}[1]{%
+  \settowidth{\hintscolumnwidth}{#1}%
+  \recomputelengths}
+
+% compatibility with versions <= 0.15
+\newcommand*{\cvline}[2]{\cvitem{#1}{#2}}
+\newcommand*{\cvlanguage}[3]{\cvitemwithcomment{#1}{#2}{#3}}
+\newcommand*{\cvcomputer}[4]{\cvdoubleitem{#1}{\small#2}{#3}{\small#4}}
+\newcommand*{\moderncvtheme}[2][blue]{%
+  \moderncvcolor{#1}%
+  \moderncvstyle{#2}}
+
+% compatibility with versions <= 0.19
+\newcommand*{\maketitle}{\makecvtitle}%
+\title{}% to avoid LaTeX complaining that \maketitle is a called without first a call to \title
+\newcommand*{\maketitlenamewidth}{\makecvtitlenamewidth}
+
+% compatibility with versions <= 1.3.0
+\newcommand*{\firstname}[1]{\def\@firstname{#1}}
+\newcommand*{\lastname}[1]{\def\@lastname{#1}}
+\newcommand*{\givenname}[1]{\def\@firstname{#1}}
+\newcommand*{\familyname}[1]{\def\@lastname{#1}}
+\def\@familyname{\@lastname}
+
+% compatibility with versions <= 1.4.0
+\newcommand*{\mobile}[1]{\collectionadd[mobile]{phones}{#1}}
+%\newcommand*{\phone}[1]{\collectionadd[fixed]{phones}{#1}}% implicit, as \phone{...} defaults to \phone[fixed]{...}
+\newcommand*{\fax}[1]{\collectionadd[fax]{phones}{#1}}
+\newcommand*{\@mobile}{\collectionfindbykey{phones}{mobile}}
+\newcommand*{\@phone}{\collectionfindbykey{phones}{fixed}}
+\newcommand*{\@fax}{\collectionfindbykey{phones}{fax}}
+\newcommand*{\phonesymbol}{\fixedphonesymbol}
+\newcommand*{\mobilesymbol}{\mobilephonesymbol}
+\newcommand*{\faxsymbol}{\faxphonesymbol}
+
+
+\endinput
+
+
+%% end of file `moderncvcompatibility.sty'.

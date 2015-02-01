@@ -1,0 +1,85 @@
+%% start of file `moderncvcollection.sty'.
+%% Copyright 2013-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+%-------------------------------------------------------------------------------
+%                identification
+%-------------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{moderncvcollection}[2013/04/29 v1.5.1 moderncv collections]
+
+
+%-------------------------------------------------------------------------------
+%                requirements
+%-------------------------------------------------------------------------------
+
+
+\RequirePackage{ifthen}
+
+
+%-------------------------------------------------------------------------------
+%                code
+%-------------------------------------------------------------------------------
+
+% creates a new collection
+% usage: \collectionnew{<collection name>}
+\newcommand*{\collectionnew}[1]{%
+  \newcounter{collection@#1@count}}
+
+% adds an item to a collection
+% usage: \collectionadd[<optional key>]{<collection name>}{<item to add>}
+\newcommand*{\collectionadd}[3][]{%
+  \expandafter\def\csname collection@#2@item\roman{collection@#2@count}\endcsname{#3}%
+  \if\relax\noexpand#1\relax% if #1 is empty
+    \else\expandafter\def\csname collection@#2@key\roman{collection@#2@count}\endcsname{#1}\fi%
+  \stepcounter{collection@#2@count}}
+
+% returns the number of items in a collection
+% usage: \collectioncount{<collection name>}
+\newcommand*{\collectioncount}[1]{%
+  \value{collection@#1@count}}
+
+% gets an item from a collection
+% usage: \collectiongetitem{<collection name>}{<element id>}
+% where <element id> is an integer between 0 and (collectioncount-1)
+\newcommand*{\collectiongetitem}[2]{%
+  \csname collection@#1@item\romannumeral #2\endcsname}
+
+% gets a key from a collection
+% usage: \collectiongetkey{<collection name>}{<element id>}
+% where <element id> is an integer between 0 and (collectioncount-1)
+\newcommand*{\collectiongetkey}[2]{%
+  \csname collection@#1@key\romannumeral #2\endcsname}
+
+% loops through a collection and perform the given operation on every element
+% usage: \collectionloop{<collection name>}{<operation sequence>}
+% where <operation sequence> is the code sequence to be evaluated for each collection item,
+%   code which can refer to \collectionloopid, \collectionloopkey, \collectionloopitem and
+%   \collectionloopbreak
+\newcounter{collection@iterator}
+\newcommand*{\collectionloopbreak}{\let\iterate\relax}
+\newcommand*{\collectionloop}[2]{%
+  \setcounter{collection@iterator}{0}%
+  \loop\ifnum\value{collection@iterator}<\value{collection@#1@count}%
+    \def\collectionloopid{\arabic{collection@iterator}}%
+    \def\collectionloopitem{\collectiongetitem{#1}{\collectionloopid}}%
+    \def\collectionloopkey{\collectiongetkey{#1}{\collectionloopid}}%
+    #2%
+    \stepcounter{collection@iterator}%
+    \repeat}
+
+% loops through a collection and finds the (first) element matching the given key
+% usage: \collectionfindbykey{<collection name>}{key>}
+\newcommand*{\collectionfindbykey}[2]{%
+  \collectionloop{#1}{%
+    \ifthenelse{\equal{\collectionloopkey}{#2}}{\collectionloopitem\collectionloopbreak}{}}}
+
+
+\endinput
+
+
+%% end of file `moderncvcollection.cls'.

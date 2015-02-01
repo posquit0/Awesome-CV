@@ -1,0 +1,338 @@
+version 1.5.1 (29 Apr 2013)
+ - made sure that XeLaTeX or LuaLaTeX is in use before loading the awesome icon
+ set and if not, revert to the marvosym icon set.
+
+version 1.5.0 (23 Apr 2013)
+ - added a command to showcase social accounts in one's personal information:
+ \social. The command currently handles automatically LinkedIn, Twitter and
+ Github accounts, and other links can be provided explicitly.
+ - added a new icon set: "awesome" (using the icons from the Font Awesome font).
+ - set the "awesome" icon set as the default for the "casual" and "banking"
+ style variants (can be changed back with \moderncvicons{marvosym}).
+ - forced all the icons of the "letters" icon set to be of the same width, for
+ alignment purpose.
+ - added a letter icon ("W") for the homepage of the "letters" icon set.
+ - forced some white space between the main text and the footer of the "casual"
+ style variant.
+ - removed the rule below the headings of the cvcolumns environment.
+
+version 1.4.0 (28 Mar 2013)
+ - deprecated \phone, \mobile and \fax in favour of \phone[<type>], where <type>
+ can be "fixed" (default), "mobile" or "fax". As part of the change, one can now
+ use each of these multiple times, to e.g. display multiple mobile phone numbers.
+ - deprecated \firstname and \familyname in favour of \name{<first>}{<last>}.
+ - added a new mechanism to select amongs different possible icon sets:
+ \moderncvicons{<iconsetname>}, where <iconsetname> can be "marvosym" (used by
+ default in the "banking", "casual" and "classic" style variants) or "letters"
+ (used by default in the "oldstyle" style variant). \moderncvicons should
+ always be called after \moderncvstyle in order to override the style variants
+ defaults.
+ - added a command to control the font of the page numbering: \pagenumberfont,
+ as requested by fr1a1nky (launchpad question #224496).
+ - removed the use of the suffix package.
+
+version 1.3.0 (09 Feb 2013)
+ - added a new environment to create multiple columns: cvcolumns. Each column
+ is then created by \cvcolumn[width]{header}{content}, where the optional width
+ is given as a fraction of the total width (between 0 and 1). The header and
+ content are robust and can contain any paragraph command (e.g., a nest itemize
+ environment).
+ - added a macro (\pdfpagemode) to control what is visible upon opening compiled
+ pdfs (assuming pdf reader support), as suggested by U. Stöhr.
+ Possible values include: "UseNone" (only the document), "UseThumbs" (show
+ thumbnails), "UseOutlines" (show bookmarks) and "FullScreen" (open in
+ fullscreen mode).
+ - added a 3rd, fully optional (can be omitted or left blank) argument to
+ \address to specify a country, as requested on launchpad (launchpad bug
+ #1063995).
+ - compacted list environments further.
+ - replaced the use of the xargs package by the xparse one.
+
+version 1.2.1 (04 Dec 2012)
+ - fixed a regression bug introduced in version 1.2.0 in the header of the
+ "banking" style when no title is used, as reported on tex.stackexchange
+ (question #85427).
+
+version 1.2.0 (31 Oct 2012)
+ - updated the "banking" style header to include the option to show a title.
+ - set the values of \arrayrulewidth and \doublerulesep to their standard values
+ (0.4pt and 2pt resp.) to enable the drawing of rules in tabulars and arrays by
+ default.
+ - modified the code of \makecvtitle and \makelettertitle of the "casual" style
+ to avoid it to cause horizontal alignment issues after and before itself.
+ - corrected a bug in \makelettertitle of most styles that displayed the current
+ date (\today) instead of the date given through the \date command, as reported
+ by B. Schlimmchen and S. Fnord.
+ - removed the need to set pdfpagelabels=false when loading hyperref, by putting
+ \pagenumbering{arabic} (to define \thepage) before loading hyperref, as figured
+ out by J. Wolf.
+ - corrected the line wrapping of \cvlistitem of the "banking" style.
+ - corrected a bug in \makecvtitle and \makelettertitle of the "banking" style.
+ - removed an unwanted space in the footer of the "casual" style.
+ - moved the font style definitions to moderncv.cls for better readability
+ (moderncv.cls is meant to be a sort of header file, implementing only some
+ macros shared by all styles and defining the macros that the style files need
+ to implement).
+
+version 1.1.3 (10 Aug 2012)
+ - corrected a longstanding issue causing hyperref to issue two warnings
+ regarding its "pdfpagelabels" option, as pointed out and solved by P. Leifeld
+ (launchpad bug #1035466).
+
+version 1.1.2 (09 Aug 2012)
+ - fixed a regression bug introduced in version 1.0.0 in the footer of the
+ "casual" style, as discovered on tex.stackexchange (question #66316).
+
+version 1.1.1 (30 Jul 2012)
+ - fixed a compatibility issue introduced in version 1.0.0 when
+ \maketitlenamewidth was renamed to \makecvtitlenamewidth, as reported by Peppe
+ on launchpad (launchpad bug #1030802). The template now correctly uses
+ \makecvtitlenamewidth, and \maketitlenamewidth was created as an alias for
+ backward compatibility.
+
+version 1.1.0 (29 Jul 2012)
+ - fixed the switching from letter to resume, correcting spacing errors when a
+ letter is typeset before the resume, as noticed by U. Gabor.
+ - fixed the vertical alignment of the footers, as reported by T. Homa.
+ Footers are now aligned to the bottom and the letter and cv footers are
+ perfectly aligned in the "casual" style.
+ - prepared moderncv for fontspec font loading (still commented in code).
+ - changed the handling of the "sans" and "roman" class options, to be reflected
+ at the beginning of the document and override style font choices.
+ - turned unicode support in hyperref on by default.
+ - tweaked the use of \textbullet to avoid the fall-back to Computer Modern
+ fonts and prepared the use of symbols from the MarVoSym font for fontspec
+ (LauLaTeX or XeLaTeX).
+ - tweaked the \subsectionfill of the "banking" style to distribute extra space
+ evenly between leaders.
+ - added two options to change the "Enclosure" string used for the letter
+ enclosure: either specify another string as optional argument to \enclosure,
+ or redefine \enclname, as suggested by D. Wille.
+
+version 1.0.0 (26 Mar 2012)
+ - added commands to generate letters for every resume style: \recipient, \date,
+ \opening, \closing, \enclosure, \makelettertitle and \makeletterclosing. The
+ old \maketitle and \makefooter commands are now deprecated and replaced by
+ \makecvtitle and \makecvfooter.
+ - changed the alignment algorithm for the personal data display in the oldstyle
+ style, as to align on the baseline of the first line with the surrounding text.
+
+version 0.19.0 (06 Feb 2012)
+ - reintroduced the ability to force the width reserved to display the name
+ in the resume header for the classic style (\maketitlenamewidth).
+ - improved the pdf metadata, as reported by S. Wunsch (launchpad bug #922476).
+ - fixed a footersymbol bug in the casual style when no mobile number was given,
+ as reported by S. Wunsch (launchpad bug #922470).
+ - fixed a display bug when an address was given without postcode/city, as
+ reported by O. Shaneh (launchpad bug #670263).
+
+version 0.18.0 (05 Feb 2012)
+ - corrected the handling of pdf bookmarks, as suggested on stackexchange by
+ U. Fischer.
+ - improved the spacing between sections and subsections by using \addvspace
+ instead of \vspace.
+ - corrected the spacing between entries with nested itemize environments
+ (temporary solution working only for single line items).
+ - added a check in the oldstyle style for an empty 4th argument in the
+ \cvdoubleitem definition, to avoid printing a colon without preceding label.
+ - added a new style on top of classic, casual and oldstyle: banking.
+
+version 0.17.0 (25 Jan 2012)
+ - changed the footer algorithm of style casual to avoid starting lines with
+ the footer symbol.
+ - aligned the space before and after the title across styles.
+ - added an optional title to the casual style.
+ - changed the definition of the font styles to avoid undesired extra spacing.
+ - added a Spanish template, kindly provided by I. Buitrón.
+ - corrected the vertical misalignment between the page number and the center
+ footer in the casual style.
+
+version 0.16.0 (15 Jan 2012)
+ - added starred versions of \section and \subsection (that are identical to
+ their non-starred version, to e.g. enable biblatex support as requested by
+ S. Verberkt (launchpad bug #913102).
+ - corrected a misalignment of the colored rule in front of the section titles
+ in the classic and casual styles, as reported by P. Neidhardt (launchpad bug
+ #915910).
+
+version 0.15.1 (23 December 2011)
+ - corrected a bug in the classic style causing the address font and color not
+ being carried over newlines, as reported by J. Smith.
+
+version 0.15.0 (19 December 2011)
+ - corrected list spacing.
+ - corrected inconsistent use of sans serif fonts in roman layout option.
+ - the lmodern fonts are now automatically loaded only if installed on the
+ system. The "nolmodern" option is now therefore obsolete.
+ - complete code refactoring separating themes in separate styles and colors.
+ - renamed \cvline to \cvitem, \cvlanguage to \cvitemwithcomment and \cvcomputer
+ to \cvdoubleitem (the old command name still work and redirect to the new ones,
+ but are deprecated).
+ - removed the arbitrary minipage widths of skill proficiency vs comment in
+ \cvitemwithcomments. The skill proficiency is now typeset exactly as given
+ (i.e. one one line if no linebreaks are implicitly given) and the comment uses
+ the remaining horizontal space.
+ - changed the optional argument of \cvlistitem and \cvlistdoubleitem to specify
+ the vertical skip after the item (as for \cvitem, cvitemwithcomments, etc).
+ The way to change the list symbol is to redefine \listitemsymbol.
+ - added a new style on top of classic and casual: oldstyle.
+ - loaded the microtype package to improve typography.
+
+version 0.14.0 (04 December 2011)
+ - added support for CJK, thanks to the help of P. D'Apice.
+ - the use of \recomputelengths after modifying any length in the preamble is
+ now unnecessary; \recomputelength is automatically called at the start of the
+ document.
+
+version 0.13.1 (11 November 2011)
+ - corrected a bug introduced by v0.13 in the classic style when no \photo is
+ used, as reported by S. Gislais (launchpad bug #888702).
+
+version 0.13.0 (06 November 2011)
+ - added a "black" color option to render the resume in black & white, as
+ suggested by F. Bicarri.
+ - removed the pdflatex option when loading hyperref to enable other engines
+ (e.g., dvips, xetex), leftover from the v 0.11 cleanup, as reported by
+ K. Amaterasu and P. Mavrogiorgos (launchpad bugs #754693 and #859834).
+ - added a "purple" color option, as proposed by B. Ravel.
+ - added a 3rd optional argument to the \photo command to control the thickness
+ of the framebox. Setting it to 0pt will disable the frame around the photo, as
+ requested by T. Krennwallner (launchpad bug #664568).
+
+version 0.12.0 (03 August 2010)
+  - prevented pagebreaks after sections and subsections (launchpad bug #409902),
+  as originally reported by C. Gaspoz and fixed by launchpad user tentotwo).
+
+version 0.11.0 (20 July 2010)
+  - removed the \ifpdf check when loading the graphicx package, as graphicx does
+  does check internally and this was preventing proper functionning with xelatex
+  and luatex, as reported by A. Trautmann. The same check was also removed
+  everywhere else  in the document (i.e. when loading the color and hyperref
+  packages).
+
+version 0.10.0 (13 June 2010)
+  - fixed a compatibility issue with the natbib package (natbib uses \section*
+  to format the bibliography title, while only \section was defined by
+  moderncv), as reported on launchpad (launchpad bug #393920).
+  - fixed a compatibility issues with (any package relying on) the etoolbox
+  package, due to the double definition of \AtEndPreamble, as reported by
+  D. Becker.
+
+version 0.9.0 (31 May 2010)
+  - added support for the itemize, enumerate and description environments.
+
+version 0.8.0 (24 May 2010)
+  - added support for multibib. Also modified the template to illustrate how to
+  show labels in the bibliography, as requested by Tom D. R. and Stefan K.
+  - added a command to indicate your personal homepage (\homepage{url}), as
+  requested by J. de Jong and A. Pairet.
+  - corrected an alignment bug for text following a \quote with no immediate
+  \section, as kindly reported by J. Vermeulen and L. Saliou.
+  - corrected a spacing bug when no blank line (or \par) is left after
+  \maketitle. Thanks to A. Menzel for reporting the strange behaviour.
+  - corrected the alignment of the extrainfo title part when no picture was
+  used, as reported by M. Bana.
+  - corrected the missplacement of pdf bookmarks as noticed by L. Fortunato.
+  - corrected several bugs linked to the code for checking for empty arguments
+  in \cventry, as reported by B. Ekran (launchpad bug #268768), L. Păncescu and
+  E. Gregorio.
+
+version 0.7.0 (17 June 2008)
+  - corrected an outstanding spacing bug (space between cvlines longer
+  than 1 line).
+  - removed the need to use \closesection and \emptysection as internal
+  tabulars are now always closed. This allows she use of bibliography packages
+  such as bibunits. Thanks to S. Busch for pointing out the incompatibility and
+  helping testing out the bug correction.
+  - changed the definition of \photo: the first (optional) argument should
+  give the desired width of the picture, instead of its height
+  - corrected an alignment bug for \cvlistitems longer than 1 line, as
+  reported by S. Nikolopoulos.
+  - deprecated the commands \sethintscolumnlength and \sethintscolumntowidth.
+  Instead, just set \hintscolumnwidth to the desired length by using the regular
+  \setlength or \settowidth commands, and call \recomputelengths.
+  - added the ability to control the width of the name placeholder in the
+  classic theme, by setting the length \maketitlenamewidth. Again, don't forget
+  to call \recomputelengths afterward.
+
+version 0.6.0 (28 May 2007)
+  - corrected some spacing bugs and cleaned up the code.
+  - corrected a bug in the bibliography file of the examples spotted by
+  U. Stöhr.
+  - added color variants to the classic and casual style, as suggested by
+  U. Stöhr.
+  - added a page counter for resumes running longer than 1 page, as requested by
+  A. Martin. It can be disabled by the command \nopagenumbers{}.
+  - added commands to include a mobile phone and fax number.
+  - made the symbols used for the phone number, the email, ... customizable.
+  To modify those symbols, just redefine \phonesymbol, emailsymbol, ...
+  - corrected the pdf information given to hyperref as pointed out by
+  C. Knuepfer.
+  - rewrote the examples.
+
+version 0.5.0 (9 September 2006)
+  - added a \photo command to display a picture. That command takes the name of
+  the file with the picture as argument, and the desired height as optional
+  argument.
+  - implemented the needed commands to make moderncv compatible with BibTeX, as
+  suggested by J. Lie. This makes it possible to display one's publications,
+  stored in the BibTeX file 'publications.bib'
+  by using:
+    \nocite{*}
+    \bibliographystyle{plain}
+    \bibliography{publications}
+  As usual, the name of the section title can be changed by redefining the
+  command \refname.
+  - added the \today command, useful for example if one need to add the date the
+  resumé was produced with
+    \closesection{}
+    \vfill{\hfill{\scriptsize Produced \today.}}
+  at the end of your CV, as suggested by F. Hammann.
+
+version 0.4.0 (2 May 2006)
+  - removed the dependency on the geometry package, so that users can now invoke
+  it themselve, and easily change the geometry of the page.
+
+version 0.3.0 (10 April 2006)
+  - moderncv now uses the 'longtable' class, allowing cv sections to split
+  across multiple pages.
+  - the different lengths used by moderncv are now customizable! In particular,
+  the first column (the one containing the date in the examples), can now be set
+  to any width, for people needing a smaller or larger one. To do that, either
+  use
+    \sethintscolumnlength{<length>},
+  where <length> is the desired length in a unit LaTeX understands, or
+    \sethintscolumntowidth{<string>},
+  where <string> is a string of the desired length (usually, the longest string
+  that has to appear in the column). Thanks to A. Pöge for pointing out the need
+  of such a feature.
+  - added the command \emptysection{}, which makes it possible to start a
+  section without name. In combination with \closesection{}, this makes it
+  possible to drop out of the layout of moderncv, and come back to it later.
+  This should make the inclusion of arbitrary elements not covered by moderncv
+  code possible.
+  - corrected a spacing problem in the cventry command, as pointed out and
+  solved by B. Eßmann.
+
+version 0.2.0 (6 March 2006)
+  - rewrite of the code to have the styles (fonts, colours, headers and footers)
+  be defined in different files than the class. The styles are now defined in a
+  separate file per style, named moderncvstyle<style_name>. It should now be
+  easy to write your own style, starting from moderncvstyleempty.sty. If you
+  feel you have created a nice style, just email it to me and I'll include it in
+  the next version.
+  - due to the previous point, styles are now loaded by the command
+  \moderncvstyle{style_name}. I couldn't figure out a way to preserve the old
+  "casual" and "classic" class options, so these are now broken! Use
+  \moderncvstyle{casual} or \moderncvstyle{classic} at the beginning of your
+  document. This should be the only incompatibility with version 0.1.
+  - added class option "nolmodern" for people without the latin modern fonts.
+  - corrected some English mistakes in the examples. Thanks to M. H. Prager for
+  pointing them out.
+  - added a \cvlistitem to produce items with a bullet (or whatever is defined
+  in \listitemsymbol), and renamed \cvresume to \cvlistdoubleitem for
+  consistency purpose. For compatibility reasons, the command \cvresume still
+  works, but should be avoided.
+
+version 0.1.0 (1 March 2006)
+  - first release.

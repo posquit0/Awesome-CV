@@ -1,0 +1,56 @@
+%% start of file `tweaklist.sty'.
+%% Original by Jakob Schiøtz, downloaded from http://dcwww.camd.dtu.dk/~schiotz/comp/LatexTips/tweaklist.sty; not found on ctan.
+%% Modified by Xavier Danaux (xdanaux@gmail.com).
+%
+% The tweaklist.sty package redefines the itemize, enumerate and description packages, so that all parameters can be adjusted.
+% This was done by copying the original definitions, and adding "hook commands" that are executed when entering the environment.
+% The hook commands are initially empty, but can be redefined with \renewcommand.
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+% hooks for the itemize environment
+\def\itemhook{}
+\def\itemhooki{}
+\def\itemhookii{}
+\def\itemhookiii{}
+\def\itemhookiv{}
+% hooks for the enumerate environment
+\def\enumhook{}
+\def\enumhooki{}
+\def\enumhookii{}
+\def\enumhookiii{}
+\def\enumhookiv{}
+% hook for the description environment
+\def\deschook{}
+% original environment definitions, with hooks added
+\def\enumerate{%
+  \ifnum \@enumdepth >\thr@@\@toodeep\else
+    \advance\@enumdepth\@ne
+    \edef\@enumctr{enum\romannumeral\the\@enumdepth}%
+      \expandafter
+      \list
+        \csname label\@enumctr\endcsname
+        {%
+          \enumhook \csname enumhook\romannumeral\the\@enumdepth\endcsname%
+          \usecounter\@enumctr\def\makelabel##1{\hss\llap{##1}}%
+        }%
+  \fi}
+\def\itemize{%
+  \ifnum \@itemdepth >\thr@@\@toodeep\else
+    \advance\@itemdepth\@ne
+    \edef\@itemitem{labelitem\romannumeral\the\@itemdepth}%
+    \expandafter
+    \list
+      \csname\@itemitem\endcsname
+      {%
+        \itemhook \csname itemhook\romannumeral\the\@itemdepth\endcsname%
+        \def\makelabel##1{\hss\llap{##1}}%
+      }%
+  \fi}
+\newenvironment{description}
+  {\list{}{\deschook\labelwidth\z@ \itemindent-\leftmargin
+           \let\makelabel\descriptionlabel}}
+  {\endlist}

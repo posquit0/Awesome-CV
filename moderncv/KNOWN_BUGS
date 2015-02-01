@@ -1,0 +1,13 @@
+- Moderncv is incompatible with biblatex.
+- Footnotes generates errors (though the output seem correct when running with
+  "-interaction=nonstopmode")
+- When using CJK, the last \clearpage required for fancyhdr to work properly kills
+  the "lastpage" counter, hence also the page numbering.
+- Moderncv produces an error ("lonely \item--perhaps a missing list environment")
+  when used with bibentry, through the output is actually correct. Amongst other,
+  this causes compilation by LyX to stop.
+- The space after a cventry gets eaten up when the last argument contains a nested
+  itemize environment. An ugly hack and uncomplete solution was implemented by
+  including a \strut in every item label, but this doesn't solve the problem for
+  multi-line items. Ideally, the strut should end the item, but there seem to be
+  no way to do this.
