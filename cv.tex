@@ -1,3 +1,5 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
 % Copyright 2015 Claud D. Park <posquit0.bj@gmail.com>
 % http://www.posquit0.com
 %
@@ -5,84 +7,59 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Configuration
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Themes: Awesome-CV
+\documentclass[11pt, a4paper]{awesome-cv}
 
-%% Themes: moderncv
-\documentclass[11pt,a4paper,sans]{moderncv}
-\moderncvstyle{classic}
-\moderncvcolor{black}
+% Override a directory location for fonts(default: 'fonts/')
+% \fontdir[fonts/]
 
-%% Character Encoding
-% replace by the encoding you are using
-\usepackage[utf8]{inputenc}
+% Configure a directory location for sections
+\newcommand*{\sectiondir}{cv/}
 
-%% Page Layout
-\usepackage[scale=0.8]{geometry}
+% Override color
+\colorlet{awesome}{awesome-red}
 
-%% Personal Data
-\firstname{Byung-Jin}
-\familyname{Park}
-\address{(omitted for web)}{(omitted for web)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     3rd party packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Needed to divide into several files
+\usepackage{import}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Personal Data
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Essentials
+\name{Byung-Jin}{Park}
+\address{246-1002, Gwangmyeongmayrouge Apt. 86, Cheongna lime-ro, Seo-gu, Incheon-si, 404-180, Rep. of KOREA}
 \mobile{(+82) 10-9030-1843} 
+% Social
 \email{posquit0.bj@gmail.com}
-\homepage{http://posquit0.com}
-
+\homepage{www.posquit0.com}
+\github{posquit0}
+\linkedin{posquit0}
+% Optionals
+\position{Software Engineer}
+\quote{Make the change that you want to see in the world.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     CONTENT
+%     Content
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Make a footer for CV using personal data
+\makecvfooter
+
 \begin{document}
+% Make a header for CV using personal data
+\makecvheader
 
-%% TITLE
-\maketitle
-
-%% EDUCATION
-\section{EDUCATION}
-\cventry{}{POSTECH(Pohang University of Science and Technology)}{Pohang, S.Korea}{}{}{}
-
-%% PROFESSIONAL EXPERIENCES
-\section{PROFESSIONAL EXPERIENCES}
-\cventry{Aug. 2014 -- PRESENT}{R.O.K Cyber Command, MND}{Seoul, S.Korea}{}{}{}
-\cventry{Jan. 2013 -- Feb. 2013}{NEXON}{Seoul, S.Korea \& LA, U.S.A}{}{}{}
-\cventry{Dec. 2011 -- Feb. 2012}{ShiftOne Corp. (Start-up company)}{Seoul, S.Korea}{}{}{}
-\cventry{Jul. 2012 -- Jun. 2013}{Software Maestro (held by Korean government)}{Seoul, S.Korea}{}{}{}
-\cventry{Nov. 2011 -- PRESENT}{B10S (B1t 0n the Security, Underground hacker team)}{S.Korea}{}{}{}
-\cventry{Jul. 2012 -- PRESENT}{WiseGuys (Hacking \& Security research group)}{S.Korea}{}{}{}
-\cventry{}{UNUS}{S.Korea}{}{}{}
-\cventry{}{SAMSUNG Electronics}{S.Korea}{}{}{}
-\cventry{}{}{S.Korea}{}{}{}
-
-%% WRITING & PRESENTATION
-\section{WRITING \& PRESENTATION}{}{}{}{}
-\cventry{Jan. 2015 -- PRESENT}{A Guide for Developers in Start-up}{Facebook Page}{}{}{}
-\cventry{Oct. 2012 -- Jul. 2013}{AhnLab}{S.Korea}{}{}{}
-\cventry{Jul. 2012}{CodeEngn (Reverse Engineering Conference)}{Seoul, S.Korea}{}{}{}
-
-%% EXTRACURRICULAR ACTIVITIES
-\section{EXTRACURRICULAR ACTIVITIES}{}{}{}{}
-\cventry{Jun. 2010 -- PRESENT}{PoApper(Developers' Network of POSTECH)}{Pohang, S.Korea}{}{}{}
-\cventry{Sep. 2013 -- PRESENT}{MSSA(Management Strategy Club of POSTECH)}{Pohang, S.Korea}{}{}{}
-\cventry{Sep. 2010 -- Oct. 2011}{PLUS(Laboratory for UNIX Security in POSTECH)}{Pohang, S.Korea}{}{}{}
-
-%% HONORS & AWARDS
-\section{HONORS \& AWARDS}
-\cventry{}{DEFCON CTF Hacking Competition World Final}{Las Vegas, U.S.A}{}{}{}
-\cventry{Jul. 2012}{SECUINSIDE Hacking Competition World Final}{Seoul, S.Korea}{}{}{}
-\cventry{Nov. 2013}{KISA HDCON Hacking Competition Final}{Seoul, S.Korea}{}{}{}
-
-%% ACTIVITY
-\section{ACTIVITY}
-\cventry{}{}{}{}{}{}
-
-%% LINKS
-\section{Links}
-Github:// \\
-LinkedIn:// \\
-
-%% SKILLS
-\section{Skills}
-\cvline{Language}{Native Korean, Fluent in English (TOEIC: 750), Beginner in Japanese}
-\cvline{Programming}{}
-\cvline{Certificates}{}
-\cvline{Others}{}
+% Import contents
+\import{\sectiondir}{education.tex}
+\import{\sectiondir}{experience.tex}
+\import{\sectiondir}{extracurricular.tex}
+\import{\sectiondir}{honors.tex}
+\import{\sectiondir}{presentation.tex}
+\import{\sectiondir}{writing.tex}
+\import{\sectiondir}{committees.tex}
 
 \end{document}

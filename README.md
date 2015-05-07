@@ -1,8 +1,6 @@
 Claud D. Park
 =============
 
-# resume
-
 This is my resume and CV(Curriculum Vitae) in LaTeX
 
 In Linux run
@@ -15,6 +13,13 @@ Ubuntu requirements:
 ```bash
 $ sudo apt-get install texlive texlive-latex-extra
 ```
+
+```bash
+$ sudo apt-get install fonts-font-awesome
+```
+https://github.com/furl/latex-fontawesome
+## Preview
+![alt tag](https://raw.githubusercontent.com/posquit0/resume/master/sample.png)
 
 ## License
     The MIT License (MIT)
