@@ -37,7 +37,8 @@ This should result in the creation of ``{your-cv}.pdf``
 
 
 ## Preview
-![alt tag](https://raw.githubusercontent.com/posquit0/resume/master/sample.png)
+![alt tag](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-0.png)
+![alt tag](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-1.png)
 
 ## Credit
 ### LaTeX
