@@ -121,14 +121,15 @@
 \definecolor{red}{HTML}{FB4485}
 \definecolor{blue}{HTML}{6CE0F1}
 % Awesome colors
-\definecolor{awesome-blue}{HTML}{0395DE}
+\definecolor{awesome-emerald}{HTML}{00A388}
+\definecolor{awesome-skyblue}{HTML}{0395DE}
 \definecolor{awesome-red}{HTML}{DC3522}
+\definecolor{awesome-pink}{HTML}{EF4089}
+\definecolor{awesome-orange}{HTML}{FF6138}
+\definecolor{awesome-nephritis}{HTML}{27AE60}
+\definecolor{awesome-concrete}{HTML}{95A5A6}
+\definecolor{awesome-darknight}{HTML}{131A28}
 \colorlet{awesome}{awesome-red}
-
-\colorlet{fillheader}{white}
-\colorlet{header}{gray}
-\colorlet{textcolor}{gray}
-\colorlet{headercolor}{gray}
 
 % Awesome section color
 \newcounter{colorCounter}
@@ -158,7 +159,8 @@ UprightFont=*-Regular,
 BoldFont=*-Bold,
 ItalicFont=*-Italic,
 BoldItalicFont=*-BoldItalic,
-SmallCapsFeatures={Letters=SmallCaps}
+SmallCapsFeatures={Letters=SmallCaps},
+Numbers={OldStyle,Proportional}
 ]{Roboto}
 \newfontfamily\robotocondensed[
 Path=\@fontdir,
@@ -172,78 +174,41 @@ Path=\@fontdir,
 ItalicFont=*Italic,
 ]{Roboto-Thin}
 
-\newfontfamily\opensans[
-Path=\@fontdir,
-UprightFont=*-Regular,
-BoldFont=*-Bold,
-ItalicFont=*-Italic,
-BoldItalicFont=*-BoldItalic,
-SmallCapsFeatures={Letters=SmallCaps}
-]{OpenSans}
-\defaultfontfeatures{Mapping=tex-text}
-\newfontfamily\bodyfont[
-Path=\@fontdir,
-BoldFont=texgyreheros-bold.otf,
-ItalicFont=texgyreheros-italic.otf,
-BoldItalicFont=texgyreheros-bolditalic.otf]
-{texgyreheros-regular.otf}
-\newfontfamily\thinfont[
-Path=\@fontdir,
-]{Lato-Light.ttf}
-% or for thiner version
-%\newfontfamily\thinfont[]{Lato-Hairline.ttf}
-\newfontfamily\headingfont[
-Path=\@fontdir,
-]{texgyreheros-bold.otf}
-
-\setmainfont
-[
-Path=\@fontdir,
-Mapping=tex-text, Color=textcolor,
-BoldFont=texgyreheros-bold.otf,
-ItalicFont=texgyreheros-italic.otf,
-BoldItalicFont=texgyreheros-bolditalic.otf
-]
-{texgyreheros-regular.otf}
-
-\newfontfamily\anonymous[
-Path=\@fontdir,
-BoldFont=Anonymous_Pro_B.ttf,
-ItalicFont=Anonymous_Pro_I.ttf,
-BoldItalicFont=Anonymous_Pro_BI.ttf
-]{Anonymous_Pro.ttf}
-%\renewcommand{\familydefault}{roboto}
-\setmathfont{texgyreheros-regular.otf}
+% Source Sans Pro (required to be installed on system)
+\newfontfamily\sourcesans{Source Sans Pro}
+\newfontfamily\sourcesanslight{Source Sans Pro Light}
+\newfontfamily\sourcesanssemibold{Source Sans Pro Semibold}
+\newfontfamily\sourcesansbold{Source Sans Pro Bold}
 
 % Configure fonts for each CV elements
 % For fundamental structures
 \newcommand*{\headernamefont}{\fontsize{32pt}{1em}\roboto\bfseries}
-\newcommand*{\headeraddressfont}{\fontsize{9pt}{1em}\roboto\itshape}
-\newcommand*{\headersocialfont}{\fontsize{7pt}{1em}\roboto}
+\newcommand*{\headeraddressfont}{\fontsize{9pt}{1em}\sourcesans\itshape}
+\newcommand*{\headersocialfont}{\fontsize{7pt}{1em}\sourcesans}
 \newcommand*{\headerquotefont}{\fontsize{11pt}{1em}\robotocondensed}
-\newcommand*{\footerfont}{\fontsize{7pt}{1em}\roboto\scshape}
-\newcommand*{\sectionfont}{\fontsize{16pt}{1em}\roboto\bfseries}
-\newcommand*{\subsectionfont}{\fontsize{12pt}{1em}\scshape}
+\newcommand*{\footerfont}{\fontsize{8pt}{1em}\sourcesans\scshape}
+\newcommand*{\sectionfont}{\fontsize{16pt}{1em}\sourcesans\bfseries}
+\newcommand*{\subsectionfont}{\fontsize{12pt}{1em}\sourcesans\scshape}
 
 % For elements of entry
-\newcommand*{\entrytitlefont}{\fontsize{10pt}{1em}\robotocondensed\bfseries}
-\newcommand*{\entrypositionfont}{\fontsize{8pt}{1em}\opensans\scshape}
-\newcommand*{\entrydatefont}{\fontsize{8pt}{1em}\roboto\scshape}
-\newcommand*{\entrylocationfont}{\fontsize{9pt}{1em}\roboto\scshape}
-\newcommand*{\descriptionfont}{\fontsize{9pt}{1em}\roboto}
+\newcommand*{\entrytitlefont}{\fontsize{10pt}{1em}\sourcesans\bfseries}
+\newcommand*{\entrypositionfont}{\fontsize{8pt}{1em}\sourcesans\scshape}
+\newcommand*{\entrydatefont}{\fontsize{8pt}{1em}\sourcesanslight\slshape}
+\newcommand*{\entrylocationfont}{\fontsize{9pt}{1em}\sourcesanslight\slshape}
+\newcommand*{\descriptionfont}{\fontsize{9pt}{1em}\sourcesanslight\upshape}
 
 % For elements of subentry
-\newcommand*{\subentrytitlefont}{\fontsize{8pt}{1em}\robotocondensed\mdseries}
-\newcommand*{\subentrypositionfont}{\fontsize{7pt}{1em}\opensans\scshape}
-\newcommand*{\subentrydatefont}{\fontsize{7pt}{1em}\roboto\scshape}
-\newcommand*{\subentrylocationfont}{\fontsize{7pt}{1em}\roboto\scshape}
-\newcommand*{\subdescriptionfont}{\fontsize{8pt}{1em}\roboto}
+\newcommand*{\subentrytitlefont}{\fontsize{8pt}{1em}\sourcesans\mdseries}
+\newcommand*{\subentrypositionfont}{\fontsize{7pt}{1em}\sourcesans\scshape}
+\newcommand*{\subentrydatefont}{\fontsize{7pt}{1em}\sourcesanslight\slshape}
+\newcommand*{\subentrylocationfont}{\fontsize{7pt}{1em}\sourcesanslight\slshape}
+\newcommand*{\subdescriptionfont}{\fontsize{8pt}{1em}\sourcesanslight\upshape}
 
 % For elements of honor
-\newcommand*{\honortitlefont}{\fontsize{9pt}{1em}\robotocondensed}
-\newcommand*{\honorpositionfont}{\fontsize{9pt}{1em}\opensans\bfseries}
-\newcommand*{\honordatefont}{\fontsize{9pt}{1em}\roboto\scshape}
-\newcommand*{\honorlocationfont}{\fontsize{9pt}{1em}\roboto\scshape}
+\newcommand*{\honortitlefont}{\fontsize{9pt}{1em}\sourcesans}
+\newcommand*{\honorpositionfont}{\fontsize{9pt}{1em}\sourcesans\bfseries}
+\newcommand*{\honordatefont}{\fontsize{9pt}{1em}\sourcesans}
+\newcommand*{\honorlocationfont}{\fontsize{9pt}{1em}\sourcesanslight\slshape}
 
 %-------------------------------------------------------------------------------
 %                Configuration for styles
@@ -254,7 +219,7 @@ BoldItalicFont=Anonymous_Pro_BI.ttf
 \newcommand*{\headeraddressstyle}[1]{{\headeraddressfont\color{lightgray} #1}}
 \newcommand*{\headersocialstyle}[1]{{\headersocialfont\color{darkgray} #1}}
 \newcommand*{\headerquotestyle}[1]{{\headerquotefont\color{awesome} #1}}
-\newcommand*{\footerstyle}[1]{{\footerfont\color{gray} #1}}
+\newcommand*{\footerstyle}[1]{{\footerfont\color{lightgray} #1}}
 \newcommand*{\sectionstyle}[1]{{\sectionfont\color{darkgray}\@sectioncolor #1}}
 \newcommand*{\subsectionstyle}[1]{{\subsectionfont\textcolor{darkgray}{#1}}}
 
@@ -384,11 +349,11 @@ BoldItalicFont=Anonymous_Pro_BI.ttf
   \fancyfoot{}
   \fancyfoot[L]{}
   \fancyfoot[C]{
-    \footnotesize{\@firstname \@lastname} · Curriculum Vitae
+    \footerstyle{\@firstname \@lastname · Curriculum Vitae}
   }
   \fancyfoot[R]{
-    \footnotesize\thepage
-  }
+    \footerstyle{\thepage}
+  } 
 }
 
 % Define a section for CV
