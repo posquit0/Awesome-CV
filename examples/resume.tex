@@ -1,0 +1,65 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Copyright 2015 Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Configuration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Themes: Awesome-CV
+\documentclass[11pt, a4paper]{awesome-cv}
+
+% Override a directory location for fonts(default: 'fonts/')
+% \fontdir[fonts/]
+
+% Configure a directory location for sections
+\newcommand*{\sectiondir}{resume/}
+
+% Override color
+\colorlet{awesome}{awesome-red}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     3rd party packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Needed to divide into several files
+\usepackage{import}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Personal Data
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Essentials
+\name{Byung-Jin}{Park}
+\address{246-1002, Gwangmyeongmayrouge Apt. 86, Cheongna lime-ro, Seo-gu, Incheon-si, 404-180, Rep. of KOREA}
+\mobile{(+82) 10-9030-1843} 
+% Social
+\email{posquit0.bj@gmail.com}
+\homepage{www.posquit0.com}
+\github{posquit0}
+\linkedin{posquit0}
+% Optionals
+\position{Software Engineer}
+\quote{Make the change that you want to see in the world.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Make a footer for CV using personal data
+\makecvfooter
+
+\begin{document}
+% Make a header for CV using personal data
+\makecvheader
+
+% Import contents
+\import{\sectiondir}{education.tex}
+\import{\sectiondir}{experience.tex}
+\import{\sectiondir}{extracurricular.tex}
+\import{\sectiondir}{honors.tex}
+\import{\sectiondir}{presentation.tex}
+\import{\sectiondir}{writing.tex}
+\import{\sectiondir}{committees.tex}
+
+\end{document}
