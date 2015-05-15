@@ -4,6 +4,11 @@ Awesome CV
 This is the class for writing CV(Curriculum Vitae) in LaTeX. It basically provides an awesome template for CV. It is also fairly customizable, allowing you to change the colors, the fonts, etc.
 
 
+## Preview
+![alt tag](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-0.png)
+![alt tag](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-1.png)
+
+
 ## How to Use
 ### Requirements
 
@@ -36,10 +41,6 @@ $ xelatex {your-cv}.tex
 This should result in the creation of ``{your-cv}.pdf``
 
 
-## Preview
-![alt tag](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-0.png)
-![alt tag](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-1.png)
-
 ## Credit
 ### LaTeX
 Latex is a fantastic typesetting program that a lot of people use these days, especially the math and computer science people in academia.
@@ -51,6 +52,7 @@ You can find out more about it here: [LaTex Project](http://www.latex-project.or
 
 ### Source Sans Pro
 [Source Sans Pro](https://github.com/adobe-fonts/source-sans-pro)  is a set of OpenType fonts that have been designed to work well in user interface (UI) environments.
+
 
 ## Contact
 You are free to take my .tex file and modify it to create your own resume. Please don't use my resume for anything else without my permission, though!
