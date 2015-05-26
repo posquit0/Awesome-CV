@@ -18,7 +18,7 @@ You have to install fundamental latex packages on system including xelatex. Also
 
 #### Ubuntu(Debian)
 ```bash
-$ sudo apt-get install texlive texlive-latex-extra texlive-xetex
+$ sudo apt-get install texlive texlive-latex-extra texlive-xetex texlive-math-extra
 ```
 
 ```bash
