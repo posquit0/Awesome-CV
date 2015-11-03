@@ -1,9 +1,6 @@
 %% Start of file `awesome-cv.cls'.
 %% Copyright 2015 Claud D. Park <posquit0.bj@gmail.com>
 %
-% This work may be distributed and/or modified under the
-% conditions of the LaTeX Project Public License version 1.3c,
-% available at http://www.latex-project.org/lppl/.
 
 
 %-------------------------------------------------------------------------------
@@ -92,7 +89,7 @@
 %-------------------------------------------------------------------------------
 %% Page Layout
 % Configure page margins with geometry
-\geometry{left=2.0cm, top=1.5cm, right=2.0cm, bottom=2.0cm, footskip=.3cm}
+\geometry{left=2.0cm, top=1.5cm, right=2.0cm, bottom=2.0cm, footskip=.5cm}
 
 %% Header & Footer
 % Set offset to each header and offset
