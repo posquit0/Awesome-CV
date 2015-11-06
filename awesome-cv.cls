@@ -172,73 +172,44 @@ ItalicFont=*Italic,
 ]{Roboto-Thin}
 
 % Source Sans Pro (required to be installed on system)
-\newfontfamily\sourcesans{Source Sans Pro}
-\newfontfamily\sourcesanslight{Source Sans Pro Light}
-\newfontfamily\sourcesanssemibold{Source Sans Pro Semibold}
-\newfontfamily\sourcesansbold{Source Sans Pro Bold}
+\newfontfamily\bodyfont{Source Sans Pro}
+\newfontfamily\bodyfontlight{Source Sans Pro Light}
+\newfontfamily\bodyfontsemibold{Source Sans Pro Semibold}
+\newfontfamily\bodyfontbold{Source Sans Pro Bold}
 
-% Configure fonts for each CV elements
-% For fundamental structures
-\newcommand*{\headernamefont}{\fontsize{32pt}{1em}\roboto\bfseries}
-\newcommand*{\headeraddressfont}{\fontsize{9pt}{1em}\sourcesans\itshape}
-\newcommand*{\headersocialfont}{\fontsize{7pt}{1em}\sourcesans}
-\newcommand*{\headerquotefont}{\fontsize{11pt}{1em}\robotocondensed}
-\newcommand*{\footerfont}{\fontsize{8pt}{1em}\sourcesans\scshape}
-\newcommand*{\sectionfont}{\fontsize{16pt}{1em}\sourcesans\bfseries}
-\newcommand*{\subsectionfont}{\fontsize{12pt}{1em}\sourcesans\scshape}
-
-% For elements of entry
-\newcommand*{\entrytitlefont}{\fontsize{10pt}{1em}\sourcesans\bfseries}
-\newcommand*{\entrypositionfont}{\fontsize{8pt}{1em}\sourcesans\scshape}
-\newcommand*{\entrydatefont}{\fontsize{8pt}{1em}\sourcesanslight\slshape}
-\newcommand*{\entrylocationfont}{\fontsize{9pt}{1em}\sourcesanslight\slshape}
-\newcommand*{\descriptionfont}{\fontsize{9pt}{1em}\sourcesanslight\upshape}
-
-% For elements of subentry
-\newcommand*{\subentrytitlefont}{\fontsize{8pt}{1em}\sourcesans\mdseries}
-\newcommand*{\subentrypositionfont}{\fontsize{7pt}{1em}\sourcesans\scshape}
-\newcommand*{\subentrydatefont}{\fontsize{7pt}{1em}\sourcesanslight\slshape}
-\newcommand*{\subentrylocationfont}{\fontsize{7pt}{1em}\sourcesanslight\slshape}
-\newcommand*{\subdescriptionfont}{\fontsize{8pt}{1em}\sourcesanslight\upshape}
-
-% For elements of honor
-\newcommand*{\honortitlefont}{\fontsize{9pt}{1em}\sourcesans}
-\newcommand*{\honorpositionfont}{\fontsize{9pt}{1em}\sourcesans\bfseries}
-\newcommand*{\honordatefont}{\fontsize{9pt}{1em}\sourcesans}
-\newcommand*{\honorlocationfont}{\fontsize{9pt}{1em}\sourcesanslight\slshape}
 
 %-------------------------------------------------------------------------------
 %                Configuration for styles
 %-------------------------------------------------------------------------------
 % Configure styles for each CV elements
 % For fundamental structures
-\newcommand*{\headernamestyle}[1]{{\headernamefont\color{darkgray} #1}}
-\newcommand*{\headeraddressstyle}[1]{{\headeraddressfont\color{lightgray} #1}}
-\newcommand*{\headersocialstyle}[1]{{\headersocialfont\color{darkgray} #1}}
-\newcommand*{\headerquotestyle}[1]{{\headerquotefont\color{awesome} #1}}
-\newcommand*{\footerstyle}[1]{{\footerfont\color{lightgray} #1}}
-\newcommand*{\sectionstyle}[1]{{\sectionfont\color{darkgray}\@sectioncolor #1}}
-\newcommand*{\subsectionstyle}[1]{{\subsectionfont\textcolor{darkgray}{#1}}}
+\newcommand*{\headernamestyle}[1]{{\fontsize{32pt}{1em}\roboto\bfseries\color{darkgray} #1}}
+\newcommand*{\headeraddressstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{lightgray} #1}}
+\newcommand*{\headersocialstyle}[1]{{\fontsize{7pt}{1em}\bodyfont\color{darkgray} #1}}
+\newcommand*{\headerquotestyle}[1]{{\fontsize{11pt}{1em}\robotocondensed\color{awesome} #1}}
+\newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{lightgray} #1}}
+\newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{darkgray}\@sectioncolor #1}}
+\newcommand*{\subsectionstyle}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\textcolor{darkgray}{#1}}}
 
 % For elements of entry
-\newcommand*{\entrytitlestyle}[1]{{\entrytitlefont\color{gray} #1}}
-\newcommand*{\entrypositionstyle}[1]{{\entrypositionfont\color{gray} #1}}
-\newcommand*{\entrydatestyle}[1]{{\entrydatefont\color{gray} #1}}
-\newcommand*{\entrylocationstyle}[1]{{\entrylocationfont\color{awesome} #1}}
-\newcommand*{\descriptionstyle}[1]{{\descriptionfont\color{darkgray} #1}}
+\newcommand*{\entrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{gray} #1}}
+\newcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{gray} #1}}
+\newcommand*{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{gray} #1}}
+\newcommand*{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
+\newcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{darkgray} #1}}
 
 % For elements of subentry
-\newcommand*{\subentrytitlestyle}[1]{{\subentrytitlefont\color{gray} #1}}
-\newcommand*{\subentrypositionstyle}[1]{{\subentrypositionfont\color{gray} #1}}
-\newcommand*{\subentrydatestyle}[1]{{\subentrydatefont\color{gray} #1}}
-\newcommand*{\subentrylocationstyle}[1]{{\subentrylocationfont\color{awesome} #1}}
-\newcommand*{\subdescriptionstyle}[1]{{\subdescriptionfont\color{darkgray} #1}}
+\newcommand*{\subentrytitlestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\mdseries\color{gray} #1}}
+\newcommand*{\subentrypositionstyle}[1]{{\fontsize{7pt}{1em}\bodyfont\scshape\color{gray} #1}}
+\newcommand*{\subentrydatestyle}[1]{{\fontsize{7pt}{1em}\bodyfontlight\slshape\color{gray} #1}}
+\newcommand*{\subentrylocationstyle}[1]{{\fontsize{7pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
+\newcommand*{\subdescriptionstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\upshape\color{darkgray} #1}}
 
 % For elements of honor
-\newcommand*{\honortitlestyle}[1]{{\honortitlefont\color{gray} #1}}
-\newcommand*{\honorpositionstyle}[1]{{\honorpositionfont\color{gray} #1}}
-\newcommand*{\honordatestyle}[1]{{\honordatefont\color{gray} #1}}
-\newcommand*{\honorlocationstyle}[1]{{\honorlocationfont\color{awesome} #1}}
+\newcommand*{\honortitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{gray} #1}}
+\newcommand*{\honorpositionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\bfseries\color{gray} #1}}
+\newcommand*{\honordatestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{gray} #1}}
+\newcommand*{\honorlocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
 
 
 %-------------------------------------------------------------------------------
@@ -298,6 +269,7 @@ ItalicFont=*Italic,
 
 % Use to draw horizontal line with specific tickness
 \def\vhrulefill#1{\leavevmode\leaders\hrule\@height#1\hfill \kern\z@}
+
 
 %-------------------------------------------------------------------------------
 %                Commands for elements of CV structure
