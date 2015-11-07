@@ -14,24 +14,11 @@ You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/e
 ## How to Use
 ### Requirements
 
-You have to install fundamental latex packages on system including xelatex. Also, Awesome-CV uses [Font Awesome](http://fortawesome.github.io/Font-Awesome/) to draw icons. You have to install on system.
+You have to install fundamental latex packages on system including xelatex.
 
 #### Ubuntu(Debian)
 ```bash
 $ sudo apt-get install texlive texlive-latex-extra texlive-xetex texlive-math-extra
-```
-
-```bash
-$ sudo apt-get install fonts-font-awesome
-```
-
-#### Install Source Sans Pro Font
-```bash
-$ sudo wget https://github.com/adobe-fonts/source-sans-pro/archive/2.010R-ro/1.065R-it.tar.gz
-$ tar -xvf 1.065R-it.tar.gz
-$ mkdir -p ~/.fonts
-$ cp source-sans-pro-2.010R-ro-1.065R-it/OTF/*.otf ~/.fonts/
-$ fc-cache -f -v
 ```
 
 ### Usage
@@ -49,11 +36,14 @@ Latex is a fantastic typesetting program that a lot of people use these days, es
 
 You can find out more about it here: [LaTex Project](http://www.latex-project.org/)
 
-### LaTex-FontAwesome
+### LaTeX-FontAwesome
 [Latex FontAwesome](https://github.com/furl/latex-fontawesome) is bindings for FontAwesome icons to be used in XeLaTeX.
 
+### Roboto
+[Roboto](https://github.com/google/roboto) is the default font on Android and ChromeOS, and the recommended font for Google’s visual language, Material Design.
+
 ### Source Sans Pro
-[Source Sans Pro](https://github.com/adobe-fonts/source-sans-pro)  is a set of OpenType fonts that have been designed to work well in user interface (UI) environments.
+[Source Sans Pro](https://github.com/adobe-fonts/source-sans-pro) is a set of OpenType fonts that have been designed to work well in user interface (UI) environments.
 
 
 ## Contact
