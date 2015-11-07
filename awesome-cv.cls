@@ -149,33 +149,47 @@
 %-------------------------------------------------------------------------------
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
-% Import 3rd party fonts
-\newfontfamily\roboto[
-Path=\@fontdir,
-UprightFont=*-Regular,
-BoldFont=*-Bold,
-ItalicFont=*-Italic,
-BoldItalicFont=*-BoldItalic,
-SmallCapsFeatures={Letters=SmallCaps},
-Numbers={OldStyle,Proportional}
+% Set font for header (default is Roboto)
+\newfontfamily\headerfont[
+  Path=\@fontdir,
+  UprightFont=*-Regular,
+  ItalicFont=*-Italic,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldItalic,
 ]{Roboto}
-\newfontfamily\robotocondensed[
-Path=\@fontdir,
-UprightFont=*-Condensed,
-BoldFont=*-BoldCondensed,
-ItalicFont=*-CondensedItalic,
-BoldItalicFont=*-BoldCondensedItalic,
-]{Roboto}
-\newfontfamily\robotothin[
-Path=\@fontdir,
-ItalicFont=*Italic,
-]{Roboto-Thin}
 
-% Source Sans Pro (required to be installed on system)
-\newfontfamily\bodyfont{Source Sans Pro}
-\newfontfamily\bodyfontlight{Source Sans Pro Light}
-\newfontfamily\bodyfontsemibold{Source Sans Pro Semibold}
-\newfontfamily\bodyfontbold{Source Sans Pro Bold}
+\newfontfamily\headerfontlight[
+  Path=\@fontdir,
+  UprightFont=*-Thin,
+  ItalicFont=*-ThinItalic,
+  BoldFont=*-Medium,
+  BoldItalicFont=*-MediumItalic,
+]{Roboto}
+
+% Set font for footer (default is Source Sans Pro)
+\newfontfamily\footerfont[
+  Path=\@fontdir,
+  UprightFont=*-Regular,
+  ItalicFont=*-It,
+  BoldFont=*-Bold
+]{SourceSansPro}
+
+% Set font for body (default is Source Sans Pro)
+\newfontfamily\bodyfont[
+  Path=\@fontdir,
+  UprightFont=*-Regular,
+  ItalicFont=*-It,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldIt
+]{SourceSansPro}
+
+\newfontfamily\bodyfontlight[
+  Path=\@fontdir,
+  UprightFont=*-Light,
+  ItalicFont=*-LightIt,
+  BoldFont=*-Semibold,
+  BoldItalicFont=*-SemiboldIt
+]{SourceSansPro}
 
 
 %-------------------------------------------------------------------------------
@@ -183,11 +197,12 @@ ItalicFont=*Italic,
 %-------------------------------------------------------------------------------
 % Configure styles for each CV elements
 % For fundamental structures
-\newcommand*{\headernamestyle}[1]{{\fontsize{32pt}{1em}\roboto\bfseries\color{darkgray} #1}}
-\newcommand*{\headeraddressstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{lightgray} #1}}
-\newcommand*{\headersocialstyle}[1]{{\fontsize{7pt}{1em}\bodyfont\color{darkgray} #1}}
-\newcommand*{\headerquotestyle}[1]{{\fontsize{11pt}{1em}\robotocondensed\color{awesome} #1}}
-\newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{lightgray} #1}}
+\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{32pt}{1em}\headerfontlight\color{gray} #1}}
+\newcommand*{\headerlastnamestyle}[1]{{\fontsize{32pt}{1em}\headerfont\bfseries\color{darkgray} #1}}
+\newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lightgray} #1}}
+\newcommand*{\headersocialstyle}[1]{{\fontsize{6.8pt}{1em}\headerfont\color{darkgray} #1}}
+\newcommand*{\headerquotestyle}[1]{{\fontsize{11pt}{1em}\headerfont\color{awesome} #1}}
+\newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lightgray} #1}}
 \newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{darkgray}\@sectioncolor #1}}
 \newcommand*{\subsectionstyle}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\textcolor{darkgray}{#1}}}
 
@@ -285,9 +300,12 @@ ItalicFont=*Italic,
   %\descriptionstyle\faFax
   %\\
   \begin{center}
-    \headernamestyle{
-      {\robotothin\color{gray} \@firstname}{\roboto \@lastname}
-    } \\
+    \headerfirstnamestyle{
+      \@firstname
+    }\headerlastnamestyle{
+      \@lastname
+    }
+    \\
     \vspace{2mm}
     \headeraddressstyle{
       \ifthenelse{\isundefined{\@address}}{}{\@address}
@@ -318,7 +336,7 @@ ItalicFont=*Italic,
   \fancyfoot{}
   \fancyfoot[L]{}
   \fancyfoot[C]{
-    \footerstyle{\@firstname \@lastname · Curriculum Vitae}
+    \footerstyle{\@firstname \@lastname~~~·~~~Curriculum Vitae}
   }
   \fancyfoot[R]{
     \footerstyle{\thepage}
