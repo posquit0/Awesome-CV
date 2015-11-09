@@ -1,7 +1,7 @@
 Awesome CV
 ==========
 
-This is the class for writing CV(Curriculum Vitae) in LaTeX. It basically provides an awesome template for CV. It is also fairly customizable, allowing you to change the colors, the fonts, etc.
+[Awesome CV](https://github.com/posquit0/Awesome-CV) is LaTeX template for a CV(Curriculum Vitae) or resume inspired by [Fancy CV](https://www.sharelatex.com/templates/cv-or-resume/fancy-cv). It is easy to customize your own template, especially since it is really written by a clean, semantic markup.
 
 
 ## Preview
