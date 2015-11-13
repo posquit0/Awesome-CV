@@ -47,6 +47,8 @@
 \RequirePackage{ifxetex}
 % Needed to use \if-\then-\else statement
 \RequirePackage{ifthen}
+% Needed to use a tollbox of programming tools
+\RequirePackage{etoolbox}
 % Needed to manage fonts
 \ifxetex
   \RequirePackage[quiet]{fontspec}
@@ -269,9 +271,27 @@
 % Usage: \linkedin{<linked-in-nick>}
 \newcommand*{\linkedin}[1]{\def\@linkedin{#1}}
 
+% Defines writer's skype (optional)
+% Usage: \skype{<skype account>}
+\newcommand*{\skype}[1]{\def\@skype{#1}}
+
+% Defines writer's twitter (optional)
+% Usage: \twitter{<twitter handle>}
+\newcommand*{\twitter}[1]{\def\@twitter{#1}}
+
 % Defines writer's quote (optional)
 % Usage: \quote{<quote>}
 \renewcommand*{\quote}[1]{\def\@quote{#1}}
+
+
+%-------------------------------------------------------------------------------
+%                Commands for extra
+%-------------------------------------------------------------------------------
+% Define separator for social informations in header
+% Usage: \headersocialsep{<separator>}
+% Default: \quad\textbar\quad
+\newcommand*{\headersocialsep}[1][\quad\textbar\quad]{\def\@headersocialsep{#1}}
+\headersocialsep
 
 
 %-------------------------------------------------------------------------------
@@ -312,20 +332,74 @@
     } \\
     \vspace{-0.5mm}
     \headersocialstyle{
+      \newbool{isstart}
+      \setbool{isstart}{true}
       \ifthenelse{\isundefined{\@mobile}}
-        {}{\faMobile\ \@mobile}
-      \quad\textbar\quad 
+        {}
+        {
+          \faMobile\ \@mobile
+          \setbool{isstart}{false}
+        }
       \ifthenelse{\isundefined{\@email}}
-        {}{\href{mailto:\@email}{\faEnvelope\ \@email}}
-      \quad\textbar\quad 
+        {}
+        {
+          \ifbool{isstart}
+            {
+              \setbool{istart}{false} 
+            }
+            {\@headersocialsep}
+          \href{mailto:\@email}{\faEnvelope\ \@email}
+        }
       \ifthenelse{\isundefined{\@homepage}}
-        {}{\href{http://\@homepage}{\faHome\ \@homepage}}
-      \quad\textbar\quad 
+        {}
+        {
+          \ifbool{isstart}
+            {
+              \setbool{istart}{false} 
+            }
+            {\@headersocialsep}
+          \href{http://\@homepage}{\faHome\ \@homepage}
+        }
       \ifthenelse{\isundefined{\@github}}
-        {}{\href{http://github.com/\@github}{\faGithubSquare\ \@github}}
-      \quad\textbar\quad 
+        {}
+        {
+          \ifbool{isstart}
+            {
+              \setbool{istart}{false} 
+            }
+            {\@headersocialsep}
+          \href{http://github.com/\@github}{\faGithubSquare\ \@github}
+        }
       \ifthenelse{\isundefined{\@linkedin}}
-        {}{\href{http://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\ \@linkedin}}
+        {}
+        {
+          \ifbool{isstart}
+            {
+              \setbool{istart}{false} 
+            }
+            {\@headersocialsep}
+          \href{http://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\ \@linkedin}
+        }
+      \ifthenelse{\isundefined{\@twitter}}
+        {}
+        {
+          \ifbool{isstart}
+            {
+              \setbool{istart}{false} 
+            }
+            {\@headersocialsep}
+          \href{https://twitter.com/\@twitter}{\faTwitter\ \@twitter}
+        }
+      \ifthenelse{\isundefined{\@skype}}
+        {}
+        {
+          \ifbool{isstart}
+            {
+              \setbool{istart}{false} 
+            }
+            {\@headersocialsep}
+          \faSkype\ \@skype
+        }
     } \\
   \end{center}
 }
