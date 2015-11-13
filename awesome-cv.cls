@@ -249,6 +249,14 @@
 % Usage: \name{<position>}
 \newcommand*{\position}[1]{\def\@position{#1}}
 
+% Defines writer's skype (optional)
+% Usage: \skype{<skype account>}
+\newcommand*{\skype}[1]{\def\@skype{#1}}
+
+% Defines writer's twitter (optional)
+% Usage: \twitter{<twitter handle>}
+\newcommand*{\twitter}[1]{\def\@twitter{#1}}
+
 % Defines writer's mobile (optional)
 % Usage: \mobile{<mobile number>}
 \newcommand*{\mobile}[1]{\def\@mobile{#1}}
@@ -312,6 +320,12 @@
     } \\
     \vspace{-0.5mm}
     \headersocialstyle{
+      \ifthenelse{\isundefined{\@twitter}}
+        {}
+        {\faTwitter\ \@twitter \quad\textbar\quad}
+      \ifthenelse{\isundefined{\@skype}}
+        {}
+        {\faSkype\ \@skype \quad\textbar\quad}
       \ifthenelse{\isundefined{\@mobile}}
         {}
         {\faMobile\ \@mobile \quad\textbar\quad}
