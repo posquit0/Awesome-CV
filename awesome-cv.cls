@@ -313,19 +313,20 @@
     \vspace{-0.5mm}
     \headersocialstyle{
       \ifthenelse{\isundefined{\@mobile}}
-        {}{\faMobile\ \@mobile}
-      \quad\textbar\quad 
+        {}
+        {\faMobile\ \@mobile \quad\textbar\quad}
       \ifthenelse{\isundefined{\@email}}
-        {}{\href{mailto:\@email}{\faEnvelope\ \@email}}
-      \quad\textbar\quad 
+        {}
+        {\href{mailto:\@email}{\faEnvelope\ \@email} \quad\textbar\quad}
       \ifthenelse{\isundefined{\@homepage}}
-        {}{\href{http://\@homepage}{\faHome\ \@homepage}}
-      \quad\textbar\quad 
+        {}
+        {\href{http://\@homepage}{\faHome\ \@homepage} \quad\textbar\quad}
       \ifthenelse{\isundefined{\@github}}
-        {}{\href{http://github.com/\@github}{\faGithubSquare\ \@github}}
-      \quad\textbar\quad 
+        {}
+        {\href{http://github.com/\@github}{\faGithubSquare\ \@github} \quad\textbar\quad}
       \ifthenelse{\isundefined{\@linkedin}}
-        {}{\href{http://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\ \@linkedin}}
+        {}
+        {\href{http://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\ \@linkedin}}
     } \\
   \end{center}
 }
