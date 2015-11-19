@@ -7,61 +7,69 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Configuration
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Themes: Awesome-CV
+%%% Themes: Awesome-CV
 \documentclass[11pt, a4paper]{awesome-cv}
 
-% Override a directory location for fonts(default: 'fonts/')
+%%% Override a directory location for fonts(default: 'fonts/')
 \fontdir[fonts/]
 
-% Configure a directory location for sections
+%%% Configure a directory location for sections
 \newcommand*{\sectiondir}{cv/}
 
-% Override color
-% colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
-%         awesome-nephritis, awesome-concrete, awesome-darknight
-\colorlet{awesome}{awesome-red}
+%%% Override color
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+%% Color for highlight
 % Define your custom color if you don't like awesome colors
+\colorlet{awesome}{awesome-red}
 %\definecolor{awesome}{HTML}{CA63A8}
+%% Colors for text
+%\definecolor{darktext}{HTML}{414141}
+%\definecolor{text}{HTML}{414141}
+%\definecolor{graytext}{HTML}{414141}
+%\definecolor{lighttext}{HTML}{414141}
 
-% Override a separator for social informations in header(default: ' | ')
+%%% Override a separator for social informations in header(default: ' | ')
 %\headersocialsep[\quad\textbar\quad]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     3rd party packages
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Needed to divide into several files
+%%% Needed to divide into several files
 \usepackage{import}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Personal Data
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Essentials
+%%% Essentials
 \name{Claud D. }{Park}
 \address{246-1002, Gwangmyeongmayrouge Apt. 86, Cheongna lime-ro, Seo-gu, Incheon-si, 404-180, Rep. of KOREA}
 \mobile{(+82) 10-9030-1843} 
-% Social
+%%% Social
 \email{posquit0.bj@gmail.com}
 \homepage{www.posquit0.com}
 \github{posquit0}
 \linkedin{posquit0}
-% Optionals
+%%% Optionals
 \position{Software Engineer}
 \quote{Make the change that you want to see in the world.}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Content
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Make a footer for CV using personal data
+%%% Make a footer for CV using personal data
 \makecvfooter
 
 \begin{document}
-% Make a header for CV using personal data
+%%% Make a header for CV using personal data
 \makecvheader
 
-% Import contents
+%%% Import contents
 \import{\sectiondir}{education.tex}
+\import{\sectiondir}{skills.tex}
 \import{\sectiondir}{experience.tex}
 \import{\sectiondir}{extracurricular.tex}
 \import{\sectiondir}{honors.tex}
