@@ -46,7 +46,7 @@
 % Needed to use \ifxetex-\else-\fi statement
 \RequirePackage{ifxetex}
 % Needed to use \if-\then-\else statement
-\RequirePackage{ifthen}
+\RequirePackage{xifthen}
 % Needed to use a toolbox of programming tools
 \RequirePackage{etoolbox}
 % Needed to manage fonts
@@ -314,6 +314,9 @@
 % Use to draw horizontal line with specific tickness
 \def\vhrulefill#1{\leavevmode\leaders\hrule\@height#1\hfill \kern\z@}
 
+% Use to execute conditional statements by checking empty string
+\newcommand*{\ifempty}[3]{\ifthenelse{\isempty{#1}}{#2}{#3}}
+
 
 %-------------------------------------------------------------------------------
 %                Commands for elements of CV structure
@@ -452,8 +455,10 @@
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{12.5cm} R{4.5cm}}
-    \entrytitlestyle{#2} & \entrylocationstyle{#3} \\
-    \entrypositionstyle{#1} & \entrydatestyle{#4} \\
+    \ifempty{#2#3}
+      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
+      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
     \multicolumn{2}{L{17cm}}{\descriptionstyle{#5}} \\
   \end{tabular*}
 }
