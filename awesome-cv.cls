@@ -47,7 +47,7 @@
 \RequirePackage{ifxetex}
 % Needed to use \if-\then-\else statement
 \RequirePackage{ifthen}
-% Needed to use a tollbox of programming tools
+% Needed to use a toolbox of programming tools
 \RequirePackage{etoolbox}
 % Needed to manage fonts
 \ifxetex
