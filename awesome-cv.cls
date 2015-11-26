@@ -414,15 +414,17 @@
 }
 
 % Define a footer for CV
-% Usage: \makecvfooter
-\newcommand*{\makecvfooter}{
+% Usage: \makecvfooter{<left>}{<center>}{<right>}
+\newcommand*{\makecvfooter}[3]{
   \fancyfoot{}
-  \fancyfoot[L]{}
+  \fancyfoot[L]{
+    \footerstyle{#1}
+  }
   \fancyfoot[C]{
-    \footerstyle{\@firstname \@lastname~~~·~~~Curriculum Vitae}
+    \footerstyle{#2}
   }
   \fancyfoot[R]{
-    \footerstyle{\thepage}
+    \footerstyle{#3}
   } 
 }
 
