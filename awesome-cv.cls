@@ -293,6 +293,12 @@
 % Usage: \quote{<quote>}
 \renewcommand*{\quote}[1]{\def\@quote{#1}}
 
+% Defines writer's stackoverflow profile (optional)
+% Usage: \stackoverflow{<so userid>}{so username}
+%   e.g.https://stackoverflow.com/users/123456/sam-smith
+%       would be \stackoverflow{123456}{sam-smith}
+\newcommand*{\stackoverflow}[2]{\def\@stackoverflowid{#1}\def\@stackoverflowname{#2}}
+
 
 %-------------------------------------------------------------------------------
 %                Commands for extra
@@ -375,6 +381,16 @@
             }
             {\@headersocialsep}
           \href{https://github.com/\@github}{\faGithubSquare\ \@github}
+        }
+      \ifthenelse{\isundefined{\@stackoverflowid}}
+        {}
+        {
+          \ifbool{isstart}
+            {
+              \setbool{istart}{false} 
+            }
+            {\@headersocialsep}
+          \href{https://stackoverflow.com/users/\@stackoverflowid}{\faStackOverflow\ \@stackoverflowname}
         }
       \ifthenelse{\isundefined{\@linkedin}}
         {}
