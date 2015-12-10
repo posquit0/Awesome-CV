@@ -1,12 +1,27 @@
 %% Start of file `awesome-cv.cls'.
-%% Copyright 2015 Claud D. Park <posquit0.bj@gmail.com>
+% Awesome CV Class File
+%
+% This class has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Author:
+% Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%
+% Notes:
+% 1) This class file defines the structure and layout of the template file (cv.tex, resume.tex).
+% 2) It has been written in such a way that under most circumstances you 
+% should not need to edit it.
+%
+% Class license:
+% LPPL v1.3c (http://www.latex-project.org/lppl)
 %
 
 
 %-------------------------------------------------------------------------------
 %                Identification
 %-------------------------------------------------------------------------------
-\ProvidesClass{awesome-cv}[2015/11/19 v1.1.0 Awesome Curriculum Vitae Class]
+\ProvidesClass{awesome-cv}[2015/12/10 v1.2 Awesome Curriculum Vitae Class]
 \NeedsTeXFormat{LaTeX2e}
 
 
@@ -62,7 +77,7 @@
 % Needed to manage math fonts
 \RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
 % Needed to use icons from font-awesome
-% (https://github.com/furl/latex-fontawesome)
+% (https://github.com/posquit0/latex-fontawesome)
 \RequirePackage{fontawesome}
 % Needed to deal a paragraphs
 \RequirePackage{parskip}
