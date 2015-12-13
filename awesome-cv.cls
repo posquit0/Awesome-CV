@@ -253,6 +253,9 @@
 \newcommand*{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{text} #1}}
 
+% For elements of the cover letter
+\newcommand*{\cvletteraddressstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\scshape\color{graytext} #1}}
+\newcommand*{\cvlettertitelstyle}[1]{{\fontsize{11pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 
 %-------------------------------------------------------------------------------
 %                Commands for personal information
@@ -565,4 +568,31 @@
   \end{itemize}
   \end{justify}
   \vspace{-2mm}
+}
+
+
+%-------------------------------------------------------------------------------
+%                Commands for elements of Cover Letter
+%-------------------------------------------------------------------------------
+% Define an environment for cvletter
+\newenvironment{cvletter}{
+\fontsize{11pt}{1.3em}\bodyfontlight\upshape\color{darktext}\selectfont
+}{
+}
+
+% Define the header of the cover letter
+% Usage: \cvletterinfo {Name}{Street}{City}{Country}{JobTitle}
+\newcommand*{\cvletterinfo}[5]{
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{12.5cm} R{4.5cm}}
+      \vspace{0.5cm} \\
+      \cvletteraddressstyle{#1} \\
+      \cvletteraddressstyle{#2} \\
+      \cvletteraddressstyle{#3} \\
+      \cvletteraddressstyle{#4} \\
+       & \entrydatestyle{\today} \\
+      \\
+      \cvlettertitelstyle{#5} \\ 
+  \end{tabular*}
 }
