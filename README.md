@@ -11,9 +11,10 @@ You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/e
 ![alt tag](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-1.png)
 
 ## Cover Letter
-You can see [PDF](https://github.com/ayeks/Awesome-CV/raw/cover-letter/examples/coverletter.pdf)
+You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf)
 
-![alt tag](https://github.com/ayeks/Awesome-CV/raw/cover-letter/examples/coverletter.png)
+![alt tag](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-0.png)
+![alt tag](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-1.png)
 
 ## Quick Start
 
