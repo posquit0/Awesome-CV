@@ -393,7 +393,7 @@
   \begin{center}
     \headerfirstnamestyle{
       \@firstname
-    } \headerlastnamestyle{
+    }\ \headerlastnamestyle{
       \@lastname
     }
     \\
