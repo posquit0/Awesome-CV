@@ -393,7 +393,7 @@
   \begin{center}
     \headerfirstnamestyle{
       \@firstname
-    } \headerlastnamestyle{
+    }\ \headerlastnamestyle{
       \@lastname
     }
     \\
@@ -663,11 +663,11 @@
 \newcommand*{\makeletterclosing}{
   \vspace{3.4mm}
   \lettertextstyle{\@letterclosing} \\\\
-  \letternamestyle{\@firstname \@lastname}
+  \letternamestyle{\@firstname\ \@lastname}
   \ifthenelse{\isundefined{\@letterenclosure}}
     {\\}
     {
       \\\\\\
-      \letterenclosurestyle{\@letterenclname:  \@letterenclosure} \\
+      \letterenclosurestyle{\@letterenclname: \@letterenclosure} \\
     }
 }
