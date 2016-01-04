@@ -21,7 +21,8 @@
 %-------------------------------------------------------------------------------
 %                Identification
 %-------------------------------------------------------------------------------
-\ProvidesClass{awesome-cv}[2015/12/14 v1.3 Awesome Curriculum Vitae Class]
+\ProvidesClass{awesome-cv}[2015/12/14 v1.3 Awesome Curriculum
+Vitae Class]
 \NeedsTeXFormat{LaTeX2e}
 
 
@@ -387,28 +388,34 @@
 %-------------------------------------------------------------------------------
 %                Commands for elements of CV structure
 %-------------------------------------------------------------------------------
+% define helper macros a user can change easily
 % Define a header for CV
 % Usage: \makecvheader
-\newcommand*{\makecvheader}{
+\newcommand{\acvNamedelim}{\space}
+\newcommand{\acvAfternameskip}{.4mm}
+\newcommand{\acvAfterpositionskip}{.4mm}
+\newcommand{\acvwAfteraddressskip}{-.5mm}
+\newcommand{\acvIconsep}{\space}
+\newcommand{\acvAfterSocialskip}{0mm}
+\newcommand{\acvBeforequoteskip}{6mm}
+\newcommand{\acvAfterquoteskip}{5mm}
+\newcommand*{\makecvheader}{%
   \begin{center}
-    \headerfirstnamestyle{
-      \@firstname
-    }\ \headerlastnamestyle{
-      \@lastname
-    }
-    \\
-    \vspace{0.4mm}
-    \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\}}
-    \vspace{0.4mm}
-    \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\}}
-    \vspace{-0.5mm}
+    \headerfirstnamestyle{%
+      \@firstname%
+    }\acvNamedelim\headerlastnamestyle{%
+      \@lastname%
+    }%
+    \\[\acvAfternameskip]
+    \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\[\acvAfterpositionskip]}}
+    \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\[\acvwAfteraddressskip]}}
     \headersocialstyle{
       \newbool{isstart}
       \setbool{isstart}{true}
       \ifthenelse{\isundefined{\@mobile}}
         {}
         {
-          \faMobile\ \@mobile
+          \faMobile\acvIconsep\@mobile
           \setbool{isstart}{false}
         }
       \ifthenelse{\isundefined{\@email}}
@@ -419,7 +426,7 @@
               \setbool{istart}{false} 
             }
             {\@headersocialsep}
-          \href{mailto:\@email}{\faEnvelope\ \@email}
+          \href{mailto:\@email}{\faEnvelope\acvIconsep\@email}
         }
       \ifthenelse{\isundefined{\@homepage}}
         {}
@@ -429,7 +436,7 @@
               \setbool{istart}{false} 
             }
             {\@headersocialsep}
-          \href{http://\@homepage}{\faHome\ \@homepage}
+          \href{http://\@homepage}{\faHome\acvIconsep\@homepage}
         }
       \ifthenelse{\isundefined{\@github}}
         {}
@@ -439,7 +446,7 @@
               \setbool{istart}{false} 
             }
             {\@headersocialsep}
-          \href{https://github.com/\@github}{\faGithubSquare\ \@github}
+          \href{https://github.com/\@github}{\faGithubSquare\acvIconsep\@github}
         }
       \ifthenelse{\isundefined{\@stackoverflowid}}
         {}
@@ -449,7 +456,7 @@
               \setbool{istart}{false} 
             }
             {\@headersocialsep}
-          \href{https://stackoverflow.com/users/\@stackoverflowid}{\faStackOverflow\ \@stackoverflowname}
+          \href{https://stackoverflow.com/users/\@stackoverflowid}{\faStackOverflow\acvIconsep\@stackoverflowname}
         }
       \ifthenelse{\isundefined{\@linkedin}}
         {}
@@ -459,7 +466,7 @@
               \setbool{istart}{false} 
             }
             {\@headersocialsep}
-          \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\ \@linkedin}
+          \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\acvIconsep\@linkedin}
         }
       \ifthenelse{\isundefined{\@twitter}}
         {}
@@ -469,7 +476,7 @@
               \setbool{istart}{false} 
             }
             {\@headersocialsep}
-          \href{https://twitter.com/\@twitter}{\faTwitter\ \@twitter}
+          \href{https://twitter.com/\@twitter}{\faTwitter\acvIconsep\@twitter}
         }
       \ifthenelse{\isundefined{\@skype}}
         {}
@@ -479,12 +486,12 @@
               \setbool{istart}{false} 
             }
             {\@headersocialsep}
-          \faSkype\ \@skype
+          \faSkype\acvIconsep\@skype
         }
-    } \\
+} \\[\acvAfterSocialskip]
     \ifthenelse{\isundefined{\@quote}}
       {}
-      {\vspace{6.0mm}\headerquotestyle{\@quote\\}\vspace{5.0mm}}
+      {\vspace{\acvBeforequoteskip}\headerquotestyle{\@quote\\}\vspace{\acvAfterquoteskip}}
   \end{center}
 }
 
