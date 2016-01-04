@@ -403,7 +403,8 @@ Vitae Class]
   \begin{center}
     \headerfirstnamestyle{%
       \@firstname%
-    }\acvNamedelim\headerlastnamestyle{%
+    }\headerlastnamestyle{%
+	    {}\acvNamedelim%
       \@lastname%
     }%
     \\[\acvAfternameskip]%
