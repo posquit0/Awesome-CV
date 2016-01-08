@@ -21,8 +21,7 @@
 %-------------------------------------------------------------------------------
 %                Identification
 %-------------------------------------------------------------------------------
-\ProvidesClass{awesome-cv}[2015/12/14 v1.3 Awesome Curriculum
-Vitae Class]
+\ProvidesClass{awesome-cv}[2015/12/14 v1.3 Awesome Curriculum Vitae Class]
 \NeedsTeXFormat{LaTeX2e}
 
 
@@ -110,7 +109,7 @@ Vitae Class]
 \geometry{left=2.0cm, top=1.5cm, right=2.0cm, bottom=2.0cm, footskip=.5cm}
 
 %% Header & Footer
-% Set offset to each header and offset
+% Set offset to each header and footer
 \fancyhfoffset{0em}
 % Remove head rule
 \renewcommand{\headrulewidth}{0pt}
@@ -369,6 +368,16 @@ Vitae Class]
 \newcommand*{\headersocialsep}[1][\quad\textbar\quad]{\def\@headersocialsep{#1}}
 \headersocialsep
 
+\newcommand{\acvNamedelim}{\space}
+\newcommand{\acvAfternameskip}{.4mm}
+\newcommand{\acvAfterpositionskip}{.4mm}
+\newcommand{\acvwAfteraddressskip}{-.5mm}
+\newcommand{\acvIconsep}{\space}
+\newcommand{\acvAfterSocialskip}{0mm}
+\newcommand{\acvBeforequoteskip}{6mm}
+\newcommand{\acvAfterquoteskip}{5mm}
+\newcommand*{\makecvheader}{%
+
 
 %-------------------------------------------------------------------------------
 %                Commands for utilities
@@ -378,7 +387,7 @@ Vitae Class]
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
-% Use to draw horizontal line with specific tickness
+% Use to draw horizontal line with specific thickness
 \def\vhrulefill#1{\leavevmode\leaders\hrule\@height#1\hfill \kern\z@}
 
 % Use to execute conditional statements by checking empty string
@@ -391,15 +400,6 @@ Vitae Class]
 % define helper macros a user can change easily
 % Define a header for CV
 % Usage: \makecvheader
-\newcommand{\acvNamedelim}{\space}
-\newcommand{\acvAfternameskip}{.4mm}
-\newcommand{\acvAfterpositionskip}{.4mm}
-\newcommand{\acvwAfteraddressskip}{-.5mm}
-\newcommand{\acvIconsep}{\space}
-\newcommand{\acvAfterSocialskip}{0mm}
-\newcommand{\acvBeforequoteskip}{6mm}
-\newcommand{\acvAfterquoteskip}{5mm}
-\newcommand*{\makecvheader}{%
   \begin{center}
     \headerfirstnamestyle{%
       \@firstname%
@@ -548,12 +548,12 @@ Vitae Class]
 \newcommand*{\cventry}[5]{
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{12.5cm} R{4.5cm}}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
       \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-    \multicolumn{2}{L{17cm}}{\descriptionstyle{#5}} \\
+    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}} \\
   \end{tabular*}
 }
 
@@ -568,7 +568,7 @@ Vitae Class]
 \newcommand*{\cvsubentry}[4]{
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{12.5cm} R{4.5cm}}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
     \setlength\leftskip{0.2cm}
     \subentrytitlestyle{#2} & \ifthenelse{\equal{#1}{}}
       {\subentrydatestyle{#3}}{} 
@@ -586,7 +586,7 @@ Vitae Class]
   \begin{center}
     \setlength\tabcolsep{0pt}
     \setlength{\extrarowheight}{0pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.5cm} L{13.0cm} R{2.5cm}}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.5cm} L{\textwidth - 4.0cm} R{2.5cm}}
 }{
     \end{tabular*}
   \end{center}
@@ -603,7 +603,7 @@ Vitae Class]
   \begin{center}
     \setlength\tabcolsep{1ex}
     \setlength{\extrarowheight}{0pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} r L{15.2cm}}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} r L{\textwidth * \real{0.9}}}
 }{
     \end{tabular*}
   \end{center}
@@ -654,7 +654,7 @@ Vitae Class]
   \vspace{8.4mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{12.5cm} R{4.5cm}}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
     \recipienttitlestyle{\@recipientname} & \letterdatestyle{\@letterdate}
   \end{tabular*}
   \begin{singlespace}
