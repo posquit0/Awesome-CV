@@ -21,7 +21,7 @@
 %-------------------------------------------------------------------------------
 %                Identification
 %-------------------------------------------------------------------------------
-\ProvidesClass{awesome-cv}[2015/12/14 v1.3 Awesome Curriculum Vitae Class]
+\ProvidesClass{awesome-cv}[2016/01/09 v1.4 Awesome Curriculum Vitae Class]
 \NeedsTeXFormat{LaTeX2e}
 
 
@@ -297,23 +297,27 @@
 % Usage: \github{<github-nick>}
 \newcommand*{\github}[1]{\def\@github{#1}}
 
-% Defines writer's linked-in (optional)
-% Usage: \linkedin{<linked-in-nick>}
-\newcommand*{\linkedin}[1]{\def\@linkedin{#1}}
-
 % Defines writer's stackoverflow profile (optional)
 % Usage: \stackoverflow{<so userid>}{<so username>}
 %   e.g.https://stackoverflow.com/users/123456/sam-smith
 %       would be \stackoverflow{123456}{sam-smith}
 \newcommand*{\stackoverflow}[2]{\def\@stackoverflowid{#1}\def\@stackoverflowname{#2}}
 
-% Defines writer's skype (optional)
-% Usage: \skype{<skype account>}
-\newcommand*{\skype}[1]{\def\@skype{#1}}
+% Defines writer's linked-in (optional)
+% Usage: \linkedin{<linked-in-nick>}
+\newcommand*{\linkedin}[1]{\def\@linkedin{#1}}
 
 % Defines writer's twitter (optional)
 % Usage: \twitter{<twitter handle>}
 \newcommand*{\twitter}[1]{\def\@twitter{#1}}
+
+% Defines writer's skype (optional)
+% Usage: \skype{<skype account>}
+\newcommand*{\skype}[1]{\def\@skype{#1}}
+
+% Defines writer's extra informations (optional)
+% Usage: \extrainfo{<extra informations>}
+\newcommand*{\extrainfo}[1]{\def\@extrainfo{#1}}
 
 % Defines writer's quote (optional)
 % Usage: \quote{<quote>}
@@ -470,6 +474,16 @@
             }%
             {\acvHeaderSocialSep}%
           \faSkype\acvHeaderIconSep\@skype%
+        }%
+      \ifthenelse{\isundefined{\@extrainfo}}%
+        {}%
+        {%
+          \ifbool{isstart}%
+            {%
+              \setbool{istart}{false} %
+            }%
+            {\acvHeaderSocialSep}%
+          \@extrainfo%
         }%
     } \\[\acvHeaderAfterSocialSkip]%
     \ifthenelse{\isundefined{\@quote}}%
