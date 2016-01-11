@@ -1,6 +1,6 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
-% Awesome CV LaTeX Template
+% Awesome CV LaTeX Template for Cover Letter
 %
 % This template has been downloaded from:
 % https://github.com/posquit0/Awesome-CV
@@ -14,88 +14,98 @@
 %
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     Configuration
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Themes: Awesome-CV
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
 \documentclass[11pt, a4paper]{awesome-cv}
 
-%% Page Layout
 % Configure page margins with geometry
 % \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
 
-%%% Override a directory location for fonts(default: 'fonts/')
+% Specify the location of the included fonts
 \fontdir[fonts/]
 
-%%% Override color
+% Color for highlights
 % Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
 %                 awesome-nephritis, awesome-concrete, awesome-darknight
-%% Color for highlight
-% Define your custom color if you don't like awesome colors
 \colorlet{awesome}{awesome-red}
+% Uncomment if you would like to specify your own color
 % \definecolor{awesome}{HTML}{CA63A8}
-%% Colors for text
+
+% Colors for text
+% Uncomment if you would like to specify your own color
 % \definecolor{darktext}{HTML}{414141}
-% \definecolor{text}{HTML}{414141}
-% \definecolor{graytext}{HTML}{414141}
-% \definecolor{lighttext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
 
-%%% Override a separator for social informations in header(default: ' | ')
-% \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     Personal Data
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Essentials
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
 \name{Claud D.}{Park}
+\position{Software Engineer{\enskip\cdotp\enskip}Security Expert}
 \address{246-1002, Gwangmyeongmayrouge Apt. 86, Cheongna lime-ro, Seo-gu, Incheon-si, 404-180, Rep. of KOREA}
+
 \mobile{(+82) 10-9030-1843} 
-%%% Social
 \email{posquit0.bj@gmail.com}
 \homepage{www.posquit0.com}
 \github{posquit0}
-% \stackoverflow{SOid}{SOname}
 \linkedin{posquit0}
+% \stackoverflow{SOid}{SOname}
 % \twitter{@twit}
 % \skype{skypeid}
 % \extrainfo{extra informations}
-%%% Optionals
-\position{Software Engineer{\enskip\cdotp\enskip}Security Expert}
+
 \quote{``Make the change that you want to see in the world."}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     Letter Data (Cover Letter)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
+%	LETTER INFORMATION
+%	All of the below lines must be filled out
+%-------------------------------------------------------------------------------
+% The company being applied to
 \recipient
   {Company Recruitment Team}
   {Google Inc.\\1600 Amphitheatre Parkway\\Mountain View, CA 94043}
+% The date on the letter, default is the date of compilation
 \letterdate{\today}
+% The title of the letter
 \lettertitle{Job Application for Software Engineer}
+% How the letter is opened
 \letteropening{Dear Mr./Ms./Dr. LastName,}
+% How the letter is closed
 \letterclosing{Sincerely,}
+% Any enclosures with the letter
 \letterenclosure[Attached]{Curriculum Vitae}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     Content
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Make a footer for CV with three arguments(<left>, <center>, <right>)
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% Print the header with above personal informations
+\makecvheader
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
 \makecvfooter
   {\today}
   {Claud D. Park~~~·~~~Cover Letter}
   {}
 
-\begin{document}
-%%% Make a header for CV using personal data
-\makecvheader
-
-%%% Make a title for Cover Letter using letter data
+% Print the title with above letter informations
 \makelettertitle
 
-%%% Write content for your cover letter
+%-------------------------------------------------------------------------------
+%	LETTER CONTENT
+%-------------------------------------------------------------------------------
 \begin{cvletter}
+
 \lettersection{About Me}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ullamcorper neque sit amet lectus facilisis sed luctus nisl iaculis. Vivamus at neque arcu, sed tempor quam. Curabitur pharetra tincidunt tincidunt. Morbi volutpat feugiat mauris, quis tempor neque vehicula volutpat. Duis tristique justo vel massa fermentum accumsan. Mauris ante elit, feugiat vestibulum tempor eget, eleifend ac ipsum. Donec scelerisque lobortis ipsum eu vestibulum. Pellentesque vel massa at felis accumsan rhoncus.
 
@@ -107,7 +117,9 @@ Duis sit amet magna ante, at sodales diam. Aenean consectetur porta risus et sag
 
 \end{cvletter}
 
-%%% Make a closing for Cover Letter using letter data
+
+%-------------------------------------------------------------------------------
+% Print the signature and enclosures with above letter informations
 \makeletterclosing
 
 \end{document}
