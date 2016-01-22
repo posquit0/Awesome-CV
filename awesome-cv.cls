@@ -675,3 +675,23 @@
       \letterenclosurestyle{\@letterenclname: \@letterenclosure} \\
     }
 }
+
+%-------------------------------------------------------------------------------
+%                Bibliography
+%-------------------------------------------------------------------------------
+%\RequirePackage[style=verbose, maxnames=99, sorting=ydnt]{biblatex}
+\RequirePackage[ % BibLaTeX
+	sorting=ydnt, % Sorts entries by year (descending order), name, title
+	style=numeric,
+	doi=false,
+	isbn=true,
+	url=false,
+	eprint=false
+	backref = false, % include back references in bibliography
+	maxcitenames=3, % affects only the citations in the document body
+	maxbibnames=99, % affects only the bibliography, pass 99 to print all
+	hyperref=true,
+	block=none,
+	backend=biber % {Options: bibtex, biber}
+	]{biblatex}
+	
