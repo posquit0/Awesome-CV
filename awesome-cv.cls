@@ -207,6 +207,14 @@
   BoldItalicFont=*-SemiboldIt
 ]{SourceSansPro}
 
+% Set main font, same as for body (default is Source Sans Pro)
+\setmainfont[
+  Path=\@fontdir,
+  UprightFont=*-Regular,
+  ItalicFont=*-It,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldIt
+]{SourceSansPro}
 
 %-------------------------------------------------------------------------------
 %                Configuration for styles
