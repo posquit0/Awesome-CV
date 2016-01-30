@@ -412,91 +412,55 @@
       \ifthenelse{\isundefined{\@email}}%
         {}%
         {%
-          \ifbool{isstart}%
-            {%
-              \setbool{istart}{false}%
-            }%
-            {\acvHeaderSocialSep}%
+          \ifbool{isstart}{\setbool{istart}{false}}{\acvHeaderSocialSep}%
           \href{mailto:\@email}{\faEnvelope\acvHeaderIconSep\@email}%
         }%
       \ifthenelse{\isundefined{\@homepage}}%
         {}%
         {%
-          \ifbool{isstart}%
-            {%
-              \setbool{istart}{false}%
-            }%
-            {\acvHeaderSocialSep}%
+          \ifbool{isstart}{\setbool{istart}{false}}{\acvHeaderSocialSep}%
           \href{http://\@homepage}{\faHome\acvHeaderIconSep\@homepage}%
         }%
       \ifthenelse{\isundefined{\@github}}%
         {}%
         {%
-          \ifbool{isstart}%
-            {%
-              \setbool{istart}{false}%
-            }%
-            {\acvHeaderSocialSep}%
+          \ifbool{isstart}{\setbool{istart}{false}}{\acvHeaderSocialSep}%
           \href{https://github.com/\@github}{\faGithubSquare\acvHeaderIconSep\@github}%
         }%
       \ifthenelse{\isundefined{\@stackoverflowid}}%
         {}%
         {%
-          \ifbool{isstart}%
-            {%
-              \setbool{istart}{false} %
-            }%
-            {\acvHeaderSocialSep}%
+          \ifbool{isstart}{\setbool{istart}{false}}{\acvHeaderSocialSep}%
           \href{https://stackoverflow.com/users/\@stackoverflowid}{\faStackOverflow\acvHeaderIconSep\@stackoverflowname}%
         }%
       \ifthenelse{\isundefined{\@linkedin}}%
         {}%
         {%
-          \ifbool{isstart}%
-            {%
-              \setbool{istart}{false}%
-            }%
-            {\acvHeaderSocialSep}%
+          \ifbool{isstart}{\setbool{istart}{false}}{\acvHeaderSocialSep}%
           \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\acvHeaderIconSep\@linkedin}%
         }%
       \ifthenelse{\isundefined{\@twitter}}%
         {}%
         {%
-          \ifbool{isstart}%
-            {%
-              \setbool{istart}{false} %
-            }%
-            {\acvHeaderSocialSep}%
+          \ifbool{isstart}{\setbool{istart}{false}}{\acvHeaderSocialSep}%
           \href{https://twitter.com/\@twitter}{\faTwitter\acvHeaderIconSep\@twitter}%
         }%
       \ifthenelse{\isundefined{\@skype}}%
         {}%
         {%
-          \ifbool{isstart}%
-            {%
-              \setbool{istart}{false} %
-            }%
-            {\acvHeaderSocialSep}%
+          \ifbool{isstart}{\setbool{istart}{false}}{\acvHeaderSocialSep}%
           \faSkype\acvHeaderIconSep\@skype%
         }%
       \ifthenelse{\isundefined{\@reddit}}%
         {}%
         {%
-          \ifbool{isstart}%
-            {%
-              \setbool{istart}{false} %
-            }%
-            {\acvHeaderSocialSep}%
+          \ifbool{isstart}{\setbool{istart}{false}}{\acvHeaderSocialSep}%
           \href{https://www.reddit.com/user/\@reddit}{\faReddit\acvHeaderIconSep\@reddit}%
         }%
       \ifthenelse{\isundefined{\@extrainfo}}%
         {}%
         {%
-          \ifbool{isstart}%
-            {%
-              \setbool{istart}{false} %
-            }%
-            {\acvHeaderSocialSep}%
+          \ifbool{isstart}{\setbool{istart}{false}}{\acvHeaderSocialSep}%
           \@extrainfo%
         }%
     } \\[\acvHeaderAfterSocialSkip]%
