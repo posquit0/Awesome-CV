@@ -199,6 +199,15 @@
   BoldItalicFont=*-SemiboldIt
 ]{SourceSansPro}
 
+% Set main font
+\setmainfont[
+  Path=\@fontdir,
+  UprightFont=*-Regular,
+  ItalicFont=*-It,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldIt
+]{SourceSansPro}
+
 
 %-------------------------------------------------------------------------------
 %                Configuration for styles
