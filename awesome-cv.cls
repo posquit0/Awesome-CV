@@ -455,7 +455,7 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{istart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.xing.de/profile/\@xing}{\faXingSquare\ \@xing}
+          \href{https://www.xing.com/profile/\@xing}{\faXingSquare\ \@xing}
         }%
       \ifthenelse{\isundefined{\@twitter}}%
         {}%
