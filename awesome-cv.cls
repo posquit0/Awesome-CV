@@ -501,13 +501,17 @@
   \subsectionstyle{#1}
   \phantomsection
 }
+\newcommand{\acvParagraphTopSpace}{\addvspace{0ex}}
+\newcommand{\acvParagraphBottomSpace}{\addvspace{0ex}}
 
 % Define a paragraph for CV
 \newenvironment{cvparagraph}{%
-  \vspace{-3mm}
-  \paragraphstyle
+	\par
+	\acvParagraphTopSpace
+	\paragraphstyle
 }{%
-  \vspace{1mm}
+	\par
+	\acvParagraphBottomSpace
 }
 
 
