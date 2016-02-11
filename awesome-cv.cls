@@ -298,6 +298,7 @@
 % Usage: \github{<github-nick>}
 \newcommand*{\github}[1]{\def\@github{#1}}
 
+\newcommand*{\birth}[1]{\def\@birth{#1}}
 % Defines writer's stackoverflow profile (optional)
 % Usage: \stackoverflow{<so userid>}{<so username>}
 %   e.g.https://stackoverflow.com/users/123456/sam-smith
@@ -422,6 +423,12 @@
           \ifbool{isstart}{\setbool{istart}{false}}{\acvHeaderSocialSep}%
           \href{mailto:\@email}{\faEnvelope\acvHeaderIconSep\@email}%
         }%
+        \ifthenelse{\isundefined{\@birth}}%-------------------------------------------------------
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{istart}{false}}{\acvHeaderSocialSep}%
+          {\faBirthdayCake\acvHeaderIconSep\@birth}% 
+        }%----------------------------------------------------------------------------------------
       \ifthenelse{\isundefined{\@homepage}}%
         {}%
         {%
