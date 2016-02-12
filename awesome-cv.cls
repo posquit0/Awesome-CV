@@ -308,6 +308,11 @@
 % Usage: \linkedin{<linked-in-nick>}
 \newcommand*{\linkedin}[1]{\def\@linkedin{#1}}
 
+% Defines writer's xing (optional)
+% Usage: \xing{<xing name>}
+% www.xing.de/profile/NAME
+\newcommand*{\xing}[1]{\def\@xing{#1}}
+
 % Defines writer's twitter (optional)
 % Usage: \twitter{<twitter handle>}
 \newcommand*{\twitter}[1]{\def\@twitter{#1}}
@@ -445,6 +450,12 @@
         {%
           \ifbool{isstart}{\setbool{istart}{false}}{\acvHeaderSocialSep}%
           \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\acvHeaderIconSep\@linkedin}%
+        }%
+        \ifthenelse{\isundefined{\@xing}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{istart}{false}}{\acvHeaderSocialSep}%
+          \href{https://www.xing.com/profile/\@xing}{\faXingSquare\ \@xing}
         }%
       \ifthenelse{\isundefined{\@twitter}}%
         {}%
