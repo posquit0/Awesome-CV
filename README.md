@@ -19,8 +19,8 @@
 
 You can see [PDF](https://github.com/oblazek/Awesome-CV/blob/master/examples/cv.pdf)
 
-![Résumé(Page 1)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-0.png)
-![Résumé(Page 2)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-1.png)
+![Résumé(Page 1)](https://github.com/oblazek/Awesome-CV/examples/resume_example_czech1.png )
+
 
 #### Cover Letter
 
