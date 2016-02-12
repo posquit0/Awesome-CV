@@ -18,8 +18,6 @@
 #### Résumé
 
 You can see my example here: [PDF](https://github.com/oblazek/Awesome-CV/blob/master/examples/cv.pdf)
-![Résumé(Page 1)](https://raw.githubusercontent.com/oblazek/Awesome-CV/master/examples/resume_example_czech1.png)
-
 
 This is the original one, made by posquit0
 ![Résumé(Page 1)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-0.png)
