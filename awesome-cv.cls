@@ -62,6 +62,8 @@
 \RequirePackage{ifxetex}
 % Needed to use \if-\then-\else statement
 \RequirePackage{xifthen}
+% Needed to strip chars from telephone number
+\RequirePackage{xstring}
 % Needed to use a toolbox of programming tools
 \RequirePackage{etoolbox}
 % Needed to change line spacing in specific environment
@@ -284,7 +286,11 @@
 
 % Defines writer's mobile (optional)
 % Usage: \mobile{<mobile number>}
-\newcommand*{\mobile}[1]{\def\@mobile{#1}}
+\newcommand*{\mobile}[1]
+{
+  \def\@mobile{#1}
+  \def\@teluri{tel:\@mobile}
+}
 
 % Defines writer's email (optional)
 % Usage: \email{<email adress>}
@@ -417,7 +423,12 @@
       \ifthenelse{\isundefined{\@mobile}}%
         {}%
         {%
-          \faMobile\acvHeaderIconSep\@mobile%
+          % Formats phone number for "tel:" URI
+          \StrDel{\@teluri}{ }[\@teluri]%
+          \StrDel{\@teluri}{-}[\@teluri]%
+          \StrDel{\@teluri}{(}[\@teluri]%
+          \StrDel{\@teluri}{)}[\@teluri]%
+          \href{\@teluri}{\faMobile\acvHeaderIconSep\@mobile}%
           \setbool{isstart}{false}%
         }%
       \ifthenelse{\isundefined{\@email}}%
