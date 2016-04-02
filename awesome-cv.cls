@@ -409,7 +409,7 @@
 % Define a header for CV
 % Usage: \makecvheader
 \newcommand*{\makecvheader}{%
-  \begin{center} 
+  \begin{center}
     \headerfirstnamestyle{\@honorific\ \@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname}%
     \\[\acvHeaderAfterNameSkip]%
     \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\[\acvHeaderAfterPositionSkip]}}%
