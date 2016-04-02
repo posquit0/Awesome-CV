@@ -33,7 +33,7 @@
 % geometry and fancyhdr)
 %-------------------------------------------------------------------------------
 % Options for draft or final
-\DeclareOption{draft}{\setlengtfh\overfullrule{5pt}}
+\DeclareOption{draft}{\setlength\overfullrule{5pt}}
 \DeclareOption{final}{\setlength\overfullrule{0pt}}
 % Inherit options of article
 \DeclareOption*{%
