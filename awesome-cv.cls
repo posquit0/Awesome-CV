@@ -799,10 +799,17 @@
   \par\vspace{0.3\baselineskip}
 }
 
+% New syntax for flexible backend (BibLaTeX > v3.3)
 \DeclareNameFormat{author}{%
   \small\addfontfeature{Color=lightgray}%
-  \ifblank{#3}{}{#3\space}#1%
+  \renewcommand*{\multinamedelim}{\addcomma\addspace}%
+  \nameparts{#1}%
+  \ifthenelse{\value{listcount}=1}
+    {\ifblank{\namepartgiven}{}{\namepartgiven\space}%
+    \namepartfamily}%
+    {\ifblank{\namepartgiven}{}{\namepartgiven\space}%
+    \namepartfamily}%
   \ifthenelse{\value{listcount}<\value{liststop}}
-    {\addcomma\space}
-    {}%
+  {\addcomma\space}
+  {}
 }
