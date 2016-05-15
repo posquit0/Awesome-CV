@@ -403,8 +403,6 @@
 
 
 
-%traceme
-\def\@jbtestme{}
 
 
 %-------------------------------------------------------------------------------
@@ -414,7 +412,7 @@
 % Usage: \makecvheader
 \newcommand*{\makecvheader}{%
   \begin{center}
-    \headerfirstnamestyle{\@jbtestme\ \@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname}%
+    \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname}%
     \\[\acvHeaderAfterNameSkip]%
     \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\[\acvHeaderAfterPositionSkip]}}%
     \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\[\acvHeaderAfterAddressSkip]}}%
