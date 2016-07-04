@@ -502,9 +502,9 @@
       {\headerquotestyle{\@quote\\}\vspace{\acvHeaderAfterQuoteSkip}}%
   \end{center}%
   \end{minipage}%
-  \ifthenelse{\isundefined{\@phid}}{}{
+  \ifthenelse{\isundefined{\@phid}}{}{%
     \begin{minipage}[c]{\headerphotoidwidth}%
-    \begin{tikzpicture}%
+    \raggedleft\begin{tikzpicture}%
       \foreach \r/\colora in {1.6/{black!10},1.5/{black!30}}{
 	\fill[\colora] (0,0) circle (\r cm);
       }
