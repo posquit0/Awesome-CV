@@ -266,7 +266,7 @@
 %                Commands for personal information
 %-------------------------------------------------------------------------------
 % Define photo ID
-% Usage: \photoid{<path-to-image>}
+% Usage: \photoid[circle|rectangle]{<path-to-image>}
 \newcommand{\photoid}[2][circle]{\def\@phidedge{#1}\def\@phid{#2}}
 
 % Define writer's name
