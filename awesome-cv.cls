@@ -75,6 +75,8 @@
 % Needed to use icons from font-awesome
 % (https://github.com/posquit0/latex-fontawesome)
 \RequirePackage{fontawesome}
+% Needed for the photo ID
+\RequirePackage[skins]{tcolorbox}
 % Needed to deal a paragraphs
 \RequirePackage{parskip}
 % Needed to deal hyperlink
@@ -263,6 +265,10 @@
 %-------------------------------------------------------------------------------
 %                Commands for personal information
 %-------------------------------------------------------------------------------
+% Define photo ID
+% Usage: \photoid{<path-to-image>}
+\newcommand{\photoid}[1]{\def\@phid{#1}}
+
 % Define writer's name
 % Usage: \name{<firstname>}{<lastname>}
 % Usage: \firstname{<firstname>}
@@ -406,6 +412,16 @@
 % Define a header for CV
 % Usage: \makecvheader
 \newcommand*{\makecvheader}{%
+  \newlength{\headertextwidth}
+  \newlength{\headerphotoidwidth}
+  \ifthenelse{\isundefined{\@phid}}{
+    \setlength{\headertextwidth}{\textwidth}
+    \setlength{\headerphotoidwidth}{0cm}
+  }{%
+    \setlength{\headertextwidth}{0.8\textwidth}
+    \setlength{\headerphotoidwidth}{0.2\textwidth}
+  }%
+  \begin{minipage}[c]{\headertextwidth}
   \begin{center}
     \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname}%
     \\[\acvHeaderAfterNameSkip]%
@@ -485,6 +501,17 @@
       {}%
       {\headerquotestyle{\@quote\\}\vspace{\acvHeaderAfterQuoteSkip}}%
   \end{center}%
+  \end{minipage}%
+  \ifthenelse{\isundefined{\@phid}}{}{
+    \begin{minipage}[c]{\headerphotoidwidth}%
+    \begin{tikzpicture}%
+      \foreach \r/\colora in {1.6/{black!10},1.5/{black!30}}{
+	\fill[\colora] (0,0) circle (\r cm);
+      }
+      \node[circle,draw=awesome,line width=0.5mm,inner sep=1cm,fill overzoom image=\@phid] () {};
+    \end{tikzpicture}%
+    \end{minipage}
+  }%
 }
 
 % Define a footer for CV
