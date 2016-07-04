@@ -267,7 +267,7 @@
 %-------------------------------------------------------------------------------
 % Define photo ID
 % Usage: \photoid{<path-to-image>}
-\newcommand{\photoid}[1]{\def\@phid{#1}}
+\newcommand{\photoid}[2][circle]{\def\@phidedge{#1}\def\@phid{#2}}
 
 % Define writer's name
 % Usage: \name{<firstname>}{<lastname>}
@@ -421,6 +421,7 @@
     \setlength{\headertextwidth}{0.8\textwidth}
     \setlength{\headerphotoidwidth}{0.2\textwidth}
   }%
+  \ifthenelse{\isundefined{\@phidedge}}{\def\@phidedge{circle}}{}
   \begin{minipage}[c]{\headertextwidth}
   \begin{center}
     \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname}%
@@ -503,12 +504,20 @@
   \end{center}%
   \end{minipage}%
   \ifthenelse{\isundefined{\@phid}}{}{%
+    \newlength{\phiddim}%
+    \ifthenelse{\equal{\@phidedge}{circle}}{\setlength{\phiddim}{1cm}}{\setlength{\phiddim}{1.3cm}}
     \begin{minipage}[c]{\headerphotoidwidth}%
     \raggedleft\begin{tikzpicture}%
-      \foreach \r/\colora in {1.6/{black!10},1.5/{black!30}}{
-	\fill[\colora] (0,0) circle (\r cm);
+      \foreach \r/\colora in {0.2/{black!10},0.08/{black!30}}{
+	\ifthenelse{\equal{\@phidedge}{circle}}{%
+	\pgfmathsetlengthmacro{\x}{(\r)*1cm + 1.4142*\phiddim}
+	\fill[\colora] (0,0) circle (\x);
+	}{%
+	\pgfmathsetlengthmacro{\x}{(\r)*1cm + \phiddim}
+	\fill[\colora] (-\x,-\x) rectangle (\x,\x);
+	}%
       }
-      \node[circle,draw=awesome,line width=0.5mm,inner sep=1cm,fill overzoom image=\@phid] () {};
+      \node[\@phidedge,draw=awesome,line width=0.5mm,inner sep=\phiddim,fill overzoom image=\@phid] () {};
     \end{tikzpicture}%
     \end{minipage}
   }%
