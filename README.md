@@ -22,8 +22,8 @@ You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/e
 ![Résumé(Page 1)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-0.png)
 ![Résumé(Page 2)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-1.png)
 
-![Résumé header with photo ID (circle)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-photoid-circle-0.png)
-![Résumé header with photo ID (rectangle)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-photoid-rect-0.png)
+![Résumé header with photo ID (circle)](https://raw.githubusercontent.com/nitrogl/Awesome-CV/master/examples/resume-photoid-circle-0.png)
+![Résumé header with photo ID (rectangle)](https://raw.githubusercontent.com/nitrogl/Awesome-CV/master/examples/resume-photoid-rect-0.png)
 #### Cover Letter
 
 You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf)
