@@ -149,10 +149,14 @@
 % Boolean value to switch section color highlighting
 \newbool{acvSectionColorHighlight}
 \setbool{acvSectionColorHighlight}{true}
+\newbool{acvSectionColorHighlightGradient}
+\setbool{acvSectionColorHighlightGradient}{true}
 
 % Awesome section color
 \def\@sectioncolor#1#2#3{%
-  \ifbool{acvSectionColorHighlight}{{\color{awesome}#1#2#3}}{#1#2#3}%
+  \ifbool{acvSectionColorHighlightGradient}
+    {{\color{awesome}#1\color{awesome!80!black}#2\color{awesome!60!black}#3}}%
+    {\ifbool{acvSectionColorHighlight}{{\color{awesome}#1#2#3}}{#1#2#3}}%
 }
 
 
