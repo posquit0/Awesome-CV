@@ -629,7 +629,7 @@
 \newenvironment{cvtalks}{
   \begin{center}
     \setlength\tabcolsep{0pt}
-    \setlength{\extrarowheight}{0pt}
+    \setlength{\extrarowheight}{0.2pt}
     \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{2.5cm} L{12.0cm} R{2.5cm}}
 }{
     \end{tabular*}
@@ -639,8 +639,7 @@
 % Usage: \cvtalk{<venue>}{<title>}{<location>}{<date>}
 \newcommand*{\cvtalk}[4]{
   \talkdatestyle{#4} & \talkvenuestyle{#1} & \talklocationstyle{#3} \\
-                         & \talktitlestyle{#2}      &                            \\
-  \\
+                     & \talktitlestyle{#2} &                        \\
 }
 
 
