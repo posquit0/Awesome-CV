@@ -597,7 +597,7 @@
     \setlength{\extrarowheight}{0pt}
     \tabularx{\textwidth}{r>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}X}
 }{%
-    \endtabularx
+\endtabularx\par
 }
 % Define a line of cv information(skill)
 % Usage: \cvskill{<type>}{<skillset>}
