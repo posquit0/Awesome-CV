@@ -1,3 +1,6 @@
+.PHONY: examples
 
-test:
-	cd examples/ ; for f in *.tex; do xelatex $$f; done
+examples: $(foreach x,coverletter cv resume,examples/$x.pdf)
+
+%.pdf: %.tex
+	xelatex -output-directory=$(dir $@) $<
