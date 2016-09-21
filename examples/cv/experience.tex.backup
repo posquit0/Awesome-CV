@@ -1,0 +1,47 @@
+%-------------------------------------------------------------------------------
+%	SECTION TITLE
+%-------------------------------------------------------------------------------
+\cvsection{Pracovní zkušenosti}
+
+
+%-------------------------------------------------------------------------------
+%	CONTENT
+%-------------------------------------------------------------------------------
+\begin{cventries}
+
+%---------------------------------------------------------
+  \cventry
+    {Projektantka} % Job title
+    {Moravia Wood Trading s.r.o.} % Organization
+    {Šenov} % Location
+    {Duben 2015 - Červen 2015} % Date(s)
+    {
+      \begin{cvitems} % Description(s) of tasks/responsibilities
+        \item {Tvorba návrhu architektonické studie RD.}
+        \item {Zpracování projektové dokumentace pro RD.}
+      \end{cvitems}
+    }
+   \cventry
+   {Práce na farmě}
+   {Peter Marshall \& Co.}
+   {Alyth, UK}
+   {Červenec - Srpen 2011 - 2015}
+   {
+    \begin{cvitems}
+      \item {Sběr ovoce}
+    \end{cvitems}
+   }
+   \cventry
+   {Prodavačka obuvi a doplňků}
+   {Destroy}
+   {Praha}
+   {Červenec - Srpen 2007 - 2009}
+   {
+    \begin{cvitems}
+      \item {Aktivní prodej produktů a služeb zákazníkům na prodejně.}
+    \end{cvitems}
+   }
+  
+
+%---------------------------------------------------------
+\end{cventries}
