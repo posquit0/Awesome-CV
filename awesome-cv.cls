@@ -78,7 +78,9 @@
 % Needed to deal a paragraphs
 \RequirePackage{parskip}
 % Needed to deal hyperlink
-\RequirePackage[hidelinks,unicode]{hyperref}
+\RequirePackage[hidelinks]{hyperref}
+% Needed to print out the total pages number
+\RequirePackage{lastpage}
 \hypersetup{%
   pdftitle={},
   pdfauthor={},
@@ -286,6 +288,18 @@
 % Usage: \mobile{<mobile number>}
 \newcommand*{\mobile}[1]{\def\@mobile{#1}}
 
+% Defines writer's mobile (optional)
+% Usage: \sex<sex>}
+\newcommand*{\sex}[1]{\def\@sex{#1}}
+
+% Defines writer's mobile (optional)
+% Usage: \nationality<nationality>}
+\newcommand*{\nationality}[1]{\def\@nationality{#1}}
+
+% Defines writer's mobile (optional)
+% Usage: \birthdate<birthdate>}
+\newcommand*{\birthdate}[1]{\def\@birthdate{#1}}
+
 % Defines writer's email (optional)
 % Usage: \email{<email adress>}
 \newcommand*{\email}[1]{\def\@email{#1}}
@@ -365,6 +379,8 @@
   \def\@letterenclosure{#2}
 }
 
+% Define a link to the project
+\newcommand*{\projectlink}[1]{[\href{#1}{\begin{scriptsize}\faBitbucket\acvHeaderIconSep\end{scriptsize} link}]}
 
 %-------------------------------------------------------------------------------
 %                Commands for extra
@@ -375,6 +391,7 @@
 \newcommand{\acvHeaderAfterNameSkip}{.4mm}
 \newcommand{\acvHeaderAfterPositionSkip}{.4mm}
 \newcommand{\acvHeaderAfterAddressSkip}{-.5mm}
+\newcommand{\acvHeaderAfterDetailsSkip}{-.5mm}
 \newcommand{\acvHeaderIconSep}{\space}
 \newcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
 \newcommand{\acvHeaderAfterSocialSkip}{6mm}
@@ -411,6 +428,28 @@
     \\[\acvHeaderAfterNameSkip]%
     \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\[\acvHeaderAfterPositionSkip]}}%
     \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\[\acvHeaderAfterAddressSkip]}}%
+    \headersocialstyle{%
+      \newbool{isstart}%
+      \setbool{isstart}{true}%
+      \ifthenelse{\isundefined{\@sex}}%
+        {}%
+        {%
+          \faMale\acvHeaderIconSep\@sex%
+          \setbool{isstart}{false}%
+        }%
+      \ifthenelse{\isundefined{\@birthdate}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \faCalendar\acvHeaderIconSep\@birthdate%
+        }%  
+      \ifthenelse{\isundefined{\@nationality}}%
+        {}%
+        {%
+        \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \faGlobe\acvHeaderIconSep\@nationality%
+        }%
+    } \\[\acvHeaderAfterDetailsSkip]%
     \headersocialstyle{%
       \newbool{isstart}%
       \setbool{isstart}{true}%
@@ -484,6 +523,7 @@
     \ifthenelse{\isundefined{\@quote}}%
       {}%
       {\headerquotestyle{\@quote\\}\vspace{\acvHeaderAfterQuoteSkip}}%
+      
   \end{center}%
 }
 
@@ -524,13 +564,6 @@
   \vspace{2mm}
 }
 
-% Define an environment for cventry
-\newenvironment{cventries}{%
-  \vspace{\acvSectionContentTopSkip}
-  \begin{center}
-}{%
-  \end{center}
-}
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
 \newcommand*{\cventry}[5]{%
@@ -546,12 +579,28 @@
   \end{tabular*}%
 }
 
-% Define an environment for cvsubentry
-\newenvironment{cvsubentries}{%
+% Define an entry of cv information
+% Usage: \cvbasicentry{<position>}{<title>}{<location>}{<date>}
+\newcommand*{\cvbasicentry}[4]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \ifempty{#2#3}
+      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
+      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+  \end{tabular*}%
+}
+
+% Define an environment for cventry
+\newenvironment{cventries}{%
+  \vspace{\acvSectionContentTopSkip}
   \begin{center}
 }{%
   \end{center}
 }
+
 % Define a subentry of cv information
 % Usage: \cvsubentry{<position>}{<title>}{<date>}{<description>}
 \newcommand*{\cvsubentry}[4]{%
