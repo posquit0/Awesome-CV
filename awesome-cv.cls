@@ -79,6 +79,8 @@
 \RequirePackage[skins]{tcolorbox}
 % Needed to deal a paragraphs
 \RequirePackage{parskip}
+% Deal with keyed arguments
+\RequirePackage{pgfkeys}
 % Needed to deal hyperlink
 \RequirePackage[hidelinks]{hyperref}
 \hypersetup{%
@@ -270,8 +272,20 @@
 %                Commands for personal information
 %-------------------------------------------------------------------------------
 % Define photo ID
-% Usage: \photoid[circle|rectangle]{<path-to-image>}
-\newcommand{\photoid}[2][circle]{\def\@phidedge{#1}\def\@phid{#2}}
+% Usage: \photoid[circle|rectangle,edge|noedge]{<path-to-image>}
+\newcommand{\photoid}[2][circle,edge]{%
+\@for\tmp:=#1\do{%
+  \ifthenelse{
+        \equal{\tmp}{circle}
+    \or \equal{\tmp}{rectangle}
+  }{\let\@phishape\tmp}{
+    \ifthenelse{
+          \equal{\tmp}{edge}
+      \or \equal{\tmp}{noedge}
+    }{\let\@phiedge\tmp}{}
+  }
+}%
+\def\@phid{#2}}
 
 % Define writer's name
 % Usage: \name{<firstname>}{<lastname>}
@@ -425,7 +439,8 @@
     \setlength{\headertextwidth}{0.8\textwidth}
     \setlength{\headerphotoidwidth}{0.2\textwidth}
   }%
-  \ifthenelse{\isundefined{\@phidedge}}{\def\@phidedge{circle}}{}
+  \ifthenelse{\isundefined{\@phishape}}{\def\@phishape{circle}}{}
+  \ifthenelse{\isundefined{\@phiedge}}{\def\@phiedge{edge}}{}
   \begin{minipage}[c]{\headertextwidth}
   \begin{center}
     \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname}%
@@ -509,20 +524,24 @@
   \end{minipage}%
   \ifthenelse{\isundefined{\@phid}}{}{%
     \newlength{\phiddim}%
-    \ifthenelse{\equal{\@phidedge}{circle}}{\setlength{\phiddim}{1cm}}{\setlength{\phiddim}{1.3cm}}
+    \ifthenelse{\equal{\@phishape}{circle}}{\setlength{\phiddim}{1cm}}{\setlength{\phiddim}{1.3cm}}
     \begin{minipage}[c]{\headerphotoidwidth}%
-    \raggedleft\begin{tikzpicture}%
-      \foreach \r/\colora in {0.2/{black!10},0.08/{black!30}}{
-	\ifthenelse{\equal{\@phidedge}{circle}}{%
-	\pgfmathsetlengthmacro{\x}{(\r)*1cm + 1.4142*\phiddim}
-	\fill[\colora] (0,0) circle (\x);
-	}{%
-	\pgfmathsetlengthmacro{\x}{(\r)*1cm + \phiddim}
-	\fill[\colora] (-\x,-\x) rectangle (\x,\x);
-	}%
-      }
-      \node[\@phidedge,draw=awesome,line width=0.5mm,inner sep=\phiddim,fill overzoom image=\@phid] () {};
-    \end{tikzpicture}%
+      \raggedleft\begin{tikzpicture}%
+        \ifthenelse{\equal{\@phiedge}{edge}}{%
+          \foreach \r/\colora in {0.2/{black!10},0.08/{black!30}}{
+            \ifthenelse{\equal{\@phishape}{circle}}{%
+            \pgfmathsetlengthmacro{\x}{(\r)*1cm + 1.4142*\phiddim}
+            \fill[\colora] (0,0) circle (\x);
+            }{%
+            \pgfmathsetlengthmacro{\x}{(\r)*1cm + \phiddim}
+            \fill[\colora] (-\x,-\x) rectangle (\x,\x);
+            }%
+          }%
+          \node[\@phishape,draw=awesome,line width=0.5mm,inner sep=\phiddim,fill overzoom image=\@phid] () {};
+        }{% No edge
+          \node[\@phishape,draw=white,line width=0.0mm,inner sep=1.1*\phiddim,fill overzoom image=\@phid] () {};
+        }
+      \end{tikzpicture}%
     \end{minipage}
   }%
 }
