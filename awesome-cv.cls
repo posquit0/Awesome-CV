@@ -79,8 +79,6 @@
 \RequirePackage[skins]{tcolorbox}
 % Needed to deal a paragraphs
 \RequirePackage{parskip}
-% Deal with keyed arguments
-\RequirePackage{pgfkeys}
 % Needed to deal hyperlink
 \RequirePackage[hidelinks]{hyperref}
 \hypersetup{%
