@@ -1,13 +1,13 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
-% Awesome CV LaTeX Template for CV/Resume
+% Awesome CV LaTeX Template for Cover Letter
 %
 % This template has been downloaded from:
 % https://github.com/posquit0/Awesome-CV
 %
-% Author:
+% Authors:
 % Claud D. Park <posquit0.bj@gmail.com>
-% http://www.posquit0.com
+% Lars Richter <mail@ayeks.de>
 %
 % Template license:
 % CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
@@ -70,9 +70,30 @@
 % \twitter{@twit}
 % \skype{skype-id}
 % \reddit{reddit-id}
-% \extrainfo{z Sk. B}
+% \extrainfo{extra informations}
 
 %\quote{``Must be the change that you want to see in the world."}
+
+
+%-------------------------------------------------------------------------------
+%	LETTER INFORMATION
+%	All of the below lines must be filled out
+%-------------------------------------------------------------------------------
+% The company being applied to
+\recipient
+  {AT\&T Training Center}
+  %{Google Inc.\\1600 Amphitheatre Parkway\\Mountain View, CA 94043}
+  {The Campus Science Park \\Palachovo náměstí 726/2\\ 625 00 Brno, Czech Republic} 
+% The date on the letter, default is the date of compilation
+\letterdate{\today}
+% The title of the letter
+\lettertitle{Application for SW Developer}
+% How the letter is opened
+\letteropening{Dear Mr./Ms.,}
+% How the letter is closed
+\letterclosing{Sincerely,}
+% Any enclosures with the letter
+\letterenclosure[Attached]{Curriculum Vitae}
 
 
 %-------------------------------------------------------------------------------
@@ -81,34 +102,41 @@
 % Print the header with above personal informations
 \makecvheader
 
-  \begin{center}
-  \includegraphics[scale=0.5]{OndrejBlazek.jpg} 
-  %\includegraphics[scale=0.02]{PetraOnco.JPG} 
-  \end{center}
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
 \makecvfooter
   {\today}
-  {Ondřej Blažek~~~·~~~Curriculum Vitae}
-  %{*Dle CEFR.}
-  {*According to CEFR.}
-  %{\thepage}
+  {Ondřej Blažek~~~·~~~Cover Letter}
+  {}
 
-
-%----------------------Type name of new folder---------------------------------------------------------
-%	CV/RESUME CONTENT
-%	Each section is imported separately, open each file in turn to modify content
-%-------------------------------------------------------------------------------
-\input{cv/education.tex}
-\input{cv/skills.tex}
-%\input{cv/skill.tex}
-\input{cv/experience.tex}
-\input{cv/honors.tex}
-%\input{cv/extracurricular.tex}
-%\input{cv/presentation.tex}
-%\input{cv/writing.tex}
-%\input{cv/committees.tex}
-
+% Print the title with above letter informations
+\makelettertitle
 
 %-------------------------------------------------------------------------------
+%	LETTER CONTENT
+%-------------------------------------------------------------------------------
+\begin{cvletter}
+
+\lettersection{About Me}
+My name is Ondrej Blazek and I am currently studying Communications and Informatics at My name is Ondrej Blazek and I am currently studying Communications and Informatics 
+at the University of Technology Faculty of Electrical Engineering and Communication here in Brno. I am an openminded person with a huge interest in linux/unix systems and SW/Web development.
+Currently I am finishing the last year of my Master's programme so I have just started working on my Master thesis, making a software in a C language for DoS attacks. I have also spent one
+semester in Graz, Austria where I was focusing on cryptography and web technologies.
+
+\lettersection{Why AT\&T?}
+I have always wanted to work for an international company where I could be part of something big, something perspective and of course AT\&T is a one of them. 
+Your company has a great reputation for being open to new ideas, to be innovative and is known among many people I personally know.
+Opportunities come with challenges, and this could be a really good challenge for me to develop my skills and to acquire knowledges from the best. 
+
+
+\lettersection{Why Me?}
+%possibility to develop these skills.
+%I honestly think that where I could benefit from my prove myself
+\end{cvletter}
+
+
+%-------------------------------------------------------------------------------
+% Print the signature and enclosures with above letter informations
+\makeletterclosing
+
 \end{document}
