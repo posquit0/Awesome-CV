@@ -1,0 +1,43 @@
+%-------------------------------------------------------------------------------
+%	SECTION TITLE
+%-------------------------------------------------------------------------------
+\cvsection{Skills}
+
+
+%-------------------------------------------------------------------------------
+%	CONTENT
+%-------------------------------------------------------------------------------
+\begin{cvskills}
+
+  
+%---------------------------------------------------------
+  \vspace{5pt}
+  \cvskill
+    {Web} % Category
+    {HTML, CSS, JavaScript, JQuery, JSON \newline Knowledge of revision control systems GIT, SVN}
+
+  \vspace{5pt}
+    
+  \cvskill
+    {Network administration} % Category
+    {Knowledge of Cisco IOS - completed courses CCNA, CCNP(Routing) - protocols RIP, OSPF, EIGRP, BGP a experience with VLAN, ACL, Firewalls configuration...\newline RouterOS (Mikrotik)} % Skills
+%---------------------------------------------------------
+  \vspace{5pt}
+  
+  \cvskill
+    {Programming} % Category
+    {Visual Basic (vba); LibreOffice Basic; Octave/Matlab; Basics of C, C++, Java} % Skills
+
+%---------------------------------------------------------
+  \vspace{5pt}
+  \cvskill
+    {OS}
+    {Znalost OS Linux (Debian/Ubuntu) - orientace v shell(bash), běžná správa, instalace \newline Znalost OS Windows}
+  \vspace{5pt}
+    
+  \cvskill
+    {Cizí jazyky} % Category
+    {Angličtina - C1, Němčina - A2} % Skills
+
+%---------------------------------------------------------
+\end{cvskills}

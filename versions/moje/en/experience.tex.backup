@@ -1,0 +1,84 @@
+%-------------------------------------------------------------------------------
+%	SECTION TITLE
+%-------------------------------------------------------------------------------
+\cvsection{Experiences}
+
+
+%-------------------------------------------------------------------------------
+%	CONTENT
+%-------------------------------------------------------------------------------
+\begin{cventries}
+
+%---------------------------------------------------------
+  \cventry
+    {NOC operator} % Job title
+    {GiTy, a.s.} % Organization
+    {Brno} % Location
+    {April 2014 - June 2015} % Date(s)
+    {
+      \begin{cvitems} % Description(s) of tasks/responsibilities
+	\item {Technical supervision of MPLS network, satellite network (VSAT) iDirect and Hughes.}
+        %\item {Technický dohled nad terestriální MPLS sítí, satelitní sítí (VSAT) iDirect a Hughes.}
+        \item {Contact with a customer and managing of unexpected incidents on the network, potential change in configuration of the network on Mikrotik/Cisco devices.}
+        %\item {Kontakt se zákazníkem a řešení neočekávaných incidentů na síti, případná změna konfigurace sítě na zařízeních Mikrotik/Cisco.}
+        \item {Network behaviour analysis, including modelling with tool SNMPc and using network monitoring program PRTG.}
+        %\item {Kontrola stavu sítě, včetně modelování přes program SNMPc a obsluha síťového monitorovacího programu PRTG.}
+        \item {Processing of customer's demands in system helpdesk or creating SLA reports.}
+        %\item {Zpracovávání požadavků zákazníka v systému helpdesk, či vytváření reportů SLA.}
+      \end{cvitems}
+    }
+   \cventry
+   {IT Technician}
+   {Zabezpecovaci systemy a site Studeny}
+   {Ricany u Brna}
+   {November 2013}
+   {
+    \begin{cvitems}
+      \item {Building up LAN infrastructure, adding a network rack.}
+    \end{cvitems}
+   }
+   \cventry
+   {Work on a farm}
+   {Peter Marshall \& Co.}
+   {Alyth, UK}
+   {July - August 2013, 2014, 2015}
+   {
+    \begin{cvitems}
+      \item {Fruit picking.}
+    \end{cvitems}
+   }
+   \cventry
+   {IT Technician}
+   {Komply.cz}
+   {Brno}
+   {May 2013}
+   {
+    \begin{cvitems}
+      \item {Building up LAN infrastructure; computer configuration, maintanance.}
+    \end{cvitems}
+   }
+   \cventry
+   {Studentská praxe}
+   {GiTy, a.s.}
+   {Brno}
+   {March 2013 - May 2013}
+   {
+    \begin{cvitems}
+      \item {Seznámení s provozem datových služeb firmy, terestrických a satelitních služeb. Práce na dohledovém centru a jeho technické podpoře.
+      Činosti související s modernizaci uzlu sítě G-Net. Přepojování datových linek u zákazníků či rozšiřování síťových prvků o přídavné moduly jejich konfigurace.}
+    \end{cvitems}
+   }
+   
+   \cventry
+   {Studentská praxe}
+   {ABA Czech, s.r.o.}
+   {Hustopeče}
+   {2010}
+   {
+    \begin{cvitems}
+      \item {Getting to know with system Novell, reinstallation of computers with OS Microsoft Windows.}
+    \end{cvitems}
+   }
+
+%---------------------------------------------------------
+\end{cventries}
