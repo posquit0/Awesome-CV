@@ -78,6 +78,8 @@
 \RequirePackage[default,opentype]{sourcesanspro}
 % Needed to deal a paragraphs
 \RequirePackage{parskip}
+% Needed to test if stuff is empty or not
+\RequirePackage{xparse}
 % Needed to deal hyperlink
 \RequirePackage[hidelinks,unicode]{hyperref}
 \hypersetup{%
@@ -370,6 +372,9 @@
 \newcommand*{\ifempty}[3]{\ifthenelse{\isempty{#1}}{#2}{#3}}
 
 
+
+
+
 %-------------------------------------------------------------------------------
 %                Commands for elements of CV structure
 %-------------------------------------------------------------------------------
@@ -528,15 +533,12 @@
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
-    \setlength\leftskip{0.2cm}
-    \subentrytitlestyle{#2} & \ifthenelse{\equal{#1}{}}
-      {\subentrydatestyle{#3}}{} 
-    \ifthenelse{\equal{#1}{}}
-      {}
-      {\subentrypositionstyle{#1} & \subentrydatestyle{#3} \\}
-    \ifthenelse{\equal{#4}{}}
-      {}
+    \setlength\leftskip{0.2cm}%
+    \subentrytitlestyle{#2} & %
+    \IfNoValueTF{#1}{\subentrydatestyle #3}{\subentrypositionstyle{#1} \quad \subentrydatestyle{#3}}\\
+      \IfValueTF{#4}
       {\multicolumn{2}{L{17.0cm}}{\subdescriptionstyle{#4}} \\}
+      {}
   \end{tabular*}
 }
 
