@@ -233,6 +233,10 @@
 %-------------------------------------------------------------------------------
 %                Commands for personal information
 %-------------------------------------------------------------------------------
+% Last update date
+% Usage: \address{Last updated on <date>}
+\newcommand*{\lastupdate}[1]{\def\@lastupdate{#1}}
+
 % Define writer's name
 % Usage: \name{<firstname>}{<lastname>}
 % Usage: \firstname{<firstname>}
@@ -376,6 +380,9 @@
 % Define a header for CV
 % Usage: \makecvheader
 \newcommand*{\makecvheader}{%
+	\begin{flushright}
+		\@lastupdate
+	\end{flushright}
   \begin{center}
     \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname}%
     \\[\acvHeaderAfterNameSkip]%
