@@ -76,8 +76,6 @@
 % (https://github.com/posquit0/latex-fontawesome)
 \RequirePackage{fontawesome}
 \RequirePackage[default,opentype]{sourcesanspro}
-% Needed for the photo ID
-\RequirePackage[skins]{tcolorbox}
 % Needed to deal a paragraphs
 \RequirePackage{parskip}
 % Needed to deal hyperlink
@@ -150,14 +148,10 @@
 % Boolean value to switch section color highlighting
 \newbool{acvSectionColorHighlight}
 \setbool{acvSectionColorHighlight}{true}
-\newbool{acvSectionColorHighlightGradient}
-\setbool{acvSectionColorHighlightGradient}{true}
 
 % Awesome section color
 \def\@sectioncolor#1#2#3{%
-  \ifbool{acvSectionColorHighlightGradient}
-    {{\color{awesome}#1\color{awesome!80!black}#2\color{awesome!60!black}#3}}%
-    {\ifbool{acvSectionColorHighlight}{{\color{awesome}#1#2#3}}{#1#2#3}}%
+  \ifbool{acvSectionColorHighlight}{{\color{awesome}#1#2#3}}{#1#2#3}%
 }
 
 
@@ -239,22 +233,6 @@
 %-------------------------------------------------------------------------------
 %                Commands for personal information
 %-------------------------------------------------------------------------------
-% Define photo ID
-% Usage: \photoid[circle|rectangle,edge|noedge]{<path-to-image>}
-\newcommand{\photoid}[2][circle,edge]{%
-\@for\tmp:=#1\do{%
-  \ifthenelse{
-        \equal{\tmp}{circle}
-    \or \equal{\tmp}{rectangle}
-  }{\let\@phishape\tmp}{
-    \ifthenelse{
-          \equal{\tmp}{edge}
-      \or \equal{\tmp}{noedge}
-    }{\let\@phiedge\tmp}{}
-  }
-}%
-\def\@phid{#2}}
-
 % Define writer's name
 % Usage: \name{<firstname>}{<lastname>}
 % Usage: \firstname{<firstname>}
@@ -398,18 +376,6 @@
 % Define a header for CV
 % Usage: \makecvheader
 \newcommand*{\makecvheader}{%
-  \newlength{\headertextwidth}
-  \newlength{\headerphotoidwidth}
-  \ifthenelse{\isundefined{\@phid}}{
-    \setlength{\headertextwidth}{\textwidth}
-    \setlength{\headerphotoidwidth}{0cm}
-  }{%
-    \setlength{\headertextwidth}{0.8\textwidth}
-    \setlength{\headerphotoidwidth}{0.2\textwidth}
-  }%
-  \ifthenelse{\isundefined{\@phishape}}{\def\@phishape{circle}}{}
-  \ifthenelse{\isundefined{\@phiedge}}{\def\@phiedge{edge}}{}
-  \begin{minipage}[c]{\headertextwidth}
   \begin{center}
     \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname}%
     \\[\acvHeaderAfterNameSkip]%
@@ -489,29 +455,6 @@
       {}%
       {\headerquotestyle{\@quote\\}\vspace{\acvHeaderAfterQuoteSkip}}%
   \end{center}%
-  \end{minipage}%
-  \ifthenelse{\isundefined{\@phid}}{}{%
-    \newlength{\phiddim}%
-    \ifthenelse{\equal{\@phishape}{circle}}{\setlength{\phiddim}{1cm}}{\setlength{\phiddim}{1.3cm}}
-    \begin{minipage}[c]{\headerphotoidwidth}%
-      \raggedleft\begin{tikzpicture}%
-        \ifthenelse{\equal{\@phiedge}{edge}}{%
-          \foreach \r/\colora in {0.2/{black!10},0.08/{black!30}}{
-            \ifthenelse{\equal{\@phishape}{circle}}{%
-            \pgfmathsetlengthmacro{\x}{(\r)*1cm + 1.4142*\phiddim}
-            \fill[\colora] (0,0) circle (\x);
-            }{%
-            \pgfmathsetlengthmacro{\x}{(\r)*1cm + \phiddim}
-            \fill[\colora] (-\x,-\x) rectangle (\x,\x);
-            }%
-          }%
-          \node[\@phishape,draw=awesome,line width=0.5mm,inner sep=\phiddim,fill overzoom image=\@phid] () {};
-        }{% No edge
-          \node[\@phishape,draw=white,line width=0.0mm,inner sep=1.1*\phiddim,fill overzoom image=\@phid] () {};
-        }
-      \end{tikzpicture}%
-    \end{minipage}
-  }%
 }
 
 % Define a footer for CV
