@@ -43,10 +43,6 @@
 % Set false if you don't want to highlight section with awesome color
 \setbool{acvSectionColorHighlight}{true}
 
-% Set false if you don't want to have a gradient effect in the highlight section with awesome color
-% If true, it implicitly ignores whether the acvSectionColorHighlight is true or not.
-\setbool{acvSectionColorHighlightGradient}{true}
-
 % If you would like to change the social information separator from a pipe (|) to something else
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
 
@@ -55,11 +51,12 @@
 %	PERSONAL INFORMATION
 %	Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
+\photoid{./examples/profile.png}
 \name{Claud D.}{Park}
 \position{Software Engineer{\enskip\cdotp\enskip}Security Expert}
 \address{246-1002, Gwangmyeongmayrouge Apt. 86, Cheongna lime-ro, Seo-gu, Incheon-si, 404-180, Rep. of KOREA}
 
-\mobile{(+82) 10-9030-1843} 
+\mobile{(+82) 10-9030-1843}
 \email{posquit0.bj@gmail.com}
 \homepage{www.posquit0.com}
 \github{posquit0}
@@ -77,6 +74,7 @@
 \begin{document}
 
 % Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
 \makecvheader
 
 % Print the footer with 3 arguments(<left>, <center>, <right>)
