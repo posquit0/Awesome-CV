@@ -21,7 +21,7 @@
 %-------------------------------------------------------------------------------
 %                Identification
 %-------------------------------------------------------------------------------
-\ProvidesClass{awesome-cv}[2016/01/30 v1.5 Awesome Curriculum Vitae Class]
+\ProvidesClass{awesome-cv}[2016/12/03 v1.6 Awesome Curriculum Vitae Class]
 \NeedsTeXFormat{LaTeX2e}
 
 
@@ -236,20 +236,21 @@
 %                Commands for personal information
 %-------------------------------------------------------------------------------
 % Define photo ID
-% Usage: \photoid[circle|rectangle,edge|noedge]{<path-to-image>}
-\newcommand{\photoid}[2][circle,edge]{%
-\@for\tmp:=#1\do{%
-  \ifthenelse{
-        \equal{\tmp}{circle}
-    \or \equal{\tmp}{rectangle}
-  }{\let\@phishape\tmp}{
-    \ifthenelse{
-          \equal{\tmp}{edge}
-      \or \equal{\tmp}{noedge}
-    }{\let\@phiedge\tmp}{}
-  }
-}%
-\def\@phid{#2}}
+% Usage: \photo[circle|rectangle,edge|noedge,left|right]{<path-to-image>}
+\newcommand{\photo}[2][circle,edge,left]{%
+  \def\@photo{#2}
+  \@for\tmp:=#1\do{%
+    \ifthenelse{\equal{\tmp}{circle} \or \equal{\tmp}{rectangle}}%
+      {\let\@photoshape\tmp}{}%
+    \ifthenelse{\equal{\tmp}{edge} \or \equal{\tmp}{noedge}}%
+      {\let\@photoedge\tmp}{}%
+    \ifthenelse{\equal{\tmp}{left} \or \equal{\tmp}{right}}%
+      {\let\@photoalign\tmp}{}%
+  }%
+}
+\def\@photoshape{circle}
+\def\@photoedge{edge}
+\def\@photoalign{left}
 
 % Define writer's name
 % Usage: \name{<firstname>}{<lastname>}
@@ -394,17 +395,32 @@
 % Define a header for CV
 % Usage: \makecvheader
 \newcommand*{\makecvheader}[1][C]{%
+  \newcommand*{\drawphoto}{%
+    \ifthenelse{\isundefined{\@photo}}{}{%
+      \newlength{\photodim}
+      \ifthenelse{\equal{\@photoshape}{circle}}%
+        {\setlength{\photodim}{1.3cm}}%
+        {\setlength{\photodim}{1.8cm}}%
+      \ifthenelse{\equal{\@photoedge}{edge}}%
+        {\def\@photoborder{darkgray}}%
+        {\def\@photoborder{none}}%
+      \begin{tikzpicture}%
+        \node[\@photoshape, draw=\@photoborder, line width=0.3mm, inner sep=\photodim, fill overzoom image=\@photo] () {};
+      \end{tikzpicture}
+    }%
+  }
   \newlength{\headertextwidth}
-  \newlength{\headerphotoidwidth}
-  \ifthenelse{\isundefined{\@phid}}{
+  \newlength{\headerphotowidth}
+  \ifthenelse{\isundefined{\@photo}}{
     \setlength{\headertextwidth}{\textwidth}
-    \setlength{\headerphotoidwidth}{0cm}
+    \setlength{\headerphotowidth}{0cm}
   }{%
-    \setlength{\headertextwidth}{0.8\textwidth}
-    \setlength{\headerphotoidwidth}{0.2\textwidth}
+    \setlength{\headertextwidth}{0.76\textwidth}
+    \setlength{\headerphotowidth}{0.24\textwidth}
   }%
-  \ifthenelse{\isundefined{\@phishape}}{\def\@phishape{circle}}{}
-  \ifthenelse{\isundefined{\@phiedge}}{\def\@phiedge{edge}}{}
+  \begin{minipage}[c]{\headerphotowidth}%
+    \ifthenelse{\equal{\@photoalign}{left}}{\raggedright\drawphoto}{}
+  \end{minipage}
   \begin{minipage}[c]{\headertextwidth}
     \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
     \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname}%
@@ -485,28 +501,9 @@
       {}%
       {\headerquotestyle{\@quote\\}\vspace{\acvHeaderAfterQuoteSkip}}%
   \end{minipage}%
-  \ifthenelse{\isundefined{\@phid}}{}{%
-    \newlength{\phiddim}%
-    \ifthenelse{\equal{\@phishape}{circle}}{\setlength{\phiddim}{1cm}}{\setlength{\phiddim}{1.3cm}}
-    \begin{minipage}[c]{\headerphotoidwidth}%
-      \raggedleft\begin{tikzpicture}%
-        \ifthenelse{\equal{\@phiedge}{edge}}{%
-          \foreach \r/\colora in {0.2/{black!10},0.08/{black!30}}{
-            \ifthenelse{\equal{\@phishape}{circle}}{%
-            \pgfmathsetlengthmacro{\x}{(\r)*1cm + 1.4142*\phiddim}
-            \fill[\colora] (0,0) circle (\x);
-            }{%
-            \pgfmathsetlengthmacro{\x}{(\r)*1cm + \phiddim}
-            \fill[\colora] (-\x,-\x) rectangle (\x,\x);
-            }%
-          }%
-          \node[\@phishape,draw=awesome,line width=0.5mm,inner sep=\phiddim,fill overzoom image=\@phid] () {};
-        }{% No edge
-          \node[\@phishape,draw=white,line width=0.0mm,inner sep=1.1*\phiddim,fill overzoom image=\@phid] () {};
-        }
-      \end{tikzpicture}%
-    \end{minipage}
-  }%
+  \begin{minipage}[c]{\headerphotowidth}%
+    \ifthenelse{\equal{\@photoalign}{right}}{\raggedleft\drawphoto}{}
+  \end{minipage}
 }
 
 % Define a footer for CV
