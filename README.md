@@ -57,6 +57,21 @@ $ xelatex {your-cv}.tex
 
 This should result in the creation of ``{your-cv}.pdf``
 
+#### Known errors
+- Add the font path in the _shortcut to load the Font Awesome font_ `\newfontfamily{\FA}[Path=fonts/]{FontAwesome}` in file `fontawesome.sty` if you experience this font error path:
+
+```
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! fontspec error: "font-not-found"
+!
+! The font "FontAwesome" cannot be found.
+!
+! See the fontspec documentation for further information.
+!
+! For immediate help type H <return>.
+!...............................................
+```
 
 ## <a name="credit">Credit
 
