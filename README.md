@@ -58,7 +58,7 @@ $ xelatex {your-cv}.tex
 This should result in the creation of ``{your-cv}.pdf``
 
 #### Known errors
-- Add the font path in the _shortcut to load the Font Awesome font_ `\newfontfamily{\FA}[Path=fonts/]{FontAwesome}` in file `fontawesome.sty` if you experience this font error path:
+- If you whant to edit the examples, add the font path in the _shortcut to load the Font Awesome font_ `\newfontfamily{\FA}[Path=fonts/]{FontAwesome}` in file `fontawesome.sty` if you experience this font error path:
 
 ```
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
