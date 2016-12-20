@@ -706,13 +706,14 @@
 \DeclareFieldFormat[incollection]{title}{#1\par}
 
 \DeclareBibliographyDriver{article}{%
+  \fontsize{9pt}{1em}\bodyfont%
   \printfield{title}%
   \newblock%
   \printnames{author}%
   \par%
   \newblock%
   {%
-    \footnotesize\addfontfeature{Color=lightgray}\itshape%
+    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
     \usebibmacro{journal+issuetitle}%
     \setunit{\space}%
     \printfield{pages}%
@@ -726,13 +727,14 @@
 }
 
 \DeclareBibliographyDriver{inproceedings}{%
+  \fontsize{9pt}{1em}\bodyfont%
   \printfield{title}%
   \newblock%
   \printnames{author}%
   \par%
   \newblock%
   {%
-    \footnotesize\addfontfeature{Color=lightgray}%
+    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
     \printfield{booktitle}%
     \setunit{\addcomma\space}%
     \printfield{year}%
@@ -744,13 +746,14 @@
 }
 
 \DeclareBibliographyDriver{incollection}{%
+  \fontsize{9pt}{1em}\bodyfont%
   \printfield{title}%
   \newblock%
   \printnames{author}%
   \par%
   \newblock%
   {%
-    \footnotesize\addfontfeature{Color=lightgray}%
+    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
     \printfield{booktitle}%
     \setunit{\addcomma\space}%
     \printfield{year}%
@@ -762,13 +765,14 @@
 }
 
 \DeclareBibliographyDriver{misc}{%
+  \fontsize{9pt}{1em}\bodyfont%
   \printfield{title}%
   \newblock%
   \printnames{author}%
   \par%
   \newblock%
   {%
-    \footnotesize\addfontfeature{Color=lightgray}\itshape%
+    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
     \printfield{booktitle}%
     \setunit*{\addcomma\space}%
     \printfield{note}%
@@ -782,13 +786,14 @@
 }
 
 \DeclareBibliographyDriver{report}{%
+  \fontsize{9pt}{1em}\bodyfont%
   \printfield{title}%
   \newblock%
   \printnames{author}%
   \par%
   \newblock%
   {%
-    \footnotesize\addfontfeature{Color=lightgray}\itshape%
+    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
     \printfield{type}%
     \setunit{\space}%
     \printfield{number}%
@@ -801,7 +806,7 @@
 
 % New syntax for flexible backend (BibLaTeX > v3.3)
 \DeclareNameFormat{author}{%
-  \small\addfontfeature{Color=lightgray}%
+  \fontsize{9pt}{1em}\bodyfont%
   \renewcommand*{\multinamedelim}{\addcomma\addspace}%
   \nameparts{#1}%
   \ifthenelse{\value{listcount}=1}
