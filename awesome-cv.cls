@@ -318,6 +318,10 @@
 % Usage: \xing{<xing name>}
 \newcommand*{\xing}[1]{\def\@xing{#1}}
 
+% Defines writer's nationality (optional)
+% Usage: \nationality{<country-of-nationality>}
+\newcommand*{\nationality}[1]{\def\@nationality{#1}}
+
 % Defines writer's twitter (optional)
 % Defines writer's extra informations (optional)
 % Usage: \extrainfo{<extra informations>}
@@ -501,6 +505,12 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://www.xing.com/profile/\@xing}{\faXingSquare\acvHeaderIconSep\@xing}
+        }%
+      \ifthenelse{\isundefined{\@nationality}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \faFlag\acvHeaderIconSep\@nationality%
         }%
       \ifthenelse{\isundefined{\@extrainfo}}%
         {}%
