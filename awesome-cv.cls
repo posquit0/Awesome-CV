@@ -318,6 +318,10 @@
 % Usage: \xing{<xing name>}
 \newcommand*{\xing}[1]{\def\@xing{#1}}
 
+% Defines writer's date of birth (optional)
+% Usage: \birthday{<dd-mm-yyyy>}
+\newcommand*{\birthday}[1]{\def\@birthday{#1}}
+
 % Defines writer's twitter (optional)
 % Defines writer's extra informations (optional)
 % Usage: \extrainfo{<extra informations>}
@@ -501,6 +505,12 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://www.xing.com/profile/\@xing}{\faXingSquare\acvHeaderIconSep\@xing}
+        }%
+      \ifthenelse{\isundefined{\@birthday}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \faBirthdayCake\acvHeaderIconSep\@birthday%
         }%
       \ifthenelse{\isundefined{\@extrainfo}}%
         {}%
