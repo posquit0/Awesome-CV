@@ -1,7 +1,7 @@
-<img alt="AwesomeCV" width="256px" height="256px" align="left" src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png" />
+<img alt="AwesomeCV" width="200px" height="200px" align="left" src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png" />
 
-## **Awesome CV**
-> *LaTeX template for your outstanding job application*
+# **Awesome CV**
+> LaTeX template for your outstanding job application
 
 [![Example](https://img.shields.io/badge/example-pdf-green.svg)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)
 
