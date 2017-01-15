@@ -5,6 +5,7 @@
 
 <br />
 
+[![CircleCI](https://circleci.com/gh/posquit0/Awesome-CV.svg?style=svg)](https://circleci.com/gh/posquit0/Awesome-CV)
 [![Example](https://img.shields.io/badge/example-pdf-green.svg)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)
 
 <br />
