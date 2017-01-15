@@ -1,4 +1,4 @@
-<img alt="AwesomeCV" width="256px" height="256px" src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png" />
+<img alt="AwesomeCV" width="256px" height="256px" align="left" src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png" />
 
 ## **Awesome CV**
 > *LaTeX template for your outstanding job application*
