@@ -1,0 +1,19 @@
+## Customize the test machine
+machine:
+  timezone:
+    Asia/Seoul
+
+  services:
+    - docker
+
+## Customize dependencies
+dependencies:
+  override:
+    - apt-get install texlive-full
+
+## Customize compile commands
+compile:
+  override:
+    - make
+  post:
+    - mv examples/*.pdf $CIRCLE_ARTIFACTS/
