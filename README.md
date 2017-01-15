@@ -1,5 +1,14 @@
-<img src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png" align="left" width="144px" height="144px"/>
-### **Awesome CV**
+<h1 align=center>
+  <a href="https://github.com/posquit0/Awesome-CV" title="AwesomeCV Documentation">
+    <img alt="AwesomeCV" src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png">
+  </a>
+  <br>
+  Awesome CV
+</h1>
+
+<p align=center>
+LaTeX template for your outstanding job application
+</p>
 
 [![Example](https://img.shields.io/badge/example-pdf-green.svg)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)
 
