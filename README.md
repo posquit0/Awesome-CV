@@ -1,4 +1,4 @@
-<img src="https://avatars0.githubusercontent.com/u/16761748" align="left" width="144px" height="144px"/>
+<img src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png" align="left" width="144px" height="144px"/>
 ### **Awesome CV**
 
 [![Example](https://img.shields.io/badge/example-pdf-green.svg)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)
