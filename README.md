@@ -1,6 +1,6 @@
 <h1 align=center>
   <a href="https://github.com/posquit0/Awesome-CV" title="AwesomeCV Documentation">
-    <img alt="AwesomeCV" width="240px" height="240px" src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png">
+    <img alt="AwesomeCV" width="256px" height="256px" src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png">
   </a>
   <br>
   Awesome CV
