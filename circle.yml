@@ -6,14 +6,9 @@ machine:
   services:
     - docker
 
-## Customize dependencies
-dependencies:
-  override:
-    - apt-get install texlive-full
-
 ## Customize compile commands
-compile:
+test:
   override:
-    - make
+    - docker run --rm -w "/doc" -v "$PWD":/doc thomasweise/texlive make
   post:
     - mv examples/*.pdf $CIRCLE_ARTIFACTS/
