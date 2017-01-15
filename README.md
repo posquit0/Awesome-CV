@@ -1,17 +1,11 @@
-<h1 align=center>
-  <a href="https://github.com/posquit0/Awesome-CV" title="AwesomeCV Documentation">
-    <img alt="AwesomeCV" width="256px" height="256px" src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png">
-  </a>
-  <br>
-  Awesome CV
-</h1>
+<img alt="AwesomeCV" width="256px" height="256px" src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png" />
 
-<p align=center>
-LaTeX template for your outstanding job application
-</p>
+## **Awesome CV**
+> *LaTeX template for your outstanding job application*
 
 [![Example](https://img.shields.io/badge/example-pdf-green.svg)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)
 
+<br />
 
 ## <a name="what-is-awesomecv"></a>What is Awesome CV?
 
