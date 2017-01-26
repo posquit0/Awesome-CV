@@ -12,7 +12,7 @@
 
 <div align="center">
   <a href="https://circleci.com/gh/posquit0/Awesome-CV">
-    <img alt="CircleCI" src="https://circleci.com/gh/posquit0/Awesome-CV.svg?style=svg" />
+    <img alt="CircleCI" src="https://circleci.com/gh/posquit0/Awesome-CV.svg?style=shield" />
   </a>
   <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf">
     <img alt="Example" src="https://img.shields.io/badge/example-pdf-green.svg" />
