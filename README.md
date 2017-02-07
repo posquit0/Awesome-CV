@@ -63,6 +63,20 @@ You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/e
 
 ## <a name="how-to-use">How to Use
 
+### Using Docker Container
+
+#### Usage
+
+Just execute the following line in the root directory of this repository. Voila!
+
+```bash
+$ generate_cv_with_docker.sh
+```
+
+The resulting cv.pdf can be found in /examples.
+
+### Using local TeX installation
+
 #### Requirements
 
 A full TeX distribution is assumed.  [Various distributions for different operating systems (Windows, Mac, \*nix) are available](http://tex.stackexchange.com/q/55437) but TeX Live is recommended.
