@@ -614,11 +614,11 @@
     \end{tabular*}
   \end{center}
 }
+
 % Define a line of cv information(honor, award or something else)
-% Usage: \cvhonor{<position>}{<title>}{<description>}{<location>}{<date>}
-\newcommand*{\cvhonor}[5]{%
-    \honordatestyle{#5} & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#4} \cr & \honordescriptionstyle{#3}
-    \\
+% Usage: \cvhonor[<description>]{<position>}{<title>}{<location>}{<date>}
+\newcommand*{\cvhonor}[5][]{
+    \honordatestyle{#5} & \honorpositionstyle{#2}, \honortitlestyle{#3} & \honorlocationstyle{#4}  \cr & \honordescriptionstyle{#1}\\
 }
 
 % Define an environment for cvskill
