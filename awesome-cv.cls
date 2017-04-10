@@ -215,6 +215,7 @@
 
 % For elements of honor
 \newcommand*{\honortitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
+\newcommand*{\honordescriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{graytext} #1}}
 \newcommand*{\honorpositionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\honordatestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
 \newcommand*{\honorlocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
@@ -614,9 +615,10 @@
   \end{center}
 }
 % Define a line of cv information(honor, award or something else)
-% Usage: \cvhonor{<position>}{<title>}{<location>}{<date>}
-\newcommand*{\cvhonor}[4]{%
-  \honordatestyle{#4} & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#3} \\
+% Usage: \cvhonor{<position>}{<title>}{<description>}{<location>}{<date>}
+\newcommand*{\cvhonor}[5]{%
+    \honordatestyle{#5} & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#4} && \honordescriptionstyle{#3}
+    \\
 }
 
 % Define an environment for cvskill
