@@ -88,6 +88,8 @@
   pdfsubject={},
   pdfkeywords={}
 }
+% Needed for \textborn
+\RequirePackage{textcomp}
 
 
 %-------------------------------------------------------------------------------
@@ -281,6 +283,10 @@
 % Usage: \email{<email adress>}
 \newcommand*{\email}[1]{\def\@email{#1}}
 
+% Defines writer's date of birth (optional)
+% Usage: \dateofbirth{<date>}
+\newcommand*{\dateofbirth}[1]{\def\@dateofbirth{#1}}
+
 % Defines writer's homepage (optional)
 % Usage: \homepage{<url>}
 \newcommand*{\homepage}[1]{\def\@homepage{#1}}
@@ -447,6 +453,13 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{mailto:\@email}{\faEnvelope\acvHeaderIconSep\@email}%
+        }%
+      \ifthenelse{\isundefined{\@dateofbirth}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          % \mbox prevents wrapping of elements
+          \mbox{\textborn{\acvHeaderIconSep\@dateofbirth}}
         }%
       \ifthenelse{\isundefined{\@homepage}}%
         {}%
