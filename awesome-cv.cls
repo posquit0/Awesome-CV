@@ -88,6 +88,8 @@
   pdfsubject={},
   pdfkeywords={}
 }
+% Needed for string comparison & manipulation (e.g. in \homepage)
+\RequirePackage{xstring}
 
 
 %-------------------------------------------------------------------------------
@@ -452,7 +454,26 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{http://\@homepage}{\faHome\acvHeaderIconSep\@homepage}%
+          \IfBeginWith{\@homepage}{http://}{%
+            % \@homepage begins with 'http://'%
+            \def\awesomecvHomepageUrl{\@homepage}%
+            % strip http:// from displayed text %
+            \def\aewsomecvHomepageText{\StrBehind{\@homepage}{http://}}%
+          }{%
+            % \@homepage does not begin with 'http://'%
+            \IfBeginWith{\@homepage}{https://}{%
+              % \@homepage begins with 'https://'%
+              \def\awesomecvHomepageUrl{\@homepage}%
+              % strip https:// from displayed text %
+              \def\aewsomecvHomepageText{\StrBehind{\@homepage}{https://}}%
+            }{%
+              % \@homepage begins with neither 'http://' nor 'https://'%
+              % -> force http scheme%
+              \def\awesomecvHomepageUrl{http://\@homepage}%
+              \def\aewsomecvHomepageText{\@homepage}%
+            }%
+          }%
+          \href{\awesomecvHomepageUrl}{\faHome\acvHeaderIconSep\aewsomecvHomepageText}%
         }%
       \ifthenelse{\isundefined{\@github}}%
         {}%
