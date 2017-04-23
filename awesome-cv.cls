@@ -456,8 +456,8 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          % \mbox prevents wrapping of elements
-          \mbox{\faBirthdayCake\acvHeaderIconSep\@dateofbirth}
+          % \mbox prevents wrapping of elements%
+          \mbox{\faBirthdayCake\acvHeaderIconSep\@dateofbirth}%
         }%
       \ifthenelse{\isundefined{\@homepage}}%
         {}%
