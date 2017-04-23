@@ -88,8 +88,6 @@
   pdfsubject={},
   pdfkeywords={}
 }
-% Needed for \textborn
-\RequirePackage{textcomp}
 
 
 %-------------------------------------------------------------------------------
@@ -459,7 +457,7 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           % \mbox prevents wrapping of elements
-          \mbox{\textborn{\acvHeaderIconSep\@dateofbirth}}
+          \mbox{\faBirthdayCake\acvHeaderIconSep\@dateofbirth}
         }%
       \ifthenelse{\isundefined{\@homepage}}%
         {}%
