@@ -14,13 +14,13 @@
   <a href="https://circleci.com/gh/posquit0/Awesome-CV">
     <img alt="CircleCI" src="https://circleci.com/gh/posquit0/Awesome-CV.svg?style=shield" />
   </a>
-  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf">
+  <a href="https://latexonline.cc/compile?git=https://github.com/posquit0/Awesome-CV&target=examples/resume.tex&command=xelatex">
     <img alt="Example Resume" src="https://img.shields.io/badge/resume-pdf-green.svg" />
   </a>
-  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/cv.pdf">
+  <a href="https://latexonline.cc/compile?git=https://github.com/posquit0/Awesome-CV&target=examples/cv.tex&command=xelatex">
     <img alt="Example CV" src="https://img.shields.io/badge/cv-pdf-green.svg" />
   </a>
-  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf">
+  <a href="https://latexonline.cc/compile?git=https://github.com/posquit0/Awesome-CV&target=examples/coverletter.tex&command=xelatex&workdir=.">
     <img alt="Example Coverletter" src="https://img.shields.io/badge/coverletter-pdf-green.svg" />
   </a>
 </div>
@@ -36,7 +36,7 @@
 
 #### Résumé
 
-You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)
+You can see the latest version of [PDF here](https://latexonline.cc/compile?git=https://github.com/posquit0/Awesome-CV&target=examples/resume.tex&command=xelatex)
 
 | Page. 1 | Page. 2 |
 |:---:|:---:|
@@ -44,7 +44,7 @@ You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/e
 
 #### Cover Letter
 
-You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf)
+You can see the latest version of [PDF here](https://latexonline.cc/compile?git=https://github.com/posquit0/Awesome-CV&target=examples/coverletter.tex&command=xelatex&workdir=.)
 
 | Without Sections | With Sections |
 |:---:|:---:|
@@ -53,6 +53,18 @@ You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/e
 
 ## <a name="quick-start">Quick Start
 
+1. Fork this repository
+2. Edit files and commit changes
+3. Use [LaTeX.Online](latexonline.cc) cloud compiler to create your PDF. Replace **LINK** with URL of your fork and open it:
+    - `https://latexonline.cc/compile?git=LINK&target=examples/cv.tex&command=xelatex`
+    - `https://latexonline.cc/compile?git=LINK&target=examples/resume.tex&command=xelatex`
+    - `https://latexonline.cc/compile?git=LINK&target=examples/coverletter.tex&command=xelatex&workdir=.`    
+
+
+Example: [https://latexonline.cc/compile?git=https://github.com/posquit0/Awesome-CV&target=examples/coverletter.tex&command=xelatex&workdir=.](https://latexonline.cc/compile?git=https://github.com/posquit0/Awesome-CV&target=examples/coverletter.tex&command=xelatex&workdir=.)
+
+Other options:
+
 * [**Edit Résumé on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv/tvmzpvdjfqxp)
 * [**Edit Résumé on ShareLaTeX.com**](https://www.sharelatex.com/templates/cv-or-resume/awesome-cv)
 * [**Edit Cover Letter on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv-cover-letter/pfzzjspkthbk)
@@ -60,12 +72,11 @@ You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/e
 
 **_Note:_ Above services do not guarantee up-to-date source code of Awesome CV**
 
-
 ## <a name="how-to-use">How to Use
 
 #### Requirements
 
-A full TeX distribution is assumed.  [Various distributions for different operating systems (Windows, Mac, \*nix) are available](http://tex.stackexchange.com/q/55437) but TeX Live is recommended.
+A full TeX distribution is assumed if you want to compile locally.  [Various distributions for different operating systems (Windows, Mac, \*nix) are available](http://tex.stackexchange.com/q/55437) but TeX Live is recommended.
 You can [install TeX from upstream](http://tex.stackexchange.com/q/1092) (recommended; most up-to-date) or use `sudo apt-get install texlive-full` if you really want that.  (It's generally a few years behind.)
 
 #### Usage
@@ -79,7 +90,7 @@ $ xelatex {your-cv}.tex
 This should result in the creation of ``{your-cv}.pdf``
 
 
-## <a name="credit">Credit
+## <a name="credit">Credits
 
 [**LaTeX**](http://www.latex-project.org) is a fantastic typesetting program that a lot of people use these days, especially the math and computer science people in academia.
 
