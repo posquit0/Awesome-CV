@@ -1,24 +1,13 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
-% Awesome CV LaTeX Template for CV/Resume
-%
-% This template has been downloaded from:
-% https://github.com/posquit0/Awesome-CV
-%
-% Author:
-% Claud D. Park <posquit0.bj@gmail.com>
-% http://www.posquit0.com
-%
-% Template license:
-% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
-%
-
 
 %-------------------------------------------------------------------------------
 % CONFIGURATIONS
 %-------------------------------------------------------------------------------
 % A4 paper size by default, use 'letterpaper' for US letter
 \documentclass[11pt, a4paper]{awesome-cv}
+
+\usepackage{datetime}
 
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
@@ -27,11 +16,10 @@
 \fontdir[fonts/]
 
 % Color for highlights
-% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
-%                 awesome-nephritis, awesome-concrete, awesome-darknight
-\colorlet{awesome}{awesome-red}
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange awesome-nephritis, awesome-concrete, awesome-darknight
+%\colorlet{awesome}{awesome-skyblue}
 % Uncomment if you would like to specify your own color
-% \definecolor{awesome}{HTML}{CA63A8}
+\definecolor{awesome}{HTML}{4084FF}
 
 % Colors for text
 % Uncomment if you would like to specify your own color
@@ -44,33 +32,32 @@
 \setbool{acvSectionColorHighlight}{true}
 
 % If you would like to change the social information separator from a pipe (|) to something else
+\newcommand{\dotsep}{\enskip$\cdot$\enskip}
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
-
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+\renewcommand{\acvSectionContentTopSkip}{5mm}
 
 %-------------------------------------------------------------------------------
 %	PERSONAL INFORMATION
 %	Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
-% Available options: circle|rectangle,edge/noedge,left/right
-% \photo{./examples/profile.png}
-\name{Claud D.}{Park}
-\position{Software Engineer{\enskip\cdotp\enskip}Security Expert}
-\address{246-1002, Gwangmyeongmayrouge Apt. 86, Cheongna lime-ro, Seo-gu, Incheon-si, 404-180, Rep. of KOREA}
 
-\mobile{(+82) 10-9030-1843}
-\email{posquit0.bj@gmail.com}
-\homepage{www.posquit0.com}
-\github{posquit0}
-\linkedin{posquit0}
-% \gitlab{gitlab-id}
-% \stackoverflow{SO-id}{SO-name}
-% \twitter{@twit}
-% \skype{skype-id}
-% \reddit{reddit-id}
-% \extrainfo{extra informations}
+\photo[circle,noedge,left]{./profile}
+\name{José}{Sá}
+\position{\MakeUppercase{M.Sc. Theoretical Physics}}
+\address{Rua D. Pedro V, 223\dotsep 4150-603 Porto\dotsep Portugal}
+\mobile{(+351) 913125218} 
+\email{jose.sa@fc.up.pt}
+%\homepage{}
+\github{jose-a-sa}
+%\linkedin{}
+%\stackoverflow{SO-id}{SO-name}
+%\twitter{}
+\skype{jose.sa17}
+%\reddit{}
+%\extrainfo{}
 
-\quote{``Be the change that you want to see in the world."}
-
+%\quote{``Must be the change that you want to see in the world."}
 
 %-------------------------------------------------------------------------------
 \begin{document}
@@ -79,26 +66,34 @@
 % Give optional argument to change alignment(C: center, L: left, R: right)
 \makecvheader
 
+\renewcommand{\today}{
+\ifcase \month \or JANUARY\or FEBRUARY\or MARCH\or APRIL\or MAY
+\or JUNE\or JULY\or AUGUST\or SEPTEMBER\or OCTOBER\or NOVEMBER\or DECEMBER\fi \space \number\day,
+\space\number\year} 
+
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
 \makecvfooter
-  {\today}
-  {Claud D. Park~~~·~~~Curriculum Vitae}
-  {\thepage}
+{\today}
+{José Sá \dotsep Curriculum Vitae}
+{\small\thepage}
 
 
 %-------------------------------------------------------------------------------
 %	CV/RESUME CONTENT
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
-\input{cv/education.tex}
-\input{cv/skills.tex}
-\input{cv/experience.tex}
-\input{cv/extracurricular.tex}
-\input{cv/honors.tex}
-\input{cv/presentation.tex}
-\input{cv/writing.tex}
-\input{cv/committees.tex}
+
+\input{cv/education}
+%\input{cv/publications}
+\input{cv/skills}
+\input{cv/research}
+\input{cv/conferences}
+%\input{cv/awards}
+\input{cv/awards}
+%\input{cv/teaching}
+%\input{cv/talks}
+%\input{cv/outreach}
 
 
 %-------------------------------------------------------------------------------
