@@ -1,0 +1,26 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "latex-workshop.latex.toolchain": [
+        {
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOC%"
+            ]
+        }
+    ],
+
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.aux": true,
+        "**/*.out": true,
+        "**/*.fls": true
+    }
+}
