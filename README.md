@@ -1,12 +1,12 @@
-<img alt="AwesomeCV" width="200px" height="200px" align="left" src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png" />
+<img alt="AwesomeCV" width="200px" height="200px" align="left" src="https://github.com/vishalsangave/Awesome-CV/raw/master/icon.png" />
 
 ## **Awesome CV**
 > LaTeX template for your outstanding job application
 
 <br />
 
-[![CircleCI](https://circleci.com/gh/posquit0/Awesome-CV.svg?style=svg)](https://circleci.com/gh/posquit0/Awesome-CV)
-[![Example](https://img.shields.io/badge/example-pdf-green.svg)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)
+[![CircleCI](https://circleci.com/gh/vishalsangave/Awesome-CV.svg?style=svg)](https://circleci.com/gh/vishalsangave/Awesome-CV)
+[![Example](https://img.shields.io/badge/example-pdf-green.svg)](https://raw.githubusercontent.com/vishalsangave/Awesome-CV/master/examples/resume.pdf)
 
 <br />
 
@@ -19,19 +19,19 @@
 
 #### Résumé
 
-You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)
+You can see [PDF](https://raw.githubusercontent.com/vishalsangave/Awesome-CV/master/examples/resume.pdf)
 
 | Page. 1 | Page. 2 |
 |:---:|:---:|
-| [![Résumé](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-0.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)  | [![Résumé](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf) |
+| [![Résumé](https://raw.githubusercontent.com/vishalsangave/Awesome-CV/master/examples/resume-0.png)](https://raw.githubusercontent.com/vishalsangave/Awesome-CV/master/examples/resume.pdf)  | [![Résumé](https://raw.githubusercontent.com/vishalsangave/Awesome-CV/master/examples/resume-1.png)](https://raw.githubusercontent.com/vishalsangave/Awesome-CV/master/examples/resume.pdf) |
 
 #### Cover Letter
 
-You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf)
+You can see [PDF](https://raw.githubusercontent.com/vishalsangave/Awesome-CV/master/examples/coverletter.pdf)
 
 | Without Sections | With Sections |
 |:---:|:---:|
-| [![Cover Letter(Traditional)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-0.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf)  | [![Cover Letter(Awesome)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf) |
+| [![Cover Letter(Traditional)](https://raw.githubusercontent.com/vishalsangave/Awesome-CV/master/examples/coverletter-0.png)](https://raw.githubusercontent.com/vishalsangave/Awesome-CV/master/examples/coverletter.pdf)  | [![Cover Letter(Awesome)](https://raw.githubusercontent.com/vishalsangave/Awesome-CV/master/examples/coverletter-1.png)](https://raw.githubusercontent.com/vishalsangave/Awesome-CV/master/examples/coverletter.pdf) |
 
 
 ## <a name="quick-start">Quick Start
