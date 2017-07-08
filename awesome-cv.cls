@@ -89,7 +89,6 @@
   pdfkeywords={}
 }
 
-
 %-------------------------------------------------------------------------------
 %                Configuration for directory locations
 %-------------------------------------------------------------------------------
@@ -569,10 +568,14 @@
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+  \ifempty{#1#3#4}
+  	{\entrytitlestyle{#2} \\}
+    {
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
       \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+    }
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
   \end{tabular*}%
 }
@@ -648,6 +651,26 @@
   \end{itemize}
   \end{justify}
   \vspace{-4.0mm}
+}
+
+
+
+% Define an environment for cvlistentry
+\newenvironment{cvlistentries}{%
+  \vspace{-4.0mm}
+  \begin{center}
+}{%
+  \end{center}
+  \vspace{-4.0mm}
+}
+% Define an entry of cv information
+% Usage: \cvlistentry{<title>}{<date>}
+\newcommand*{\cvlistentry}[2]{%
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+  \bullet\enspace\descriptionstyle{#1} & \entrydatestyle{#2}
+  \end{tabular*}% 
 }
 
 
