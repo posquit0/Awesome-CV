@@ -88,6 +88,8 @@
   pdfsubject={},
   pdfkeywords={}
 }
+% Needed to draw skills circle
+\RequirePackage{tikz}
 
 
 %-------------------------------------------------------------------------------
@@ -222,6 +224,7 @@
 % For elements of skill
 \newcommand*{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{text} #1}}
+\newcommand*{\languagestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\bfseries\color{text} #1}}
 
 % For elements of the cover letter
 \newcommand*{\lettersectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
@@ -393,6 +396,17 @@
 
 % Use to execute conditional statements by checking empty string
 \newcommand*{\ifempty}[3]{\ifthenelse{\isempty{#1}}{#2}{#3}}
+
+% Circle for skills
+\newcommand{\fullcircle}{\tikz\draw[awesome,fill=awesome] (0,0) circle (.5ex);\enskip}
+\newcommand{\emptycircle}{\tikz\draw[awesome,fill=white] (0,0) circle (.5ex);\enskip}
+
+\newcommand{\zerooverfive}{\emptycircle \emptycircle \emptycircle \emptycircle \emptycircle}
+\newcommand{\oneoverfive}{\fullcircle \emptycircle \emptycircle \emptycircle \emptycircle}
+\newcommand{\twooverfive}{\fullcircle \fullcircle \emptycircle \emptycircle \emptycircle}
+\newcommand{\threeoverfive}{\fullcircle \fullcircle \fullcircle \emptycircle \emptycircle}
+\newcommand{\fouroverfive}{\fullcircle \fullcircle \fullcircle \fullcircle \emptycircle}
+\newcommand{\fiveoverfive}{\fullcircle \fullcircle \fullcircle \fullcircle \fullcircle}
 
 
 %-------------------------------------------------------------------------------
@@ -635,6 +649,21 @@
 % Usage: \cvskill{<type>}{<skillset>}
 \newcommand*{\cvskill}[2]{%
 	\skilltypestyle{#1} & \skillsetstyle{#2} \\
+}
+
+% Define a small-circle language skills line
+% Up to four languages can be defined
+% Usage: {<firstlanguage>}{<firstlevel>}{<secondlanguage>}{<secondlevel>}...
+\newcommand*{\cvlanguages}[8]{
+\vspace{-2.0mm}
+\setlength\tabcolsep{0pt}
+\setlength{\extrarowheight}{0pt}
+\begin{tabular*}{\textwidth}[t]{@{\extracolsep{\fill}} L{0.25\textwidth} C{0.25\textwidth} C{0.25\textwidth} R{0.25\textwidth}}
+  \descriptionstyle{\textbf{#1} \enskip #2}
+  & \descriptionstyle{\textbf{#3} \enskip #4}
+  &\descriptionstyle{\textbf{#5} \enskip #6}
+  & \descriptionstyle{\textbf{#7} \enskip #8}
+\end{tabular*}%
 }
 
 % Define an environment for cvitems(for cventry)
