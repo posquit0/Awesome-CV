@@ -587,6 +587,17 @@
     \descriptionstyle{#4} & \ifthenelse{\isempty{#6}}{}{\entrylocationstyle{\href{#6}{link}}}
   \end{tabular*}%
 }
+% Define a patent entry of cv information
+% Usage: \cvpatententry{<title>}{<authors>}{<patent no.>}{<date>}{<link>}
+\newcommand*{\cvpatententry}[5]{%
+  %\vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \entrytitlestyle{#1} & \entrylocationstyle{#3 (\href{#5}{link})} \\
+    \descriptionstyle{#2} & \entrydatestyle{#4}
+  \end{tabular*}%
+}
 
 
 % Define an environment for cvsubentry
