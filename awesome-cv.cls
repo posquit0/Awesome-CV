@@ -576,6 +576,18 @@
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
   \end{tabular*}%
 }
+% Define a publication entry of cv information
+% Usage: \cvpublicationentry{<publisher>}{<title>}{<authors>}{<detail of publisher>}{<date>}{<link>}
+\newcommand*{\cvpublicationentry}[6]{%
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \entrytitlestyle{#2} & \entrylocationstyle{#1} \\
+    \descriptionstyle{#3} & \entrydatestyle{#5} \\
+    \descriptionstyle{#4} & \ifthenelse{\isempty{#6}}{}{\entrylocationstyle{\href{#6}{link}}}
+  \end{tabular*}%
+}
+
 
 % Define an environment for cvsubentry
 \newenvironment{cvsubentries}{%
