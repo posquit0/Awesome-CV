@@ -273,6 +273,10 @@
 % Usage: \name{<position>}
 \newcommand*{\position}[1]{\def\@position{#1}}
 
+% Defines writer's birth (optional)
+% Usage: \birth{<birthdate>}
+\newcommand*{\birth}[1]{\def\@birth{#1}}
+
 % Defines writer's mobile (optional)
 % Usage: \mobile{<mobile number>}
 \newcommand*{\mobile}[1]{\def\@mobile{#1}}
@@ -436,11 +440,17 @@
     \headersocialstyle{%
       \newbool{isstart}%
       \setbool{isstart}{true}%
+      \ifthenelse{\isundefined{\@birth}}%
+        {}%
+        {%
+          \faBirthdayCake\acvHeaderIconSep\@birth%
+          \setbool{isstart}{false}%
+        }%
       \ifthenelse{\isundefined{\@mobile}}%
         {}%
         {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \faMobile\acvHeaderIconSep\@mobile%
-          \setbool{isstart}{false}%
         }%
       \ifthenelse{\isundefined{\@email}}%
         {}%
