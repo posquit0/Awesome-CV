@@ -2,5 +2,5 @@
 
 resume: latex/resume.pdf
 
-%.pdf: %.tex
+%.pdf: %.tex latex/sections/*.tex awesome-cv.cls
 	xelatex -output-directory=$(dir $@) $<
