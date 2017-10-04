@@ -7,16 +7,24 @@ Vancouver, BC
 Experience
 ----------
 
-**Principal Software Engineer** at **Pulse Energy (Acquired by EnerNOC and Yardi)** from **September 2008 - Present**
+**Technical Lead** at **Clir Renewables** from **April 2017 - Present**
 
-* Architected and built a time-series database with Cassandra to store terabytes of smart meter data. The wrapping service is written in Java. It has been running for 4 years, receiving 70 million new readings a day and 4 million reads, with hardly any maintenance or support.
-* Built our energy platform that exposes APIs for fetching metadata and time-series data.
-* Wrote a tariff engine in node.js for modelling energy costs.
-* Handled technical recruiting for new developers. Crafted the coding challenge given to new applicants and score every submission.
-* Hands on with DevOps. Helped write the CloudFormation scripts that build our AWS infrastructure and wrote Chef recipes to provision new nodes. Setup our monitoring stack (which uses Logstash, Kibana, Graphite, and Statsd). Forked and tweaked the open-source Graphiti project for creating Graphite dashboards.
-* Involved in writing algorithms for forecasting energy use. Have my name on a patent for a algorithm for predictive energy curves, which I'm both proud and ashamed of (because software patents should be illegal).
-* Mentored junior developers on our team, teaching them good fundamentals in code design and software life-cycles.
-* Optimized code for other teams (in Ruby, Java, Python, and R) to reduce memory footprints and speed up execution.
+* Team lead for 3 software developers creating a wind farm analysis tool with a Python backend and React frontend.
+* Responsible for architecting the system, mentoring junior developers, and writing code.
+* Setup infrastructure including a build server, user tracking, and secret management.
+* Restructured the AWS deployment, defining security groups, IAM roles, and VPC subnets.
+* Migrated time-series data from Elasticsearch into Redshift for reliability and speed.
+
+**Principal Software Engineer** at **Pulse Energy (Acquired by EnerNOC then Yardi)** from **September 2008 - April 2017**
+
+* Created a time-series database in Java using Cassandra to store terabytes of smart meter data.
+* Designed a tariff engine in node.js for modeling energy costs.
+* Handled technical recruiting for new developers, including managing the coding challenge.
+* Wrote Chef recipes to provision our cloud infrastructure in EC2.
+* Setup a monitoring stack using Logstash, Kibana, Graphite, Statsd, and a custom Graphiti-fork.
+* Patented an algorithm for forecasting energy use based on historical conditions and current weather.
+* Mentored junior developers on our team, teaching them fundamentals in code design and software life-cycles.
+* Optimized code for other teams (in Java, Python, Ruby, and R) to reduce memory footprints and speed up execution.
 
 **Software Developer** at **Business Objects (Acquired by SAP)** from **July 2006 - September 2008**
 
@@ -24,7 +32,7 @@ Experience
 * Feature owner of licensing technology and Java container server.
 * Quickly learned new codebases and helped with features that were behind schedule.
 
-**Programmer Analyst (Co-op)** at **Morgan Stanley** from **August - Decemember 2005**
+**Programmer Analyst (Co-op)** at **Morgan Stanley** from **August - December 2005**
 
 * Worked for the Credit Derivative Swap (CDS) team.
 * Created C# GUI component to view historical data.
@@ -34,7 +42,7 @@ Experience
 **Software Design Engineer in Test (Co-op)** at **Microsoft** from **January - April 2005**
 
 * Created quality measurement tool for MSN Newsbot that revealed several weaknesses.
-* Spearheaded an effort to improve the quality of Newsbot’s Canadian content.
+* Improved Newsbot’s algorithm to return more relevant content for Canadian users.
 
 Education
 ---------
