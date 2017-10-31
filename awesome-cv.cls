@@ -310,6 +310,10 @@
 % Usage: \skype{<skype account>}
 \newcommand*{\skype}[1]{\def\@skype{#1}}
 
+% Defines writer's facebook(optional)
+% Usage: \facebook{<facebook nick>}
+\newcommand*{\facebook}[1]{\def\@facebook{#1}}
+
 % Defines writer's reddit (optional)
 % Usage: \reddit{<reddit account>}
 \newcommand*{\reddit}[1]{\def\@reddit{#1}}
@@ -489,6 +493,12 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \faSkype\acvHeaderIconSep\@skype%
+        }%
+      \ifthenelse{\isundefined{\@facebook}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://www.facebook.com/\@facebook}{\faFacebook\acvHeaderIconSep\@facebook}%
         }%
       \ifthenelse{\isundefined{\@reddit}}%
         {}%
