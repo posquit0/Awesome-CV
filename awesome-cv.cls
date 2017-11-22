@@ -314,6 +314,10 @@
 % Usage: \reddit{<reddit account>}
 \newcommand*{\reddit}[1]{\def\@reddit{#1}}
 
+%Defines writer's telegram nickname (optional)
+%Usage: \telegram{<telegram nickname>}
+\newcommand{\telegram}[1]{\def\@telegram{#1}}
+
 % Defines writer's xing (optional)
 % Usage: \xing{<xing name>}
 \newcommand*{\xing}[1]{\def\@xing{#1}}
@@ -496,6 +500,12 @@
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://www.reddit.com/user/\@reddit}{\faReddit\acvHeaderIconSep\@reddit}%
         }%
+      \ifthenelse{\isundefined{\@telegram}}%
+      	{}%
+      	{%
+      		\ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+      		\faTelegram\acvHeaderIconSep\@telegram%
+      	}%
       \ifthenelse{\isundefined{\@xing}}%
         {}%
         {%
