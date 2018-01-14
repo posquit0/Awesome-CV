@@ -593,6 +593,10 @@
   \end{tabular*}%
 }
 
+%% Define cv entry responsibilities
+%% Usage: \responsibilities{<description>}
+\newcommand*{\responsibilities}[1]{#1\vspace{4.0mm}}
+
 % Define an environment for cvsubentry
 \newenvironment{cvsubentries}{%
   \begin{center}
