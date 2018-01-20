@@ -1,0 +1,14 @@
+## Customize the test machine
+machine:
+  timezone:
+    Asia/Seoul
+
+  services:
+    - docker
+
+## Customize compile commands
+test:
+  override:
+    - docker run --rm -w "/doc" -v "$PWD":/doc thomasweise/texlive make
+  post:
+    - mv examples/*.pdf $CIRCLE_ARTIFACTS/
