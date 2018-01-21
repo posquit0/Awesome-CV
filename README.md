@@ -30,12 +30,12 @@
 
 <br />
 
-## <a name="what-is-awesomecv"></a>What is Awesome CV?
+## What is Awesome CV?
 
 **Awesome CV** is LaTeX template for a **CV(Curriculum Vitae)**, **Résumé** or **Cover Letter** inspired by [Fancy CV](https://www.sharelatex.com/templates/cv-or-resume/fancy-cv). It is easy to customize your own template, especially since it is really written by a clean, semantic markup.
 
 
-## <a name="preview"></a>Preview
+## Preview
 
 #### Résumé
 
@@ -54,7 +54,7 @@ You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/e
 | [![Cover Letter(Traditional)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-0.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf)  | [![Cover Letter(Awesome)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf) |
 
 
-## <a name="quick-start">Quick Start
+## Quick Start
 
 * [**Edit Résumé on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv/tvmzpvdjfqxp)
 * [**Edit Résumé on ShareLaTeX.com**](https://www.sharelatex.com/templates/cv-or-resume/awesome-cv)
@@ -64,7 +64,7 @@ You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/e
 **_Note:_ Above services do not guarantee up-to-date source code of Awesome CV**
 
 
-## <a name="how-to-use">How to Use
+## How to Use
 
 #### Requirements
 
@@ -82,7 +82,7 @@ $ xelatex {your-cv}.tex
 This should result in the creation of ``{your-cv}.pdf``
 
 
-## <a name="credit">Credit
+## Credit
 
 [**LaTeX**](http://www.latex-project.org) is a fantastic typesetting program that a lot of people use these days, especially the math and computer science people in academia.
 
@@ -93,7 +93,7 @@ This should result in the creation of ``{your-cv}.pdf``
 [**Source Sans Pro**](https://github.com/adobe-fonts/source-sans-pro) is a set of OpenType fonts that have been designed to work well in user interface (UI) environments.
 
 
-## <a name="contact">Contact
+## Contact
 
 You are free to take my `.tex` file and modify it to create your own resume. Please don't use my resume for anything else without my permission, though!
 
