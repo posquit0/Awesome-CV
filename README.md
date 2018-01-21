@@ -43,7 +43,6 @@ Please help keep this project alive! Donations are welcome and will go towards f
     BTC: 1Je3DxJVM2a9nTVPNo55SfQwpmxA6N2KKb
     BCH: 1Mg1wG7PwHGrHYSWS67TsGSjo5GHEVbF16
     ETH: 0x77ED9B4659F80205E9B9C9FB1E26EDB9904AFCC7
-    XRP:
     QTUM: QZT7D6m3QtTTqp7s4ZWAwLtGDsoHMMaM8E
 
 *Thank you for your support!*
