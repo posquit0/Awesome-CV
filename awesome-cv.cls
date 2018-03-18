@@ -255,7 +255,7 @@
 \def\@photoalign{left}
 
 % Overrides the size of the photo ID if needed.
-% Usage: \photosizerectangle{<new height/width/diameter>}
+% Usage: \photosize{<new height/width/diameter>}
 \newcommand*{\photosize}[1]{\def\@photosize{#1}}
 
 % Define writer's name
