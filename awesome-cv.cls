@@ -179,6 +179,15 @@
   BoldItalicFont=*-MediumItalic,
 ]{Roboto}
 
+% Set main font
+\setmainfont[
+   Path=\@fontdir,
+  UprightFont=*-Thin,
+  ItalicFont=*-ThinItalic,
+  BoldFont=*-Medium,
+  BoldItalicFont=*-MediumItalic,
+]{Roboto}
+
 \newcommand*{\footerfont}{\sourcesanspro}
 \newcommand*{\bodyfont}{\sourcesanspro}
 \newcommand*{\bodyfontlight}{\sourcesansprolight}
@@ -744,7 +753,7 @@
   \par%
   \newblock%
   {%
-    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
+    \fontsize{8pt}{1em}\bodyfont\scshape\color{awesome}%
     \usebibmacro{journal+issuetitle}%
     \setunit{\space}%
     \printfield{pages}%
@@ -754,7 +763,7 @@
     \printfield{year}%
     \newunit%
   }
-  \par\vspace{0.3\baselineskip}
+  \par\vspace{0.8\baselineskip}
 }
 
 \DeclareBibliographyDriver{inproceedings}{%
@@ -837,7 +846,7 @@
 
 % New syntax for flexible backend (BibLaTeX > v3.3)
 \DeclareNameFormat{author}{%
-  \fontsize{9pt}{1em}\bodyfont%
+  \fontsize{9pt}{1em}\bodyfontlight%
   \renewcommand*{\multinamedelim}{\addcomma\addspace}%
   \nameparts{#1}%
   \ifthenelse{\value{listcount}=1}
