@@ -285,6 +285,10 @@
 % Usage: \homepage{<url>}
 \newcommand*{\homepage}[1]{\def\@homepage{#1}}
 
+% Defines writer's facebook (optional)
+% Usage: \facebook{<facebook-nick>}
+\newcommand*{\facebook}[1]{\def\@facebook{#1}}
+
 % Defines writer's github (optional)
 % Usage: \github{<github-nick>}
 \newcommand*{\github}[1]{\def\@github{#1}}
@@ -459,6 +463,12 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://github.com/\@github}{\faGithubSquare\acvHeaderIconSep\@github}%
+        }%
+      \ifthenelse{\isundefined{\@facebook}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://facebook.com/\@facebook}{\faFacebookSquare\acvHeaderIconSep\@facebook}%
         }%
       \ifthenelse{\isundefined{\@gitlab}}%
         {}%
