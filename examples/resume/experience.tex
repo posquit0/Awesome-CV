@@ -11,92 +11,158 @@
 
 %---------------------------------------------------------
   \cventry
-    {Software Architect} % Job title
-    {Omnious. Co., Ltd.} % Organization
-    {Seoul, S.Korea} % Location
-    {Jun. 2017 - PRESENT} % Date(s)
+    {Full Stack Developer} % Job title
+    {SPYSCAPE} % Organization
+    {London, New York} % Location
+    {Apr. 2017 - Mar 2018} % Date(s)
     {
-      \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Provisioned an easily managable hybrid infrastructure(Amazon AWS + On-premise) utilizing IaC(Infrastructure as Code) tools like Ansible, Packer and Terraform.}
-        \item {Built fully automated CI/CD pipelines on CircleCI for containerized applications using Docker, AWS ECR and Rancher.}
-        \item {Designed an overall service architecture and pipelines of the Machine Learning based Fashion Tagging API SaaS product with the micro-services architecture.}
-        \item {Implemented several API microservices in Node.js Koa and in the serverless AWS Lambda functions.}
-        \item {Deployed a centralized logging environment(ELK, Filebeat, CloudWatch, S3) which gather log data from docker containers and AWS resources.}
-        \item {Deployed a centralized monitoring environment(Grafana, InfluxDB, CollectD) which gather system metrics as well as docker run-time metrics.}
-      \end{cvitems}
+      This job was mainly being a react coder for interactive games for a 64,000m² museum in New York, costing £55 Million.
+      \newline
+      \vspace{0.25cm}
+      The games, built in react/redux and thunk/rxjs had the following features:-
+      \newline
+      \begin{itemize} % Description(s) of tasks/responsibilities
+        \vspace{0.25cm}
+        \setlength\itemsep{0.25em}
+        \item {face tracking, facial sentiment analysis and textual audio analysis}
+        \item {MQTT \& rfid integration}
+        \item {handwriting recognition software}
+        \item {multi player games}
+        \item {virtual and physical deployment of interactives}
+        \vspace{0.25cm}
+      \end{itemize}
+      As well as the react games, i was also involved in building out the distributed architecture, mainly in rails and some small bits of python. This included :-
+      \vspace{0.25cm}
+      \begin{itemize} % Description(s) of tasks/responsibilities
+        \setlength\itemsep{0.25em}
+        \item {building out a CQRS based distributed event architecture, using AWS Kinesis}
+        \item {Implementing realtime monitoring technology for Kinesis, heroku, mqtt and pusher}
+        \item {building out an IOT based event system, using AWS MQTT and interacting with kinesis over AWS Lambdas}
+        \item {building out a custom deployment system for the physical RFID readers in ruby}
+        \item {being involved with the physical kit out of the museum}
+        \item {interacting heavily with arduino based development for the RFID and various sensor technologies}
+      \end{itemize}
     }
 
-%---------------------------------------------------------
-  \cventry
-    {Co-founder \& Software Engineer} % Job title
-    {PLAT Corp.} % Organization
-    {Seoul, S.Korea} % Location
-    {Jan. 2016 - Jun. 2017} % Date(s)
+    \cventry
+    {Senior Developer} % Job title
+    {Government Digital Service} % Organization
+    {London} % Location
+    {Jan. 2016 - Mar 2017} % Date(s)
     {
-      \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Implemented RESTful API server for car rental booking application(CARPLAT in Google Play).}
-        \item {Built and deployed overall service infrastructure utilizing Docker container, CircleCI, and several AWS stack(Including EC2, ECS, Route 53, S3, CloudFront, RDS, ElastiCache, IAM), focusing on high-availability, fault tolerance, and auto-scaling.}
-        \item {Developed an easy-to-use Payment module which connects to major PG(Payment Gateway) companies in Korea.}
-      \end{cvitems}
+      Lead coder on the node front end to GOVUK pay, a pci compliant payments processing platform, much like a stripe for government.
+      This involved building out docker microservices for all parts of payment processing lifecycle, split across eight different services. \newline
+      \vspace{0.25cm}
+      On the front end we built out the full front end and admin service as node apps, using progressively enhanced javascript and sass. we built a custom rails-esque dsl, and an isomorphic form framework, utilising the same form in
+      javascript as well as rendered by the backend, and sharing validations.
+      I was on this project until its successful launch.
+      \vspace{0.25cm}
     }
 
-%---------------------------------------------------------
-  \cventry
-    {Software Engineer \& Security Researcher (Compulsory Military Service)} % Job title
-    {R.O.K Cyber Command, MND} % Organization
-    {Seoul, S.Korea} % Location
-    {Aug. 2014 - Apr. 2016} % Date(s)
+    \cventry
+    {Interim CTO} % Job title
+    {Boomf} % Organization
+    {London} % Location
+    {Nov. 2013 - Nov 2016} % Date(s)
     {
-      \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Lead engineer on agent-less backtracking system that can discover client device's fingerprint(including public and private IP) independently of the Proxy, VPN and NAT.}
-        \item {Implemented a distributed web stress test tool with high anonymity.}
-        \item {Implemented a military cooperation system which is web based real time messenger in Scala on Lift.}
-      \end{cvitems}
+      This was one of the roles where I grew the most, leading from a five week project to, at it's peak, 8000 concurrent users and £80,000 revenue per day, boomf's value rose to £10m at this time.
+      \newline
+      \vspace{0.25cm}
+      This involved building out from a Rails monolith to deal with everything - from the front end site, to the factory processes, built with a progressively enhanced web app in CoffeeScript, consisting of 15,000 lines of JavaScript. This involved building out a JavaScript MVVM framework to handle this.
+      }
+    \cventry
+    {Boomf, continued} % Job title
+    {} % Organization
+    {} % Location
+    {} % Date(s)
+    {
+      As well as this, I had to built out the tech culture and direction, as well as take a lead role in day to day running of the non factory side of the business, as the CEO (Andy Bell) raised money.
+      \newline
+      \vspace{0.25cm}
+      My time as interim CTO consisted of:-
+      \newline
+      \vspace{0.25cm}
+      building out all infrastructure and architecture
+      \vspace{0.25cm}
+      \begin{itemize} % Description(s) of tasks/responsibilities
+        \setlength\itemsep{0.25em}
+        \item {Heroku, circleci}
+        \item {splitting out a rails monolith into domain related microservices (node)}
+        \item {building out a javascript app for Just in time factory processes }
+        \item {building out the frontend and backend framework}
+        \item {making architecture choices and building consenus around it}
+        \item {switched from batch async pdf generation to inline generation, achieving a 20x speed}       
+      \end{itemize}
+      \vspace{0.25cm}
+      Setting up an agile process while still delivering under exponential growth
+      \begin{itemize} % Description(s) of tasks/responsibilities
+        \vspace{0.25cm}
+        \setlength\itemsep{0.25em}
+        \item {Being scrum master}
+        \item {Setting up an agile process throughout the whole business and teaching scrum}
+        \item {Dealing successfully with scope and successful delivery under tight resource}
+        \item {dealing with scaling up a the factory process from one person to thirty people}
+        \item {enabling product based thinking throughout the team}
+        \item {enabling continous deployment, with a team of three, on average about 10-20 deploys a day}
+        \item {teaching a junior frontender with little production experience to be an asset to the team. He has since went on to start his own successful startup (fairwill)}    
+      \end{itemize}
     }
 
-%---------------------------------------------------------
-  \cventry
-    {Game Developer Intern at Global Internship Program} % Job title
-    {NEXON} % Organization
-    {Seoul, S.Korea \& LA, U.S.A} % Location
-    {Jan. 2013 - Feb. 2013} % Date(s)
+    \cventry
+    {Senior Developer} % Job title
+    {Mint Digital} % Organization
+    {London} % Location
+    {Jul. 2012 - Feb 2014} % Date(s)
     {
-      \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Developed in Cocos2d-x an action puzzle game(Dragon Buster) targeting U.S. market.}
-        \item {Implemented API server which is communicating with game client and In-App Store, along with two other team members who wrote the game logic and designed game graphics.}
-        \item {Won the 2nd prize in final evaluation.}
-      \end{cvitems}
+      This was my first experience of agency work, and I learned a lot here. Going ofrom being a developer to being CTO of a spin out startup; this was probably in my top three jobs, alongside boomf and the BBC. I made some life long friends here.
+      \newline
+      \vspace{0.25cm}
+      This was where I really got the hang of Ruby, Sinatra and Rails. as well as the technical learning. we learned how to take products from inception through to delivery, and more importantly how to deliver this consistently. As well as launching tens of projects for externals, we launched between 10 - 15 products in my time there to fully functional propositions.
+      \newline
+      \vspace{0.25cm}
+      Typically mint would have a mix of home grown products they were working on, and agency work for other businesses. There would be anywhere from 3-10 projects on the go within the organisation at once, and people would get a chance to work on all of them. There was a good company culture of sharing the knowledge.
+      \newline
+      \vspace{0.25cm}
+      The agency work was also good, we learned how to take these learnings and infuse them in other companies, building client trust and adapting working practice to suit.
+      \vspace{0.25cm}
+      }
+
+    \cventry
+    {Developer} % Job title
+    {Songkick} % Organization
+    {London} % Location
+    {Jun. 2011 - Jul 2012} % Date(s)
+    {
+      The two main projects I was involved in were :-
+      \newline
+      \vspace{0.25cm}
+      Full streamline and Reskin as the site. This involved restructuring to a modular CSS pattern and personally leading the transformation to a fully responsive website, their first fully mobile offering.
+      \newline
+      \vspace{0.25cm}
+      I developed the first Spotify/Songkick integration, a full response single page web app using the Songklick APIs. It was launch partner for the Songkick app store. The Songkick app got downloaded at least 100,000 times.
+      \vspace{0.25cm}
     }
 
-%---------------------------------------------------------
-  \cventry
-    {Software Engineer} % Job title
-    {ShitOne Corp.} % Organization
-    {Seoul, S.Korea} % Location
-    {Dec. 2011 - Feb. 2012} % Date(s)
+    \cventry
+    {Senior Client Side Developer} % Job title
+    {BBC} % Organization
+    {London} % Location
+    {Jun 2008 - Jun 2011} % Date(s)
     {
-      \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Developed a proxy drive smartphone application which connects proxy driver and customer.}
-        \item {Implemented overall Android application logic and wrote API server for community service, along with lead engineer who designed bidding protocol on raw socket and implemented API server for bidding.}
-      \end{cvitems}
+      The BBC is where i first cut my teeth on large scale projects, i progressed from a Junior to senior with the space of eighteen months. The things i felt i was bringing was a sense of interactivity that did not exist on the pages before.
+      Created the first fully formed single page web apps the bcc created. Full details on Linkedin
+      \newline
+      \vspace{0.25cm}
     }
 
-%---------------------------------------------------------
-  \cventry
-    {Freelance Penetration Tester} % Job title
-    {SAMSUNG Electronics} % Organization
-    {S.Korea} % Location
-    {Sep. 2013, Mar. 2011 - Oct. 2011} % Date(s)
-    {
-      \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Conducted penetration testing on SAMSUNG KNOX, which is solution for enterprise mobile security.}
-        \item {Conducted penetration testing on SAMSUNG Smart TV.}
-      \end{cvitems}
-      %\begin{cvsubentries}
-      %  \cvsubentry{}{KNOX(Solution for Enterprise Mobile Security) Penetration Testing}{Sep. 2013}{}
-      %  \cvsubentry{}{Smart TV Penetration Testing}{Mar. 2011 - Oct. 2011}{}
-      %\end{cvsubentries}
-    }
+    \cventry
+    {Developer} % Job title
+    {Woolworths} % Organization
+    {London} % Location
+    {Sep 2007 - Jun 2008} % Date(s)
+    {}
+
+
 
 %---------------------------------------------------------
 \end{cventries}
