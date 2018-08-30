@@ -394,6 +394,11 @@
 % Use to execute conditional statements by checking empty string
 \newcommand*{\ifempty}[3]{\ifthenelse{\isempty{#1}}{#2}{#3}}
 
+% Command to provide nice looking inline links
+\newcommand*{\inlinelink}[2]{%
+  \color{lighttext}\href{#1}{#2}\color{text}%
+}
+
 
 %-------------------------------------------------------------------------------
 %                Commands for elements of CV structure
