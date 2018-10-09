@@ -1,0 +1,13 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    working_directory: /tmp/awesome-cv
+    steps:
+      - checkout
+      - run:
+          name: Compile article
+          command: |
+            docker run --rm -w "/doc" -v "$PWD":/doc thomasweise/texlive make
+      - store_artifacts:
+          path: /tmp/awesome-cv/examples
