@@ -650,6 +650,22 @@
   \vspace{-4.0mm}
 }
 
+%Define a simple environment to add references
+\newenvironment{cvrefs}{
+  %\begin{center}
+    \setlength\tabcolsep{1ex}
+    \setlength{\extrarowheight}{0pt}
+    \begin{tabular*}{\textwidth}{@{} l l}
+}{
+    \end{tabular*}
+}
+% Define one personal reference
+% Usage: \cvref{<name>}{<connection>}{<contact info>}
+\newcommand*{\cvref}[3]{
+	\skilltypestyle{#1} & \skillsetstyle{#2: #3}
+  \\
+}
+
 
 %-------------------------------------------------------------------------------
 %                Commands for elements of Cover Letter
