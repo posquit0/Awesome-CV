@@ -11,9 +11,9 @@
 % Define shortcut to load the Font Awesome font.
 \newfontfamily{\FA}{FontAwesome}
 % Generic command displaying an icon by its name.
-\newcommand*{\faicon}[1]{{
-  \FA\csname faicon@#1\endcsname
-}}
+% \newcommand*{\faicon}[1]{{
+%  \FA\csname faicon@#1\endcsname
+%}}
 
 \expandafter\def\csname faicon@address-book\endcsname {\symbol{"F2B9}} \def\faAddressBook {{\FA\csname faicon@address-book\endcsname}}
 \expandafter\def\csname faicon@address-book-o\endcsname {\symbol{"F2BA}} \def\faAddressBookO {{\FA\csname faicon@address-book-o\endcsname}}
