@@ -80,12 +80,20 @@ function parseIconsFile(obj) {
 
 /* ========= MAIN ========= */
 const fs = require('fs');
+const path = require('path');
+const filename = path.basename(__filename);
 const outputFile = "fontawesome5-latest.sty";
+var dateStamp = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
 
-var preambule =`
-% This is autogenerate file.
+var preambule =`% This is autogenerate file.
+% Produced by: ${filename}
+% Date: ${dateStamp}
+%
+% ========================================================
+% ===     Copy content below into fontawesome5.sty     ===
+% ========================================================
 \\NeedsTeXFormat{LaTeX2e}
-\\ProvidesPackage{fontawesome5}[2019/01/08 v5.6.3 font awesome icons]
+\\ProvidesPackage{fontawesome5}[v5.6.3 Font Awesome Icons]
 
 % Requirements to use.
 \\usepackage{fontspec}
