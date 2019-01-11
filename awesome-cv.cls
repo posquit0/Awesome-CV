@@ -525,7 +525,7 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://medium.com\\@\@medium}{\faMedium\acvHeaderIconSep\@medium}%
+          \href{https://medium.com/@\@medium}{\faMedium\acvHeaderIconSep\@medium}%
         }%
       \ifthenelse{\isundefined{\@googlescholarid}}%
         {}%
