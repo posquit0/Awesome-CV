@@ -270,7 +270,7 @@
 \newcommand*{\address}[1]{\def\@address{#1}}
 
 % Define writer's position
-% Usage: \name{<position>}
+% Usage: \position{<position>}
 \newcommand*{\position}[1]{\def\@position{#1}}
 
 % Defines writer's mobile (optional)
