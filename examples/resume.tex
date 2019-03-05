@@ -18,7 +18,7 @@
 % CONFIGURATIONS
 %-------------------------------------------------------------------------------
 % A4 paper size by default, use 'letterpaper' for US letter
-\documentclass[11pt, a4paper]{awesome-cv}
+\documentclass[12pt, letterpaper]{awesome-cv}
 
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
@@ -35,13 +35,15 @@
 
 % Colors for text
 % Uncomment if you would like to specify your own color
-% \definecolor{darktext}{HTML}{414141}
+ \definecolor{darktext}{HTML}{000000}
 % \definecolor{text}{HTML}{333333}
-% \definecolor{graytext}{HTML}{5D5D5D}
+ \definecolor{text}{HTML}{000000}
+ \definecolor{graytext}{HTML}{000000}
 % \definecolor{lighttext}{HTML}{999999}
+ \definecolor{lighttext}{HTML}{000000}
 
 % Set false if you don't want to highlight section with awesome color
-\setbool{acvSectionColorHighlight}{true}
+\setbool{acvSectionColorHighlight}{false}
 
 % If you would like to change the social information separator from a pipe (|) to something else
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
@@ -52,28 +54,28 @@
 %	Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
 % Available options: circle|rectangle,edge/noedge,left/right
-% \photo[rectangle,edge,right]{./examples/profile}
-\name{Byungjin}{Park}
-\position{Software Architect{\enskip\cdotp\enskip}Security Expert}
-\address{42-8, Bangbae-ro 15-gil, Seocho-gu, Seoul, 00681, Rep. of KOREA}
+% \photo{./examples/profile.png}
+\name{Avishek}{Kumar}
+\position{Data Scientist}
+\address{5455 S Ingleside Ave 1E, Chicago IL, 60615, United States of America}
 
-\mobile{(+82) 10-9030-1843}
-\email{posquit0.bj@gmail.com}
-\homepage{www.posquit0.com}
-\github{posquit0}
-\linkedin{posquit0}
+\mobile{732-439-4602}
+\email{avishek.raman.kumar@gmail.com}
+%\homepage{www.posquit0.com}
+\github{avishekrk}
+\linkedin{avishekrkumar}
 % \gitlab{gitlab-id}
 % \stackoverflow{SO-id}{SO-name}
-% \twitter{@twit}
+ \twitter{@avishekrk}
 % \skype{skype-id}
 % \reddit{reddit-id}
 % \medium{madium-id}
-% \googlescholar{googlescholar-id}{name-to-display}
+ \googlescholar{yIsdY40AAAAJ}{Avishek Kumar}
 %% \firstname and \lastname will be used
-% \googlescholar{googlescholar-id}{}
+% \googlescholar{googlescholar-id}{Avishek Kumar}
 % \extrainfo{extra informations}
 
-\quote{``Be the change that you want to see in the world."}
+%\quote{``Be the change that you want to see in the world."}
 
 
 %-------------------------------------------------------------------------------
@@ -81,13 +83,13 @@
 
 % Print the header with above personal informations
 % Give optional argument to change alignment(C: center, L: left, R: right)
-\makecvheader[C]
+\makecvheader
 
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
 \makecvfooter
   {\today}
-  {Byungjin Park~~~·~~~Résumé}
+  {Avishek Kumar~~~·~~~Resume}
   {\thepage}
 
 
@@ -95,14 +97,12 @@
 %	CV/RESUME CONTENT
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
-\input{resume/summary.tex}
-\input{resume/experience.tex}
-\input{resume/honors.tex}
-\input{resume/presentation.tex}
-\input{resume/writing.tex}
-\input{resume/committees.tex}
-\input{resume/education.tex}
-\input{resume/extracurricular.tex}
+\input{cv/experience.tex}\vspace{-1\baselineskip}
+\input{cv/skills.tex}\vspace{-1\baselineskip}
+\input{cv/education.tex}\vspace{-1\baselineskip}
+\input{cv/honors_resume.tex}\vspace{-1\baselineskip}
+
+
 
 
 %-------------------------------------------------------------------------------
