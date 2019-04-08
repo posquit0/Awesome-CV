@@ -866,9 +866,9 @@
   \renewcommand*{\multinamedelim}{\addcomma\addspace}%
   \nameparts{#1}%
   \ifthenelse{\value{listcount}=1}
-    {\ifblank{\namepartgiven}{}{\namepartgiven\space}%
+    {\ifblank{\namepartgiveni}{}{\namepartgiveni\space}%
     \namepartfamily}%
-    {\ifblank{\namepartgiven}{}{\namepartgiven\space}%
+    {\ifblank{\namepartgiveni}{}{\namepartgiveni\space}%
     \namepartfamily}%
   \ifthenelse{\value{listcount}<\value{liststop}}
   {\addcomma\space}
