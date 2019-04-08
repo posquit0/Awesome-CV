@@ -768,14 +768,12 @@
 \DeclareFieldFormat[incollection]{title}{#1\par}
 
 \DeclareBibliographyDriver{article}{%
-  \fontsize{9pt}{1em}\bodyfont%
-  \printfield{title}%
+  \entrytitlestyle{\printfield{title}}%
   \newblock%
-  \printnames{author}%
+  \entrypositionstyle{\printnames{author}}%
   \par%
   \newblock%
-  {%
-    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
+  \descriptionstyle{%
     \usebibmacro{journal+issuetitle}%
     \setunit{\space}%
     \printfield{pages}%
@@ -789,13 +787,12 @@
 }
 
 \DeclareBibliographyDriver{inproceedings}{%
-  \fontsize{9pt}{1em}\bodyfont%
-  \printfield{title}%
+  \entrytitlestyle{\printfield{title}}%
   \newblock%
-  \printnames{author}%
+  \entrypositionstyle{\printnames{author}}%
   \par%
   \newblock%
-  {%
+  \descriptionstyle{%
     \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
     \printfield{booktitle}%
     \setunit{\addcomma\space}%
@@ -808,13 +805,12 @@
 }
 
 \DeclareBibliographyDriver{incollection}{%
-  \fontsize{9pt}{1em}\bodyfont%
-  \printfield{title}%
+  \entrytitlestyle{\printfield{title}}%
   \newblock%
-  \printnames{author}%
+  \entrypositionstyle{\printnames{author}}%
   \par%
   \newblock%
-  {%
+  \descriptionstyle{%
     \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
     \printfield{booktitle}%
     \setunit{\addcomma\space}%
@@ -827,13 +823,12 @@
 }
 
 \DeclareBibliographyDriver{misc}{%
-  \fontsize{9pt}{1em}\bodyfont%
-  \printfield{title}%
+  \entrytitlestyle{\printfield{title}}%
   \newblock%
-  \printnames{author}%
+  \entrypositionstyle{\printnames{author}}%
   \par%
   \newblock%
-  {%
+  \descriptionstyle{%
     \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
     \printfield{booktitle}%
     \setunit*{\addcomma\space}%
@@ -848,13 +843,12 @@
 }
 
 \DeclareBibliographyDriver{report}{%
-  \fontsize{9pt}{1em}\bodyfont%
-  \printfield{title}%
+  \entrytitlestyle{\printfield{title}}%
   \newblock%
-  \printnames{author}%
+  \entrypositionstyle{\printnames{author}}%
   \par%
   \newblock%
-  {%
+  \descriptionstyle{%
     \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
     \printfield{type}%
     \setunit{\space}%
