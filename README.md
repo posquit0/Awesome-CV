@@ -110,3 +110,8 @@ You are free to take my `.tex` file and modify it to create your own resume. Ple
 If you have any questions, feel free to join me at [`#posquit0` on Freenode](irc://irc.freenode.net/posquit0) and ask away. Click [here](https://kiwiirc.com/client/irc.freenode.net/posquit0) to connect.
 
 Good luck!
+
+
+## See Also
+
+* [Awesome Identity](https://github.com/posquit0/hugo-awesome-identity) - A single-page Hugo theme to introduce yourself.
