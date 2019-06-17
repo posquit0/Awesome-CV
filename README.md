@@ -49,13 +49,13 @@ Please help keep this project alive! Donations are welcome and will go towards f
 
 ## Preview
 
-#### Résumé
+#### CV
 
-You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)
+You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/cv.pdf)
 
 | Page. 1 | Page. 2 |
 |:---:|:---:|
-| [![Résumé](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-0.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)  | [![Résumé](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf) |
+| [![CV](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/cv-0.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/cv.pdf)  | [![CV](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/cv-1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/cv.pdf) |
 
 #### Cover Letter
 
