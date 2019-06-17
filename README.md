@@ -55,7 +55,7 @@ You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/e
 
 | Page. 1 | Page. 2 |
 |:---:|:---:|
-| [![CV](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/cv-0.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/cv.pdf)  | [![CV](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/cv-1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/cv.pdf) |
+| [![CV](https://raw.githubusercontent.com/ravijo/Awesome-CV/master/examples/cv-0.png)](https://raw.githubusercontent.com/ravijo/Awesome-CV/master/examples/cv.pdf)  | [![CV](https://raw.githubusercontent.com/ravijo/Awesome-CV/master/examples/cv-1.png)](https://raw.githubusercontent.com/ravijo/Awesome-CV/master/examples/cv.pdf) |
 
 #### Cover Letter
 
