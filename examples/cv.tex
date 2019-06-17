@@ -29,7 +29,7 @@
 % Color for highlights
 % Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
 %                 awesome-nephritis, awesome-concrete, awesome-darknight
-\colorlet{awesome}{awesome-red}
+\colorlet{awesome}{awesome-skyblue}
 % Uncomment if you would like to specify your own color
 % \definecolor{awesome}{HTML}{CA63A8}
 
@@ -48,36 +48,55 @@
 
 
 %-------------------------------------------------------------------------------
-%	PERSONAL INFORMATION
-%	Comment any of the lines below if they are not required
+%  PERSONAL INFORMATION
+%  Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
 % Available options: circle|rectangle,edge/noedge,left/right
 % \photo{./examples/profile.png}
-\name{Claud D.}{Park}
-\position{Software Architect{\enskip\cdotp\enskip}Security Expert}
-\address{42-8, Bangbae-ro 15-gil, Seocho-gu, Seoul, 00681, Rep. of KOREA}
+\name{Ravi P.}{Joshi}
+\position{Ph.D. Candidate {\enskip\cdotp\enskip} Roboticist {\enskip\cdotp\enskip} ML Enthusiast}
+\address{Iseigaoka 6-1, Yahatanishi, Kitakyushu, Fukuoka, 807-0804, Japan}
 
-\mobile{(+82) 10-9030-1843}
-\email{posquit0.bj@gmail.com}
-\homepage{www.posquit0.com}
-\github{posquit0}
-\linkedin{posquit0}
+\mobile{(+81) 80-1530-4360}
+\email{joshi.ravi-prakash869@mail.kyutech.jp}
+\homepage{www.ravijoshi.xyz}
+\github{ravijo}
+\linkedin{ravi2008joshi}
+\googlescholar{adzvekkAAAAJ}{}
 % \gitlab{gitlab-id}
 % \stackoverflow{SO-id}{SO-name}
 % \twitter{@twit}
 % \skype{skype-id}
 % \reddit{reddit-id}
-% \medium{madium-id}
-% \googlescholar{googlescholar-id}{name-to-display}
-%% \firstname and \lastname will be used
-% \googlescholar{googlescholar-id}{}
 % \extrainfo{extra informations}
 
-\quote{``Be the change that you want to see in the world."}
+% uncomment below if you have some interesting quote
+%\quote{``Be the change that you want to see in the world."}
 
+%-------------------------------------------------------------------------------
+%  BIBLIOGRAPHY
+%-------------------------------------------------------------------------------
+\addbibresource{sections/publications.bib}
+
+% hook for counting the number of entries 
+% inside each refsection in biblatex
+% src: https://tex.stackexchange.com/a/495997/49520
+\makeatletter
+\AtDataInput{%
+  \ifltxcounter{datacount@\the\c@refsection}
+    {}
+    {\newcounter{datacount@\the\c@refsection}}%
+  \stepcounter{datacount@\the\c@refsection}}
+
+\newcommand*{\refsectionbibcount}{\arabic{datacount@\the\c@refsection}}
+\makeatother
+
+% for formatting the heading using our style
+\defbibheading{subbibnumbered}[\refname]{\cvsubsection{#1}}
 
 %-------------------------------------------------------------------------------
 \begin{document}
+
 
 % Print the header with above personal informations
 % Give optional argument to change alignment(C: center, L: left, R: right)
@@ -86,23 +105,22 @@
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
 \makecvfooter
-  {\today}
-  {Claud D. Park~~~·~~~Curriculum Vitae}
+  {Last Updated On \today}
+  {Ravi P. Joshi~~~·~~~Curriculum Vitae}
   {\thepage}
 
-
 %-------------------------------------------------------------------------------
-%	CV/RESUME CONTENT
-%	Each section is imported separately, open each file in turn to modify content
+%  CV/RESUME CONTENT
+%  Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
-\input{cv/education.tex}
-\input{cv/skills.tex}
-\input{cv/experience.tex}
-\input{cv/extracurricular.tex}
-\input{cv/honors.tex}
-\input{cv/presentation.tex}
-\input{cv/writing.tex}
-\input{cv/committees.tex}
+\input{sections/publications.tex}
+\input{sections/experience.tex}
+\input{sections/education.tex}
+\input{sections/skills.tex}
+% manually break the page here
+\pagebreak
+\input{sections/personalinfo.tex}
+\input{sections/honors.tex}
 
 
 %-------------------------------------------------------------------------------
