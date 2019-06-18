@@ -293,6 +293,10 @@
 % Usage: \gitlab{<gitlab-nick>}
 \newcommand*{\gitlab}[1]{\def\@gitlab{#1}}
 
+% Defines writer's bitbucket (optional)
+% Usage: \bitbucket{<bitbucket-nick>}
+\newcommand*{\bitbucket}[1]{\def\@bitbucket{#1}}
+
 % Defines writer's stackoverflow profile (optional)
 % Usage: \stackoverflow{<so userid>}{<so username>}
 %   e.g.https://stackoverflow.com/users/123456/sam-smith
@@ -484,6 +488,12 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://gitlab.com/\@gitlab}{\faGitlab\acvHeaderIconSep\@gitlab}%
+        }%
+      \ifthenelse{\isundefined{\@bitbucket}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://bitbucket.com/\@bitbucket}{\faBitbucketSquare\acvHeaderIconSep\@bitbucket}%
         }%
       \ifthenelse{\isundefined{\@stackoverflowid}}%
         {}%
