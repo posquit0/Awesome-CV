@@ -1,8 +1,8 @@
 ### Prerequisites
-    Make sure Font Awesome and Academicons are installed. 
+Make sure Font Awesome and Academicons are installed. 
 
 ### How to install the prerequisites mentioned above?
-  Go inside `fonts` directory. Double click on `*.ttf` file and install accordingly.
+Go inside `fonts` directory. Double click on `*.ttf` file and install accordingly.
 
 ### Complie
 ```
