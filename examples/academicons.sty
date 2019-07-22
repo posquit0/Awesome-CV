@@ -1,0 +1,357 @@
+% Copyright 2015-2018 Diogo A. B. Fernandes
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{academicons}[2018/06/27 v1.8.6-2 Academicons Icons]
+
+\newcommand\AI{\usefont{TU}{academicons}{m}{n}}
+
+\newcommand*{\aiicon}[1]
+  {\AI\csname aiicon@#1\endcsname}
+
+\expandafter\def\csname%
+  aiicon@academia\endcsname{\symbol{"E9AF}}
+\def\aiAcademia{{\AI\csname%
+  aiicon@academia\endcsname}}
+\expandafter\def\csname%
+  aiicon@academia-square\endcsname{\symbol{"E93D}}
+\def\aiAcademiaSquare{{\AI\csname%
+  aiicon@academia-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@acclaim\endcsname{\symbol{"E92E}}
+\def\aiAcclaim{{\AI\csname%
+  aiicon@acclaim\endcsname}}
+\expandafter\def\csname%
+  aiicon@acclaim-square\endcsname{\symbol{"E93A}}
+\def\aiAcclaimSquare{{\AI\csname%
+  aiicon@acclaim-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@acm\endcsname{\symbol{"E93C}}
+\def\aiACM{{\AI\csname%
+  aiicon@acm\endcsname}}
+\expandafter\def\csname%
+  aiicon@acm-square\endcsname{\symbol{"E95D}}
+\def\aiACMSquare{{\AI\csname%
+  aiicon@acm-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@acmdl\endcsname{\symbol{"E96A}}
+\def\aiACMDL{{\AI\csname%
+  aiicon@acmdl\endcsname}}
+\expandafter\def\csname%
+  aiicon@acmdl-square\endcsname{\symbol{"E9D3}}
+\def\aiACMDLSquare{{\AI\csname%
+  aiicon@acmdl-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@ads\endcsname{\symbol{"E9CB}}
+\def\aiADS{{\AI\csname%
+  aiicon@ads\endcsname}}
+\expandafter\def\csname%
+  aiicon@ads-square\endcsname{\symbol{"E94A}}
+\def\aiADSSquare{{\AI\csname%
+  aiicon@ads-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@arxiv\endcsname{\symbol{"E974}}
+\def\aiarXiv{{\AI\csname%
+  aiicon@arxiv\endcsname}}
+\expandafter\def\csname%
+  aiicon@arxiv-square\endcsname{\symbol{"E9A6}}
+\def\aiarXivSquare{{\AI\csname%
+  aiicon@arxiv-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@biorxiv\endcsname{\symbol{"E9A2}}
+\def\aibioRxiv{{\AI\csname%
+  aiicon@biorxiv\endcsname}}
+\expandafter\def\csname%
+  aiicon@biorxiv-square\endcsname{\symbol{"E98B}}
+\def\aibioRxivSquare{{\AI\csname%
+  aiicon@biorxiv-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@ceur\endcsname{\symbol{"E96D}}
+\def\aiCEUR{{\AI\csname%
+  aiicon@ceur\endcsname}}
+\expandafter\def\csname%
+  aiicon@ceur-square\endcsname{\symbol{"E92F}}
+\def\aiCEURSquare{{\AI\csname%
+  aiicon@ceur-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@coursera\endcsname{\symbol{"E95F}}
+\def\aiCoursera{{\AI\csname%
+  aiicon@coursera\endcsname}}
+\expandafter\def\csname%
+  aiicon@coursera-square\endcsname{\symbol{"E97F}}
+\def\aiCourseraSquare{{\AI\csname%
+  aiicon@coursera-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@cv\endcsname{\symbol{"E9A5}}
+\def\aiCV{{\AI\csname%
+  aiicon@cv\endcsname}}
+\expandafter\def\csname%
+  aiicon@cv-square\endcsname{\symbol{"E90A}}
+\def\aiCVSquare{{\AI\csname%
+  aiicon@cv-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@dataverse\endcsname{\symbol{"E9F7}}
+\def\aiDataverse{{\AI\csname%
+  aiicon@dataverse\endcsname}}
+\expandafter\def\csname%
+  aiicon@dataverse-square\endcsname{\symbol{"E9E4}}
+\def\aiDataverseSquare{{\AI\csname%
+  aiicon@dataverse-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@dblp\endcsname{\symbol{"E94F}}
+\def\aidblp{{\AI\csname%
+  aiicon@dblp\endcsname}}
+\expandafter\def\csname%
+  aiicon@dblp-square\endcsname{\symbol{"E93F}}
+\def\aidblpSquare{{\AI\csname%
+  aiicon@dblp-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@depsy\endcsname{\symbol{"E97A}}
+\def\aiDepsy{{\AI\csname%
+  aiicon@depsy\endcsname}}
+\expandafter\def\csname%
+  aiicon@depsy-square\endcsname{\symbol{"E94B}}
+\def\aiDepsySquare{{\AI\csname%
+  aiicon@depsy-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@doi\endcsname{\symbol{"E97E}}
+\def\aiDoi{{\AI\csname%
+  aiicon@doi\endcsname}}
+\expandafter\def\csname%
+  aiicon@doi-square\endcsname{\symbol{"E98F}}
+\def\aiDoiSquare{{\AI\csname%
+  aiicon@doi-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@dryad\endcsname{\symbol{"E97C}}
+\def\aiDryad{{\AI\csname%
+  aiicon@dryad\endcsname}}
+\expandafter\def\csname%
+  aiicon@dryad-square\endcsname{\symbol{"E98C}}
+\def\aiDryadSquare{{\AI\csname%
+  aiicon@dryad-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@figshare\endcsname{\symbol{"E981}}
+\def\aiFigshare{{\AI\csname%
+  aiicon@figshare\endcsname}}
+\expandafter\def\csname%
+  aiicon@figshare-square\endcsname{\symbol{"E9E7}}
+\def\aiFigshareSquare{{\AI\csname%
+  aiicon@figshare-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@googlescholar\endcsname{\symbol{"E9D4}}
+\def\aiGoogleScholar{{\AI\csname%
+  aiicon@googlescholar\endcsname}}
+\expandafter\def\csname%
+  aiicon@googlescholar-square\endcsname{\symbol{"E9F9}}
+\def\aiGoogleScholarSquare{{\AI\csname%
+  aiicon@googlescholar-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@ideas-repec\endcsname{\symbol{"E9ED}}
+\def\aiIDEASRePEc{{\AI\csname%
+  aiicon@ideas-repec\endcsname}}
+\expandafter\def\csname%
+  aiicon@ideas-repec-square\endcsname{\symbol{"E9F8}}
+\def\aiIDEASRePEcSquare{{\AI\csname%
+  aiicon@ideas-repec-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@ieee\endcsname{\symbol{"E929}}
+\def\aiIEEE{{\AI\csname%
+  aiicon@ieee\endcsname}}
+\expandafter\def\csname%
+  aiicon@ieee-square\endcsname{\symbol{"E9B9}}
+\def\aiIEEESquare{{\AI\csname%
+  aiicon@ieee-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@impactstory\endcsname{\symbol{"E9CF}}
+\def\aiImpactstory{{\AI\csname%
+  aiicon@impactstory\endcsname}}
+\expandafter\def\csname%
+  aiicon@impactstory-square\endcsname{\symbol{"E9AA}}
+\def\aiImpactstorySquare{{\AI\csname%
+  aiicon@impactstory-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@inspire\endcsname{\symbol{"E9E9}}
+\def\aiInspire{{\AI\csname%
+  aiicon@inspire\endcsname}}
+\expandafter\def\csname%
+  aiicon@inspire-square\endcsname{\symbol{"E9FE}}
+\def\aiInspireSquare{{\AI\csname%
+  aiicon@inspire-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@lattes\endcsname{\symbol{"E9B3}}
+\def\aiLattes{{\AI\csname%
+  aiicon@lattes\endcsname}}
+\expandafter\def\csname%
+  aiicon@lattes-square\endcsname{\symbol{"E99C}}
+\def\aiLattesSquare{{\AI\csname%
+  aiicon@lattes-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@mathoverflow\endcsname{\symbol{"E9F6}}
+\def\aiMathOverflow{{\AI\csname%
+  aiicon@mathoverflow\endcsname}}
+\expandafter\def\csname%
+  aiicon@mathoverflow-square\endcsname{\symbol{"E97B}}
+\def\aiMathOverflowSquare{{\AI\csname%
+  aiicon@mathoverflow-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@mendeley\endcsname{\symbol{"E9F0}}
+\def\aiMendeley{{\AI\csname%
+  aiicon@mendeley\endcsname}}
+\expandafter\def\csname%
+  aiicon@mendeley-square\endcsname{\symbol{"E9F3}}
+\def\aiMendeleySquare{{\AI\csname%
+  aiicon@mendeley-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@open-access\endcsname{\symbol{"E939}}
+\def\aiOpenAccess{{\AI\csname%
+  aiicon@open-access\endcsname}}
+\expandafter\def\csname%
+  aiicon@open-access-square\endcsname{\symbol{"E9F4}}
+\def\aiOpenAccessSquare{{\AI\csname%
+  aiicon@open-access-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@orcid\endcsname{\symbol{"E9D9}}
+\def\aiOrcid{{\AI\csname%
+  aiicon@orcid\endcsname}}
+\expandafter\def\csname%
+  aiicon@orcid-square\endcsname{\symbol{"E9C3}}
+\def\aiOrcidSquare{{\AI\csname%
+  aiicon@orcid-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@osf\endcsname{\symbol{"E9EF}}
+\def\aiOSF{{\AI\csname%
+  aiicon@osf\endcsname}}
+\expandafter\def\csname%
+  aiicon@osf-square\endcsname{\symbol{"E931}}
+\def\aiOSFSquare{{\AI\csname%
+  aiicon@osf-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@overleaf\endcsname{\symbol{"E914}}
+\def\aiOverleaf{{\AI\csname%
+  aiicon@overleaf\endcsname}}
+\expandafter\def\csname%
+  aiicon@overleaf-square\endcsname{\symbol{"E98D}}
+\def\aiOverleafSquare{{\AI\csname%
+  aiicon@overleaf-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@philpapers\endcsname{\symbol{"E98A}}
+\def\aiPhilPapers{{\AI\csname%
+  aiicon@philpapers\endcsname}}
+\expandafter\def\csname%
+  aiicon@philpapers-square\endcsname{\symbol{"E96F}}
+\def\aiPhilPapersSquare{{\AI\csname%
+  aiicon@philpapers-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@piazza\endcsname{\symbol{"E99A}}
+\def\aiPiazza{{\AI\csname%
+  aiicon@piazza\endcsname}}
+\expandafter\def\csname%
+  aiicon@piazza-square\endcsname{\symbol{"E90C}}
+\def\aiPiazzaSquare{{\AI\csname%
+  aiicon@piazza-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@publons\endcsname{\symbol{"E937}}
+\def\aiPublons{{\AI\csname%
+  aiicon@publons\endcsname}}
+\expandafter\def\csname%
+  aiicon@publons-square\endcsname{\symbol{"E94E}}
+\def\aiPublonsSquare{{\AI\csname%
+  aiicon@publons-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@pubmed\endcsname{\symbol{"E99F}}
+\def\aiPubMed{{\AI\csname%
+  aiicon@pubmed\endcsname}}
+\expandafter\def\csname%
+  aiicon@pubmed-square\endcsname{\symbol{"E97D}}
+\def\aiPubMedSquare{{\AI\csname%
+  aiicon@pubmed-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@researcherid\endcsname{\symbol{"E91A}}
+\def\aiResearcherID{{\AI\csname%
+  aiicon@researcherid\endcsname}}
+\expandafter\def\csname%
+  aiicon@researcherid-square\endcsname{\symbol{"E95C}}
+\def\aiResearcherIDSquare{{\AI\csname%
+  aiicon@researcherid-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@researchgate\endcsname{\symbol{"E95E}}
+\def\aiResearchGate{{\AI\csname%
+  aiicon@researchgate\endcsname}}
+\expandafter\def\csname%
+  aiicon@researchgate-square\endcsname{\symbol{"E99E}}
+\def\aiResearchGateSquare{{\AI\csname%
+  aiicon@researchgate-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@scirate\endcsname{\symbol{"E98E}}
+\def\aiSciRate{{\AI\csname%
+  aiicon@scirate\endcsname}}
+\expandafter\def\csname%
+  aiicon@scirate-square\endcsname{\symbol{"E99D}}
+\def\aiSciRateSquare{{\AI\csname%
+  aiicon@scirate-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@semantic-scholar\endcsname{\symbol{"E96E}}
+\def\aiSemanticScholar{{\AI\csname%
+  aiicon@semantic-scholar\endcsname}}
+\expandafter\def\csname%
+  aiicon@semantic-scholar-square\endcsname{\symbol{"E96C}}
+\def\aiSemanticScholarSquare{{\AI\csname%
+  aiicon@semantic-scholar-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@springer\endcsname{\symbol{"E928}}
+\def\aiSpringer{{\AI\csname%
+  aiicon@springer\endcsname}}
+\expandafter\def\csname%
+  aiicon@springer-square\endcsname{\symbol{"E99B}}
+\def\aiSpringerSquare{{\AI\csname%
+  aiicon@springer-square\endcsname}}
+
+\expandafter\def\csname%
+  aiicon@zotero\endcsname{\symbol{"E962}}
+\def\aiZotero{{\AI\csname%
+  aiicon@zotero\endcsname}}
+\expandafter\def\csname%
+  aiicon@zotero-square\endcsname{\symbol{"E932}}
+\def\aiZoteroSquare{{\AI\csname%
+  aiicon@zotero-square\endcsname}}
+
+\endinput
