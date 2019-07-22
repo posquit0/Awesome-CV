@@ -84,6 +84,8 @@
 \RequirePackage[skins]{tcolorbox}
 % Needed to deal a paragraphs
 \RequirePackage{parskip}
+% Needed for Google Scholar and ORCID icon
+\RequirePackage{academicons}
 % Needed to deal hyperlink
 \RequirePackage[hidelinks,unicode]{hyperref}
 \hypersetup{%
@@ -101,6 +103,7 @@
 \newcommand*{\fontdir}[1][fonts/]{\def\@fontdir{#1}}
 \fontdir
 
+\newfontfamily{\AI}{Academicons}
 
 %-------------------------------------------------------------------------------
 %                Configuration for layout
@@ -339,6 +342,10 @@
   }%
 }
 
+% Defines ORCID
+% Usage: \orcid{0000-0003-1264-6100}
+\newcommand*{\orcid}[1]{\def\@orcidid{#1}}
+
 % Defines writer's twitter (optional)
 % Defines writer's extra informations (optional)
 % Usage: \extrainfo{<extra informations>}
@@ -527,7 +534,13 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://scholar.google.com/citations?user=\@googlescholarid}{\faGraduationCap\acvHeaderIconSep\@googlescholarname}%
+          \href{https://scholar.google.com/citations?user=\@googlescholarid}{\aiGoogleScholarSquare\acvHeaderIconSep\@googlescholarname}%
+        }%
+      \ifthenelse{\isundefined{\@orcidid}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://orcid.org/\@orcidid}{\aiOrcid\acvHeaderIconSep{ORCiD}}%
         }%
       \ifthenelse{\isundefined{\@extrainfo}}%
         {}%

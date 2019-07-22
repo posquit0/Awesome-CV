@@ -1,5 +1,5 @@
 #!/bin/bash
-# compile cv.tex to produce cv.pdf
+# compile cv.tex to produce cv.pdf and
 # remove temporary files generated during compilation
 # Usage: sh compile.sh
 # Author: Ravi Joshi
