@@ -300,8 +300,8 @@
 \newcommand*{\stackoverflow}[2]{\def\@stackoverflowid{#1}\def\@stackoverflowname{#2}}
 
 % Defines writer's linked-in (optional)
-% Usage: \linkedin{<linked-in-nick>}
-\newcommand*{\linkedin}[1]{\def\@linkedin{#1}}
+% Usage: \linkedin{<linked-in-nick><linked-in-id>}
+\newcommand*{\linkedin}[2]{\def\@linkedindisplay{#1}\def\@linkedinid{#2}}
 
 % Defines writer's twitter (optional)
 % Usage: \twitter{<twitter handle>}
@@ -491,11 +491,11 @@
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://stackoverflow.com/users/\@stackoverflowid}{\faStackOverflow\acvHeaderIconSep\@stackoverflowname}%
         }%
-      \ifthenelse{\isundefined{\@linkedin}}%
+      \ifthenelse{\isundefined{\@linkedinid}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\acvHeaderIconSep\@linkedin}%
+          \href{https://www.linkedin.com/in/\@linkedinid}{\faLinkedinSquare\acvHeaderIconSep\@linkedindisplay}%
         }%
       \ifthenelse{\isundefined{\@twitter}}%
         {}%
