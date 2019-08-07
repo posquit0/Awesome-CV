@@ -54,7 +54,7 @@
 \RequirePackage{ragged2e}
 % Needed to configure page layout
 \RequirePackage{geometry}
-% Needed to make header & footer effeciently
+% Needed to make header & footer efficiently
 \RequirePackage{fancyhdr}
 % Needed to manage colors
 \RequirePackage{xcolor}
@@ -88,7 +88,8 @@
   pdfsubject={},
   pdfkeywords={}
 }
-
+% Require additional space to be filled by content
+\RequirePackage{needspace}
 
 %-------------------------------------------------------------------------------
 %                Configuration for directory locations
@@ -571,6 +572,7 @@
 % Define a section for CV
 % Usage: \cvsection{<section-title>}
 \newcommand{\cvsection}[1]{%
+  \needspace{5\baselineskip}
   \vspace{\acvSectionTopSkip}
   \sectionstyle{#1}
   \phantomsection
@@ -580,6 +582,7 @@
 % Define a subsection for CV
 % Usage: \cvsubsection{<subsection-title>}
 \newcommand{\cvsubsection}[1]{%
+  \needspace{5\baselineskip}
   \vspace{\acvSectionContentTopSkip}
   \vspace{-3mm}
   \subsectionstyle{#1}
@@ -742,3 +745,4 @@
       \letterenclosurestyle{\@letterenclname: \@letterenclosure} \\
     }
 }
+
