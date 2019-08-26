@@ -1,10 +1,11 @@
-#### Prerequisites
-Make sure Font Awesome and Academicons are installed. 
+## Prerequisites
+* Make sure Font Awesome and Academicons are installed. 
 
-#### How to install the prerequisites mentioned above?
-Go inside `fonts` directory. Double click on `*.ttf` file and install accordingly.
+## How to install the prerequisites mentioned above?
+* Go inside `fonts` directory. 
+* Double click on `*.ttf` file and install accordingly.
 
-#### Complie CV
+## Complie CV
 * Just run
     ```
     sh compile_cv.sh
@@ -15,7 +16,7 @@ Go inside `fonts` directory. Double click on `*.ttf` file and install accordingl
     biber cv
     ```
 
-#### Complie Cover Letter
+## Complie Cover Letter
 * Just run
     ```
     sh compile_coverletter.sh
