@@ -1,7 +1,7 @@
 #!/bin/bash
 # compile cv.tex to produce cv.pdf and
 # remove temporary files generated during compilation
-# Usage: sh compile.sh
+# Usage: sh compile_cv.sh
 # Author: Ravi Joshi
 # Date: 16 June 2019
 # -------------------------------------------------
