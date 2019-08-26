@@ -1,5 +1,5 @@
 ## Prerequisites
-* Make sure Font Awesome and Academicons are installed. 
+* Make sure [Font Awesome](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/) are installed. 
 
 ## How to install the prerequisites mentioned above?
 * Go inside `fonts` directory. 
