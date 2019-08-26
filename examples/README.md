@@ -5,23 +5,22 @@ Make sure Font Awesome and Academicons are installed.
 Go inside `fonts` directory. Double click on `*.ttf` file and install accordingly.
 
 #### Complie CV
-```
-xelatex cv.tex
-biber cv
-```
-
-Or just run
-```
-sh compile_cv.sh
-```
+* Just run
+    ```
+    sh compile_cv.sh
+    ```
+* Or
+    ```
+    xelatex cv.tex
+    biber cv
+    ```
 
 #### Complie Cover Letter
-```
-xelatex coverletter.tex
-```
-
-Or just run
-```
-sh compile_coverletter.sh
-```
-
+* Just run
+    ```
+    sh compile_coverletter.sh
+    ```
+* Or
+    ```
+    xelatex coverletter.tex
+    ```
