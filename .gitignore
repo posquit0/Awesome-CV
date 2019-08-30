@@ -1,3 +1,6 @@
+# ignore these folders
+examples/my_coverletter/
+examples/my_cv/
 
 # Created by https://www.gitignore.io/api/latex
 # Edit at https://www.gitignore.io/?templates=latex
