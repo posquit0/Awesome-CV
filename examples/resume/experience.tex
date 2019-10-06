@@ -1,7 +1,7 @@
 %-------------------------------------------------------------------------------
 %	SECTION TITLE
 %-------------------------------------------------------------------------------
-\cvsection{Work Experience}
+\cvsection{Consulting}
 
 
 %-------------------------------------------------------------------------------
@@ -67,44 +67,70 @@
 
 %---------------------------------------------------------
   \cventry
-    {Software Architect} % Job title
-    {Omnious. Co., Ltd.} % Organization
-    {Seoul, S.Korea} % Location
-    {Jun. 2017 - May. 2018} % Date(s)
-    {keywords, highlights, etc} % Highlights
+    {Data engineer} % Job title
+    {\raisebox{-0.2em}{\includegraphics[height=1em]{../../../images/depop.jpg}}\hspace{0.25em}Depop} % Organization
+    {London} % Location
+    {June 2019 - current} % Date(s)
+    {go, kinesis, akka-streams, kafka-streams, kubernetes/helm, airflow, cats, fs2} % highlights
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Provisioned an easily managable hybrid infrastructure(Amazon AWS + On-premise) utilizing IaC(Infrastructure as Code) tools like Ansible, Packer and Terraform.}
-        \item {Built fully automated CI/CD pipelines on CircleCI for containerized applications using Docker, AWS ECR and Rancher.}
-        \item {Designed an overall service architecture and pipelines of the Machine Learning based Fashion Tagging API SaaS product with the micro-services architecture.}
-        \item {Implemented several API microservices in Node.js Koa and in the serverless AWS Lambda functions.}
-        \item {Deployed a centralized logging environment(ELK, Filebeat, CloudWatch, S3) which gather log data from docker containers and AWS resources.}
-        \item {Deployed a centralized monitoring environment(Grafana, InfluxDB, CollectD) which gather system metrics as well as docker run-time metrics.}
+        \item {Designing streamed redshift upserts with kinesis (kpl, kcl) and akka-streams data processors.}
+        \item {EKS and Helm application deployment life-cycle management.}
+        \item {Research and identification of opportunities, developing proposals and recommendations.}
       \end{cvitems}
     }
 
 %---------------------------------------------------------
   \cventry
-    {Co-founder \& Software Engineer} % Job title
-    {PLAT Corp.} % Organization
-    {Seoul, S.Korea} % Location
-    {Jan. 2016 - Jun. 2017} % Date(s)
-    {keywords, highlights, etc} % Highlights
+    {Data engineer} % Job title
+    {\raisebox{-0.2em}{\includegraphics[height=1em]{../../../images/guardian.png}}\hspace{0.5em}The Guardian} % Organization
+    {London} % Location
+    {Oct. 2018 - May 2019} % Date(s)
+    {kafka, kafka-streams, kubernetes/eks, athena, spark/emr, airflow, cats, fs2} % highlights
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Implemented RESTful API server for car rental booking application(CARPLAT in Google Play).}
-        \item {Built and deployed overall service infrastructure utilizing Docker container, CircleCI, and several AWS stack(Including EC2, ECS, Route 53, S3, CloudFront, RDS, ElastiCache, IAM), focusing on high-availability, fault tolerance, and auto-scaling.}
-        \item {Developed an easy-to-use Payment module which connects to major PG(Payment Gateway) companies in Korea.}
+        \item {Implementation of spark etl pipelines on aws emr, processing readers' revenue and subscriptions datasets.}
+        \item {Designed and built alternative streaming pipelines with aws msk (kafka), eks and kafka-streams.}
+        \item {Implemented in-memory data streams using http4s and fs2.}
       \end{cvitems}
     }
 
 %---------------------------------------------------------
   \cventry
-    {Software Engineer \& Security Researcher (Compulsory Military Service)} % Job title
-    {R.O.K Cyber Command, MND} % Organization
-    {Seoul, S.Korea} % Location
-    {Aug. 2014 - Apr. 2016} % Date(s)
-    {keywords, highlights, etc} % Highlights
+    {Data engineer} % Job title
+    {\raisebox{-0.2em}{\includegraphics[height=1em]{../../../images/sainsburys.jpg}}\hspace{0.5em}Sainsbury's} % Organization
+    {London} % Location
+    {Dec. 2017 - Sept 2018} % Date(s)
+    {kafka-streams, hbase, spark, schema-registry, aws ecs/ecr, ansible, terraform, circle ci, tdd/bdd} % highlights
+    {
+      \begin{cvitems} % Description(s) of tasks/responsibilities
+        \item {Architecture and deployment of kafka clusters using terraform and ansible on aws ecs -- both apache and cloudera (cdh) versions, kms and kerberos.}
+        \item {Design and implementation of stateful etls with kafka-streams, kafka-connect, and schema-registry. Data analytics using hive, spark and zeppelin.}
+        \item {Implementation of pii- and gdpr-compliant stream processors using data tokenisation and encryption.}
+      \end{cvitems}
+    }
+
+%---------------------------------------------------------
+  \cventry
+    {Technical lead - scala engineer} % Job title
+    {\raisebox{0em}{\includegraphics[height=1em]{../../../images/ho.png}}\hspace{0.5em}Home Office (HMPO \& IPT)} % Organization
+    {London} % Location
+    {June 2016 - Nov. 2017} % Date(s)
+    {micro-services, rest apis, play, akka-streams, terraform, kubernetes, circle ci, tdd/bdd} % highlights
+    {
+      \begin{cvitems} % Description(s) of tasks/responsibilities
+        \item {Api contract testing using swagger and gatling. Experimentations with pact. Dockerised integration tests and applications.}
+        \item {Implementation of resilient data transfer layers atop akka-streams and akka-persistence.}
+      \end{cvitems}
+    }
+
+%---------------------------------------------------------
+  \cventry
+    {Technical lead - scala engineer} % Job title
+    {\raisebox{-0em}{\includegraphics[height=1em]{../../../images/voa.png}}\hspace{0.5em}HMRC (Valuation Office Agency)} % Organization
+    {London} % Location
+    {Nov. 2015 - May 2016} % Date(s)
+    {play, akka, jquery, gatling, mongodb, docker, micro-services, tdd/bdd} % highlights
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
         \item {Lead engineer on agent-less backtracking system that can discover client device's fingerprint(including public and private IP) independently of the Proxy, VPN and NAT.}
@@ -113,17 +139,113 @@
 
 %---------------------------------------------------------
   \cventry
-    {Software Engineer} % Job title
-    {ShitOne Corp.} % Organization
-    {Seoul, S.Korea} % Location
-    {Dec. 2011 - Feb. 2012} % Date(s)
-    {} % Highlights
+    {Full stack jee engineer} % Job title
+    {\raisebox{0em}{\includegraphics[height=1em]{../../../images/capco.png}}\hspace{0.5em}Capco)} % Organization
+    {London} % Location
+    {Mars 2014 - Oct. 2015} % Date(s)
+    {agile, tdd (mockito), hibernate, spring, ec2, angularjs, git, jenkins} % highlights
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Developed a proxy drive smartphone application which connects proxy driver and customer.}
-        \item {Implemented overall Android application logic and wrote API server for community service, along with lead engineer who designed bidding protocol on raw socket and implemented API server for bidding.}
+        \item {Development of a change management tracking system for banks and financial institutions. Implemented continuous integration life cycle. Designed backup, restore and disaster recovery procedures.}
       \end{cvitems}
     }
 
 %---------------------------------------------------------
+  \cventry
+    {Full stack jee/grails engineer} % Job title
+    {\raisebox{-0.2em}{\includegraphics[height=1em]{../../../images/sky.jpeg}}\hspace{0.4em}BSkyB (Sky Group)} % Organization
+    {London} % Location
+    {Aug. 2011 - June 2012} % Date(s)
+    {agile/xp, tdd, grails, jquery, geb/selenium, ha-jdbc} % highlights
+    {
+      \begin{cvitems} % Description(s) of tasks/responsibilities
+        \item {Built BSkyB's editorial and publishing news platform (cms) and the consumer facing website \url{news.sky.com}, in grails.}
+      \end{cvitems}
+    }
+
+%---------------------------------------------------------
+  \cventry
+    {Senior jee engineer} % Job title
+    {\raisebox{-0.2em}{\includegraphics[height=1em]{../../../images/dealchecker.jpg}}\hspace{0.5em}DMC Digital} % Organization
+    {London} % Location
+    {Dec 2010 - July 2011} % Date(s)
+    {spring, spring-batch, spring-security, hibernate, solr, junit/jmock, grails} % highlights
+    {}
+
+%---------------------------------------------------------
+  \cventry
+    {Senior jee engineer} % Job title
+    {\raisebox{-0.2em}{\includegraphics[height=1em]{../../../images/ithr.jpg}}\hspace{0.5em}ITHR} % Organization
+    {London} % Location
+    {Oct. 2010 - Nov. 2010} % Date(s)
+    {spring, struts, hibernate, oracle, jboss, fitnesse} % highlights
+    {}
+%---------------------------------------------------------
+\end{cventries}
+
+%-------------------------------------------------------------------------------
+%	SECTION TITLE
+%-------------------------------------------------------------------------------
+\cvsection{Permanent roles}
+
+
+%-------------------------------------------------------------------------------
+%	CONTENT
+%-------------------------------------------------------------------------------
+\begin{cventries}
+
+%---------------------------------------------------------
+  \cventry
+    {Technical lead - full stack jee engineer} % Job title
+    {\raisebox{-0.2em}{\includegraphics[height=1em]{../../../images/tripadvisor.jpg}}\hspace{0.5em}TripAdvisor} % Organization
+    {London} % Location
+    {June 2008 - Aug. 2010} % Date(s)
+    {php, jse, tdd, agile, seo} % highlights
+    {}
+
+%---------------------------------------------------------
+  \cventry
+    {Technical lead - full stack jee engineer} % Job title
+    {\raisebox{-0.2em}{\includegraphics[height=1em]{../../../images/sixandco.png}}\hspace{0.5em}SixAndCo (Fullsix group)} % Organization
+    {London} % Location
+    {Dec. 2006 - Apr. 2008} % Date(s)
+    {spring, hibernate, lucene, oracle, xml/xslt} % highlights
+    {}
+
+%---------------------------------------------------------
+  \cventry
+    {Java engineer} % Job title
+    {\raisebox{-0.2em}{\includegraphics[height=1em]{../../../images/voxmobili.png}}\hspace{0.5em}VoxMobili (Anéo)} % Organization
+    {Paris} % Location
+    {Sep. 2006 - Nov. 2006} % Date(s)
+    {spring, hibernate, mysql, sync-ml, jfreechart} % highlights
+    {}
+
+%---------------------------------------------------------
+  \cventry
+    {Full stack java engineer} % Job title
+    {\raisebox{-0.2em}{\includegraphics[height=1em]{../../../images/fullsix.jpg}}\hspace{0.5em}Fullsix} % Organization
+    {London} % Location
+    {Aug. 2004 - June 2005} % Date(s)
+    {tomcat, sun sas, oracle, wap gateways, payment gateways} % highlights
+    {}
+
+%---------------------------------------------------------
+  \cventry
+    {Junior full stack java engineer} % Job title
+    {BoxNewMedia} % Organization
+    {London} % Location
+    {July 2003 - July 2004} % Date(s)
+    {tomcat, jee, xml/xsl} % highlights
+    {}
+
+%---------------------------------------------------------
+  \cventry
+    {Junior full stack java engineer} % Job title
+    {AVS Consulting} % Organization
+    {London} % Location
+    {Mar. 2002 - July 2002} % Date(s)
+    {tomcat, jee, jse, syncml} % highlights
+    {}
+
 \end{cventries}
