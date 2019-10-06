@@ -3,6 +3,7 @@
 %-------------------------------------------------------------------------------
 \cvsection{Consulting}
 
+\newcommand*{\logo}[2]{\raisebox{-0.2em}{\includegraphics[height=1em]{#2}}\hspace{0.25em}#1}
 
 %-------------------------------------------------------------------------------
 %	CONTENT
@@ -11,64 +12,8 @@
 
 %---------------------------------------------------------
   \cventry
-    {DevOps Engineer} % Job title
-    {Dunamu Inc.} % Organization
-    {Seoul, S.Korea} % Location
-    {Sep. 2023 - Present} % Date(s)
-    {
-    }
-
-%---------------------------------------------------------
-  \cventry
-    {Founding Member \& Site Reliability Engineer \& Infrastructure Team Lead} % Job title
-    {Danggeun Pay Inc. (KarrotPay)} % Organization
-    {Seoul, S.Korea} % Location
-    {Mar. 2021 - Jun. 2023} % Date(s)
-    {
-      \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Everything that matters.}
-        \item {Designed and provisioned the entire infrastructure on the AWS cloud to meet security compliance and acquire a business license for financial services in Korea.}
-        \item {Continuously improved the infrastructure architecture since launching the service. (currently 3.6 million users)}
-        \item {Established a standardized base for declarative management of infrastructures and service deployments, enabling operational efficiency and consistency. Over 90\% of AWS resources were all managed through standardized terraform modules. All add-ons and service workloads on the Kubernetes cluster were managed on a GitOps basis with Kustomize and ArgoCD.}
-        \item {Saved over 30\% of the overall AWS costs by establishing a quarterly purchasing strategiy for RI (Reserved Instance) and SP (Savings Plan) and by introducing Graviton instances.}
-        \item {Established a core architecture for regulating of outbound DNS traffic in multi-account and multi-VPC environments utilizing AWS Route53 DNS Firewall and FMS. This significantly increased the level of security confidence in the financial sector's segregated environment.}
-        \item {Introduced Okta employee identity solution in the company, establishing security policies and configuring SSO integration with over 20 enterprise systems including AWS, GitHub, Slack, Google Workspace. Set up a Hub and Spoke architecture, enabling a collaborative account structure with the parent company, Daangn Market.}
-      \end{cvitems}
-    }
-
-%---------------------------------------------------------
-  \cventry
-    {Site Reliability Engineer} % Job title
-    {Danggeun Market Inc.} % Organization
-    {Seoul, S.Korea} % Location
-    {Feb. 2021 - Mar. 2021} % Date(s)
-    {
-    }
-
-%---------------------------------------------------------
-  \cventry
-    {Founding Member \& Director of Infrastructure Division} % Job title
-    {Kasa} % Organization
-    {Seoul, S.Korea} % Location
-    {Jun. 2018 - Jan. 2021} % Date(s)
-    {
-      \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Designed on-boarding process to guide new engineers, help them to focus on the right tasks, and set expectations to help them be successful at Infrastructure team.}
-        \item {Migrated the orchestration system from DC/OS to Kubernetes which is based on AWS EKS. Managed 3 Kubernetes clusters and 300+ pods. Managed all Kubernetes manifests declaratively with Kustomize and ArgoCD.}
-        \item {Designed and managed complex network configurations on AWS with 4 VPC and 100+ subnets. Separated the development network and operation network according to financial regulations. Established dedicated network connections from AWS VPC to partners' on-premise network based on AWS Direct Connect with secure connection using IPsec VPN. Provisioned OpenVPN servers with LDAP integration.}
-        \item {Provisioned a observability system with Kafka, Elastic Stack(Filebeat, Heartbeat, APM Server, Logstash, Elasticsearch, Kibana). Collected log, uptime, tracing data from hosts, containers, pods and more. The ES cluster which has 9 nodes processed more than 1 billion documents per month. Wrote Terraform module to easily provision ES cluster on AWS EC2 instances.}
-        \item {Provisioned a monitoring system with Kafka, Telegraf, InfluxDB, Grafana. Collected metrics from hosts, containers, pods and more. Wrote Terraform module to easily provision InfluxDB with HA on AWS EC2 instances.}
-        \item {Introduced Kong API Gateway to easily connect all API microservices with a declarative management method based on Terraform and Atlantis to collaborate and audit change history.}
-        \item {Provisioned the Directory Service for employee identity management based on OpenLDAP which guarantees HA with multi-master replication.}
-        \item {Implemented Worker microservices consuming Kafka event topics for email, SMS, Kakaotalk and Slack notification. Developed in-house framework to easily build Kafka consumer microservice with common features including retry on failure, DLQ(Dead Letter Queue), event routing and more.}
-        \item {Introduced Elastic APM to help distributed tracing, trouble-shooting and performance testing in MSA.}
-      \end{cvitems}
-    }
-
-%---------------------------------------------------------
-  \cventry
     {Data engineer} % Job title
-    {\raisebox{-0.2em}{\includegraphics[height=1em]{../../../images/depop.jpg}}\hspace{0.25em}Depop} % Organization
+    {\logo{Depop}{../../../images/depop.jpg}} % Organization
     {London} % Location
     {June 2019 - current} % Date(s)
     {go, kinesis, akka-streams, kafka-streams, kubernetes/helm, airflow, cats, fs2} % highlights
@@ -83,7 +28,7 @@
 %---------------------------------------------------------
   \cventry
     {Data engineer} % Job title
-    {\raisebox{-0.2em}{\includegraphics[height=1em]{../../../images/guardian.png}}\hspace{0.5em}The Guardian} % Organization
+    {\logo{The Guardian}{../../../images/guardian.png}} % Organization
     {London} % Location
     {Oct. 2018 - May 2019} % Date(s)
     {kafka, kafka-streams, kubernetes/eks, athena, spark/emr, airflow, cats, fs2} % highlights
@@ -98,7 +43,7 @@
 %---------------------------------------------------------
   \cventry
     {Data engineer} % Job title
-    {\raisebox{-0.2em}{\includegraphics[height=1em]{../../../images/sainsburys.jpg}}\hspace{0.5em}Sainsbury's} % Organization
+    {\logo{Sainsbury's}{../../../images/sainsburys.jpg}} % Organization
     {London} % Location
     {Dec. 2017 - Sept 2018} % Date(s)
     {kafka-streams, hbase, spark, schema-registry, aws ecs/ecr, ansible, terraform, circle ci, tdd/bdd} % highlights
@@ -113,7 +58,7 @@
 %---------------------------------------------------------
   \cventry
     {Technical lead - scala engineer} % Job title
-    {\raisebox{0em}{\includegraphics[height=1em]{../../../images/ho.png}}\hspace{0.5em}Home Office (HMPO \& IPT)} % Organization
+    {\logo{Home Office (HMPO \& IPT)}{../../../images/ho.png}} % Organization
     {London} % Location
     {June 2016 - Nov. 2017} % Date(s)
     {micro-services, rest apis, play, akka-streams, terraform, kubernetes, circle ci, tdd/bdd} % highlights
@@ -127,20 +72,35 @@
 %---------------------------------------------------------
   \cventry
     {Technical lead - scala engineer} % Job title
-    {\raisebox{-0em}{\includegraphics[height=1em]{../../../images/voa.png}}\hspace{0.5em}HMRC (Valuation Office Agency)} % Organization
+    {\logo{HMRC (Valuation Office Agency)}{../../../images/voa.png}} % Organization
     {London} % Location
     {Nov. 2015 - May 2016} % Date(s)
     {play, akka, jquery, gatling, mongodb, docker, micro-services, tdd/bdd} % highlights
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Lead engineer on agent-less backtracking system that can discover client device's fingerprint(including public and private IP) independently of the Proxy, VPN and NAT.}
+        \item {Design and implementation of an akka wrapper around a legacy web application.}
+        \item {Delivered a gds-compliant solution that turned a seldom-used service to a country-wide first-choice platform for council tax and business rates collections.}
+      \end{cvitems}
+    }
+
+%---------------------------------------------------------
+  \cventry
+    {Scala engineer} % Job title
+    {\logo{Home Office (HMPO \& Border Force)}{../../../images/ho.png}} % Organization
+    {London} % Location
+    {Mars 2014 - Oct. 2015} % Date(s)
+    {play, akka, jquery, mongodb, puppet, agile, tdd/bdd} % highlights
+    {
+      \begin{cvitems} % Description(s) of tasks/responsibilities
+        \item {Design and implementation of a flight arrivals prediction engine. Resiliency and recovery procedures using akka and rabbitmq.}
+        \item {Implemented akka-clustered clients to legacy apis with flow management (nagle-like) and exactly-once delivery semantics (passport applications).}
       \end{cvitems}
     }
 
 %---------------------------------------------------------
   \cventry
     {Full stack jee engineer} % Job title
-    {\raisebox{0em}{\includegraphics[height=1em]{../../../images/capco.png}}\hspace{0.5em}Capco)} % Organization
+    {\logo{Capco}{../../../images/capco.png}} % Organization
     {London} % Location
     {Mars 2014 - Oct. 2015} % Date(s)
     {agile, tdd (mockito), hibernate, spring, ec2, angularjs, git, jenkins} % highlights
@@ -153,7 +113,33 @@
 %---------------------------------------------------------
   \cventry
     {Full stack jee/grails engineer} % Job title
-    {\raisebox{-0.2em}{\includegraphics[height=1em]{../../../images/sky.jpeg}}\hspace{0.4em}BSkyB (Sky Group)} % Organization
+    {\logo{News UK (News International)}{../../../images/newsuk.png}} % Organization
+    {London} % Location
+    {Nov. 2012 - June 2013} % Date(s)
+    {agile, tdd (gmock), bdd (spock), grails, spring, jquery, dynamodb/rds/cloudwatch, gradle} % highlights
+    {
+      \begin{cvitems} % Description(s) of tasks/responsibilities
+        \item {Implementation of federated registration and authentication with social media integration (openid, oauth).}
+      \end{cvitems}
+    }
+
+%---------------------------------------------------------
+  \cventry
+    {Full stack jee/grails engineer} % Job title
+    {\logo{HappyInc Ltd {\textit (now Blow Ltd)}}{../../../images/blowltd.jpg}} % Organization
+    {London} % Location
+    {Jul. 2012 -Sept. 2012} % Date(s)
+    {agile/xp, tdd (gmock, jenkins, jmeter), bdd (geb, selenium), grails, jquery, spring, rackspace cloud} % highlights
+    {
+      \begin{cvitems} % Description(s) of tasks/responsibilities
+        \item {Implemented full CI deployment life cycle, DR management and DB backup and restore.}
+      \end{cvitems}
+    }
+
+%---------------------------------------------------------
+  \cventry
+    {Full stack jee/grails engineer} % Job title
+    {\logo{BSkyB (Sky Group)}{../../../images/sky.jpeg}} % Organization
     {London} % Location
     {Aug. 2011 - June 2012} % Date(s)
     {agile/xp, tdd, grails, jquery, geb/selenium, ha-jdbc} % highlights
@@ -166,7 +152,7 @@
 %---------------------------------------------------------
   \cventry
     {Senior jee engineer} % Job title
-    {\raisebox{-0.2em}{\includegraphics[height=1em]{../../../images/dealchecker.jpg}}\hspace{0.5em}DMC Digital} % Organization
+    {\logo{DMC Digital}{../../../images/dealchecker.jpg}} % Organization
     {London} % Location
     {Dec 2010 - July 2011} % Date(s)
     {spring, spring-batch, spring-security, hibernate, solr, junit/jmock, grails} % highlights
@@ -175,7 +161,7 @@
 %---------------------------------------------------------
   \cventry
     {Senior jee engineer} % Job title
-    {\raisebox{-0.2em}{\includegraphics[height=1em]{../../../images/ithr.jpg}}\hspace{0.5em}ITHR} % Organization
+    {\logo{ITHR}{../../../images/ithr.jpg}} % Organization
     {London} % Location
     {Oct. 2010 - Nov. 2010} % Date(s)
     {spring, struts, hibernate, oracle, jboss, fitnesse} % highlights
@@ -197,7 +183,7 @@
 %---------------------------------------------------------
   \cventry
     {Technical lead - full stack jee engineer} % Job title
-    {\raisebox{-0.2em}{\includegraphics[height=1em]{../../../images/tripadvisor.jpg}}\hspace{0.5em}TripAdvisor} % Organization
+    {\logo{TripAdvisor}{../../../images/tripadvisor.jpg}} % Organization
     {London} % Location
     {June 2008 - Aug. 2010} % Date(s)
     {php, jse, tdd, agile, seo} % highlights
@@ -206,7 +192,7 @@
 %---------------------------------------------------------
   \cventry
     {Technical lead - full stack jee engineer} % Job title
-    {\raisebox{-0.2em}{\includegraphics[height=1em]{../../../images/sixandco.png}}\hspace{0.5em}SixAndCo (Fullsix group)} % Organization
+    {\logo{SixAndCo (Fullsix group)}{../../../images/sixandco.png}} % Organization
     {London} % Location
     {Dec. 2006 - Apr. 2008} % Date(s)
     {spring, hibernate, lucene, oracle, xml/xslt} % highlights
@@ -215,7 +201,7 @@
 %---------------------------------------------------------
   \cventry
     {Java engineer} % Job title
-    {\raisebox{-0.2em}{\includegraphics[height=1em]{../../../images/voxmobili.png}}\hspace{0.5em}VoxMobili (Anéo)} % Organization
+    {\logo{VoxMobili (Anéo)}{../../../images/voxmobili.png}} % Organization
     {Paris} % Location
     {Sep. 2006 - Nov. 2006} % Date(s)
     {spring, hibernate, mysql, sync-ml, jfreechart} % highlights
@@ -224,7 +210,7 @@
 %---------------------------------------------------------
   \cventry
     {Full stack java engineer} % Job title
-    {\raisebox{-0.2em}{\includegraphics[height=1em]{../../../images/fullsix.jpg}}\hspace{0.5em}Fullsix} % Organization
+    {\logo{CapFullsixco}{../../../images/fullsix.jpg}} % Organization
     {London} % Location
     {Aug. 2004 - June 2005} % Date(s)
     {tomcat, sun sas, oracle, wap gateways, payment gateways} % highlights
