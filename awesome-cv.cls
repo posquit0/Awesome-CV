@@ -75,6 +75,8 @@
 % Needed to use icons from font-awesome
 % (https://github.com/posquit0/latex-fontawesome)
 \RequirePackage{fontawesome}
+% Needed to use icons from academicons
+\RequirePackage{academicons}
 \RequirePackage[default,opentype]{sourcesanspro}
 % Needed for the photo ID
 \RequirePackage[skins]{tcolorbox}
@@ -90,6 +92,7 @@
 }
 % Require additional space to be filled by content
 \RequirePackage{needspace}
+
 
 %-------------------------------------------------------------------------------
 %                Configuration for directory locations
@@ -162,7 +165,7 @@
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
 % Set the FontAwesome font to be up-to-date.
-\newfontfamily\FA[Path=\@fontdir]{FontAwesome}
+% \newfontfamily\FA[Path=\@fontdir]{FontAwesome}  % Uncomment if \FA is not defined
 % Set font for header (default is Roboto)
 \newfontfamily\headerfont[
   Path=\@fontdir,
@@ -234,10 +237,21 @@
 \newcommand*{\letternamestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\letterenclosurestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\slshape\color{lighttext} #1}}
 
-
 %-------------------------------------------------------------------------------
 %                Commands for personal information
 %-------------------------------------------------------------------------------
+% Define a collection of header information
+\edef\header{}
+\newcommand{\headerAdd}[1]{
+    \ifnonprint{\ignorespaces\header}{%
+        \protected@edef\header{#1}%
+    }{%
+        \protected@edef\header{\header{} \acvHeaderSocialSep #1}%
+    }%
+}%
+\newcommand{\headerSocial}[3]{
+    \headerAdd{\href{#2#3}{#1\acvHeaderIconSep#3}}
+}
 % Define photo ID
 % Usage: \photo[circle|rectangle,edge|noedge,left|right]{<path-to-image>}
 \newcommand{\photo}[2][circle,edge,left]{%
@@ -276,57 +290,61 @@
 
 % Defines writer's mobile (optional)
 % Usage: \mobile{<mobile number>}
-\newcommand*{\mobile}[1]{\def\@mobile{#1}}
+\newcommand{\mobile}[1]{\headerAdd{\faMobile\acvHeaderIconSep#1}}
 
 % Defines writer's email (optional)
 % Usage: \email{<email address>}
-\newcommand*{\email}[1]{\def\@email{#1}}
+\newcommand{\email}[1]{\headerSocial{\faEnvelope}{mailto:}{#1}}
 
 % Defines writer's homepage (optional)
 % Usage: \homepage{<url>}
-\newcommand*{\homepage}[1]{\def\@homepage{#1}}
+\newcommand{\homepage}[1]{\headerSocial{\faHome}{https://#1}{#1}}
 
 % Defines writer's github (optional)
 % Usage: \github{<github-nick>}
-\newcommand*{\github}[1]{\def\@github{#1}}
+\newcommand{\github}[1]{\headerSocial{\faGithub}{https://github.com/}{#1}}
 
 % Defines writer's gitlab (optional)
 % Usage: \gitlab{<gitlab-nick>}
-\newcommand*{\gitlab}[1]{\def\@gitlab{#1}}
+\newcommand{\gitlab}[1]{\headerSocial{\faGitlab}{https://gitlab.com/}{#1}}
 
 % Defines writer's bitbucket (optional)
 % Usage: \bitbucket{<bitbucket-nick>}
-\newcommand*{\bitbucket}[1]{\def\@bitbucket{#1}}
+\newcommand{\bitbucket}[1]{\headerSocial{\faBitbucket}{https://bitbucket.com/}{#1}}
 
 % Defines writer's stackoverflow profile (optional)
 % Usage: \stackoverflow{<so userid>}{<so username>}
 %   e.g.https://stackoverflow.com/users/123456/sam-smith
 %       would be \stackoverflow{123456}{sam-smith}
-\newcommand*{\stackoverflow}[2]{\def\@stackoverflowid{#1}\def\@stackoverflowname{#2}}
+\newcommand{\stackoverflow}[2]{\headerAdd{\href{https://stackoverflow.com/users/#1}{\faStackOverflow\acvHeaderIconSep#2}}}
 
 % Defines writer's linked-in (optional)
 % Usage: \linkedin{<linked-in-nick>}
-\newcommand*{\linkedin}[1]{\def\@linkedin{#1}}
+\newcommand{\linkedin}[1]{\headerSocial{\faLinkedin}{https://www.linkedin.com/in/}{#1}}
 
 % Defines writer's twitter (optional)
 % Usage: \twitter{<twitter handle>}
-\newcommand*{\twitter}[1]{\def\@twitter{#1}}
+\newcommand{\twitter}[1]{\headerSocial{\faTwitter}{https://twitter.com/}{#1}}
+
+% Defines writer's ORCID (optional)
+% Usage: \orcid{<orcid number>}
+\newcommand{\orcid}[1]{\headerSocial{\aiOrcid}{https://orcid.org/}{#1}}
 
 % Defines writer's skype (optional)
 % Usage: \skype{<skype account>}
-\newcommand*{\skype}[1]{\def\@skype{#1}}
+\newcommand{\skype}[1]{\headerAdd{\faSkype\acvHeaderIconSep#1}}
 
 % Defines writer's reddit (optional)
 % Usage: \reddit{<reddit account>}
-\newcommand*{\reddit}[1]{\def\@reddit{#1}}
+\newcommand{\reddit}[1]{\headerSocial{\faReddit}{https://www.reddit.com/user/}{#1}}
 
 % Defines writer's xing (optional)
 % Usage: \xing{<xing name>}
-\newcommand*{\xing}[1]{\def\@xing{#1}}
+\newcommand{\xing}[1]{\headerSocial{\faXing}{https://www.xing.com/profile/}{#1}}
 
 % Defines writer's medium profile (optional)
 % Usage: \medium{<medium account>}
-\newcommand*{\medium}[1]{\def\@medium{#1}}
+\newcommand{\medium}[1]{\headerSocial{\faMedium}{https://medium.com/}{#1}}
 
 % Defines writer's google scholar profile (optional)
 % Usage: \googlescholar{<googlescholar userid>}{<googlescholar username>}
@@ -334,18 +352,11 @@
 % would be \googlescholar{wpZDx1cAAAAJ}{Name-to-display-next-icon}
 % If 'googlescholar-name' is not provided than it defaults to
 % '\firstname \lastname'
-\newcommand*{\googlescholar}[2]{%
-  \def\@googlescholarid{#1}%
-  \ifthenelse{\equal{#2}{}}{%
-    \def\@googlescholarname{\@firstname~\@lastname}%
-  }{%
-    \def\@googlescholarname{#2}%
-  }%
-}
+\newcommand{\googlescholar}[2]{\headerAdd{\href{https://scholar.google.com/citations?user=#1}{\faGraduationCap\acvHeaderIconSep#2}}}
 
 % Defines writer's extra informations (optional)
 % Usage: \extrainfo{<extra informations>}
-\newcommand*{\extrainfo}[1]{\def\@extrainfo{#1}}
+\newcommand{\extrainfo}[1]{\headerAdd{#1}}
 
 % Defines writer's quote (optional)
 % Usage: \quote{<quote>}
@@ -403,7 +414,6 @@
 \newcommand{\acvSectionTopSkip}{3mm}
 \newcommand{\acvSectionContentTopSkip}{2.5mm}
 
-
 %-------------------------------------------------------------------------------
 %                Commands for utilities
 %-------------------------------------------------------------------------------
@@ -418,6 +428,14 @@
 % Use to execute conditional statements by checking empty string
 \newcommand*{\ifempty}[3]{\ifthenelse{\isempty{#1}}{#2}{#3}}
 
+% Use to execute conditional statements by checking non-printing string
+\newcommand*{\ifnonprint}[3]{
+\setbox0=\hbox{#1\unskip}\ifdim\wd0=0pt
+  #2
+\else
+  #3
+\fi
+}
 
 %-------------------------------------------------------------------------------
 %                Commands for elements of CV structure
@@ -458,98 +476,7 @@
     \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\[\acvHeaderAfterPositionSkip]}}%
     \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\[\acvHeaderAfterAddressSkip]}}%
     \headersocialstyle{%
-      \newbool{isstart}%
-      \setbool{isstart}{true}%
-      \ifthenelse{\isundefined{\@mobile}}%
-        {}%
-        {%
-          \faMobile\acvHeaderIconSep\@mobile%
-          \setbool{isstart}{false}%
-        }%
-      \ifthenelse{\isundefined{\@email}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{mailto:\@email}{\faEnvelope\acvHeaderIconSep\@email}%
-        }%
-      \ifthenelse{\isundefined{\@homepage}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{http://\@homepage}{\faHome\acvHeaderIconSep\@homepage}%
-        }%
-      \ifthenelse{\isundefined{\@github}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://github.com/\@github}{\faGithubSquare\acvHeaderIconSep\@github}%
-        }%
-      \ifthenelse{\isundefined{\@gitlab}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://gitlab.com/\@gitlab}{\faGitlab\acvHeaderIconSep\@gitlab}%
-        }%
-      \ifthenelse{\isundefined{\@bitbucket}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://bitbucket.com/\@bitbucket}{\faBitbucketSquare\acvHeaderIconSep\@bitbucket}%
-        }%
-      \ifthenelse{\isundefined{\@stackoverflowid}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://stackoverflow.com/users/\@stackoverflowid}{\faStackOverflow\acvHeaderIconSep\@stackoverflowname}%
-        }%
-      \ifthenelse{\isundefined{\@linkedin}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\acvHeaderIconSep\@linkedin}%
-        }%
-      \ifthenelse{\isundefined{\@twitter}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://twitter.com/\@twitter}{\faTwitter\acvHeaderIconSep\@twitter}%
-        }%
-      \ifthenelse{\isundefined{\@skype}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \faSkype\acvHeaderIconSep\@skype%
-        }%
-      \ifthenelse{\isundefined{\@reddit}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.reddit.com/user/\@reddit}{\faReddit\acvHeaderIconSep\@reddit}%
-        }%
-      \ifthenelse{\isundefined{\@xing}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.xing.com/profile/\@xing}{\faXingSquare\acvHeaderIconSep\@xing}
-        }%
-      \ifthenelse{\isundefined{\@medium}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://medium.com/@\@medium}{\faMedium\acvHeaderIconSep\@medium}%
-        }%
-      \ifthenelse{\isundefined{\@googlescholarid}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://scholar.google.com/citations?user=\@googlescholarid}{\faGraduationCap\acvHeaderIconSep\@googlescholarname}%
-        }%
-      \ifthenelse{\isundefined{\@extrainfo}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \@extrainfo%
-        }%
+      \header{}
     } \\[\acvHeaderAfterSocialSkip]%
     \ifthenelse{\isundefined{\@quote}}%
       {}%
@@ -678,7 +605,7 @@
 % Define a line of cv information(skill)
 % Usage: \cvskill{<type>}{<skillset>}
 \newcommand*{\cvskill}[2]{%
-	\skilltypestyle{#1} & \skillsetstyle{#2} \\
+    \skilltypestyle{#1} & \skillsetstyle{#2} \\
 }
 
 % Define an environment for cvitems(for cventry)
@@ -745,4 +672,3 @@
       \letterenclosurestyle{\@letterenclname: \@letterenclosure} \\
     }
 }
-
