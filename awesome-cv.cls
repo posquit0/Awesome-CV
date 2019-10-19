@@ -303,6 +303,12 @@
 % Usage: \linkedin{<linked-in-nick>}
 \newcommand*{\linkedin}[1]{\def\@linkedin{#1}}
 
+% Defines writer's linked-in (optional)
+% Usage: \linkedin{<linked-id>}{<li nickname>}
+%   e.g. philipakerfeldt --> Philip Åkerfeldt
+%       would be \linkedin{philipakerfeldt}{Philip Åkerfeldt}
+\newcommand*{\linkedin}[2]{\def\@linkedinid{#1}\def\@linkedinname{#2}}
+
 % Defines writer's twitter (optional)
 % Usage: \twitter{<twitter handle>}
 \newcommand*{\twitter}[1]{\def\@twitter{#1}}
@@ -491,11 +497,11 @@
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://stackoverflow.com/users/\@stackoverflowid}{\faStackOverflow\acvHeaderIconSep\@stackoverflowname}%
         }%
-      \ifthenelse{\isundefined{\@linkedin}}%
+      \ifthenelse{\isundefined{\@linkedinid}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\acvHeaderIconSep\@linkedin}%
+          \href{https://www.linkedin.com/in/\@linkedinid}{\faLinkedinSquare\acvHeaderIconSep\@linkedinname}%
         }%
       \ifthenelse{\isundefined{\@twitter}}%
         {}%
