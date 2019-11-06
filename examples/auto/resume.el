@@ -12,6 +12,6 @@
      "resume/academia"
      "resume/honors"
      "resume/presentation"
-     "resume/committees"
+     "resume/skills"
      "resume/extracurricular")))
 
