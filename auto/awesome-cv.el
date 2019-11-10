@@ -5,6 +5,7 @@
      "cventries"
      "cvsubentries"
      "cvhonors"
+     "cvpubs"
      "cvservices"
      "cvskills"
      "cvitems"
@@ -18,6 +19,7 @@
      '("lettersection" 1)
      '("cvskill" 2)
      '("cvservice" 4)
+     '("cvpub" 3)
      '("cvhonor" 4)
      '("cvsubentry" 4)
      '("cventry" 5)

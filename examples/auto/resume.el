@@ -10,8 +10,8 @@
      "resume/education"
      "resume/experience"
      "resume/academia"
-     "resume/honors"
-     "resume/presentation"
      "resume/skills"
+     "resume/honors"
+     "resume/pubs"
      "resume/service")))
 

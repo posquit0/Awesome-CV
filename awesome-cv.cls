@@ -650,6 +650,24 @@
   \honordatestyle{#4} & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#3} \\
 }
 
+% Define an environment for cvpubs
+\newenvironment{cvpubs}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-2mm}
+  \begin{center}
+    \setlength\tabcolsep{0pt}
+    \setlength{\extrarowheight}{0pt}
+    \begin{tabular*}{\textwidth}[t]{@{\extracolsep{\fill}} C{1.5cm} L{\textwidth - 1.5cm}}
+}{%
+    \end{tabular*}
+  \end{center}
+}
+% Define a line of cv information(honor, award or something else)
+% Usage: \cvhonor{<journal>}{<title>}<date>}
+\newcommand*{\cvpub}[3]{%
+  \honordatestyle{#3} & \honorpositionstyle{#1}, \honortitlestyle{#2}\\
+}
+
 % Define an environment for cvservice
 \newenvironment{cvservices}{%
   \vspace{\acvSectionContentTopSkip}
