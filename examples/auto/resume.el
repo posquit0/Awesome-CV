@@ -13,5 +13,5 @@
      "resume/honors"
      "resume/presentation"
      "resume/skills"
-     "resume/extracurricular")))
+     "resume/service")))
 

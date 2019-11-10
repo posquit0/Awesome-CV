@@ -5,6 +5,7 @@
      "cventries"
      "cvsubentries"
      "cvhonors"
+     "cvservices"
      "cvskills"
      "cvitems"
      "cvletter")
@@ -16,6 +17,7 @@
      '("fontdir" ["argument"] 0)
      '("lettersection" 1)
      '("cvskill" 2)
+     '("cvservice" 4)
      '("cvhonor" 4)
      '("cvsubentry" 4)
      '("cventry" 5)
