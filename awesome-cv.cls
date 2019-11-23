@@ -156,12 +156,13 @@
   \ifbool{acvSectionColorHighlight}{{\color{awesome}#1#2#3}}{#1#2#3}%
 }
 
-\definecolor{highlight}{rgb}{0.5,0.5,0.5}% for cv entry highlights
+\definecolor{highlight}{rgb}{0.5,0.5,0.5}% for web links
 
 %-------------------------------------------------------------------------------
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
 % Set the FontAwesome font to be up-to-date.
+\let\FA\relax
 \newfontfamily\FA[Path=\@fontdir]{FontAwesome}
 % Set font for header (default is Roboto)
 \newfontfamily\headerfont[
@@ -171,6 +172,38 @@
   BoldFont=*-Bold,
   BoldItalicFont=*-BoldItalic,
 ]{Roboto}
+
+\newfontfamily\sainsburys[
+  Path=\@fontdir,
+  UprightFont=*,
+  ItalicFont=*,
+  BoldFont=*,
+  BoldItalicFont=*,
+]{mary_ann-extrabold}
+
+\newfontfamily\guardian[
+  Path=\@fontdir,
+  UprightFont=*,
+  ItalicFont=*,
+  BoldFont=*,
+  BoldItalicFont=*,
+]{guardian}
+
+\newfontfamily\depop[
+  Path=\@fontdir,
+  UprightFont=*,
+  ItalicFont=*,
+  BoldFont=*,
+  BoldItalicFont=*,
+]{depop}
+
+\newfontfamily\ho[
+  Path=\@fontdir,
+  UprightFont=*,
+  ItalicFont=*,
+  BoldFont=*,
+  BoldItalicFont=*,
+]{ho}
 
 \newfontfamily\headerfontlight[
   Path=\@fontdir,
