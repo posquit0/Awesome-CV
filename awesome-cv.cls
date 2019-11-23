@@ -159,7 +159,7 @@
   \ifbool{acvSectionColorHighlight}{{\color{awesome}#1#2#3}}{#1#2#3}%
 }
 
-\definecolor{highlight}{rgb}{0.5,0.5,0.5}% for cv entry highlights
+\definecolor{highlight}{rgb}{0.5,0.5,0.5}% for web links
 
 %-------------------------------------------------------------------------------
 %                Configuration for fonts
