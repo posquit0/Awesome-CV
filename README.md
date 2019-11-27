@@ -83,14 +83,14 @@ You can [install TeX from upstream](http://tex.stackexchange.com/q/1092) (recomm
 
 #### Usage
 
-At a command prompt, run (note that ``$`` is shell prompt)
+At a command prompt, run
 
 ```bash
 $ cd examples/
-$ xelatex cv.tex
+$ xelatex {your-cv}.tex
 ```
 
-This should result in the creation of ``cv.pdf``, substitute ``cv.tex`` with ``{your-cv}.tex`` in the above command.
+This should result in the creation of ``cv.pdf``, for example, if you substitute ``{your-cv}.tex`` with ``cv.tex`` in the above command.
 
 ## Credit
 
