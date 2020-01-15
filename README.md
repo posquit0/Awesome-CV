@@ -55,3 +55,5 @@ This should result in the creation of ``{your-cv}.pdf``
 
 **Checkout `examples` folder for more info.**
 
+#### Issues (or Error Reporting)
+Please check [here](https://github.com/ravijo/Awesome-CV/issues) and create issues accordingly.
