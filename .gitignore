@@ -21,3 +21,6 @@
 ## Mac OS X metadata files:
 *.DS_Store
 
+### PDF
+# Ignore PDF files generated during build
+*.pdf
