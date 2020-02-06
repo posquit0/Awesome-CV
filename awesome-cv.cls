@@ -623,12 +623,14 @@
     \setlength\leftskip{0.2cm}
     \subentrytitlestyle{#2} & \ifthenelse{\equal{#1}{}}
       {\subentrydatestyle{#3}}{} \\
-    \ifthenelse{\equal{#1}{}}
-      {}
-      {\subentrypositionstyle{#1} & \subentrydatestyle{#3} \\}
-    \ifthenelse{\equal{#4}{}}
-      {}
-      {\multicolumn{2}{L{17.0cm}}{\subdescriptionstyle{#4}} \\}
+    \ifx\relax#1\relax
+    \else
+      \subentrypositionstyle{#1} & \subentrydatestyle{#3} \\
+    \fi
+    \ifx\relax#4\relax
+    \else
+      \multicolumn{2}{L{17.0cm}}{\subdescriptionstyle{#4}} \\
+    \fi
   \end{tabular*}
 }
 
