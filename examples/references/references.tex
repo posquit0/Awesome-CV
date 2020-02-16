@@ -5,19 +5,31 @@
 %---------------------------------------------------------
    \cventry
    {Position~~~·~~~Company Name} % Position-Orginization
-   {Reference Name} % Name 
-   {Relationship} % Relationship 
+   {Reference Name} % Name
+   {Relationship} % Relationship
    {reference.email@example.com} % Email
    {555-555-5555} % Mobile
 
 %---------------------------------------------------------
    \cventry
    {Software Engineer~~~·~~~Microsoft} % Position-Orginization
-   {John Doe} % Name 
-   {Former Supervisor} % Relationship 
+   {John Doe} % Name
+   {Former Supervisor} % Relationship
    {jdoe@example.com} % Email
    {555-555-5555} % Mobile
 
 %---------------------------------------------------------
+   \cventry
+   {Software Engineer} % Position-Orginization
+   {John Doe} % Name
+   {Microsoft} % Organization
+   {jdoe@example.com} % Email
+   {
+      \begin{cvitems} % Relationship, Phone number, etc.
+	 \item{Former Supervisor} % Relationship
+	 \item{555-555-5555} % Mobile
+      \end{cvitems}
+   }
 
+%---------------------------------------------------------
 \end{cventries}
