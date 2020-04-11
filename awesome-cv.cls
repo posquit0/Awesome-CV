@@ -346,8 +346,8 @@
   }%
 }
 
-% Defines writer's extra informations (optional)
-% Usage: \extrainfo{<extra informations>}
+% Defines writer's extra information (optional)
+% Usage: \extrainfo{<extra information>}
 \newcommand*{\extrainfo}[1]{\def\@extrainfo{#1}}
 
 % Defines writer's quote (optional)
