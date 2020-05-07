@@ -1,15 +1,17 @@
 %% Start of file `awesome-cv.cls'.
 % Awesome CV Class File
 %
-% This class has been downloaded from:
+% This class has been inspired by:
 % https://github.com/posquit0/Awesome-CV
 %
+% This class has been downloaded from:
+% https://github.com/marckit/Awesome-CV
+%
 % Author:
-% Claud D. Park <posquit0.bj@gmail.com>
-% http://www.posquit0.com
+% Marc-André Labelle <marckitmail@gmail.com>
 %
 % Notes:
-% 1) This class file defines the structure and layout of the template file (cv.tex, resume.tex).
+% 1) This class file defines the structure and layout of the template file (cv.tex).
 % 2) It has been written in such a way that under most circumstances you
 % should not need to edit it.
 %
@@ -139,13 +141,14 @@
 % Awesome colors
 \definecolor{awesome-emerald}{HTML}{00A388}
 \definecolor{awesome-skyblue}{HTML}{0395DE}
+\definecolor{awesome-blue}{HTML}{0000ff}
 \definecolor{awesome-red}{HTML}{DC3522}
 \definecolor{awesome-pink}{HTML}{EF4089}
 \definecolor{awesome-orange}{HTML}{FF6138}
 \definecolor{awesome-nephritis}{HTML}{27AE60}
 \definecolor{awesome-concrete}{HTML}{95A5A6}
 \definecolor{awesome-darknight}{HTML}{131A28}
-\colorlet{awesome}{awesome-red}
+\colorlet{awesome}{awesome-blue}
 
 % Boolean value to switch section color highlighting
 \newbool{acvSectionColorHighlight}
