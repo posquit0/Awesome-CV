@@ -20,10 +20,10 @@
 % CONFIGURATIONS
 %-------------------------------------------------------------------------------
 % A4 paper size by default, use 'letterpaper' for US letter
-\documentclass[12pt, a4paper]{awesome-cv}
+\documentclass[14pt, letterpaper]{awesome-cv}
 
 % Configure page margins with geometry
-\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+\geometry{left=1.4cm, top=2cm, right=1.4cm, bottom=2cm, footskip=.5cm}
 
 % Specify the location of the included fonts
 \fontdir[fonts/]
@@ -53,9 +53,9 @@
 %	Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
 \name{Marc-André}{Labelle}
-\position{Junior Engineer in foodscience{\enskip\cdotp\enskip}Software student}
+\position{Food Process Junior Engineer{\enskip\cdotp\enskip}Software student}
 
-\address{5788, 7e avenue, Montreal, QC H1Y 2N8 Canada}
+\address{5788, 7e Avenue, Montréal, QC, H1Y 2N8, Canada}
 \mobile{+1 (514) 568-6836}
 \email{marckitmail@gmail.com}
 \github{marckit}
@@ -94,15 +94,24 @@
 %	CV/RESUME CONTENT
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
-\input{cv/education.tex}
-\input{cv/skills.tex}
-\input{cv/experience.tex}
-\input{cv/extracurricular.tex}
-\input{cv/honors.tex}
-\input{cv/presentation.tex}
-\input{cv/writing.tex}
-\input{cv/committees.tex}
+\input{cv-en/education.tex}
+\input{cv-en/skills.tex}
+\input{cv-en/experience.tex}
+\input{cv-en/extracurricular.tex}
+\input{cv-en/honors.tex}
+\input{cv-en/presentation.tex}
+\input{cv-en/writing.tex}
+\input{cv-en/committees.tex}
+
+%\input{cv-fr/autresexp.tex}
+%\input{cv-fr/benevolat.tex}
+%\input{cv-fr/competences.tex}
+%\input{cv-fr/experience.tex}
+%\input{cv-fr/formacademique.tex}
+%\input{cv-fr/implicuniv.tex}
+%\input{cv-fr/loisirs.tex}
 
 
 %-------------------------------------------------------------------------------
 \end{document}
+
