@@ -103,7 +103,9 @@
 \newcommand*{\fontdir}[1][fonts/]{\def\@fontdir{#1}}
 \fontdir
 
-\newfontfamily{\AI}{Academicons}
+% \newfontfamily{\AI}{Academicons}
+% src: https://tex.stackexchange.com/a/476473/49520
+\setfontfamily{\AI}{Academicons}
 
 %-------------------------------------------------------------------------------
 %                Configuration for layout
@@ -167,10 +169,12 @@
 %-------------------------------------------------------------------------------
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
+% src: https://github.com/posquit0/Awesome-CV/issues/234
+%      https://tex.stackexchange.com/a/476473/49520
 % Set the FontAwesome font to be up-to-date.
-\newfontfamily\FA[Path=\@fontdir]{FontAwesome}
+\setfontfamily\FA[Path=\@fontdir]{FontAwesome}
 % Set font for header (default is Roboto)
-\newfontfamily\headerfont[
+\setfontfamily\headerfont[
   Path=\@fontdir,
   UprightFont=*-Regular,
   ItalicFont=*-Italic,
@@ -178,7 +182,7 @@
   BoldItalicFont=*-BoldItalic,
 ]{Roboto}
 
-\newfontfamily\headerfontlight[
+\setfontfamily\headerfontlight[
   Path=\@fontdir,
   UprightFont=*-Thin,
   ItalicFont=*-ThinItalic,
