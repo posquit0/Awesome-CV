@@ -23,6 +23,9 @@ compile_tex()
     echo "Running xelatex again. Please wait..."
     xelatex "${file_name}.tex"
 
+    echo "Running xelatex again. Please wait..."
+    xelatex "${file_name}.tex"
+
     echo "Removing temporary files. Please wait..."
     for temp_file_extension in $temp_file_extensions
     do
