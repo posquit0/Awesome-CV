@@ -186,6 +186,9 @@
 \newcommand*{\subsectionstyle}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
 \newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}}
 
+\newcommand*{\headerfirstcpystyle}[1]{{\fontsize{16pt}{1em}\headerfontlight\color{graytext} #1}}
+\newcommand*{\headerlastcpystyle}[1]{{\fontsize{16pt}{1em}\headerfont\bfseries\color{text} #1}}
+
 % For elements of entry
 \newcommand*{\entrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{graytext} #1}}
@@ -473,8 +476,14 @@
   \end{minipage}
   \begin{minipage}[c]{\headertextwidth}
     \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
-    \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname}%
+    
+    \setlength{\tabcolsep}{3pt}
+    \begin{tabular}{ r l }
+      \headerfirstnamestyle{\@firstname} & \headerlastnamestyle{\@lastname} \\ 
+      \headerfirstcpystyle{Grum} & \headerlastcpystyle{Ltd}
+    \end{tabular}
     \\[\acvHeaderAfterNameSkip]%
+    
     \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\[\acvHeaderAfterPositionSkip]}}%
     \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\[\acvHeaderAfterAddressSkip]}}%
     \headersocialstyle{%
