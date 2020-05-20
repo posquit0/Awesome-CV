@@ -205,6 +205,46 @@
   BoldItalicFont=*,
 ]{ho}
 
+\newfontfamily\capco[
+  Path=\@fontdir,
+  UprightFont=*,
+  ItalicFont=*,
+  BoldFont=*,
+  BoldItalicFont=*,
+]{capco}
+
+\newfontfamily\ctm[
+  Path=\@fontdir,
+  UprightFont=*,
+  ItalicFont=*,
+  BoldFont=*,
+  BoldItalicFont=*,
+]{ctm}
+
+\newfontfamily\newsuk[
+  Path=\@fontdir,
+  UprightFont=*,
+  ItalicFont=*,
+  BoldFont=*,
+  BoldItalicFont=*,
+]{newsuk}
+
+\newfontfamily\sky[
+  Path=\@fontdir,
+  UprightFont=*,
+  ItalicFont=*,
+  BoldFont=*,
+  BoldItalicFont=*,
+]{sky}
+
+\newfontfamily\ithr[
+  Path=\@fontdir,
+  UprightFont=*,
+  ItalicFont=*,
+  BoldFont=*,
+  BoldItalicFont=*,
+]{ithr}
+
 \newfontfamily\headerfontlight[
   Path=\@fontdir,
   UprightFont=*-Thin,
@@ -212,6 +252,7 @@
   BoldFont=*-Medium,
   BoldItalicFont=*-MediumItalic,
 ]{Roboto}
+
 
 \newcommand*{\footerfont}{\sourcesanspro}
 \newcommand*{\bodyfont}{\sourcesanspro}
