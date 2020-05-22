@@ -383,8 +383,8 @@
     \ifthenelse{\isundefined{\@photo}}{}{%
       \newlength{\photodim}
       \ifthenelse{\equal{\@photoshape}{circle}}%
-        {\setlength{\photodim}{1.3cm}}%
-        {\setlength{\photodim}{1.8cm}}%
+        {\setlength{\photodim}{1.5cm}}%
+        {\setlength{\photodim}{2cm}}%
       \ifthenelse{\equal{\@photoedge}{edge}}%
         {\def\@photoborder{darkgray}}%
         {\def\@photoborder{none}}%
@@ -399,8 +399,8 @@
     \setlength{\headertextwidth}{\textwidth}
     \setlength{\headerphotowidth}{0cm}
   }{%
-    \setlength{\headertextwidth}{0.76\textwidth}
-    \setlength{\headerphotowidth}{0.24\textwidth}
+    \setlength{\headertextwidth}{0.8\textwidth}
+    \setlength{\headerphotowidth}{0.2\textwidth}
   }%
   \begin{minipage}[c]{\headerphotowidth}%
     \ifthenelse{\equal{\@photoalign}{left}}{\raggedright\drawphoto}{}
@@ -426,6 +426,18 @@
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{mailto:\@email}{\faEnvelope\acvHeaderIconSep\@email}%
         }%
+      \ifthenelse{\isundefined{\@github}}%
+         {}%
+         {%
+           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+           \href{https://github.com/\@github}{\faGithubSquare\acvHeaderIconSep\@github}%
+         }%
+       \ifthenelse{\isundefined{\@gitlab}}%
+         {}%
+         {%
+           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+           \href{https://gitlab.com/\@gitlab}{\faGitlab\acvHeaderIconSep\@gitlab}%
+         }%
       \ifthenelse{\isundefined{\@linkedin}}%
         {}%
         {%
