@@ -1,8 +1,8 @@
 # My Awesome CV
 
 <div align="center">
-  <a href="https://circleci.com/gh/marcandrelabelle2/Awesome-CV/tree/mycv">
-    <img alt="CircleCI" src="https://circleci.com/gh/marcandrelabelle2/Awesome-CV/tree/mycv.svg?style=shield" />
+  <a href="https://circleci.com/gh/marcandrelabelle2/Awesome-CV/">
+    <img alt="CircleCI" src="https://circleci.com/gh/marcandrelabelle2/Awesome-CV/Awesome-CV.svg?style=shield" />
   </a>
   <a href="https://raw.githubusercontent.com/marcandrelabelle2/Awesome-CV/master/examples/cv.pdf">
     <img alt="Example CV" src="https://img.shields.io/badge/cv-pdf-green.svg" />
@@ -40,11 +40,8 @@ or use `sudo apt-get install texlive-full` if you really want that.
 At a command prompt, run
 
 ```bash
-$ xelatex {your-cv}.tex
+$ make
 ```
-
-This should result in the creation of ``{your-cv}.pdf``
-
 
 ## Credit
 
