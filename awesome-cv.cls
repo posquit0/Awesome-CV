@@ -256,6 +256,10 @@
 \newcommand*{\familyname}[1]{\def\@lastname{#1}}
 \def\@familyname{\@lastname}
 
+\newcommand*{\cpyname}[2]{\def\@firstcpyname{#1}\def\@lastcpyname{#2}}
+\newcommand*{\firstcpyname}[1]{\def\@firstcpyname{#1}}
+\newcommand*{\lastcpyname}[1]{\def\@lastcpyname{#1}}
+
 % Define writer's address
 % Usage: \address{<address>}
 \newcommand*{\address}[1]{\def\@address{#1}}
@@ -479,8 +483,8 @@
     
     \setlength{\tabcolsep}{3pt}
     \begin{tabular}{ r l }
-      \headerfirstnamestyle{\@firstname} & \headerlastnamestyle{\@lastname} \\ 
-      \headerfirstcpystyle{Grum} & \headerlastcpystyle{Ltd}
+        \headerfirstnamestyle{\@firstname} & \headerlastnamestyle{\@lastname}\\ 
+        \headerfirstcpystyle{\@firstcpyname} & \headerlastcpystyle{\@lastcpyname}
     \end{tabular}
     \\[\acvHeaderAfterNameSkip]%
     
