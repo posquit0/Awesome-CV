@@ -74,6 +74,17 @@ You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/e
 **_Note:_ Above services do not guarantee up-to-date source code of Awesome CV**
 
 
+Basic installation for Mac works as follows
+
+```
+brew cask install mactex
+```
+
+Next, install fonts on your local system
+
+```
+cp fonts/*.ttf /Library/Fonts/
+```
 ## How to Use
 
 #### Requirements
