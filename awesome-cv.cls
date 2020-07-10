@@ -730,7 +730,7 @@
   \ifthenelse{\isundefined{\@lettertitle}}
     {}
     {\lettertitlestyle{\@lettertitle} \\ {\color{gray!30}\vhrulefill{0.9pt} \\ }}
-  \lettertextstyle{\@letteropening}
+  \hspace{-2pt}\lettertextstyle{\@letteropening}
 }
 
 % Define a closing of the cover letter
