@@ -18,10 +18,14 @@ resume.pdf: $(EXAMPLES_DIR)/resume.tex $(RESUME_SRCS)
 ## Create CV pdf
 cv.pdf: $(EXAMPLES_DIR)/cv.tex $(CV_SRCS) 
 	$(CC) -output-directory=$(OUTPUT_DIR)/cv $<
+	biber $(OUTPUT_DIR)/cv/cv
+	$(CC) -output-directory=$(OUTPUT_DIR)/cv $<
 
 ## Create coverletter pdf
 coverletter.pdf: $(EXAMPLES_DIR)/coverletter.tex
 	$(CC) -output-directory=$(OUTPUT_DIR)/coverletter $<
+
+
 
 ## Remove all pdf's from examples directory
 clean:

@@ -1,0 +1,167 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{1}
+  \datalist[entry]{ydnt/global//global/global}
+    \entry{Brugman2020}{article}{}
+      \name{author}{2}{}{%
+        {{hash=51f8b846ddcd95eea603b0c826223dde}{%
+           family={Eaves},
+           familyi={E\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod}}}%
+        {{hash=64f803de47aba8629e344360fb6d1a43}{%
+           family={Brugman},
+           familyi={B\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {The Open Journal}%
+      }
+      \strng{namehash}{fd9c18235be97d388bafe40d6ca02bea}
+      \strng{fullhash}{fd9c18235be97d388bafe40d6ca02bea}
+      \strng{bibnamehash}{fd9c18235be97d388bafe40d6ca02bea}
+      \strng{authorbibnamehash}{fd9c18235be97d388bafe40d6ca02bea}
+      \strng{authornamehash}{fd9c18235be97d388bafe40d6ca02bea}
+      \strng{authorfullhash}{fd9c18235be97d388bafe40d6ca02bea}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Open Source Software}
+      \field{number}{48}
+      \field{title}{Visions: An Open-Source Library for Semantic Data}
+      \field{volume}{5}
+      \field{year}{2020}
+      \true{nocite}
+      \field{pages}{2145}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.21105/joss.02145
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.21105/joss.02145
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.21105/joss.02145
+      \endverb
+    \endentry
+    \entry{Olafsen2018}{article}{}
+      \name{author}{3}{}{%
+        {{hash=30ba01d5c09bf24f7b1a1089dcf31d14}{%
+           family={Olafsen},
+           familyi={O\bibinitperiod},
+           given={L.\bibnamedelimi J.},
+           giveni={L\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=373917f46a4fc9eb8185033a0899149c}{%
+           family={Olafsen},
+           familyi={O\bibinitperiod},
+           given={J.\bibnamedelimi S.},
+           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=d6b33f5348e3799bfa5fe57fcb4b9028}{%
+           family={Eaves},
+           familyi={E\bibinitperiod},
+           given={I.\bibnamedelimi K.},
+           giveni={I\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \strng{namehash}{a6063be7c78e846e6ee901a7ecfd674a}
+      \strng{fullhash}{a6063be7c78e846e6ee901a7ecfd674a}
+      \strng{bibnamehash}{a6063be7c78e846e6ee901a7ecfd674a}
+      \strng{authorbibnamehash}{a6063be7c78e846e6ee901a7ecfd674a}
+      \strng{authornamehash}{a6063be7c78e846e6ee901a7ecfd674a}
+      \strng{authorfullhash}{a6063be7c78e846e6ee901a7ecfd674a}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We report on an experimental investigation of the time-dependent spatial intensity distribution of near-infrared idler pulses from an optical parametric oscillator measured using an infrared (IR) camera, in contrast to beam profiles obtained using traditional knife-edge techniques. Comparisons show the information gained by utilizing the thermal camera provides more detail than the spatially- or time-averaged measurements from a knife-edge profile. Synchronization, averaging, and thresholding techniques are applied to enhance the images acquired. The additional information obtained can improve the process by which semiconductor devices and other IR lasers are characterized for their beam quality and output response and thereby result in IR devices with higher performance.}
+      \field{issn}{1432-0649}
+      \field{journaltitle}{Applied Physics B}
+      \field{month}{5}
+      \field{number}{6}
+      \field{title}{Time-dependent spatial intensity profiles of near-infrared idler pulses from nanosecond optical parametric oscillators}
+      \field{volume}{124}
+      \field{year}{2018}
+      \true{nocite}
+      \field{pages}{110}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1007/s00340-018-6975-0
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s00340-018-6975-0
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s00340-018-6975-0
+      \endverb
+    \endentry
+    \entry{doi:10.1063/1.3671705}{article}{}
+      \name{author}{3}{}{%
+        {{hash=30ba01d5c09bf24f7b1a1089dcf31d14}{%
+           family={Olafsen},
+           familyi={O\bibinitperiod},
+           given={L.\bibnamedelimi J.},
+           giveni={L\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=d6b33f5348e3799bfa5fe57fcb4b9028}{%
+           family={Eaves},
+           familyi={E\bibinitperiod},
+           given={I.\bibnamedelimi K.},
+           giveni={I\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=373917f46a4fc9eb8185033a0899149c}{%
+           family={Olafsen},
+           familyi={O\bibinitperiod},
+           given={J.\bibnamedelimi S.},
+           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{458638a1b3bc50a16d0569cf67dd9828}
+      \strng{fullhash}{458638a1b3bc50a16d0569cf67dd9828}
+      \strng{bibnamehash}{458638a1b3bc50a16d0569cf67dd9828}
+      \strng{authorbibnamehash}{458638a1b3bc50a16d0569cf67dd9828}
+      \strng{authornamehash}{458638a1b3bc50a16d0569cf67dd9828}
+      \strng{authorfullhash}{458638a1b3bc50a16d0569cf67dd9828}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{AIP Conference Proceedings}
+      \field{number}{1}
+      \field{title}{Synchronized Mid‐Infrared Beam Characterization of Narrow Gap Semiconductors}
+      \field{volume}{1416}
+      \field{year}{2011}
+      \true{nocite}
+      \field{pages}{88\bibrangedash 90}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1063/1.3671705
+      \endverb
+      \verb{eprint}
+      \verb https://aip.scitation.org/doi/pdf/10.1063/1.3671705
+      \endverb
+      \verb{urlraw}
+      \verb https://aip.scitation.org/doi/abs/10.1063/1.3671705
+      \endverb
+      \verb{url}
+      \verb https://aip.scitation.org/doi/abs/10.1063/1.3671705
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
