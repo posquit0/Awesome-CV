@@ -614,6 +614,21 @@
 }{%
   \end{center}
 }
+% Define a command for string equality checking
+\makeatletter
+\newcommand{\streqtest}[2]{%
+  \ifnum\pdfstrcmp{#1}{#2}=\z@
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi}
+\makeatother
+% Define a command for cv subentry description building
+\newcommand{\cvsubentrydescbuilder}[1]{%
+  \streqtest{#1}{}%
+    {}
+    {\multicolumn{2}{L{17.0cm}}{\subdescriptionstyle{#1}}\\ }
+}
 % Define a subentry of cv information
 % Usage: \cvsubentry{<position>}{<title>}{<date>}{<description>}
 \newcommand*{\cvsubentry}[4]{%
@@ -622,13 +637,12 @@
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
     \setlength\leftskip{0.2cm}
     \subentrytitlestyle{#2} & \ifthenelse{\equal{#1}{}}
-      {\subentrydatestyle{#3}}{}
+      {\subentrydatestyle{#3}}
+      {} \\
     \ifthenelse{\equal{#1}{}}
       {}
       {\subentrypositionstyle{#1} & \subentrydatestyle{#3} \\}
-    \ifthenelse{\equal{#4}{}}
-      {}
-      {\multicolumn{2}{L{17.0cm}}{\subdescriptionstyle{#4}} \\}
+    \cvsubentrydescbuilder{#4}
   \end{tabular*}
 }
 
