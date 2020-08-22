@@ -1,21 +1,21 @@
 [0] Config.pm:304> INFO - This is Biber 2.14
 [0] Config.pm:307> INFO - Logfile is 'examples/output/cv/cv.blg'
-[126] biber-darwin:322> INFO - === Mon Jul 13, 2020, 02:47:55
-[147] Biber.pm:415> INFO - Reading 'examples/output/cv/cv.bcf'
-[273] Biber.pm:943> INFO - Found 0 citekeys in bib section 0
-[274] Biber.pm:943> INFO - Found 3 citekeys in bib section 1
-[274] Biber.pm:943> INFO - Found 0 citekeys in bib section 0
-[299] Biber.pm:4256> INFO - Processing section 1
-[300] Utils.pm:75> INFO - Globbing data source 'examples/cv/references.bib'
-[300] Utils.pm:91> INFO - Globbed data source 'examples/cv/references.bib' to examples/cv/references.bib
-[316] Biber.pm:4455> INFO - Looking for bibtex format file 'examples/cv/references.bib' for section 1
-[318] bibtex.pm:1653> INFO - LaTeX decoding ...
-[329] bibtex.pm:1471> INFO - Found BibTeX data source 'examples/cv/references.bib'
-[364] Utils.pm:304> WARN - month field 'May' in entry 'Olafsen2018' is not an integer - this will probably not sort properly.
-[386] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[387] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[387] Biber.pm:4084> INFO - Sorting list 'ydnt/global//global/global' of type 'entry' with template 'ydnt' and locale 'en-US'
-[387] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
-[398] bbl.pm:652> INFO - Writing 'examples/output/cv/cv.bbl' with encoding 'UTF-8'
-[401] bbl.pm:755> INFO - Output to examples/output/cv/cv.bbl
-[402] Biber.pm:128> INFO - WARNINGS: 1
+[126] biber-darwin:322> INFO - === Mon Jul 13, 2020, 02:59:45
+[143] Biber.pm:415> INFO - Reading 'examples/output/cv/cv.bcf'
+[282] Biber.pm:943> INFO - Found 0 citekeys in bib section 0
+[283] Biber.pm:943> INFO - Found 3 citekeys in bib section 1
+[283] Biber.pm:943> INFO - Found 0 citekeys in bib section 0
+[310] Biber.pm:4256> INFO - Processing section 1
+[311] Utils.pm:75> INFO - Globbing data source 'examples/cv/references.bib'
+[311] Utils.pm:91> INFO - Globbed data source 'examples/cv/references.bib' to examples/cv/references.bib
+[324] Biber.pm:4455> INFO - Looking for bibtex format file 'examples/cv/references.bib' for section 1
+[326] bibtex.pm:1653> INFO - LaTeX decoding ...
+[340] bibtex.pm:1471> INFO - Found BibTeX data source 'examples/cv/references.bib'
+[377] Utils.pm:304> WARN - month field 'May' in entry 'Olafsen2018' is not an integer - this will probably not sort properly.
+[410] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[410] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[410] Biber.pm:4084> INFO - Sorting list 'ydnt/global//global/global' of type 'entry' with template 'ydnt' and locale 'en-US'
+[410] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[426] bbl.pm:652> INFO - Writing 'examples/output/cv/cv.bbl' with encoding 'UTF-8'
+[432] bbl.pm:755> INFO - Output to examples/output/cv/cv.bbl
+[432] Biber.pm:128> INFO - WARNINGS: 1
