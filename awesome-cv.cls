@@ -486,7 +486,7 @@
           {}%
           {%
             \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-            \href{https://element.uraltemorla.xyz}{\faSend\acvHeaderIconSep\@matrixmsg}%
+            \href{https://app.element.io/}{\faSend\acvHeaderIconSep\@matrixmsg}%
           }%
       \ifthenelse{\isundefined{\@twitter}}%
         {}%
