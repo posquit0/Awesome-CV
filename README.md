@@ -20,9 +20,17 @@ This is a [**fork of the original Awesome CV repository**](https://github.com/po
 
 ## Preview
 
+#### Curriculum Vitae
+
+View [PDF](https://raw.githubusercontent.com/laeberkaes/Awesome-CV/master/examples/cv.pdf)
+
+| Page. 1 | Page. 2 |
+|:---:|:---:|
+| [![Résumé](https://raw.githubusercontent.com/laeberkaes/Awesome-CV/master/examples/cv0.png)](https://raw.githubusercontent.com/laeberkaes/Awesome-CV/master/examples/cv.pdf)  | [![Résumé](https://raw.githubusercontent.com/laeberkaes/Awesome-CV/master/examples/cv1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/cv.pdf) |
+
 #### Résumé
 
-You can see [PDF](https://raw.githubusercontent.com/laeberkaes/Awesome-CV/master/examples/resume.pdf)
+View [PDF](https://raw.githubusercontent.com/laeberkaes/Awesome-CV/master/examples/resume.pdf)
 
 | Page. 1 | Page. 2 |
 |:---:|:---:|
@@ -30,7 +38,7 @@ You can see [PDF](https://raw.githubusercontent.com/laeberkaes/Awesome-CV/master
 
 #### Cover Letter
 
-You can see [PDF](https://raw.githubusercontent.com/laeberkaes/Awesome-CV/master/examples/coverletter.pdf)
+View [PDF](https://raw.githubusercontent.com/laeberkaes/Awesome-CV/master/examples/coverletter.pdf)
 
 | Without Sections | With Sections |
 |:---:|:---:|
