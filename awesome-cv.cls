@@ -74,7 +74,7 @@
 \RequirePackage{unicode-math}
 % Needed to use icons from font-awesome
 % (https://github.com/posquit0/latex-fontawesome)
-\RequirePackage{fontawesome}
+\RequirePackage{fontawesome5}
 \RequirePackage[default,opentype]{sourcesanspro}
 % Needed for the photo ID
 \RequirePackage[skins]{tcolorbox}
@@ -90,8 +90,9 @@
   pdfsubject={},
   pdfkeywords={}
 }
+\RequirePackage{needspace}
 
-\RequirePackage{lipsum}
+\RequirePackage{lipsum} % only for the dummy text
 
 
 %-------------------------------------------------------------------------------
@@ -165,7 +166,7 @@
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
 % Set the FontAwesome font to be up-to-date.
-\setfontfamily\FA[Path=\@fontdir]{FontAwesome}
+% \setfontfamily\FA[Path=\@fontdir]{FontAwesome}
 % Set font for header (default is Roboto)
 \newfontfamily\headerfont[
   Path=\@fontdir,
@@ -452,7 +453,7 @@
       \ifthenelse{\isundefined{\@mobile}}%
         {}%
         {%
-          \faMobile\acvHeaderIconSep\@mobile%
+          \faMobile*\acvHeaderIconSep\@mobile%
           \setbool{isstart}{false}%
         }%
       \ifthenelse{\isundefined{\@email}}%
@@ -476,7 +477,7 @@
       {%
         \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
         \mbox{
-          \href{http://app.element.io}{\faSend\acvHeaderIconSep\@matrixmsg}%
+          \href{http://app.element.io}{\faHashtag\acvHeaderIconSep\@matrixmsg}% faPaperPlane
         }
       }%
     \ifthenelse{\isundefined{\@github}}%
@@ -508,7 +509,7 @@
       {%
         \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
         \mbox{
-          \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\acvHeaderIconSep\@linkedin}%
+          \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedin\acvHeaderIconSep\@linkedin}%
         }
       }%
     \ifthenelse{\isundefined{\@twitter}}%
@@ -571,7 +572,8 @@
   \ifthenelse{\isundefined{\@quote}}%
 
       {}%
-      {\headerquotestyle{\@quote\\}\vspace{\acvHeaderAfterQuoteSkip}}%
+      {\headerquotestyle{\faQuoteLeft
+\hspace{1mm} \@quote\\}\vspace{\acvHeaderAfterQuoteSkip}}%
   \end{minipage}%
   \begin{minipage}[c]{\headerphotowidth}%
     \ifthenelse{\equal{\@photoalign}{right}}{\raggedleft\drawphoto}{}
@@ -590,6 +592,7 @@
 % Define a section for CV
 % Usage: \cvsection{<section-title>}
 \newcommand{\cvsection}[1]{%
+  \needspace{10\baselineskip}
   \vspace{\acvSectionTopSkip}
   \sectionstyle{#1}
   \phantomsection
@@ -599,6 +602,7 @@
 % Define a subsection for CV
 % Usage: \cvsubsection{<subsection-title>}
 \newcommand{\cvsubsection}[1]{%
+  \needspace{5\baselineskip}
   \vspace{\acvSectionContentTopSkip}
   % \vspace{-3mm}
   \subsectionstyle{#1}
@@ -629,11 +633,18 @@
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \def\temp{#5}\ifx\temp\empty
+    \ifempty{#2#3}
+      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
+      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+    \else
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
       \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
+    \fi
   \end{tabular*}%
 }
 
@@ -760,4 +771,154 @@
       \\\\\\
       \letterenclosurestyle{\@letterenclname: \@letterenclosure} \\
     }
+}
+
+
+%-------------------------------------------------------------------------------
+%                Bibliography
+%-------------------------------------------------------------------------------
+%\RequirePackage[style=verbose, maxnames=99, sorting=ydnt]{biblatex}
+\RequirePackage{csquotes}
+\RequirePackage[ % BibLaTeX
+	sorting=ydnt, % Sorts entries by year (descending order), name, title
+	style=verbose,
+	doi=false,
+	isbn=true,
+	url=false,
+	eprint=false,
+	backref = false, % include back references in bibliography
+	maxcitenames=3, % affects only the citations in the document body
+	maxbibnames=99, % affects only the bibliography, pass 99 to print all
+	hyperref=true,
+	block=none,
+	backend=biber % {Options: bibtex, biber}
+	]{biblatex}
+
+% Avoid splitting entries across page break (only for 3 or fewer lines)
+% Tip: http://tex.stackexchange.com/a/51261
+\AtBeginEnvironment{thebibliography}{%
+   \clubpenalty10000
+   \@clubpenalty \clubpenalty
+   \widowpenalty10000
+   \interlinepenalty5000}
+
+% Customized format, based on Fancy CV template created by Adrien Friggeri
+\DeclareFieldFormat[article]{title}{#1\par}
+\DeclareFieldFormat[inproceedings]{title}{#1\par}
+\DeclareFieldFormat[misc]{title}{#1\par}
+\DeclareFieldFormat[report]{title}{#1\par}
+\DeclareFieldFormat[incollection]{title}{#1\par}
+
+\DeclareBibliographyDriver{article}{%
+  \fontsize{9pt}{1em}\bodyfont%
+  \printfield{title}%
+  \newblock%
+  \printnames{author}%
+  \par%
+  \newblock%
+  {%
+    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
+    \usebibmacro{journal+issuetitle}%
+    \setunit{\space}%
+    \printfield{pages}%
+    \newunit%
+    \printlist{publisher}%
+    \setunit*{\addcomma\space}%
+    \printfield{year}%
+    \newunit%
+  }
+  \par\vspace{0.3\baselineskip}
+}
+
+\DeclareBibliographyDriver{inproceedings}{%
+  \fontsize{9pt}{1em}\bodyfont%
+  \printfield{title}%
+  \newblock%
+  \printnames{author}%
+  \par%
+  \newblock%
+  {%
+    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
+    \printfield{booktitle}%
+    \setunit{\addcomma\space}%
+    \printfield{year}%
+    \setunit{\addcomma\space}%
+    \printlist{location}%
+    \newunit%
+  }
+  \par\vspace{0.3\baselineskip}
+}
+
+\DeclareBibliographyDriver{incollection}{%
+  \fontsize{9pt}{1em}\bodyfont%
+  \printfield{title}%
+  \newblock%
+  \printnames{author}%
+  \par%
+  \newblock%
+  {%
+    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
+    \printfield{booktitle}%
+    \setunit{\addcomma\space}%
+    \printfield{year}%
+    \setunit{\addcomma\space}%
+    \printlist{location}%
+    \newunit%
+  }
+  \par\vspace{0.3\baselineskip}
+}
+
+\DeclareBibliographyDriver{misc}{%
+  \fontsize{9pt}{1em}\bodyfont%
+  \printfield{title}%
+  \newblock%
+  \printnames{author}%
+  \par%
+  \newblock%
+  {%
+    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
+    \printfield{booktitle}%
+    \setunit*{\addcomma\space}%
+    \printfield{note}%
+    \setunit*{\addcomma\space}%
+    \printfield{year}%
+    \setunit{\addcomma\space}%
+    \printlist{location}%
+    \newunit%
+  }
+  \par\vspace{0.3\baselineskip}
+}
+
+\DeclareBibliographyDriver{report}{%
+  \fontsize{9pt}{1em}\bodyfont%
+  \printfield{title}%
+  \newblock%
+  \printnames{author}%
+  \par%
+  \newblock%
+  {%
+    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
+    \printfield{type}%
+    \setunit{\space}%
+    \printfield{number}%
+    \setunit{\addcomma\space}%
+    \printfield{year}%
+    \newunit%
+  }
+  \par\vspace{0.3\baselineskip}
+}
+
+% New syntax for flexible backend (BibLaTeX > v3.3)
+\DeclareNameFormat{author}{%
+  \fontsize{9pt}{1em}\bodyfont%
+  \renewcommand*{\multinamedelim}{\addcomma\addspace}%
+  \nameparts{#1}%
+  \ifthenelse{\value{listcount}=1}
+    {\ifblank{\namepartgiven}{}{\namepartgiven\space}%
+    \namepartfamily}%
+    {\ifblank{\namepartgiven}{}{\namepartgiven\space}%
+    \namepartfamily}%
+  \ifthenelse{\value{listcount}<\value{liststop}}
+  {\addcomma\space}
+  {}
 }
