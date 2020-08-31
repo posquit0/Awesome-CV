@@ -72,7 +72,7 @@ To generate document with the list of publications, at a command prompt, run
 $ xelatex {your-cv}.tex
 $ biber {your-cv}
 $ xelatex {your-cv}.tex
-
+```
 
 ## Credit
 
