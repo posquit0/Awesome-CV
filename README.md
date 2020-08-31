@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="https://github.com/laeberkaes/Awesome-CV" title="AwesomeCV Documentation">
-    <img alt="AwesomeCV" src="https://github.com/laeberkaes/Awesome-CV//raw/master/icon.png" width="200px" height="200px" />
+    <img alt="AwesomeCV" src="https://github.com/laeberkaes/Awesome-CV//raw/master/icon0.png" width="200px" height="200px" />
   </a>
   <br />
   Awesome CV
