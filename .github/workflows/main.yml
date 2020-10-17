@@ -1,0 +1,16 @@
+name: Compile PDFs
+
+on:
+  push: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: thomasweise/texlive
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Compile
+        run: make
