@@ -1,11 +1,3 @@
-This is a fork of the [posquit0/Awesome-CV](https://github.com/posquit0/Awesome-CV) which was having issues with not being able to compile the PDFs due to missing fonts. I also removed CircleCI and am instead usign Github Actions to auto compile and auto upload the PDFs as new releases so they are easier to access. To be able to run the actions after forking, you will need to create a new personal access token in Github settings and add it as a secret in your repo settings.
-
-Keep in mind that forking as is will allow anyone to see your resume and info contained within, so I suggest making a [private duplicate](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/duplicating-a-repository) instead for your personal use.
-
-I've copied the documentation from the original repo below.
-
-----
-
 <h1 align="center">
   <a href="https://github.com/posquit0/Awesome-CV" title="AwesomeCV Documentation">
     <img alt="AwesomeCV" src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png" width="200px" height="200px" />
@@ -91,13 +83,24 @@ You can [install TeX from upstream](http://tex.stackexchange.com/q/1092) (recomm
 
 #### Usage
 
-At a command prompt, run
+To compile manually, run ``$ xelatex {your-cv}.tex`` in your command prompt. This should result in the creation of ``{your-cv}.pdf``
 
-```bash
-$ xelatex {your-cv}.tex
-```
+Alternatively, you can have Github automatically generate the PDFs and upload them as releases to this repo:
 
-This should result in the creation of ``{your-cv}.pdf``
+1. Fork the repo.
+2. Create a Personal Access Token.
+  A. Go to [Settings](https://github.com/settings/tokens).
+  B. Click ``Generate New Token``.
+  C. Check the box next to "repo".
+  D. Name the token anything you'd like.
+  E. Once generated, copy the token.
+4. Add token to repo secrets.
+  A. Go back to your *forked* repo and click `Settings`.
+  B. Click `Secrets` and `New Secret`.
+  C. Paste your token under `Value`.
+  D. Name the secret: `CV_SECRET`.
+
+Once this is done, Github will automatically generate your new PDFs after each push. This can be found by going to "releases".
 
 
 ## Credit
