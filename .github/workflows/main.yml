@@ -1,0 +1,37 @@
+name: Compile PDFs
+
+# Compile new PDFs on any push event
+on:
+  push:
+    branches:
+        - "master"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: thomasweise/texlive
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Install FontAwesome
+        run: |
+          apt-get update -y
+          apt-get install -y fonts-font-awesome
+
+      # Use included Makefile
+      - name: Compile
+        run: make
+
+      # Upload new PDFs as a new release
+      - name: Release
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: ${{ secrets.CV_SECRET }}
+          automatic_release_tag: "latest"
+          files: |
+            examples/cv.pdf
+            examples/resume.pdf
+            examples/coverletter.pdf
