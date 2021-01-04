@@ -162,8 +162,6 @@
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
 % Set the FontAwesome font to be up-to-date.
-\let\FA\relax
-
 % Set font for header (default is Roboto)
 \newfontfamily\headerfont[
   Path=\@fontdir,
