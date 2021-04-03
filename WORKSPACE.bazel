@@ -1,0 +1,12 @@
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "bazel_latex",
+    sha256 = "6fee813c68fcb5d24a499178584469465a490b0fb227aa4ef417e427bb004245",
+    strip_prefix = "bazel-latex-master",
+    url = "https://github.com/ProdriveTechnologies/bazel-latex/archive/master.tar.gz",
+)
+
+load("@bazel_latex//:repositories.bzl", "latex_repositories")
+
+latex_repositories()

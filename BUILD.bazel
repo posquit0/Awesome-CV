@@ -1,0 +1,55 @@
+load("@bazel_latex//:latex.bzl", "latex_document")
+
+latex_document(
+    name="cv",
+    srcs=glob([
+        "examples/cv/*.tex"
+    ]) + [":shared_files"],
+    main="examples/cv.tex",
+)
+
+latex_document(
+    name="resume",
+    srcs=glob([
+        "examples/resume/*.tex"
+    ]) + [":shared_files"],
+    main="examples/resume.tex",
+)
+
+latex_document(
+    name="coverletter",
+    srcs=glob([
+        "examples/coverletter/*.tex"
+    ]) + [":shared_files"],
+    main="examples/coverletter.tex",
+)
+
+# Magical list of available packages (`@bazel_latex//packages:some-package-name`) with their deps
+# https://github.com/ProdriveTechnologies/bazel-latex/blob/master/packages/BUILD.bazel
+filegroup(
+    name="shared_files",
+    srcs=["awesome-cv.cls"] + 
+        glob(["fonts/*.ttf"]) +
+    [
+        "@bazel_latex//packages:array",
+        "@bazel_latex//packages:enumitem",
+        "@bazel_latex//packages:geometry",
+        "@bazel_latex//packages:fancyhdr",
+        "@bazel_latex//packages:xcolor",
+        "@bazel_latex//packages:xifthen",
+        "@bazel_latex//packages:etoolbox",
+        "@texlive_texmf__texmf-dist__tex__latex__setspace",
+        "@bazel_latex//packages:fontspec",
+        "@bazel_latex//packages:unicode-math",
+        "@bazel_latex//packages:fontawesome",
+
+        "@bazel_latex//packages:xkeyval",
+        "@texlive_texmf__texmf-dist__tex__latex__roboto",
+        # https://github.com/silkeh/latex-sourcesanspro
+        "@texlive_texmf__texmf-dist__tex__latex__sourcesanspro",
+        "@texlive_texmf__texmf-dist__fonts__opentype__adobe__sourcesanspro",
+        "@bazel_latex//packages:tcolorbox",
+        "@bazel_latex//packages:parskip",
+        "@bazel_latex//packages:hyperref",
+    ],
+)
