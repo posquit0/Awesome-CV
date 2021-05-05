@@ -37,7 +37,7 @@
 
 ## Donate
 
-Please help keep this project alive! Donations are welcome and will go towards further development of this project.
+Please help keep this project alive Donations are welcome and will go towards further development of this project.
 
     PayPal: paypal.me/posquit0
     BTC: 1Je3DxJVM2a9nTVPNo55SfQwpmxA6N2KKb
