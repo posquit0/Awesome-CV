@@ -666,9 +666,15 @@
   \end{center}
 }
 % Define a line of cv information(honor, award or something else)
+% Additionally, field separator instead of comma can be given as an optional argument
 % Usage: \cvhonor{<position>}{<title>}{<location>}{<date>}
-\newcommand*{\cvhonor}[4]{%
-  \honordatestyle{#4} & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#3} \\
+\newcommand*{\cvhonor}[5][]{%
+  \ifthenelse{\isempty{#1}{}}{%
+    \honordatestyle{#5} & \honorpositionstyle{#2}, \honortitlestyle{#3} & \honorlocationstyle{#4} \\
+   }%
+   {%
+     \honordatestyle{#5} & \honorpositionstyle{#2} {\fontsize{8pt}{1em}\bodyfontlight\color{text}#1} \honortitlestyle{#3} & \honorlocationstyle{#4} \\
+   }%
 }
 
 % Define an environment for cvskill
