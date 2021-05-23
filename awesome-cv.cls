@@ -743,7 +743,8 @@
   \end{singlespace}
   \ifthenelse{\isundefined{\@lettertitle}}
     {}
-    {\lettertitlestyle{\@lettertitle} \\ {\color{gray!30}\vhrulefill{0.9pt} \\ }}
+    % {\lettertitlestyle{\@lettertitle} \\ {\color{gray!30}\vhrulefill{0.9pt} \\ }}
+    {\lettertitlestyle{\@lettertitle}  \vspace{-3mm} \\ {\color{gray!30}\vhrulefill{0.9pt} \\ }}
   \hspace{-2pt}\lettertextstyle{\@letteropening}
 }
 
