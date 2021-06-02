@@ -1,5 +1,7 @@
-## Awesome CV
-Forked from [posquit0/Awesome-CV](https://github.com/posquit0/Awesome-CV)
+# resume
+My resume based on [Awesome-CV](https://github.com/posquit0/Awesome-CV)
+
+View the [PDF](https://docs.google.com/document/d/1i6hQy3OmR6U0tbMGpazbhF2gRbBNCrfhIgUPh2svKH8/edit?usp=sharing)
 
 ## How to Use
 
