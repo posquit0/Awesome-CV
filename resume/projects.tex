@@ -1,0 +1,41 @@
+\cvsection{Projects}
+
+\begin{cventries}
+  \cventry
+    {} {Hackathons} {} {} {
+      \begin{cvitems}
+      \item {Built device costing <\$150 to control and monitor set top boxes replacing some need for devices costing >\$1000.}
+        \begin{itemize}
+        \item {Python script accessing infrared transeiver on Raspberry Pi's GPIO to control set-top box.}
+        \item {Monitored data to verify channel activity}
+        \end{itemize}
+      \end{cvitems}
+    }
+
+  \cventry
+    {} {Hydra} {} {} {
+      \begin{cvitems} % Description(s) bullet points
+      \item {Moved services from single physical sever to individual docker containers: web ui, web api, web proxy, beanstalkd, database}
+      \item {Wrote ansible playbook to spin up host instance and all service containers in OpenStack from job in Jenkins}
+      \end{cvitems}
+    }
+
+  \cventry
+    {} {Wifi} {} {} {
+      \begin{cvitems} % Description(s) bullet points
+      \item {Built out test bed containing wifi controller, APs, and networking gear}
+      \item {Wrote Robot Framework upgrade tests}
+      \item {Tests drove wifi controller via web ui using customer workflow}
+      \item {Integrated tests into Jenkins automation pipeline}
+      \end{cvitems}
+    }
+
+  \cventry
+    {} {Vulture} {} {} {
+      \begin{cvitems} % Description(s) bullet points
+      \item {Wrote Python log collection utitily for postmortem test failure analysis}
+      \item {Collected device logs, cli command output, and automated Robot Framework test logs}
+      \end{cvitems}
+    }
+
+\end{cventries}
