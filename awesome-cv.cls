@@ -86,14 +86,32 @@
 \RequirePackage{parskip}
 % Needed for Google Scholar and ORCID icon
 \RequirePackage{academicons}
+
+% Boolean value to switch compact theme for cover letter
+\newbool{acvCompactCoverLetter}
+\setbool{acvCompactCoverLetter}{false}
+
+% Boolean value to switch to cover letter
+\newbool{acvCoverLetter}
+\setbool{acvCoverLetter}{false}
+
 % Needed to deal hyperlink
 \RequirePackage[hidelinks,unicode]{hyperref}
-\hypersetup{%
-  pdftitle={Curriculum Vitae},
-  pdfauthor={Ravi P. Joshi},
-  pdfsubject={Curriculum Vitae},
-  pdfkeywords={}
-}
+\ifbool{acvCoverLetter}{%
+  \hypersetup{%
+    pdftitle={Cover Letter},%
+    pdfauthor={Ravi P. Joshi},%
+    pdfsubject={Cover Letter},%
+    pdfkeywords={}%
+  }%
+}{%
+  \hypersetup{%
+    pdftitle={Curriculum Vitae},%
+    pdfauthor={Ravi P. Joshi},%
+    pdfsubject={Curriculum Vitae},%
+    pdfkeywords={}%
+  }%
+}%
 
 
 %-------------------------------------------------------------------------------
@@ -439,8 +457,8 @@
     \ifthenelse{\isundefined{\@photo}}{}{%
       \newlength{\photodim}
       \ifthenelse{\equal{\@photoshape}{circle}}%
-        {\setlength{\photodim}{1.3cm}}%
-        {\setlength{\photodim}{1.8cm}}%
+        {\ifbool{acvCompactCoverLetter}{\setlength{\photodim}{1.0cm}}{\setlength{\photodim}{1.3cm}}}%
+        {\ifbool{acvCompactCoverLetter}{\setlength{\photodim}{1.4cm}}{\setlength{\photodim}{1.8cm}}}%
       \ifthenelse{\equal{\@photoedge}{edge}}%
         {\def\@photoborder{darkgray}}%
         {\def\@photoborder{none}}%
@@ -732,7 +750,7 @@
 % Define a title of the cover letter
 % Usage: \makelettertitle
 \newcommand*{\makelettertitle}{%
-  \vspace{8.4mm}
+  \ifbool{acvCompactCoverLetter}{}{\vspace{8.4mm}}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
