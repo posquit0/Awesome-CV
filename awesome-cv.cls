@@ -86,32 +86,29 @@
 \RequirePackage{parskip}
 % Needed for Google Scholar and ORCID icon
 \RequirePackage{academicons}
-
+% Define keys to configure PDF author name and title
+\define@key{awesome-cv.cls}{pdfauthor}[Ravi P. Joshi]{\def\pdfauthorname{#1}}
+\define@key{awesome-cv.cls}{pdftitle}[Curriculum Vitae]{\def\pdftitlesubject{#1}}
+% Parse Keys
+\ExecuteOptionsX{pdfauthor,pdftitle}
+\ProcessOptionsX
+% Define commands to set the keys
+\newcommand\setpdfauthor[1]{\setkeys{awesome-cv.cls}{pdfauthor=#1}}
+\newcommand\setpdftitle[1]{\setkeys{awesome-cv.cls}{pdftitle=#1}}
+% Needed to deal hyperlink
+\RequirePackage[hidelinks,unicode]{hyperref}
+% Configure PDF author name and title
+\AtEndPreamble{
+  \hypersetup{
+    pdftitle={{\pdftitlesubject}},
+    pdfauthor={{\pdfauthorname}},
+    pdfsubject={{\pdftitlesubject}},
+    pdfkeywords={}
+  }
+}
 % Boolean value to switch compact theme for cover letter
 \newbool{acvCompactCoverLetter}
 \setbool{acvCompactCoverLetter}{false}
-
-% Boolean value to switch to cover letter
-\newbool{acvCoverLetter}
-\setbool{acvCoverLetter}{false}
-
-% Needed to deal hyperlink
-\RequirePackage[hidelinks,unicode]{hyperref}
-\ifbool{acvCoverLetter}{%
-  \hypersetup{%
-    pdftitle={Cover Letter},%
-    pdfauthor={Ravi P. Joshi},%
-    pdfsubject={Cover Letter},%
-    pdfkeywords={}%
-  }%
-}{%
-  \hypersetup{%
-    pdftitle={Curriculum Vitae},%
-    pdfauthor={Ravi P. Joshi},%
-    pdfsubject={Curriculum Vitae},%
-    pdfkeywords={}%
-  }%
-}%
 
 
 %-------------------------------------------------------------------------------
