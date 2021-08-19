@@ -5,6 +5,15 @@ Vancouver, BC
 [LinkedIn](https://ca.linkedin.com/in/canadianveggie)
 | [GitHub](https://github.com/canadianveggie/)
 
+Technologies
+----------
+**Languages**: TypeScript, Node.js, Python, Java, R
+
+**Databases**: Postgres, Redshift, Cassandra, Mysql, Redis, Elasticsearch
+
+**DevOps**: Docker, Terraform, Logstash, Datadog, StatsD, AWS CLI
+
+
 Experience
 ----------
 
