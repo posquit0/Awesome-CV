@@ -3,6 +3,7 @@ Christopher Porter
 Vancouver, BC
 
 [LinkedIn](https://ca.linkedin.com/in/canadianveggie)
+| [GitHub](https://github.com/canadianveggie/)
 
 Experience
 ----------
