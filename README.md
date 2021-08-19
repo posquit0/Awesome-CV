@@ -62,4 +62,4 @@ Education
 
 **Bachelor of Software Engineering** at University of Waterloo from **September 2001 - June 2006**
  * Dean's Honours List
- * Engineering Valedictorian
+ * Valedictorian
