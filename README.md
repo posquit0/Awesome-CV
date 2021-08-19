@@ -14,9 +14,9 @@ Experience
 * Ensured the Canada COVID-19 app could scale to millions of users.
 * Wrote Terraform configuration for new AWS infrastructure.
 * Represented engineering on the leadership team and set strategic goals.
-* Designed and built many of our backend systems with a focus on performance, security, and scalability, including:
+* Designed and built many of our backend systems with a focus on performance, security, and scalability including:
   * Access control layer to ensure the privacy of health data
-  * Consistent search APIs for providing quick access to FHIR data
+  * Consistent REST APIs for providing quick access to FHIR data
   * Asynchronous job processing for long running requests
   * User event tracking and enrichment pipeline for analytics
   * Transcoding service to convert videos and extract thumbnails
@@ -33,12 +33,12 @@ Experience
 
 * Created a time-series database in Java using Cassandra to store terabytes of smart meter data.
 * Designed a tariff engine in node.js for modeling energy costs.
-* Handled technical recruiting for new developers, including managing the coding challenge.
+* Patented an algorithm for forecasting energy use based on historical conditions and weather.
 * Wrote Chef recipes to provision our cloud infrastructure in EC2.
 * Setup a monitoring stack using Logstash, Kibana, Graphite, Statsd, and a custom Graphiti-fork.
-* Patented an algorithm for forecasting energy use based on historical conditions and current weather.
-* Mentored junior developers on our team, teaching them fundamentals in code design and software life-cycles.
 * Optimized code for other teams (in Java, Python, Ruby, and R) to reduce memory footprints and speed up execution.
+* Mentored junior developers on our team, teaching them fundamentals in code design and software life-cycles.
+* Handled technical recruiting for new developers, including managing the coding challenge.
 
 **Software Developer** at **Business Objects (Acquired by SAP)** from **July 2006 - September 2008**
 
