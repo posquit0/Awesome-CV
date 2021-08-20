@@ -17,18 +17,14 @@ Technologies
 Experience
 ----------
 
-**Team Lead** at **Thrive Health** from **December 2017 - Present**
+**Technical Lead** at **Thrive Health** from **December 2017 - Present**
 
-* Managed and mentored up to 6 direct reports on the Platform team.
-* Ensured the Canada COVID-19 app could scale to millions of users.
-* Wrote Terraform configuration for new AWS infrastructure.
-* Represented engineering on the leadership team and set strategic goals.
-* Designed and built many of our backend systems with a focus on performance, security, and scalability including:
-  * Access control layer to ensure the privacy of health data
-  * Consistent REST APIs for providing quick access to FHIR data
-  * Asynchronous job processing for long running requests
-  * User event tracking and enrichment pipeline for analytics
-  * Transcoding service to convert videos and extract thumbnails
+* Managed up to 6 direct reports on the Platform team responsible for building the foundational infrastructure.
+* Ran retrospective meetings and 5 whys sessions to help the team evolve its processes.
+* Load tested our APIs and built a caching layer to ensure the Canada COVID-19 app could scale to millions of users.
+* Helped set the strategic direction of the company as a member of the leadership team.
+* Architected the access control lists to ensure the privacy of health data and prevent data breaches.
+* Built a scalable event tracking system that kept data in Canada and gave insights to public health officials.
 
 **Technical Lead** at **Clir Renewables** from **April 2017 - November 2017**
 
