@@ -28,7 +28,7 @@ Experience
 
 **Technical Lead** at **Clir Renewables** from **April 2017 - November 2017**
 
-* Lead for 3 software developers creating a wind farm analysis tool with a Python backend and React frontend
+* Led for 3 software developers creating a wind farm analysis tool with a Python backend and React frontend
 * Responsible for architecting the system, mentoring junior developers, and writing code
 * Setup infrastructure including a build server, user tracking, and secret management
 * Restructured the AWS deployment, defining security groups, IAM roles, and VPC subnets
