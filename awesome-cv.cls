@@ -288,6 +288,8 @@
 % Usage: \homepage{<url>}
 \newcommand*{\homepage}[1]{\def\@homepage{#1}}
 
+% Defines writer's youtube channel (optional)
+% Usage: \youtube{<url>}{channel name}
 \newcommand*{\youtube}[2]{\def\@youtube{#1}\def\@youtubeName{#2}}
 %\newcommand*{\youtube}[1]{\def\@youtube{#1}}
 
