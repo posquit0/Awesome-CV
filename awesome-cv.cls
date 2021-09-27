@@ -164,7 +164,7 @@
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
 % Set the FontAwesome font to be up-to-date.
-\newfontfamily\FA[Path=\@fontdir]{FontAwesome}
+% \newfontfamily\FA[Path=\@fontdir]{FontAwesome}
 % Set font for header (default is Roboto)
 \newfontfamily\headerfont[
   Path=\@fontdir,
@@ -287,6 +287,9 @@
 % Defines writer's homepage (optional)
 % Usage: \homepage{<url>}
 \newcommand*{\homepage}[1]{\def\@homepage{#1}}
+
+\newcommand*{\youtube}[2]{\def\@youtube{#1}\def\@youtubeName{#2}}
+%\newcommand*{\youtube}[1]{\def\@youtube{#1}}
 
 % Defines writer's github (optional)
 % Usage: \github{<github-nick>}
@@ -475,6 +478,12 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{http://\@homepage}{\faHome\acvHeaderIconSep\@homepage}%
+        }%
+         \ifthenelse{\isundefined{\@youtube}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{http://\@youtube}{\faYoutube\acvHeaderIconSep\@youtubeName}%
         }%
       \ifthenelse{\isundefined{\@github}}%
         {}%
