@@ -84,8 +84,8 @@
 \RequirePackage[hidelinks,unicode]{hyperref}
 \usepackage{hyperref}
 \hypersetup{%
-    colorlinks = true,
-    linkbordercolor = {white},
+%    colorlinks = true,
+%    linkbordercolor = {white},
   pdftitle={},
   pdfauthor={},
   pdfsubject={},
