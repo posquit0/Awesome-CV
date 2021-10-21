@@ -44,6 +44,14 @@
 
 
 %-------------------------------------------------------------------------------
+%                Configuration for directory locations
+%-------------------------------------------------------------------------------
+% Configure a directory location for fonts(default: 'fonts/')
+\newcommand*{\fontdir}[1][fonts/]{\def\@fontdir{#1}}
+\fontdir
+
+
+%-------------------------------------------------------------------------------
 %                3rd party packages
 %-------------------------------------------------------------------------------
 % Needed to make fixed length table
@@ -88,14 +96,6 @@
   pdfsubject={},
   pdfkeywords={}
 }
-
-
-%-------------------------------------------------------------------------------
-%                Configuration for directory locations
-%-------------------------------------------------------------------------------
-% Configure a directory location for fonts(default: 'fonts/')
-\newcommand*{\fontdir}[1][fonts/]{\def\@fontdir{#1}}
-\fontdir
 
 
 %-------------------------------------------------------------------------------
@@ -160,8 +160,8 @@
 %-------------------------------------------------------------------------------
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
-% Set the FontAwesome font to be up-to-date.
-\newfontfamily\FA[Path=\@fontdir]{FontAwesome}
+% FontAwesome is loaded in fontawesome package.
+
 % Set font for header (default is Roboto)
 \newfontfamily\headerfont[
   Path=\@fontdir,
