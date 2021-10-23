@@ -79,9 +79,11 @@ You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/e
 #### Requirements
 
 A full TeX distribution is assumed.  [Various distributions for different operating systems (Windows, Mac, \*nix) are available](http://tex.stackexchange.com/q/55437) but TeX Live is recommended.
-You can [install TeX from upstream](https://tex.stackexchange.com/q/1092) (recommended; most up-to-date) or use `sudo apt-get install texlive-full` if you really want that.  (It's generally a few years behind.)
 
 If you don't want to install the dependencies on your system, this can also be obtained via [Docker](https://docker.com).
+
+You can [install TeX from upstream](http://tex.stackexchange.com/q/1092) (recommended; most up-to-date) or use `sudo apt-get install texlive-full`
+or `yum install texlive-scheme-full` if you really want that.  (It's generally a few years behind.)
 
 #### Usage
 
