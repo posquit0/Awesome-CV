@@ -112,6 +112,11 @@ If you have any questions, feel free to join me at [`#posquit0` on Freenode](irc
 Good luck!
 
 
+## Maintainers
+- [posquit0](https://github.com/posquit0)
+- [OJFord](https://github.com/OJFord)
+
+
 ## See Also
 
 * [Awesome Identity](https://github.com/posquit0/hugo-awesome-identity) - A single-page Hugo theme to introduce yourself.
