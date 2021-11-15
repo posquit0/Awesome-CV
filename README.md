@@ -17,13 +17,13 @@
   <a href="https://github.com/posquit0/Awesome-CV/actions/workflows/main.yml">
     <img alt="GitHub Actions" src="https://github.com/posquit0/Awesome-CV/actions/workflows/main.yml/badge.svg" />
   </a>
-  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf">
+  <a href="https://circleci.com/api/v1.1/project/github/posquit0/Awesome-CV/latest/artifacts/0/~/results/resume.pdf?branch=master&filter=successful">
     <img alt="Example Resume" src="https://img.shields.io/badge/resume-pdf-green.svg" />
   </a>
-  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/cv.pdf">
+  <a href="https://circleci.com/api/v1.1/project/github/posquit0/Awesome-CV/latest/artifacts/0/~/results/cv.pdf?branch=master&filter=successful">
     <img alt="Example CV" src="https://img.shields.io/badge/cv-pdf-green.svg" />
   </a>
-  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf">
+  <a href="https://circleci.com/api/v1.1/project/github/posquit0/Awesome-CV/latest/artifacts/0/~/results/coverletter.pdf?branch=master&filter=successful">
     <img alt="Example Coverletter" src="https://img.shields.io/badge/coverletter-pdf-green.svg" />
   </a>
 </div>
