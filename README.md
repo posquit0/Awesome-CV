@@ -89,7 +89,7 @@ At a command prompt, run
 $ xelatex {your-cv}.tex
 ```
 
-For a docker build create a local container with a full installation packages (the first time you run this it might take a while because it will download all texlive-full version):
+If you don't want to install the dependencies on your system, you can use docker for generating the targets:
 
 Generate using docker:
 
