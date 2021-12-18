@@ -343,6 +343,10 @@
 % Usage: \medium{<medium account>}
 \newcommand*{\medium}[1]{\def\@medium{#1}}
 
+% Defines writer's kaggle (optional)
+% Usage: \kaggle{<kaggle handle>}
+\newcommand*{\kaggle}[1]{\def\@kaggle{#1}}
+
 % Defines writer's google scholar profile (optional)
 % Usage: \googlescholar{<googlescholar userid>}{<googlescholar username>}
 % e.g.https://scholar.google.co.uk/citations?user=wpZDx1cAAAAJ
@@ -577,6 +581,12 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://medium.com/@\@medium}{\faMedium\acvHeaderIconSep\@medium}%
+        }%
+      \ifthenelse{\isundefined{\@kaggle}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://kaggle.com/\@kaggle}{\faKaggle\acvHeaderIconSep\@kaggle}%
         }%
       \ifthenelse{\isundefined{\@googlescholarid}}%
         {}%
