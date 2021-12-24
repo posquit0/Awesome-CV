@@ -750,6 +750,7 @@
   \lettersectionstyle{#1}
   \color{gray}\vhrulefill{0.9pt}
   \par\nobreak\addvspace{0.4ex}
+  \lettertextstyle
 }
 
 % Define a title of the cover letter
