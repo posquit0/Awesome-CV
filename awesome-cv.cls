@@ -315,6 +315,10 @@
 % Usage: \twitter{<twitter handle>}
 \newcommand*{\twitter}[1]{\def\@twitter{#1}}
 
+% Defines writer's Mastodon (optional)
+% Usage: \mastodon{<instance>}{<mastodon-nick>}
+\newcommand*{\mastodon}[2]{\def\@mastodoninstance{#1}\def\@mastodonname{#2}}
+
 % Defines writer's resarchgate (optional)
 % Usage: \researchgate{<researchgate-account>}
 \newcommand*{\researchgate}[1]{\def\@researchgate{#1}}
@@ -527,6 +531,12 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://twitter.com/\@twitter}{\faTwitter\acvHeaderIconSep\@twitter}%
+        }%
+      \ifthenelse{\isundefined{\@mastodonname}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://\@mastodoninstance/@\@mastodonname}{\faMastodon\acvHeaderIconSep\@mastodonname}%
         }%
       \ifthenelse{\isundefined{\@skype}}%
         {}%
