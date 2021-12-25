@@ -327,6 +327,10 @@
 % Usage: \reddit{<reddit account>}
 \newcommand*{\reddit}[1]{\def\@reddit{#1}}
 
+% Defines writer's google scholar (optional)
+% Usage: \scholar{<user-scholar-id>}
+\newcommand*{\scholar}[1]{\def\@scholar{#1}}
+
 % Defines writer's xing (optional)
 % Usage: \xing{<xing name>}
 \newcommand*{\xing}[1]{\def\@xing{#1}}
@@ -527,6 +531,12 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://twitter.com/\@twitter}{\faTwitter\acvHeaderIconSep\@twitter}%
+        }%
+      \ifthenelse{\isundefined{\@scholar}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://scholar.google.com/citations?user=\@scholar}{\faGraduationCap\acvHeaderIconSep{Google Scholar}}%
         }%
       \ifthenelse{\isundefined{\@skype}}%
         {}%
