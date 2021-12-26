@@ -8,6 +8,11 @@
 *.out
 *.toc
 
+## Bibtex
+*.bbl
+*.bcf
+*.blg
+
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
@@ -21,4 +26,6 @@
 ## Mac OS X metadata files:
 *.DS_Store
 
+## Temp files
 *.gz
+*xml
