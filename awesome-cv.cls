@@ -795,87 +795,98 @@
 % Customized format, based on Fancy CV template created by Adrien Friggeri
 \DeclareFieldFormat[article]{title}{#1\par}
 \DeclareFieldFormat[inproceedings]{title}{#1\par}
+\DeclareFieldFormat[proceedings]{title}{#1\par}
+\DeclareFieldFormat[thesis]{title}{#1}
 \DeclareFieldFormat[misc]{title}{#1\par}
 \DeclareFieldFormat[report]{title}{#1\par}
 \DeclareFieldFormat[incollection]{title}{#1\par}
 
-\DeclareBibliographyDriver{article}{%
-  \fontsize{9pt}{1em}\bodyfont%
-  \printfield{title}%
-  \newblock%
-  \printnames{author}%
-  \par%
-  \newblock%
-  {%
-    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
-    \usebibmacro{journal+issuetitle}%
-    \setunit{\space}%
-    \printfield{pages}%
-    \newunit%
-    \printlist{publisher}%
-    \setunit*{\addcomma\space}%
-    \printfield{year}%
-    \newunit%
-  }
-  \par\vspace{0.3\baselineskip}
-}
+% \DeclareBibliographyDriver{article}{%
+%   \fontsize{9pt}{1em}\bodyfont%
+%   \printfield{title}%
+%   \newblock%
+%   \printnames{author}%
+%   \par%
+%   \newblock%
+%   {%
+%     \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
+%     \usebibmacro{journal+issuetitle}%
+%     \setunit{\space}%
+%     \printfield{pages}%
+%     \newunit%
+%     \printlist{publisher}%
+%     \setunit*{\addcomma\space}%
+%     \printfield{year}%
+%     \newunit%
+%   }
+%   \par\vspace{0.3\baselineskip}
+% }
 
-\DeclareBibliographyDriver{inproceedings}{%
-  \fontsize{9pt}{1em}\bodyfont%
-  \printfield{title}%
-  \newblock%
-  \printnames{author}%
-  \par%
-  \newblock%
-  {%
-    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
-    \printfield{booktitle}%
-    \setunit{\addcomma\space}%
-    \printfield{year}%
-    \setunit{\addcomma\space}%
-    \printlist{location}%
-    \newunit%
-  }
-  \par\vspace{0.3\baselineskip}
-}
+% \DeclareBibliographyDriver{inproceedings}{%
+%   \fontsize{9pt}{1em}\bodyfont%
+%   \printfield{title}%
+%   \newblock%
+%   \printnames{author}%
+%   \par%
+%   \newblock%
+%   {%
+%     \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
+%     \printfield{booktitle}%
+%     \setunit{\addcomma\space}%
+%     \printfield{year}%
+%     \setunit{\addcomma\space}%
+%     \printlist{location}%
+%     \newunit%
+%   }
+%   \par\vspace{0.3\baselineskip}
+% }
 
-\DeclareBibliographyDriver{incollection}{%
-  \fontsize{9pt}{1em}\bodyfont%
-  \printfield{title}%
-  \newblock%
-  \printnames{author}%
-  \par%
-  \newblock%
-  {%
-    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
-    \printfield{booktitle}%
-    \setunit{\addcomma\space}%
-    \printfield{year}%
-    \setunit{\addcomma\space}%
-    \printlist{location}%
-    \newunit%
-  }
-  \par\vspace{0.3\baselineskip}
-}
+% \DeclareBibliographyDriver{incollection}{%
+%   \fontsize{9pt}{1em}\bodyfont%
+%   \printfield{title}%
+%   \newblock%
+%   \printnames{author}%
+%   \par%
+%   \newblock%
+%   {%
+%     \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
+%     \printfield{booktitle}%
+%     \setunit{\addcomma\space}%
+%     \printfield{year}%
+%     \setunit{\addcomma\space}%
+%     \printlist{location}%
+%     \newunit%
+%   }
+%   \par\vspace{0.3\baselineskip}
+% }
 
-\DeclareBibliographyDriver{misc}{%
+% \DeclareBibliographyDriver{misc}{%
+%   \fontsize{9pt}{1em}\bodyfont%
+%   \printfield{title}%
+%   \newblock%
+%   \printnames{author}%
+%   \par%
+%   \newblock%
+%   {%
+%     \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
+%     \printfield{booktitle}%
+%     \setunit*{\addcomma\space}%
+%     \printfield{note}%
+%     \setunit*{\addcomma\space}%
+%     \printfield{year}%
+%     \setunit{\addcomma\space}%
+%     \printlist{location}%
+%     \newunit%
+%   }
+%   \par\vspace{0.3\baselineskip}
+% }
+
+\DeclareBibliographyDriver{thesis}{%
   \fontsize{9pt}{1em}\bodyfont%
   \printfield{title}%
-  \newblock%
-  \printnames{author}%
-  \par%
-  \newblock%
-  {%
-    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
-    \printfield{booktitle}%
-    \setunit*{\addcomma\space}%
-    \printfield{note}%
-    \setunit*{\addcomma\space}%
-    \printfield{year}%
-    \setunit{\addcomma\space}%
-    \printlist{location}%
-    \newunit%
-  }
+  \setunit{\addcomma\space}%
+  \printfield{year}%
+  \newunit%
   \par\vspace{0.3\baselineskip}
 }
 
@@ -888,9 +899,23 @@
   \newblock%
   {%
     \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
-    \printfield{type}%
+    \printlist{institution}%
     \setunit{\space}%
     \printfield{number}%
+    \setunit{\addcomma\space}%
+    \printfield{year}%
+    \newunit%
+  }
+  \par\vspace{0.3\baselineskip}
+}
+
+\DeclareBibliographyDriver{proceedings}{%
+  \fontsize{9pt}{1em}\bodyfont%
+  \printfield{title}%
+  \newblock%
+  {%
+    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
+    \printlist{organization}%
     \setunit{\addcomma\space}%
     \printfield{year}%
     \newunit%
