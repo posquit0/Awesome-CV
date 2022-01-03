@@ -29,3 +29,7 @@
 ## Temp files
 *.gz
 *xml
+
+## Letter files
+cl/
+coverletter.pdf
