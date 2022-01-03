@@ -745,9 +745,11 @@
   \begin{singlespace}
     \recipientaddressstyle{\@recipientaddress} \\\\
   \end{singlespace}
+  \vspace{-25pt}
   \ifthenelse{\isundefined{\@lettertitle}}
     {}
     {\lettertitlestyle{\@lettertitle} \\}
+    \\
   \lettertextstyle{\@letteropening}
 }
 
@@ -760,7 +762,7 @@
   \ifthenelse{\isundefined{\@letterenclosure}}
     {\\}
     {%
-      \\\\\\
+      \\\\
       \letterenclosurestyle{\@letterenclname: \@letterenclosure} \\
     }
 }
