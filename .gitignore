@@ -33,3 +33,4 @@
 ## Letter files
 cl/
 coverletter.pdf
+*.fdb*

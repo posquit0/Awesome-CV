@@ -13,5 +13,7 @@ cv.pdf: cv.tex $(CV_SRCS)
 coverletter.pdf: coverletter.tex $(CL_SRCS) 
 	xelatex coverletter.tex
 
+all: cv.pdf coverletter.pdf
+
 clean: 
 	rm *.aux *.bbl *.bcf *.blg *.lof *.log *.lot *.out *.xml *.toc
