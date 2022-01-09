@@ -75,6 +75,11 @@ You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/e
 
 
 ## How to Use
+ℹ️ On Windows clone this repository by enabling symbolic links
+
+```bash
+git config --global core.symlinks true
+```
 
 #### Requirements
 
