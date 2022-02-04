@@ -1,0 +1,57 @@
+name: Integration
+
+on:
+  push:
+    branches:
+    - master
+  pull_request: {}
+
+concurrency:
+  group: integration-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  changed:
+    runs-on: ubuntu-latest
+
+    outputs:
+      yaml_changed: ${{ steps.filter-yaml.outputs.changed }}
+      yaml_files: ${{ steps.filter-yaml.outputs.files }}
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Get Changed Files
+      id: changed-files
+      uses: dorny/paths-filter@v2
+      with:
+        list-files: json
+        filters: |
+          yaml:
+          - '**/*.yaml'
+          - '**/*.yml'
+
+    - name: Filter changed YAML files to outputs
+      id: filter-yaml
+      run: |
+        echo ::set-output name=changed::${{ steps.changed-files.outputs.yaml }}
+        echo ::set-output name=files::${{ steps.changed-files.outputs.yaml_files }}
+
+
+  yaml:
+    needs:
+    - changed
+    if: ${{ needs.changed.outputs.yaml_changed != 'false' }}
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Lint YAML Files
+      id: yaml-lint
+      run: |
+        yamllint .
