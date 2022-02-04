@@ -1,0 +1,34 @@
+name: Label Pull Requests
+
+on:
+- pull_request
+
+jobs:
+  label-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Add Labels for PR
+      uses: actions/labeler@v3
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        configuration-path: .github/labeler.yaml
+        sync-labels: true
+
+    - name: Add PR Size Labels for PR
+      uses: codelytv/pr-size-labeler@v1
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        xs_label: 'size/XS'
+        xs_max_size: '20'
+        s_label: 'size/S'
+        s_max_size: '50'
+        m_label: 'size/M'
+        m_max_size: '150'
+        l_label: 'size/L'
+        l_max_size: '300'
+        xl_label: 'size/XL'
+        fail_if_xl: 'false'
+        message_if_xl: >
+          'This PR has too many changes.
+          Please make sure you are NOT addressing multiple issues with one PR.'
