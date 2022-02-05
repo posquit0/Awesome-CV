@@ -137,7 +137,7 @@
 \colorlet{graytext}{gray}
 \colorlet{lighttext}{lightgray}
 \colorlet{sectiondivider}{gray}
-% Awesome colors
+% ORIGINAL Awesome colors
 \definecolor{awesome-emerald}{HTML}{00A388}
 \definecolor{awesome-skyblue}{HTML}{0395DE}
 \definecolor{awesome-red}{HTML}{DC3522}
@@ -146,6 +146,32 @@
 \definecolor{awesome-nephritis}{HTML}{27AE60}
 \definecolor{awesome-concrete}{HTML}{95A5A6}
 \definecolor{awesome-darknight}{HTML}{131A28}
+% Extra Awesome colors from ColorCodes.io
+% BLUE family of Awesome colors
+\definecolor{awesome-denim-blue}{HTML}{1560BD}
+\definecolor{awesome-bright-navy}{HTML}{4B68B8}
+\definecolor{awesome-dazzling-blue}{HTML}{2E4DA7}
+\definecolor{awesome-sea-blue}{HTML}{006994}
+\definecolor{awesome-cobalt-blue}{HTML}{0050B5}
+% PURPLE family of Awesome colors
+\definecolor{awesome-royal-purple}{HTML}{68478D}
+\definecolor{awesome-advent-purple}{HTML}{4B365F}
+\definecolor{awesome-plum-purple}{HTML}{9C50B6}
+\definecolor{awesome-amethyst}{HTML}{9063CD}
+\definecolor{awesome-lavender}{HTML}{9873AC}
+% GREEN family of Awesome colors
+\definecolor{awesome-forest-green}{HTML}{006E33}
+\definecolor{awesome-roadsign-green}{HTML}{01735C}
+\definecolor{awesome-viridian}{HTML}{417571}
+\definecolor{awesome-olive-green}{HTML}{6D712E}
+\definecolor{awesome-halborn-green}{HTML}{8CE605}
+% ORANGE family of Awesome colors
+\definecolor{awesome-burnt-orange}{HTML}{CB6015}
+\definecolor{awesome-construction-orange}{HTML}{FE5000}
+\definecolor{awesome-tangerine}{HTML}{ED8B00}
+\definecolor{awesome-amber}{HTML}{FFC600}
+\definecolor{awesome-sunset}{HTML}{FAC668}
+% Awesome \colorlet
 \colorlet{awesome}{awesome-red}
 
 % Boolean value to switch section color highlighting
