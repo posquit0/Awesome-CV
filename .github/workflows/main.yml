@@ -6,7 +6,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: thomasweise/texlive
+    container: texlive/texlive:latest
 
     steps:
     - name: Checkout repo
