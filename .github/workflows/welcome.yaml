@@ -1,0 +1,31 @@
+name: Welcome for First Issue or Pull Request
+
+on:
+  pull_request_target:
+    types:
+    - opened
+  issues:
+    types:
+    - opened
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Welcome for First Issue or Pull Request
+      uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: |
+          ### :wave: Welcome! Looks like this is your first issue.
+
+          Hey, thanks for your contribution! Please give us a bit of time to review it. 😄
+
+          **Be sure to follow the issue template!**
+        pr-message: |
+          ### :wave: Welcome! Looks like this is your first pull request.
+
+          Hey, thanks for your contribution! Please give us a bit of time to review it. 😄
+
+          **Please check out our contributing guidelines.**
