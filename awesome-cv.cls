@@ -803,26 +803,26 @@
 \DeclareFieldFormat[report]{title}{#1\par}
 \DeclareFieldFormat[incollection]{title}{#1\par}
 
-% \DeclareBibliographyDriver{article}{%
-%   \fontsize{9pt}{1em}\bodyfont%
-%   \printfield{title}%
-%   \newblock%
-%   \printnames{author}%
-%   \par%
-%   \newblock%
-%   {%
-%     \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
-%     \usebibmacro{journal+issuetitle}%
-%     \setunit{\space}%
-%     \printfield{pages}%
-%     \newunit%
-%     \printlist{publisher}%
-%     \setunit*{\addcomma\space}%
-%     \printfield{year}%
-%     \newunit%
-%   }
-%   \par\vspace{0.3\baselineskip}
-% }
+\DeclareBibliographyDriver{article}{%
+  \fontsize{9pt}{1em}\bodyfont%
+  \printfield{title}%
+  \newblock%
+  \printnames{author}%
+  \par%
+  \newblock%
+  {%
+    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
+    \usebibmacro{journal}% +issuetitle
+    \setunit{\space}%
+    \printfield{pages}%
+    \newunit%
+    \printlist{publisher}%
+    \setunit*{\addcomma\space}%
+    \printfield{year}%
+    \newunit%
+  }
+  \par\vspace{0.3\baselineskip}
+}
 
 % \DeclareBibliographyDriver{inproceedings}{%
 %   \fontsize{9pt}{1em}\bodyfont%
