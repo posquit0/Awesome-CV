@@ -7,15 +7,21 @@
 *.fls
 *.out
 *.toc
+*.bbl
+*.bcf
+*.blg
 
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
 
 ### Editor ###
-## Vim & Emacs temp files:
+## Vim, Emacs, VS Code temp files:
 .*sw[op]
 *~
+*.run.xml
+*.fdb_latexmk
+*.synctex.gz
 
 ### Mac OS X ###
 ## Mac OS X metadata files:
