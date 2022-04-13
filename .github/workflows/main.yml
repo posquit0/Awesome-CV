@@ -2,6 +2,7 @@ name: Compile PDFs
 
 on:
   push: {}
+  pull_request: {}
 
 jobs:
   build:
