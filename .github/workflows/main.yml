@@ -2,6 +2,7 @@ name: Compile PDFs
 
 on:
   push: {}
+  pull_request: {}
 
 jobs:
   build:
@@ -10,12 +11,12 @@ jobs:
 
     steps:
     - name: Checkout repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Compile
       run: make
 
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
       with:
         name: examples
         path: examples/*.pdf
