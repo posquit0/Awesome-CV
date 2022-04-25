@@ -1,0 +1,10 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "latex-workshop.latex.recipe.default": "latexmk (lualatex)"
+    }
+}
