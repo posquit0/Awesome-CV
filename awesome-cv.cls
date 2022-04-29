@@ -648,8 +648,10 @@
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
-      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
+      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}     
+\if\relax\detokenize{#5}\relax\else % THIS LINE ADDED TO CHECK IF LAST ARGUMENT IS EMPTY
+       \multicolumn{2}{L{\textwidth}}{\ifempty{#1}{\vskip-1\baselineskip}{}\descriptionstyle{#5}}% ONLY DO THIS IF #5 IS NOT EMPTY
+    \fi % END OF THE IF STATEMENT
   \end{tabular*}%
 }
 
