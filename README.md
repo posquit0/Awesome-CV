@@ -94,7 +94,7 @@ $ xelatex {your-cv}.tex
 Or using docker:
 
 ```bash
-$ docker run --rm --user $(id -u):$(id -g) -i -w "/doc" -v "$PWD":/doc thomasweise/texlive make
+$ docker run --rm --user $(id -u):$(id -g) -i -w "/doc" -v "$PWD":/doc texlive/texlive make
 ```
 
 In either case, this should result in the creation of ``{your-cv}.pdf``
