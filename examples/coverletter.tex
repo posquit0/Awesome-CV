@@ -1,26 +1,7 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
-% Awesome CV LaTeX Template for Cover Letter
-%
-% This template has been downloaded from:
-% https://github.com/posquit0/Awesome-CV
-%
-% Authors:
-% Claud D. Park <posquit0.bj@gmail.com>
-% Lars Richter <mail@ayeks.de>
-%
-% Template license:
-% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
-%
-
-
-%-------------------------------------------------------------------------------
-% CONFIGURATIONS
-%-------------------------------------------------------------------------------
-% A4 paper size by default, use 'letterpaper' for US letter
 \documentclass[11pt, a4paper]{awesome-cv}
 
-% Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
 
 % Color for highlights
@@ -50,17 +31,17 @@
 %	Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
 % Available options: circle|rectangle,edge/noedge,left/right
-\photo[circle,noedge,left]{./examples/profile}
-\name{Claud D.}{Park}
-\position{Software Architect{\enskip\cdotp\enskip}Security Expert}
-\address{42-8, Bangbae-ro 15-gil, Seocho-gu, Seoul, 00681, Rep. of KOREA}
+\photo[circle,edge,left]{profile.png}
+\name{Nikolai Emil}{Damm}
+\position{Software Engineer{\enskip\cdotp\enskip}very junior Full-stack Developer}
+\address{Vejrupsgade 30, 2, 6000, Kolding}
 
-\mobile{(+82) 10-9030-1843}
-\email{posquit0.bj@gmail.com}
-%\dateofbirth{January 1st, 1970}
-\homepage{www.posquit0.com}
-\github{posquit0}
-\linkedin{posquit0}
+\mobile{(+45) 41240202}
+\email{nikolaiemildamm@icloud.com}
+\dateofbirth{May 19th, 1994}
+\homepage{www.devantler.com}
+\github{devantler}
+\linkedin{nikolai-emil-damm-14a786150}
 % \gitlab{gitlab-id}
 % \stackoverflow{SO-id}{SO-name}
 % \twitter{@twit}
@@ -73,7 +54,7 @@
 % \googlescholar{googlescholar-id}{}
 % \extrainfo{extra information}
 
-\quote{``Be the change that you want to see in the world."}
+% \quote{``Be the change that you want to see in the world."}
 
 
 %-------------------------------------------------------------------------------
@@ -82,18 +63,18 @@
 %-------------------------------------------------------------------------------
 % The company being applied to
 \recipient
-  {Company Recruitment Team}
-  {Google Inc.\\1600 Amphitheatre Parkway\\Mountain View, CA 94043}
+  {Umbraco}
+  {Umbraco HQ\\Buchwaldsgade 35, 2nd floor, 5000 Odense}
 % The date on the letter, default is the date of compilation
 \letterdate{\today}
 % The title of the letter
-\lettertitle{Job Application for Software Engineer}
+\lettertitle{Job Application as Student Developer}
 % How the letter is opened
-\letteropening{Dear Mr./Ms./Dr. LastName,}
+%\letteropening{Dear Mr./Mxs./Dr. LastName,}
 % How the letter is closed
 \letterclosing{Sincerely,}
 % Any enclosures with the letter
-\letterenclosure[Attached]{Curriculum Vitae}
+%\letterenclosure[Attached]{Curriculum Vitae}
 
 
 %-------------------------------------------------------------------------------
@@ -107,7 +88,7 @@
 % Leave any of these blank if they are not needed
 \makecvfooter
   {\today}
-  {Claud D. Park~~~·~~~Cover Letter}
+  {Nikolai Emil Damm~~~·~~~Cover Letter}
   {}
 
 % Print the title with above letter information
@@ -117,15 +98,29 @@
 %	LETTER CONTENT
 %-------------------------------------------------------------------------------
 \begin{cvletter}
-
+\vspace*{-\baselineskip}
 \lettersection{About Me}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ullamcorper neque sit amet lectus facilisis sed luctus nisl iaculis. Vivamus at neque arcu, sed tempor quam. Curabitur pharetra tincidunt tincidunt. Morbi volutpat feugiat mauris, quis tempor neque vehicula volutpat. Duis tristique justo vel massa fermentum accumsan. Mauris ante elit, feugiat vestibulum tempor eget, eleifend ac ipsum. Donec scelerisque lobortis ipsum eu vestibulum. Pellentesque vel massa at felis accumsan rhoncus.
+I am a passionate master's student in my last year in Software Engineering. I am currently looking for my dream job at a company I admire.
 
-\lettersection{Why Google?}
-Suspendisse commodo, massa eu congue tincidunt, elit mauris pellentesque orci, cursus tempor odio nisl euismod augue. Aliquam adipiscing nibh ut odio sodales et pulvinar tortor laoreet. Mauris a accumsan ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate sem vehicula ipsum varius nec tempus dui dapibus. Phasellus et est urna, ut auctor erat. Sed tincidunt odio id odio aliquam mattis. Donec sapien nulla, feugiat eget adipiscing sit amet, lacinia ut dolor. Phasellus tincidunt, leo a fringilla consectetur, felis diam aliquam urna, vitae aliquet lectus orci nec velit. Vivamus dapibus varius blandit.
+As a person, I am:
+
+\begin{itemize}
+  \item Social and open-minded. I love meeting and working with new people.
+  \item Self-motivated. I find great joy in creating things that I can see the value in using myself.
+  \item Hard-working. I enjoy the challenge of keeping technology simple and ensuring that the result lives up to the expectations of my imagination.
+  \item Fast learner. I am eager to learn, and if there is something I do not understand, I am not shy to ask for help.
+  \item Responsible. I find pride in my work and team, and I take responsibility for both.
+  \item Team player. I enjoy working in a well-structured team with high expectations and a straightforward tone, where it is acceptable to bring my ideas and suggestions.
+\end{itemize}.\vspace*{-\baselineskip}\vspace*{-\baselineskip}
+\lettersection{Why Umbraco?}
+Umbraco's strong position in the CMS market, with a platform that runs on the .NET Framework, is of great interest to me. 
+
+I believe Umbraco's focus on open-source software is inspirational. Focusing on sharing knowledge and being transparent with end-users is very important. Delivering value to customers is all about listening, and in this regard, transparency is critical.
+
+Furthermore, Umbraco's focus on developer freedom for end-users is cool. Creating flexible and extendible software is hard, and it requires an interest in keeping the complexity low. Having this focus is something I am interested in.
 
 \lettersection{Why Me?}
-Duis sit amet magna ante, at sodales diam. Aenean consectetur porta risus et sagittis. Ut interdum, enim varius pellentesque tincidunt, magna libero sodales tortor, ut fermentum nunc metus a ante. Vivamus odio leo, tincidunt eu luctus ut, sollicitudin sit amet metus. Nunc sed orci lectus. Ut sodales magna sed velit volutpat sit amet pulvinar diam venenatis.
+I believe my personality, experience, and interests align well with Umbraco's vision. I have an interest in open-source software and CMS systems. I use a lot of my time on GitHub, where I frequently use and contribute to various projects — being able to contribute with my skills and experience on something as cool as the Umbraco CMS would be a dream come true. 
 
 \end{cvletter}
 

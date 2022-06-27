@@ -1,6 +1,6 @@
 # Fdb version 3
-["lualatex"] 1650904703 "/Users/devantler/GitHub/cv/examples/cv.tex" "cv.pdf" "cv" 1650904705
-  "/Users/devantler/GitHub/cv/examples/cv.tex" 1650904703 3671 3dd8fbd522503c35ef2901f34c9683a9 ""
+["lualatex"] 1651329002 "/Users/devantler/GitHub/cv/examples/coverletter.tex" "coverletter.pdf" "coverletter" 1651329002
+  "/Users/devantler/GitHub/cv/examples/coverletter.tex" 1651328981 5711 b8189a83c607047b49a36f3f968d4c88 ""
   "/Users/devantler/Library/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/fontawesome5brands-regular-400.luc" 1650896407 180490 380050e654503a796300be96db3793ed ""
   "/Users/devantler/Library/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/fontawesome5free-solid-900.luc" 1650896407 380940 604c708abd05abfb9abaa1b2e88d616c ""
   "/Users/devantler/Library/texlive/2022/texmf-var/luatex-cache/generic/fonts/otl/latinmodern-math.luc" 1650896417 637084 84f3986c4390e22e596df7999142b0d4 ""
@@ -265,12 +265,10 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/luahbtex/lualatex.fmt" 1650809967 4558587 77775f3bca502aabe50d6b95ca0f91e0 ""
   "awesome-cv.cls" 1650896587 28882 6ae551aa9ca1ae0fee66b0adbc3f4050 ""
-  "cv.aux" 1650904705 717 5a450f137a78ee56acd863d9a3fd8b26 "lualatex"
-  "cv.tex" 1650904703 3671 3dd8fbd522503c35ef2901f34c9683a9 ""
-  "cv/education.tex" 1650904302 3947 86acf54589d118e48ed6219aa8dad0f0 ""
-  "cv/experience.tex" 1650904514 2213 3e151844917f53c78311f9b8da4de9ed ""
-  "cv/skills.tex" 1650902165 755 1f184225b73079f25067fcfecfc21c58 ""
+  "coverletter.aux" 1651329002 32 3985256e7290058c681f74d7a3565a19 "lualatex"
+  "coverletter.tex" 1651328981 5711 b8189a83c607047b49a36f3f968d4c88 ""
+  "profile.png" 1651327216 83970 e42490e13c888a9d88aead8fbd05c957 ""
   (generated)
-  "cv.aux"
-  "cv.log"
-  "cv.pdf"
+  "coverletter.aux"
+  "coverletter.log"
+  "coverletter.pdf"
