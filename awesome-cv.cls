@@ -219,6 +219,23 @@
   BoldItalicFont=*,
 ]{ctm}
 
+\newfontfamily\zego[
+  Path=\@fontdir,
+  UprightFont=*,
+  ItalicFont=*,
+  BoldFont=*,
+  BoldItalicFont=*,
+]{zego}
+
+
+\newfontfamily\slice[
+  Path=\@fontdir,
+  UprightFont=*,
+  ItalicFont=*,
+  BoldFont=*,
+  BoldItalicFont=*,
+]{slice}
+
 \newfontfamily\newsuk[
   Path=\@fontdir,
   UprightFont=*,
@@ -545,7 +562,7 @@
       \ifthenelse{\isundefined{\@mobile}}%
         {}%
         {%
-          \faMobile\acvHeaderIconSep\@mobile%
+          \href{tel:\@mobile}{\faMobile\acvHeaderIconSep\@mobile}%
           \setbool{isstart}{false}%
         }%
       \ifthenelse{\isundefined{\@email}}%
