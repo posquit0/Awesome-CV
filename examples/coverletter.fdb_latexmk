@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1663568359 "/Users/nikolaiemildamm/git-personal/curricilum-vitae/examples/cv.tex" "cv.pdf" "cv" 1663568359
-  "/Users/nikolaiemildamm/git-personal/curricilum-vitae/examples/cv.tex" 1663568303 3602 d565ce2e69954209c48e92ee95e05eda ""
+["pdflatex"] 1663569845 "/Users/nikolaiemildamm/git-personal/curricilum-vitae/examples/coverletter.tex" "coverletter.pdf" "coverletter" 1663569845
+  "/Users/nikolaiemildamm/git-personal/curricilum-vitae/examples/coverletter.tex" 1663569843 5722 d4794ccd48ad1faaf9cfe8d1fe93b191 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1136768653 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
   "/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/iftex.sty" 1644112042 7237 bdd120a32c8fdb4b433cf9ca2e7cd98a ""
@@ -31,8 +31,8 @@
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1656526897 2826439 b34b692306e9c479a48cd64b95394c37 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
   "awesome-cv.cls" 1662704829 28882 6ae551aa9ca1ae0fee66b0adbc3f4050 ""
-  "cv.aux" 1663568359 32 3985256e7290058c681f74d7a3565a19 ""
-  "cv.tex" 1663568303 3602 d565ce2e69954209c48e92ee95e05eda ""
+  "coverletter.aux" 1663569845 32 3985256e7290058c681f74d7a3565a19 ""
+  "coverletter.tex" 1663569843 5722 d4794ccd48ad1faaf9cfe8d1fe93b191 ""
   (generated)
-  "cv.log"
-  "cv.pdf"
+  "coverletter.log"
+  "coverletter.pdf"
