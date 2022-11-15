@@ -1,0 +1,102 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% https://gitee.com/e13/Awesome-CV
+%----------------------------------------------------------------
+% 配置
+%----------------------------------------------------------------
+% A4纸张大小默认情况下，'letterpaper'使用信纸
+\documentclass[11pt, a4paper,AutoFakeBold]{awesome-cv}
+
+% 使用geometry配置页边距
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% 指定包含字体的位置
+\fontdir[fonts/]
+
+% 高光颜色
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+\colorlet{awesome}{awesome-skyblue}
+% 如果要指定自己的颜色，请取消注释
+% \definecolor{awesome}{HTML}{CA63A8}
+
+% 文本的颜色
+% 如果要指定自己的颜色，请取消注释
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+
+% 如果您不想突出显示具有令人敬畏的颜色的部分，请设置为false
+\setbool{acvSectionColorHighlight}{true}
+
+% 如果要将社交信息分隔符从“|”更改为其他内容
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+
+%----------------------------------------------------------------
+%	个人信息
+%	如果不需要，请注释下面的任何一行
+%----------------------------------------------------------------
+% 可用选项: circle|rectangle,edge/noedge,left/right
+%\photo[rectangle,edge,right]{./examples/profile}
+\name{李}{睿}
+\position{KAUST，ECE(电子与计算机工程)，博士在读{\enskip\cdotp\enskip}可视计算中心}
+\address{2204-WS07，lv2，bldg 1，KAUST， Thuwal， Saudi Arabia}
+
+\mobile{(+966) 548054069}
+\email{rui.li@kaust.edu.sa}
+\homepage{www.arthurlirui.com}
+\github{arthurlirui}
+\linkedin{https://www.linkedin.com/in/arthurlirui/}
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+% \twitter{@twit}
+% \skype{skype-id}
+% \reddit{reddit-id}
+% \medium{madium-id}
+% \googlescholar{googlescholar-id}{name-to-display}
+%% \firstname and \lastname will be used
+% \googlescholar{googlescholar-id}{}
+% \extrainfo{extra informations}
+
+%\quote{``成为你想在世界上看到的改变。"}
+
+
+%----------------------------------------------------------------
+\begin{document}
+
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader[C]
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+\makecvfooter
+  {\today}
+  {李睿~~~·~~~简历}
+  {\thepage}
+
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%-------------------------------------------------------------------------------
+\input{resume/summary_academic.tex}
+\input{resume/education_academic.tex}
+\input{resume/pub.tex}
+\input{resume/experience_academic.tex}
+\input{resume/startup_academic.tex}
+
+%\input{resume/writing.tex}
+%\input{resume/committees.tex}
+\input{resume/skills.tex}
+
+\input{resume/honors.tex}
+\input{resume/presentation.tex}
+\input{resume/activities.tex}
+%\input{resume/extracurricular.tex}
+
+
+%-------------------------------------------------------------------------------
+\end{document}
