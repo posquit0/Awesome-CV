@@ -1,0 +1,22 @@
+name: Compile PDFs
+
+on:
+  push: {}
+  pull_request: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: texlive/texlive:latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Compile
+      run: make
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: examples
+        path: examples/*.pdf
