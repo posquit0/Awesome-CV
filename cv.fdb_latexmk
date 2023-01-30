@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1675104615 "/home/justusbersten/CV/cv.tex" "cv.pdf" "cv" 1675104615
-  "/home/justusbersten/CV/cv.tex" 1675104615 3839 6f934e32352b90fb199344752885a10a ""
+["pdflatex"] 1675105631 "/home/justusbersten/CV/cv.tex" "cv.pdf" "cv" 1675105631
+  "/home/justusbersten/CV/cv.tex" 1675105630 3841 a5524e1ecf35c6ad87d33be2e073552a ""
   "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1136768653 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
   "/usr/local/texlive/2021/texmf-dist/tex/generic/iftex/iftex.sty" 1583617216 6501 4011d89d9621e0b0901138815ba5ff29 ""
@@ -31,8 +31,8 @@
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1637404380 2819397 3f318c068059382897186bbf2fafca3d ""
   "/usr/local/texlive/2021/texmf.cnf" 1637404317 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
   "awesome-cv.cls" 1675104615 28882 6ae551aa9ca1ae0fee66b0adbc3f4050 ""
-  "cv.aux" 1675104615 32 3985256e7290058c681f74d7a3565a19 ""
-  "cv.tex" 1675104615 3839 6f934e32352b90fb199344752885a10a ""
+  "cv.aux" 1675105631 32 3985256e7290058c681f74d7a3565a19 ""
+  "cv.tex" 1675105630 3841 a5524e1ecf35c6ad87d33be2e073552a ""
   (generated)
-  "cv.pdf"
   "cv.log"
+  "cv.pdf"
