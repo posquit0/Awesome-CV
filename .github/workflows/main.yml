@@ -1,22 +1,46 @@
-name: Compile PDFs
+name: build
 
 on:
-  push: {}
-  pull_request: {}
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: texlive/texlive:latest
-
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v3
+      - uses: actions/checkout@v2
 
-    - name: Compile
-      run: make
+      - uses: xu-cheng/latex-action@v2
+        with:
+          root_file: cv.tex
+          args: -xelatex -file-line-error -interaction=nonstopmode
 
-    - uses: actions/upload-artifact@v3
-      with:
-        name: examples
-        path: examples/*.pdf
+      - uses: actions/upload-artifact@v2
+        with:
+          name: cv.pdf
+          path: cv.pdf
+
+  release:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: cv.pdf
+
+      - name: Get Release Name
+        id: release_name
+        run: echo "::set-output name=name::$(git show -s --format=%ad --date=format:%Y-%m ${CIRCLE_SHA1})"
+
+      - uses: meeDamian/github-release@2.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ steps.release_name.outputs.name }}
+          allow_override: true
+          files: cv.pdf
+          gzip: false
