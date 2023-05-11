@@ -73,30 +73,30 @@
 % Needed to manage math fonts
 \RequirePackage{unicode-math}
 % Needed to use icons from font-awesome
-\RequirePackage{fontawesome5}
-\RequirePackage{roboto}
+% (https://github.com/posquit0/latex-fontawesome)
+\RequirePackage{fontawesome}
 \RequirePackage[default,opentype]{sourcesanspro}
 % Needed for the photo ID
 \RequirePackage[skins]{tcolorbox}
 % Needed to deal a paragraphs
 \RequirePackage{parskip}
 % Needed to deal hyperlink
-\RequirePackage[hidelinks,unicode,pdfpagelabels=false]{hyperref}
+\RequirePackage[hidelinks,unicode]{hyperref}
 \hypersetup{%
   pdftitle={},
   pdfauthor={},
   pdfsubject={},
   pdfkeywords={}
 }
-% Solves issues Warning: File `cv.out' has changed
-\RequirePackage{bookmark}
+
 
 %-------------------------------------------------------------------------------
 %                Configuration for directory locations
 %-------------------------------------------------------------------------------
-% Configure an optional directory location for fonts(default: 'fonts/')
-% Not required anymore but left in place for backward compatability.
+% Configure a directory location for fonts(default: 'fonts/')
 \newcommand*{\fontdir}[1][fonts/]{\def\@fontdir{#1}}
+\fontdir
+
 
 %-------------------------------------------------------------------------------
 %                Configuration for layout
@@ -136,7 +136,6 @@
 \colorlet{text}{darkgray}
 \colorlet{graytext}{gray}
 \colorlet{lighttext}{lightgray}
-\colorlet{sectiondivider}{gray}
 % Awesome colors
 \definecolor{awesome-emerald}{HTML}{00A388}
 \definecolor{awesome-skyblue}{HTML}{0395DE}
@@ -153,20 +152,61 @@
 \setbool{acvSectionColorHighlight}{true}
 
 % Awesome section color
-\def\@sectioncolor#1#2#3{%
-  \ifbool{acvSectionColorHighlight}{{\color{awesome}#1#2#3}}{#1#2#3}%
+\def\@sectioncolor#1#2{%
+  \ifbool{acvSectionColorHighlight}{{\color{awesome}#1#2}}{#1#2}%
 }
 
 
-%-------------------------------------------------------------------------------
+%--------------------------------------------------------------------------
 %                Configuration for fonts
-%-------------------------------------------------------------------------------
-\newcommand*{\headerfont}{\roboto}
-\newcommand*{\headerfontlight}{\robotolight}
-\newcommand*{\footerfont}{\sourcesanspro}
-\newcommand*{\bodyfont}{\sourcesanspro}
-\newcommand*{\bodyfontlight}{\sourcesansprolight}
+%--------------------------------------------------------------------------
 
+
+% Set the FontAwesome font to be up-to-date.
+\setfontfamily\FA[Path=\@fontdir]{FontAwesome}
+% Set font for header (default is Roboto)
+\newfontfamily\headerfont[
+  Path=\@fontdir,
+  UprightFont=*-Regular,
+  ItalicFont=*-Italic,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldItalic,
+]{sarasa-mono-sc-nerd}
+
+\newfontfamily\headerfontlight[
+  Path=\@fontdir,
+  UprightFont=*-Thin,
+  ItalicFont=*-ThinItalic,
+  BoldFont=*-Medium,
+  BoldItalicFont=*-MediumItalic,
+]{sarasa-mono-sc-nerd}
+
+% \newcommand*{\footerfont}{\sourcesanspro}
+% \newcommand*{\bodyfont}{\sourcesanspro}
+% \newcommand*{\bodyfontlight}{\sourcesansprolight}
+
+% \usepackage{xeCJK}
+\newfontfamily\bodyfontlight[
+  Path=\@fontdir,
+  UprightFont=*-Regular,
+  ItalicFont=*-Italic,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldItalic,
+]{sarasa-mono-sc-nerd}
+\newfontfamily\bodyfont[
+  Path=\@fontdir,
+  UprightFont=*-Regular,
+  ItalicFont=*-Italic,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldItalic,
+]{sarasa-mono-sc-nerd}
+\newfontfamily\footerfont[
+  Path=\@fontdir,
+  UprightFont=*-Regular,
+  ItalicFont=*-Italic,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldItalic,
+]{sarasa-mono-sc-nerd}
 %-------------------------------------------------------------------------------
 %                Configuration for styles
 %-------------------------------------------------------------------------------
@@ -265,10 +305,6 @@
 % Usage: \email{<email address>}
 \newcommand*{\email}[1]{\def\@email{#1}}
 
-% Defines writer's date of birth (optional)
-% Usage: \dateofbirth{<date>}
-\newcommand*{\dateofbirth}[1]{\def\@dateofbirth{#1}}
-
 % Defines writer's homepage (optional)
 % Usage: \homepage{<url>}
 \newcommand*{\homepage}[1]{\def\@homepage{#1}}
@@ -281,10 +317,6 @@
 % Usage: \gitlab{<gitlab-nick>}
 \newcommand*{\gitlab}[1]{\def\@gitlab{#1}}
 
-% Defines writer's bitbucket (optional)
-% Usage: \bitbucket{<bitbucket-nick>}
-\newcommand*{\bitbucket}[1]{\def\@bitbucket{#1}}
-
 % Defines writer's stackoverflow profile (optional)
 % Usage: \stackoverflow{<so userid>}{<so username>}
 %   e.g.https://stackoverflow.com/users/123456/sam-smith
@@ -295,21 +327,9 @@
 % Usage: \linkedin{<linked-in-nick>}
 \newcommand*{\linkedin}[1]{\def\@linkedin{#1}}
 
-% Defines writer's orcid (optional)
-% Usage: \orcid{<orcid-num>}
-\newcommand*{\orcid}[1]{\def\@orcid{#1}}
-
 % Defines writer's twitter (optional)
 % Usage: \twitter{<twitter handle>}
 \newcommand*{\twitter}[1]{\def\@twitter{#1}}
-
-% Defines writer's Mastodon (optional)
-% Usage: \mastodon{<instance>}{<mastodon-nick>}
-\newcommand*{\mastodon}[2]{\def\@mastodoninstance{#1}\def\@mastodonname{#2}}
-
-% Defines writer's resarchgate (optional)
-% Usage: \researchgate{<researchgate-account>}
-\newcommand*{\researchgate}[1]{\def\@researchgate{#1}}
 
 % Defines writer's skype (optional)
 % Usage: \skype{<skype account>}
@@ -327,10 +347,6 @@
 % Usage: \medium{<medium account>}
 \newcommand*{\medium}[1]{\def\@medium{#1}}
 
-% Defines writer's kaggle (optional)
-% Usage: \kaggle{<kaggle handle>}
-\newcommand*{\kaggle}[1]{\def\@kaggle{#1}}
-
 % Defines writer's google scholar profile (optional)
 % Usage: \googlescholar{<googlescholar userid>}{<googlescholar username>}
 % e.g.https://scholar.google.co.uk/citations?user=wpZDx1cAAAAJ
@@ -346,8 +362,8 @@
   }%
 }
 
-% Defines writer's extra information (optional)
-% Usage: \extrainfo{<extra information>}
+% Defines writer's extra informations (optional)
+% Usage: \extrainfo{<extra informations>}
 \newcommand*{\extrainfo}[1]{\def\@extrainfo{#1}}
 
 % Defines writer's quote (optional)
@@ -456,7 +472,7 @@
   \end{minipage}
   \begin{minipage}[c]{\headertextwidth}
     \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
-    \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname}%
+    \headerfirstnamestyle{\@firstname}\headerfirstnamestyle{{}\acvHeaderNameDelim\@lastname}%
     \\[\acvHeaderAfterNameSkip]%
     \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\[\acvHeaderAfterPositionSkip]}}%
     \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\[\acvHeaderAfterAddressSkip]}}%
@@ -466,7 +482,7 @@
       \ifthenelse{\isundefined{\@mobile}}%
         {}%
         {%
-          \href{tel:\@mobile}{\faMobile\acvHeaderIconSep\@mobile}%
+          \faMobile\acvHeaderIconSep\@mobile%
           \setbool{isstart}{false}%
         }%
       \ifthenelse{\isundefined{\@email}}%
@@ -474,13 +490,6 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{mailto:\@email}{\faEnvelope\acvHeaderIconSep\@email}%
-        }%
-      \ifthenelse{\isundefined{\@dateofbirth}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          % \mbox prevents wrapping of elements%
-          \mbox{\faBirthdayCake\acvHeaderIconSep\@dateofbirth}%
         }%
       \ifthenelse{\isundefined{\@homepage}}%
         {}%
@@ -500,12 +509,6 @@
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://gitlab.com/\@gitlab}{\faGitlab\acvHeaderIconSep\@gitlab}%
         }%
-      \ifthenelse{\isundefined{\@bitbucket}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://bitbucket.com/\@bitbucket}{\faBitbucket\acvHeaderIconSep\@bitbucket}%
-        }%
       \ifthenelse{\isundefined{\@stackoverflowid}}%
         {}%
         {%
@@ -516,25 +519,13 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedin\acvHeaderIconSep\@linkedin}%
-        }%
-      \ifthenelse{\isundefined{\@orcid}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://orcid.org/\@orcid}{\faOrcid\acvHeaderIconSep\@orcid}%
+          \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\acvHeaderIconSep\@linkedin}%
         }%
       \ifthenelse{\isundefined{\@twitter}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://twitter.com/\@twitter}{\faTwitter\acvHeaderIconSep\@twitter}%
-        }%
-      \ifthenelse{\isundefined{\@mastodonname}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://\@mastodoninstance/@\@mastodonname}{\faMastodon\acvHeaderIconSep\@mastodonname}%
         }%
       \ifthenelse{\isundefined{\@skype}}%
         {}%
@@ -548,12 +539,6 @@
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://www.reddit.com/user/\@reddit}{\faReddit\acvHeaderIconSep\@reddit}%
         }%
-      \ifthenelse{\isundefined{\@researchgate}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.researchgate.net/profile/\@researchgate}{\faResearchgate\acvHeaderIconSep\@researchgate}%
-        }%
       \ifthenelse{\isundefined{\@xing}}%
         {}%
         {%
@@ -565,12 +550,6 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://medium.com/@\@medium}{\faMedium\acvHeaderIconSep\@medium}%
-        }%
-      \ifthenelse{\isundefined{\@kaggle}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://kaggle.com/\@kaggle}{\faKaggle\acvHeaderIconSep\@kaggle}%
         }%
       \ifthenelse{\isundefined{\@googlescholarid}}%
         {}%
@@ -609,23 +588,8 @@
   \vspace{\acvSectionTopSkip}
   \sectionstyle{#1}
   \phantomsection
-  \color{sectiondivider}\vhrulefill{0.9pt}
+  \color{gray}\vhrulefill{0.9pt}
 }
-
-
-\newcommand*{\eduentry}[4]{%
-  \vspace{-2.0mm}
-  \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
-    \ifempty{#2#3}
-    {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-    {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
-      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-    %\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
-  \end{tabular*}%
-}
-
 
 % Define a subsection for CV
 % Usage: \cvsubsection{<subsection-title>}
@@ -757,9 +721,8 @@
   \par\addvspace{2.5ex}
   \phantomsection{}
   \lettersectionstyle{#1}
-  \color{sectiondivider}\vhrulefill{0.9pt}
+  \color{gray}\vhrulefill{0.9pt}
   \par\nobreak\addvspace{0.4ex}
-  \lettertextstyle
 }
 
 % Define a title of the cover letter
