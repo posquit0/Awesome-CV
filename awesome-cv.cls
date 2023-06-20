@@ -707,6 +707,12 @@
     \end{tabular*}
   \end{center}
 }
+\newenvironment{cvskilltags}{
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{1ex}
+  \setlength{\extrarowheight}{0pt}
+}{}
 \newcommand*{\cvskillgroup}[1]{%
 	\skilltypestyle{#1} \smallskip \\
 }
