@@ -707,6 +707,9 @@
     \end{tabular*}
   \end{center}
 }
+\newcommand*{\cvskillgroup}[1]{%
+	\skilltypestyle{#1} \smallskip \\
+}
 % Define a line of cv information(skill)
 % Usage: \cvskill{<type>}{<skillset>}
 \newcommand*{\cvskill}[2]{%
