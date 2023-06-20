@@ -644,12 +644,12 @@
   \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+  \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} L{\linewidth - 4.5cm} R{4.5cm}}
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
       \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
+    \multicolumn{2}{L{\linewidth}}{\descriptionstyle{#5}}
   \end{tabular*}%
 }
 
@@ -706,6 +706,19 @@
 }{%
     \end{tabular*}
   \end{center}
+}
+\newenvironment{cvskilltags}{
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{1ex}
+  \setlength{\extrarowheight}{0pt}
+}{}
+\newcommand*{\cvskillgroup}[1]{%
+	\skilltypestyle{#1} \smallskip \\
+}
+\newcommand{\cvtag}[1]{%
+  \tikz[baseline]\node[anchor=base, draw=darktext,rounded corners,inner xsep=1ex,inner ysep=0.75ex,text height=1.5ex,text depth=.25ex]{#1};
+  \vspace{0.25ex}
 }
 % Define a line of cv information(skill)
 % Usage: \cvskill{<type>}{<skillset>}
