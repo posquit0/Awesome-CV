@@ -710,6 +710,10 @@
 \newcommand*{\cvskillgroup}[1]{%
 	\skilltypestyle{#1} \smallskip \\
 }
+\newcommand{\cvtag}[1]{%
+  \tikz[baseline]\node[anchor=base, draw=darktext,rounded corners,inner xsep=1ex,inner ysep=0.75ex,text height=1.5ex,text depth=.25ex]{#1};
+  \vspace{0.25ex}
+}
 % Define a line of cv information(skill)
 % Usage: \cvskill{<type>}{<skillset>}
 \newcommand*{\cvskill}[2]{%
