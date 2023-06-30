@@ -94,6 +94,8 @@ $ xelatex {your-cv}.tex
 Or using docker:
 
 ```bash
+sudo apt install texlive-extra-utils 
+
 $ docker run --rm --user $(id -u):$(id -g) -i -w "/doc" -v "$PWD":/doc thomasweise/docker-texlive-full make
 
 ```
