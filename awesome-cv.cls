@@ -290,6 +290,11 @@
 {
   \def\@mobile{#1}
   \def\@teluri{tel:\@mobile}
+  % Strip unwanted characters
+  \StrDel{\@teluri}{ }[\@teluri]%
+  \StrDel{\@teluri}{-}[\@teluri]%
+  \StrDel{\@teluri}{(}[\@teluri]%
+  \StrDel{\@teluri}{)}[\@teluri]%
 }
 
 % Defines writer's email (optional)
@@ -423,11 +428,6 @@
       \ifthenelse{\isundefined{\@mobile}}%
         {}%
         {%
-          % Formats phone number for "tel:" URI
-          \StrDel{\@teluri}{ }[\@teluri]%
-          \StrDel{\@teluri}{-}[\@teluri]%
-          \StrDel{\@teluri}{(}[\@teluri]%
-          \StrDel{\@teluri}{)}[\@teluri]%
           \href{\@teluri}{\faMobile\acvHeaderIconSep\@mobile}%
           \setbool{isstart}{false}%
         }%
