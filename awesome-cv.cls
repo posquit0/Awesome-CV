@@ -92,6 +92,8 @@
 }
 % Solves issues Warning: File `cv.out' has changed
 \RequirePackage{bookmark}
+% Use \pageref{LastPage} to get the number of total pages
+\RequirePackage{lastpage}
 
 %-------------------------------------------------------------------------------
 %                Configuration for directory locations

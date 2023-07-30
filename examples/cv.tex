@@ -44,6 +44,10 @@
 % If you would like to change the social information separator from a pipe (|) to something else
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
 
+\newtoggle{showpagetotal}
+% toggle the boolean flag if you would like to use <currentPage>/<totalPage> page number
+% \toggletrue{showpagetotal}% Need to compile twice
+\togglefalse{showpagetotal}
 
 %-------------------------------------------------------------------------------
 %	PERSONAL INFORMATION
@@ -88,7 +92,7 @@
 \makecvfooter
   {\today}
   {Claud D. Park~~~·~~~Curriculum Vitae}
-  {\thepage}
+  {\iftoggle{showpagetotal}{\thepage/\pageref*{LastPage}}{\thepage}}
 
 
 %-------------------------------------------------------------------------------
