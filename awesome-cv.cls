@@ -142,7 +142,7 @@
 % Awesome colors
 \definecolor{awesome-emerald}{HTML}{00A388}
 \definecolor{awesome-skyblue}{HTML}{0395DE}
-\definecolor{awesome-red}{HTML}{DC3522}
+\definecolor{awesome-red}{HTML}{3E9DF0}
 \definecolor{awesome-pink}{HTML}{EF4089}
 \definecolor{awesome-orange}{HTML}{FF6138}
 \definecolor{awesome-nephritis}{HTML}{27AE60}
@@ -313,6 +313,11 @@
 % Defines writer's twitter (optional)
 % Usage: \twitter{<twitter handle>}
 \newcommand*{\twitter}[1]{\def\@twitter{#1}}
+
+
+% Defines writer's lang (optional)
+% Usage: \lang{<languag en/es>}
+\newcommand*{\lang}[1]{\def\@lang{#1}}
 
 % Defines writer's Mastodon (optional)
 % Usage: \mastodon{<instance>}{<mastodon-nick>}
@@ -552,6 +557,12 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \faSkype\acvHeaderIconSep\@skype%
+          }%
+      \ifthenelse{\isundefined{\@lang}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \faGlobe\acvHeaderIconSep\@lang%
         }%
       \ifthenelse{\isundefined{\@reddit}}%
         {}%
