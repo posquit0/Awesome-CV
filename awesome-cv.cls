@@ -626,7 +626,7 @@
 }
 
 % Define a section for CV
-% Usage: \cvsection{<section-title>}
+% Usage: \cvsection[<section-icon>]{<section-title>}
 \newcommand{\cvsection}[2][]{%
   \vspace{\acvSectionTopSkip}
   \ifempty{#1}{
