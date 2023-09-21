@@ -3,7 +3,7 @@
     <img alt="AwesomeCV" src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png" width="200px" height="200px" />
   </a>
   <br />
-  Awesome CV
+  TonyChG Awesome CV
 </h1>
 
 <p align="center">
