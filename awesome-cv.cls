@@ -443,7 +443,8 @@
 % Define a header for CV
 % Usage: \makecvheader
 \newcommand*{\makecvheader}[1][C]{%
-  \newcommand*{\drawphoto}{%
+    \ifthenelse{\isundefined{\drawphoto}}{
+    \newcommand*{\drawphoto}{%
     \ifthenelse{\isundefined{\@photo}}{}{%
       \newlength{\photodim}
       \ifthenelse{\equal{\@photoshape}{circle}}%
@@ -456,9 +457,9 @@
         \node[\@photoshape, draw=\@photoborder, line width=0.3mm, inner sep=\photodim, fill overzoom image=\@photo] () {};
       \end{tikzpicture}
     }%
-  }
-  \newlength{\headertextwidth}
-  \newlength{\headerphotowidth}
+  }}{}
+  \ifthenelse{\isundefined{\headertextwidth}}{\newlength{\headertextwidth}}{}
+  \ifthenelse{\isundefined{\headerphotowidth}}{\newlength{\headerphotowidth}}{}
   \ifthenelse{\isundefined{\@photo}}{
     \setlength{\headertextwidth}{\textwidth}
     \setlength{\headerphotowidth}{0cm}
