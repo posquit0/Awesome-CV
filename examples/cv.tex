@@ -13,12 +13,12 @@
 % CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
 %
 
-
 %-------------------------------------------------------------------------------
 % CONFIGURATIONS
 %-------------------------------------------------------------------------------
 % A4 paper size by default, use 'letterpaper' for US letter
 \documentclass[11pt, a4paper]{awesome-cv}
+\usepackage{ifthen}
 
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
@@ -38,12 +38,18 @@
 % \definecolor{lighttext}{HTML}{999999}
 % \definecolor{sectiondivider}{HTML}{5D5D5D}
 
+% my parameters
+\newbool{suisse}
+\setbool{suisse}{true}
+\newcommand\jobkind{embSoftEng}%embedded software engineering
+%\newcommand\jobkind{HPC}% High performance computing 
+%\newcommand\jobkind{SysAdmin}% System administration
+
 % Set false if you don't want to highlight section with awesome color
 \setbool{acvSectionColorHighlight}{true}
 
 % If you would like to change the social information separator from a pipe (|) to something else
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
-
 
 %-------------------------------------------------------------------------------
 %	PERSONAL INFORMATION
@@ -52,26 +58,24 @@
 % Available options: circle|rectangle,edge/noedge,left/right
 % \photo{./examples/profile.png}
 \name{Benjamin}{Cathelineau}
-\position{PhD Student in Computer Science}
-\address{4 Rue Pierre Brossolette, 38400 Saint-Martin-d'Hères, France}
-
+\ifthenelse{\equal{\jobkind}{embSoftEng}}{
+\position{Young graduate, looking for a embedded software engineering job}
+}{}
+\ifthenelse{\equal{\jobkind}{HPC}}{
+\position{TODO}
+}{}
+\ifthenelse{\equal{\jobkind}{SysAdmin}}{
+\position{TODO}
+}{}
+\ifbool{suisse}
+{\address{Chemin des Graviers 2B, 1290 Versoix, Switzerland}}
+{\address{4 Rue Pierre Brossolette, 38400 Saint-Martin-d'Hères, France}}
 \mobile{(+33)651683524}
-\email{benjamin.cathelineau@univ-grenoble-alpes.fr}
+\email{bencathelif@gmail.com}
 %\dateofbirth{November 2, 1999}
 \homepage{olimar718.github.io/}
 \github{olimar718}
 \linkedin{benjamin-cathelineau-391484172/}
-% \gitlab{gitlab-id}
-% \stackoverflow{SO-id}{SO-name}
-% \twitter{@twit}
-% \skype{skype-id}
-% \reddit{reddit-id}
-% \medium{medium-id}
-% \kaggle{kaggle-id}
-% \googlescholar{googlescholar-id}{name-to-display}
-%% \firstname and \lastname will be used
-% \googlescholar{googlescholar-id}{}
-% \extrainfo{extra information}
 
 %-------------------------------------------------------------------------------
 \begin{document}

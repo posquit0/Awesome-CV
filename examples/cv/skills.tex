@@ -8,37 +8,38 @@
 %	CONTENT
 %-------------------------------------------------------------------------------
 \begin{cvskills}
+\ifthenelse{\equal{\jobkind}{embSoftEng}}
+{
 
-  \cvskill
+    \cvskill
     {Programming} % Category
     {C, SystemC, C++, Python, Java, Rust, Parallel and Distributed Programing} % Skills
 %---------------------------------------------------------
-  \cvskill
+
+
+
+	}{}
+\ifthenelse{\equal{\jobkind}{SysAdmin}}
+{
+    \cvskill
     {DevOps and Automation} % Category
     {Docker, Kubernetes, git, Jenkins, shell scripts} % Skills
 
-%---------------------------------------------------------
-  \cvskill
+    \cvskill
     {Linux SysAdmin} % Category
     {DNS server (pihole), Web Server (tomcat), KVM} % Skills
 
-  \cvskill
+    \cvskill
     {Windows SysAdmin} % Category
     {PowerShell scripts, Active Directory, Hyper V} % Skills
 
-  \cvskill
+    \cvskill
     {Networks} % Category
     {Cisco CCNA 1 and 2} % Skills
 
-%---------------------------------------------------------
-  \cvskill
-    {Web and Databases} % Category
-    {HTML, CSS, JavaScript, PHP, SQL} % Skills
+}{}
 
-%---------------------------------------------------------
-  \cvskill
-    {Languages} % Category
-    {French, English (TOEIC, TOEFL)} % Skills
-
-%---------------------------------------------------------
+	\cvskill
+	{Languages} % Category
+	{French (Mother Tongue), Fluent English} % Skills
 \end{cvskills}
