@@ -1,0 +1,29 @@
+repo_name: freiheit/Awesome-CV
+report_id: a9e6b026ef858b02143add139e973763
+repo_type: Public
+timestamp: '2023-11-10T00:50:00+00:00'
+requested_by: freiheit
+provider: github
+branch: master
+detected_tools_count: 2
+tools:
+- name: CircleCI
+  description: Automate your development process quickly, safely, and at scale
+  website_url: https://circleci.com/
+  open_source: false
+  hosted_saas: true
+  category: Build, Test, Deploy
+  sub_category: Continuous Integration
+  image_url: https://img.stackshare.io/service/190/CvqrSSFs_400x400.jpg
+  detection_source: ".circleci/config.yml"
+  last_updated_by: Posquit0.BJ
+  last_updated_on: 2018-10-09 09:36:00.000000000 Z
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source: Repo Metadata
