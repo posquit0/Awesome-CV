@@ -209,6 +209,12 @@
 \newcommand*{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{text} #1}}
 
+% For elements of talks, presentations, speaking engagements
+\newcommand*{\talkvenuestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
+\newcommand*{\talktitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
+\newcommand*{\talkdatestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
+\newcommand*{\talklocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
+
 % For elements of the cover letter
 \newcommand*{\lettersectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
 \newcommand*{\recipientaddressstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\scshape\color{graytext} #1}}
@@ -747,6 +753,23 @@
   \end{itemize}
   \end{justify}
   \vspace{-4.0mm}
+}
+
+% Define an environment for cvtalks
+\newenvironment{cvtalks}{
+  \begin{center}
+    \setlength\tabcolsep{0pt}
+    \setlength{\extrarowheight}{0.2pt}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{2.5cm} L{12.0cm} R{2.5cm}}
+}{
+    \end{tabular*}
+  \end{center}
+}
+% Define an entry for cvtalks (talk, presentation, speaking engagement)
+% Usage: \cvtalk{<venue>}{<title>}{<location>}{<date>}
+\newcommand*{\cvtalk}[4]{
+  \talkdatestyle{#4} & \talkvenuestyle{#1} & \talklocationstyle{#3} \\
+                     & \talktitlestyle{#2} &                        \\
 }
 
 
