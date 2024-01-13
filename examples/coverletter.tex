@@ -23,9 +23,6 @@
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
 
-% Specify the location of the included fonts
-\fontdir[fonts/]
-
 % Color for highlights
 % Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
 %                 awesome-nephritis, awesome-concrete, awesome-darknight
@@ -39,6 +36,7 @@
 % \definecolor{text}{HTML}{333333}
 % \definecolor{graytext}{HTML}{5D5D5D}
 % \definecolor{lighttext}{HTML}{999999}
+% \definecolor{sectiondivider}{HTML}{5D5D5D}
 
 % Set false if you don't want to highlight section with awesome color
 \setbool{acvSectionColorHighlight}{true}
@@ -54,11 +52,12 @@
 % Available options: circle|rectangle,edge/noedge,left/right
 \photo[circle,noedge,left]{./examples/profile}
 \name{Claud D.}{Park}
-\position{Software Architect{\enskip\cdotp\enskip}Security Expert}
-\address{42-8, Bangbae-ro 15-gil, Seocho-gu, Seoul, 00681, Rep. of KOREA}
+\position{Site Reliability Engineer{\enskip\cdotp\enskip}Software Architect}
+\address{235, World Cup buk-ro, Mapo-gu, Seoul, 03936, Republic of Korea}
 
 \mobile{(+82) 10-9030-1843}
 \email{posquit0.bj@gmail.com}
+%\dateofbirth{January 1st, 1970}
 \homepage{www.posquit0.com}
 \github{posquit0}
 \linkedin{posquit0}
@@ -68,10 +67,12 @@
 % \skype{skype-id}
 % \reddit{reddit-id}
 % \medium{madium-id}
+% \kaggle{kaggle-id}
+% \hackerrank{hackerrank-id}
 % \googlescholar{googlescholar-id}{name-to-display}
 %% \firstname and \lastname will be used
 % \googlescholar{googlescholar-id}{}
-% \extrainfo{extra informations}
+% \extrainfo{extra information}
 
 \quote{``Be the change that you want to see in the world."}
 
@@ -99,7 +100,7 @@
 %-------------------------------------------------------------------------------
 \begin{document}
 
-% Print the header with above personal informations
+% Print the header with above personal information
 % Give optional argument to change alignment(C: center, L: left, R: right)
 \makecvheader[R]
 
@@ -110,7 +111,7 @@
   {Claud D. Park~~~·~~~Cover Letter}
   {}
 
-% Print the title with above letter informations
+% Print the title with above letter information
 \makelettertitle
 
 %-------------------------------------------------------------------------------
@@ -131,7 +132,7 @@ Duis sit amet magna ante, at sodales diam. Aenean consectetur porta risus et sag
 
 
 %-------------------------------------------------------------------------------
-% Print the signature and enclosures with above letter informations
+% Print the signature and enclosures with above letter information
 \makeletterclosing
 
 \end{document}
