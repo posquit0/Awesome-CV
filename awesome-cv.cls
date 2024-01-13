@@ -497,7 +497,9 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           % \mbox prevents wrapping of elements%
-          \mbox{\faBirthdayCake\acvHeaderIconSep\@dateofbirth}%
+          \mbox{
+            \faBirthdayCake\acvHeaderIconSep\@dateofbirth
+          }%
         }%
       \ifthenelse{\isundefined{\@homepage}}%
         {}%
@@ -527,7 +529,9 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://bitbucket.com/\@bitbucket}{\faBitbucket\acvHeaderIconSep\@bitbucket}%
+          \mbox{
+            \href{https://bitbucket.com/\@bitbucket}{\faBitbucket\acvHeaderIconSep\@bitbucket}%
+          }
         }%
       \ifthenelse{\isundefined{\@stackoverflowid}}%
         {}%
@@ -565,7 +569,9 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://\@mastodoninstance/@\@mastodonname}{\faMastodon\acvHeaderIconSep\@mastodonname}%
+          \mbox{
+            \href{https://\@mastodoninstance/@\@mastodonname}{\faMastodon\acvHeaderIconSep\@mastodonname}%
+          }
         }%
       \ifthenelse{\isundefined{\@skype}}%
         {}%
@@ -587,7 +593,9 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.researchgate.net/profile/\@researchgate}{\faResearchgate\acvHeaderIconSep\@researchgate}%
+          \mbox{
+            \href{https://www.researchgate.net/profile/\@researchgate}{\faResearchgate\acvHeaderIconSep\@researchgate}%
+          }
         }%
       \ifthenelse{\isundefined{\@xing}}%
         {}%
@@ -609,13 +617,17 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://kaggle.com/\@kaggle}{\faKaggle\acvHeaderIconSep\@kaggle}%
+          \mbox{
+            \href{https://kaggle.com/\@kaggle}{\faKaggle\acvHeaderIconSep\@kaggle}%
+          }
         }%
       \ifthenelse{\isundefined{\@hackerrank}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.hackerrank.com/\@hackerrank}{\faHackerrank\acvHeaderIconSep\@hackerrank}%
+          \mbox{
+            \href{https://www.hackerrank.com/\@hackerrank}{\faHackerrank\acvHeaderIconSep\@hackerrank}%
+          }
         }%
       \ifthenelse{\isundefined{\@googlescholarid}}%
         {}%
