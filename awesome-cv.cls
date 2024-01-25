@@ -75,7 +75,7 @@
 % Needed to manage math fonts
 \RequirePackage{unicode-math}
 % Needed to use icons from font-awesome
-\RequirePackage{fontawesome5}
+\RequirePackage{fontawesome6}
 \RequirePackage{roboto}
 \RequirePackage[default,opentype]{sourcesanspro}
 % Needed for the photo ID
@@ -99,6 +99,7 @@
 % Configure an optional directory location for fonts(default: 'fonts/')
 % Not required anymore but left in place for backward compatability.
 \newcommand*{\fontdir}[1][fonts/]{\def\@fontdir{#1}}
+\fontdir
 
 %-------------------------------------------------------------------------------
 %                Configuration for layout
@@ -163,6 +164,17 @@
 %-------------------------------------------------------------------------------
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
+% FontAwesome 6 fonts
+\newfontfamily\FAB[
+    Path=\@fontdir,
+]{Font-Awesome-6-Brands-Regular-400}
+\newfontfamily\FAR[
+    Path=\@fontdir,
+]{Font-Awesome-6-Free-Regular-400}
+\newfontfamily\FAS[
+    Path=\@fontdir,
+]{Font-Awesome-6-Free-Solid-900}
+
 \newcommand*{\headerfont}{\roboto}
 \newcommand*{\headerfontlight}{\robotolight}
 \newcommand*{\footerfont}{\sourcesanspro}
@@ -488,26 +500,26 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{mailto:\@email}{\faEnvelope\acvHeaderIconSep\@email}%
+          \href{mailto:\@email}{\faEnvelopeS\acvHeaderIconSep\@email}%
         }%
       \ifthenelse{\isundefined{\@dateofbirth}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           % \mbox prevents wrapping of elements%
-          \mbox{\faBirthdayCake\acvHeaderIconSep\@dateofbirth}%
+          \mbox{\faCakeCandles\acvHeaderIconSep\@dateofbirth}%
         }%
       \ifthenelse{\isundefined{\@homepage}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{http://\@homepage}{\faHome\acvHeaderIconSep\@homepage}%
+          \href{http://\@homepage}{\faHouseChimney\acvHeaderIconSep\@homepage}%
         }%
       \ifthenelse{\isundefined{\@github}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://github.com/\@github}{\faGithubSquare\acvHeaderIconSep\@github}%
+          \href{https://github.com/\@github}{\faSquareGithub\acvHeaderIconSep\@github}%
         }%
       \ifthenelse{\isundefined{\@gitlab}}%
         {}%
