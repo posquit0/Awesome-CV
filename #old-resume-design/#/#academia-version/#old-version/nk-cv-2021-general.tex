@@ -1,0 +1,647 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% Simple LaTeX CV Template %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NOTE: If you find that it says                                     %%
+%%                                                                    %%
+%%                           1 of ??                                  %%
+%%                                                                    %%
+%% at the bottom of your first page, this means that the AUX file     %%
+%% was not available when you ran LaTeX on this source. Simply RERUN  %%
+%% LaTeX to get the ``??'' replaced with the number of the last page  %%
+%% of the document. The AUX file will be generated on the first run   %%
+%% of LaTeX and used on the secondrun to fill in all of the          %%
+%% references.                                                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Don't like 10pt? Try 11pt or 12pt
+\documentclass[10pt]{article}
+
+% The automated optical recognition software used to digitize resume
+% information works best with fonts that do not have serifs. This
+% command uses a sans serif font throughout. Uncomment both lines (or at
+% least the second) to restore a Roman font (i.e., a font with serifs).
+%\usepackage{times}
+%\renewcommand{\familydefault}{\sfdefault}
+
+% This is a helpful package that puts math inside length specifications
+\usepackage{calc}
+
+\usepackage{fancyhdr}
+
+
+% Layout: Puts the section titles on left side of page
+\reversemarginpar
+
+%
+%         PAPER SIZE, PAGE NUMBER, AND DOCUMENT LAYOUT NOTES:
+%
+% The next \usepackage line changes the layout for CV style section
+% headings as marginal notes. It also sets up the paper size as either
+% letter or A4. By default, letter was used. If A4 paper is desired,
+% comment out the letterpaper lines and uncomment the a4paper lines.
+%
+% As you can see, the margin widths and section title widths can be
+% easily adjusted.
+%
+% ALSO: Notice that the includefoot option can be commented OUT in order
+% to put the PAGE NUMBER *IN* the bottom margin. This will make the
+% effective text area larger.
+%
+% IF YOU WISH TO REMOVE THE ``of LASTPAGE'' next to each page number,
+% see the note about the +LP and -LP lines below. Comment out the +LP
+% and uncomment the -LP.
+%
+% IF YOU WISH TO REMOVE PAGE NUMBERS, be sure that the includefoot line
+% is uncommented and ALSO uncomment the \pagestyle{empty} a few lines
+% below.
+%
+
+%% Use these lines for letter-sized paper
+\usepackage[paper=letterpaper,
+           % includefoot, % Uncomment to put page number above margin
+            marginparwidth=1.2in,     % Length of section titles
+            marginparsep=.05in,       % Space between titles and text
+            margin=1in,               % 1 inch margins
+            includemp,
+	 bottom = 2.5cm]{geometry}
+%% Use these lines for A4-sized paper
+%\usepackage[paper=a4paper,
+%            %includefoot, % Uncomment to put page number above margin
+%            marginparwidth=30.5mm,    % Length of section titles
+%            marginparsep=1.5mm,       % Space between titles and text
+%            margin=25mm,              % 25mm margins
+%            includemp]{geometry}
+
+%% More layout: Get rid of indenting throughout entire document
+\setlength{\parindent}{0in}
+
+\usepackage[shortlabels]{enumitem}
+
+% Simpler bibsections for CV sections
+% (thanks to natbib for inspiration)
+%
+% * For lists of references with hanging indents and no numbers:
+%
+%   \begin{bibsection}
+%       \item ...
+%   \end{bibsection}
+%
+% * For numbered lists of references (with hanging indents):
+%
+%   \begin{bibenum}
+%       \item ...
+%   \end{bibenum}
+%
+%   Note that bibenum numbers continuously throughout. To reset the
+%   counter, use
+%
+%   \restartlist{bibenum}
+%
+%   at the place where you want the numbering to reset.
+
+\makeatletter
+\newlength{\bibhang}
+\setlength{\bibhang}{1em}
+\newlength{\bibsep}
+ {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+\newlist{bibsection}{itemize}{3}
+\setlist[bibsection]{label=,leftmargin=\bibhang,%
+        itemindent=-\bibhang,
+        itemsep=\bibsep,parsep=\z@,partopsep=0pt,
+        topsep=0pt}
+\newlist{bibenum}{enumerate}{3}
+\setlist[bibenum]{label=[\arabic*],resume,leftmargin={\bibhang+\widthof{[999]}},%
+        itemindent=-\bibhang,
+        itemsep=\bibsep,parsep=\z@,partopsep=0pt,
+        topsep=0pt}
+\let\oldendbibenum\endbibenum
+\def\endbibenum{\oldendbibenum\vspace{-.6\baselineskip}}
+\let\oldendbibsection\endbibsection
+\def\endbibsection{\oldendbibsection\vspace{-.6\baselineskip}}
+\makeatother
+
+%% Reference the last page in the page number
+%
+% NOTE: comment the +LP line and uncomment the -LP line to have page
+%       numbers without the ``of ##'' last page reference)
+%
+% NOTE: uncomment the \pagestyle{empty} line to get rid of all page
+%       numbers (make sure includefoot is commented out above)
+%
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+%\pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\newlength{\footpageshift}
+\setlength{\footpageshift}
+          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+\lfoot{\hspace{\footpageshift}%
+       \parbox{4in}{\, \hfill %
+                    \arabic{page} of \protect\pageref*{LastPage} % +LP
+%                    \arabic{page}                               % -LP
+                    \hfill \,}}
+
+% Finally, give us PDF bookmarks
+
+\usepackage[usenames,dvipsnames]{xcolor}
+
+\usepackage{color,hyperref}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=Blue,urlcolor=Blue,
+            anchorcolor=Blue,citecolor=Blue}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% HEADING AT TOP OF CURRICULUM VITAE
+
+% The title (name) with a horizontal rule under it
+% (optional argument typesets an object right-justified across from name
+%  as well)
+%
+% Usage: \makeheading{name}
+%        OR
+%        \makeheading[right_object]{name}
+%
+% Place at top of document. It should be the first thing.
+% If ``right_object'' is provided in the square-braced optional
+% argument, it will be right justified on the same line as ``name'' at
+% the top of the CV. For example:
+%
+%       \makeheading[\emph{Curriculum vitae}]{Your Name}
+%
+% will put an emphasized ``Curriculum vitae'' at the top of the document
+% as a title. Likewise, a picture could be included:
+%
+%   \makeheading[\includegraphics[height=1.5in]{my_picutre}]{Your Name}
+%
+% the picture will be flush right across from the name.
+\newcommand{\makeheading}[2][]%
+        {\hspace*{-\marginparsep minus \marginparwidth}%
+         \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+             {\large \bfseries #2 \hfill #1}\\[-0.15\baselineskip]%
+                 \rule{\columnwidth}{1pt}%
+         \end{minipage}}
+
+%%% SECTION HEADINGS
+
+% The section headings. Flush left in small caps down pseudo-margin.
+%
+% Usage: \section{section name}
+\renewcommand{\section}[1]{\pagebreak[3]%
+    \vspace{1.3\baselineskip}%
+    \phantomsection\addcontentsline{toc}{section}{#1}%
+    \noindent\llap{\scshape\smash{\parbox[t]{\marginparwidth}{\hyphenpenalty=10000\raggedright #1}}}%
+    \vspace{-\baselineskip}\par}
+
+%%% LISTS
+
+% This macro alters a list by removing some of the space that follows the list
+% (is used by lists below)
+\newcommand*\fixendlist[1]{%
+    \expandafter\let\csname preFixEndListend#1\expandafter\endcsname\csname end#1\endcsname
+    \expandafter\def\csname end#1\endcsname{\csname preFixEndListend#1\endcsname\vspace{-0.6\baselineskip}}}
+
+% These macros help ensure that items in outer-type lists do not get
+% separated from the next line by a page break
+% (they are used by lists below)
+\let\originalItem\item
+\newcommand*\fixouterlist[1]{%
+    \expandafter\let\csname preFixOuterList#1\expandafter\endcsname\csname #1\endcsname
+    \expandafter\def\csname #1\endcsname{\csname preFixOuterList#1\endcsname\let\oldItem\item\def\item{\pagebreak[2]\oldItem}}
+    \expandafter\let\csname preFixOuterListend#1\expandafter\endcsname\csname end#1\endcsname
+    \expandafter\def\csname end#1\endcsname{\let\item\oldItem\csname preFixOuterListend#1\endcsname}}
+\newcommand*\fixinnerlist[1]{%
+    \expandafter\let\csname preFixInnerList#1\expandafter\endcsname\csname #1\endcsname
+    \expandafter\def\csname #1\endcsname{\let\oldItem\item\let\item\originalItem\csname preFixInnerList#1\endcsname}
+    \expandafter\let\csname preFixInnerListend#1\expandafter\endcsname\csname end#1\endcsname
+    \expandafter\def\csname end#1\endcsname{\csname preFixInnerListend#1\endcsname\let\item\oldItem}}
+
+% An itemize-style list with lots of space between items
+%
+% Usage:
+%   \begin{outerlist}
+%       \item ...    % (or \item[] for no bullet)
+%   \end{outerlist}
+\newlist{outerlist}{itemize}{3}
+    \setlist[outerlist]{label=\enskip\textbullet,leftmargin=*}
+    \fixendlist{outerlist}
+    \fixouterlist{outerlist}
+
+% An environment IDENTICAL to outerlist that has better pre-list spacing
+% when used as the first thing in a \section
+%
+% Usage:
+%   \begin{lonelist}
+%       \item ...    % (or \item[] for no bullet)
+%   \end{lonelist}
+\newlist{lonelist}{itemize}{3}
+    \setlist[lonelist]{label=\enskip\textbullet,leftmargin=*,partopsep=0pt,topsep=0pt}
+    \fixendlist{lonelist}
+    \fixouterlist{lonelist}
+
+% An itemize-style list with little space between items
+%
+% Usage:
+%   \begin{innerlist}
+%       \item ...    % (or \item[] for no bullet)
+%   \end{innerlist}
+\newlist{innerlist}{itemize}{3}
+    \setlist[innerlist]{label=\enskip\textbullet,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt}
+    \fixinnerlist{innerlist}
+
+% An environment IDENTICAL to innerlist that has better pre-list spacing
+% when used as the first thing in a \section
+%
+% Usage:
+%   \begin{loneinnerlist}
+%       \item ...    % (or \item[] for no bullet)
+%   \end{loneinnerlist}
+\newlist{loneinnerlist}{itemize}{3}
+    \setlist[loneinnerlist]{label=\enskip\textbullet,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt}
+    \fixendlist{loneinnerlist}
+    \fixinnerlist{loneinnerlist}
+
+%%% EXTRA SPACE
+
+% To add some paragraph space between lines.
+% This also tells LaTeX to preferably break a page on one of these gaps
+% if there is a needed pagebreak nearby.
+\newcommand{\blankline}{\quad\pagebreak[3]}
+\newcommand{\halfblankline}{\quad\vspace{-0.5\baselineskip}\pagebreak[3]}
+
+%%% FORMATTING MACROS
+
+% Uses hyperref to link DOI
+\newcommand\doilink[1]{\href{http://dx.doi.org/#1}{#1}}
+\newcommand\doi[1]{doi:\doilink{#1}}
+
+% For \url{SOME_URL}, links SOME_URL to the url SOME_URL
+\providecommand*\url[1]{\href{#1}{#1}}
+% Same as above, but pretty-prints SOME_URL in teletype fixed-width font
+\renewcommand*\url[1]{\href{#1}{\texttt{#1}}}
+
+% For \email{ADDRESS}, links ADDRESS to the url mailto:ADDRESS
+\providecommand*\email[1]{\href{mailto:#1}{#1}}
+% Same as above, but pretty-prints ADDRESS in teletype fixed-width font
+%\renewcommand*\email[1]{\href{mailto:#1}{\texttt{#1}}}
+
+%\providecommand\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+%    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+%\providecommand\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+%    \TeX}}
+\providecommand\BibTeX{{B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    \TeX}}
+\providecommand\Matlab{\textsc{Matlab}}
+
+% Custom hyphenation rules for words that LaTeX has trouble with
+\hyphenation{bio-mim-ic-ry bio-in-spi-ra-tion re-us-a-ble pro-vid-er}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle}
+{
+ %  \fancyhf{ss}
+%\renewcommand{\footrulewidth}{0.4pt}% default is 0pt
+%\renewcommand{\footruleheight}{0.4pt}% default is 0pt
+   \fancyfoot[L]{ \line(1,0){144} \\
+%\textsuperscript{$\dagger$} \textbf{SNePS} is a knowledge representation and reasoning system, developed at Buffalo University, NY.\\
+%\textsuperscript{$\dagger$} In Egypt, the \textbf{M.Sc.} of engineering is a \textbf{1 - 2 year} research study, that must be \textit{preceded} by a \textbf{B.Sc.} of\\ ~~engineering, which consists of \textbf{9} semesters  of courses and \textbf{6} months of research.
+\textsuperscript{$\dagger$} In Egypt, the M.Sc. of engineering is a 1 - 2 year research study, preceded by a 5 year engineering B.Sc.
+}
+}
+
+\fancypagestyle{secondstyle}
+{
+%\fancyhead[L]{\hspace{46 mm}2 of 3}
+ %  \fancyhf{ss}
+%\renewcommand{\footrulewidth}{0.4pt}% default is 0pt
+%\renewcommand{\footruleheight}{0.4pt}% default is 0pt
+   \fancyfoot[L]{ \line(1,0){144} \\
+\textsuperscript{$\S$} See the footnote regarding the \textbf{M.Sc.} degree on the first page.\\
+%\vspace{1.5pt}
+%\hspace{77 mm}2 of 3
+}
+%\textit{\line(1,0){144} \\ Please note that this is a CV directed to the academia. For a \textbf{professional} CV, please e-mail the author.}
+%477
+}
+
+
+\fancypagestyle{thirdstyle}
+{
+\fancyhead[L]{\hspace{46 mm}3 of 3}
+  \fancyfoot[L]{}
+}
+%\usepackage{showframe}
+
+
+\begin{document}
+\makeheading{Nasr Salim Kasrin (MSc., Eng., BSc.)}
+
+\section{Personal}
+
+% NOTE: Mind where the & separators and \\ breaks are in the following
+%       table. Table is one row made up of three parboxes. The left
+%       parbox has address info, the middle parbox has a vertical bar,
+%       and the right parbox has phone and electronic contact
+%       information.
+%
+% MACROS: \rcollength is the width of the right column of the table
+%             (adjust it to your liking; default is 1.85in).
+%         \spacewidth is width of area between left and right boxes.
+%         \spacechar is character used to produce perforated vertical
+%             boundary between boxes.
+%
+\newlength{\rcollength}\setlength{\rcollength}{2.5in}%
+\newlength{\spacewidth}\setlength{\spacewidth}{55pt}
+\newcommand\spacechar{$|$}
+%
+\begin{tabular}[t]{@{}p{\textwidth-\rcollength-\spacewidth}@{}p{\spacewidth}@{}p{\rcollength}}%
+
+% Address box
+\parbox{\textwidth-\rcollength-\spacewidth}{%
+Address ~~~~~~Bamberg, Germany\\
+Birthdate ~~~~Jan. 1986\\
+Nationality ~~Syrian
+%Telephone ~~~+49--17636642113
+}
+
+% Cheesy perforated vertical bar between boxes
+% Shorten by removing \spacechar's
+& \parbox{\spacewidth}{\centering \spacechar\\\spacechar\\\spacechar\\\spacechar} &
+
+% Non-snail-mail contact information
+\parbox{\rcollength}{%
+E-mail~~~~~\email{nasr.kasrin@gmail.com}\\
+LinkedIn ~\href{https://www.linkedin.com/in/nkasrin/}{linkedin.com/in/nkasrin}\\
+DBLP ~~~~~\href{https://dblp.org/pid/30/8393.html}{dblp.org/pid/30/8393.html}
+}
+
+\end{tabular}
+
+%\hline
+
+%%
+%% In modern CV's, it seems like ``Objective'' is frowned upon. Instead,
+%% incorporate it into a well-constructed cover letter. The ``More
+%% information'' can go at the end of the CV, but it should not distract
+%% from the section giving references available to contact.
+%%
+%
+% \section{Objective}
+%
+% Placement in an academic position (i.e., faculty, postdoctoral, or
+% research scientist) that allows for advanced research in distributed
+% complex adaptive systems (i.e., modeling, analysis, design, and
+% verification) with a particular focus on the control of engineered
+% agents (e.g., for communications, control, software, electronics, and
+% sustainability) and the analysis of biological phenomena (e.g.,
+% self-organization, ecological rationality)
+% \begin{innerlist}
+% \item More information and auxiliary documents can be found at\\\url{http://www.tedpavlic.com/facjobsearch/}
+% \end{innerlist}
+
+
+%\section{Profile}
+
+%I am a computer science and digital media professional with academic and industry experience in Artificial Intelligence, Human-Computer Interaction, and software engineering. I researched and taught AI and developed AI solutions for commercial products. For HCI and software engineering, I have been involved in the design and development of several commercial mobile applications in addition to teaching courses on the topics. \vspace{1.5 mm}
+
+%I am a computer science and digital media professional with academic and industry experience in software engineering and computer systems, Artificial Intelligence and Human-Computer Interaction. I served as a technical team leader in the design and development of several commercial applications, as an R\&D solution developer, initiated and led the development educational software tools as well as AI software agents. I have also taught programming courses and courses on the analysis and design of software.\vspace{1.5 mm}
+
+%I am currently assistant dean and lecturer in the Multimedia \& Creative Technologies faculty and lecturer in the Business IT (BIT) faculty at the International University of Technology, Twin Tech in Yemen where I teach both technical courses and some applied arts courses in addition to hybrid courses like \textit{HCI} for the Multimedia faculty and \textit{Information Design and Visualization}. \vspace{1.5 mm}
+
+%I am a dynamic person who takes a lot of initiative and is always committed to mastering what I am working on. I enjoy adapting to new challenges and to be influenced by and influence my environment positively.
+
+\section{Education}
+%\textsuperscript{$\dagger$}
+
+\textit{PhD}, Computer Science Subject Group, \hfill Jan. 2016 -- 2022 (\textit{expected})\\
+\href{https://www.uni-bamberg.de/wiai/}
+{Faculty of Information Systems and Applied Computer Sciences},\\ \href{https://www.uni-bamberg.de/}{University of Bamberg}, Bamberg, Germany \vspace{3 mm}
+
+\textit{MSc}, Computer Science \& Engineering Department, \hfill Jan. 2009 -- Sep. 2010\\
+        \href{http://met.guc.edu.eg/}
+			{Faculty of Media Engineering \& Technology},\\ \href{http://guc.edu.eg/}{German University in Cairo (GUC)}, Egypt \vspace{3 mm}
+
+\textit{BSc}, Computer Science \& Engineering Department, \hfill Sep. 2003 -- Jul. 2008\\
+        \href{http://met.guc.edu.eg/}
+			{Faculty of Media Engineering \& Technology},\\ \href{http://guc.edu.eg/}{German University in Cairo (GUC)}, Egypt\vspace{2.5 mm}
+
+%		 ~~~~~Thesis Grade: \textit{Excellent}; Overall Grade: \textit{Very Good}
+
+\section{Academic\\Experience}
+
+\textbf{Research Associate (Third-party funded projects)} \hfill{Oct. 2015 -- Jan. 2021}
+\begin{outerlist}
+	\item[] Chair of Computer Science, Mobile Software Systems / Mobility at Otto-Friedrich-University, Bamberg, Germany.
+	\begin{innerlist}
+		\item Follow up on the SIMUTOOL EU Project, with team size from 2 to 5 members including research assistants, students assistants, and masters theses.
+		\item Research and development tasks including analyzing requirements and developing solutions for the domain.
+		\item Product owner of a knowledge management platform developed for the manufacturing industry.
+		\item Managed a total of 5 software developers at different points to develop interrelated components.
+		\item Represented the group at research meetings with industry partners and meeting with EC officials.\\
+		%       \item Teaching  and \textit{Design Thinking \& Innovation} in the Business Information Technology faculty. \textit{See lecturer responsibilities below}.\\
+	\end{innerlist}
+\end{outerlist}
+
+
+
+\textbf{Acting Dean} \hfill{Oct. 2014 -- Sep. 2015}
+\begin{outerlist}
+    \item[] \href{http://iutt.edu.ye/}{Faculty of Multimedia and Creative Technologies \& Faculty of Business IT (BIT) The International University of Technology Twintech}, Sana'a, Yemen.
+    \begin{innerlist}
+       \item Course (curriculum) leader for the Multimedia faculty. Responsibilities include monitoring the quality of the implementation of the faculty's courses.
+       \item Board member of the curriculum development team for the faculties of Multimedia and Business IT.
+       \item Courses taught: Object Oriented Programming, Information Design and Visualization, Object Oriented Analysis and Design of Software, Art \& Design History, Art \& Design History, Design Thinking \& Innovation.\\
+    \end{innerlist}
+\end{outerlist}
+
+
+\textbf{Lecturer} \hfill{Nov. 2013 -- Sep. 2014}
+\begin{outerlist}
+    \item[] \href{http://iutt.edu.ye/}{Faculty of Business Information Technology, The International University of Technology Twintech}, Sana'a, Yemen.
+    \begin{innerlist}
+        \item Delivered lectures and tutorials; developed teaching material; prepared and evaluated exams, assignments, quizzes, and projects. Supervised graduation projects.
+        \item Courses taught: Human-Computer Interaction, Object-Oriented Analysis \& Design, Object-Oriented Programming, and Research \& Development.\\
+    \end{innerlist}
+\end{outerlist}
+
+%\newpage
+
+\textbf{Teaching Assistant} \hfill{Oct. 2008 -- Aug. 2012}
+\begin{outerlist}
+    \item[] \href{http://met.guc.edu.eg/}{Department of Computer Science and Engineering},
+            \href{http://guc.edu.eg/}{GUC}, Cairo, Egypt.
+    \begin{innerlist}
+        \item Prepared and taught tutorial sessions for: \href{http://met.guc.edu.eg/Courses/CourseEdition.aspx?crsEdId=278}{Introduction to Artificial Intelligence}, \href{http://met.guc.edu.eg/Courses/CourseEdition.aspx?crsEdId=271}{Introduction to Computer Science}, \href{http://met.guc.edu.eg/Courses/CourseEdition.aspx?crsEdId=308}{Introduction to Computer Programming}.
+       \item Prepared and taught 10+ hours per week of tutorial sessions.
+       \item Evaluated and collaborated on preparing assignments, quizzes, and projects.
+       \item Served as academic advisor for more than 100 students to help guide them in planning  and carrying out their study program up to graduation.\\
+    \end{innerlist}
+\end{outerlist}
+
+
+\textbf{Junior Teaching Assistant} \hfill {Feb. 2005 -- Jun. 2005}
+\begin{outerlist}
+    \item[] \href{http://met.guc.edu.eg/}{Department of Computer Science and Engineering},
+            \href{http://guc.edu.eg/}{GUC}, Cairo, Egypt.
+    \begin{innerlist}
+        \item Assisted teaching assistants in carrying out labs of 25 students.
+    \end{innerlist}
+\end{outerlist}
+%\thispagestyle{secondstyle}
+
+
+\section{Industry\\Experience}
+
+\textbf{Team Leader, Software Architect} \hfill {Sep. 2012 -- Dec. 2013}
+\begin{outerlist}
+    \item[] \href{https://web.archive.org/web/20160704123950/http://www.tayait.com/#}{Taya IT}, Cairo, Egypt
+    \begin{innerlist}
+	\item Planned and supervised the iterative  development of \href{https://itunes.apple.com/us/app/greetings-studio-personalized/id495706159?mt=8}{Greetings Studio (GS)}, a social networking app for creating and sharing e-cards and visual sentiments.
+	\item Redesigned the architecture of GS for scalability and de-coupling of components.
+	\item Contributed in setting and developing the business strategy of GS.
+	\item Collaborated with the user-experience team on product design and development.\\
+    \end{innerlist}
+\end{outerlist}
+
+%\newpage
+
+\textbf{Research \& Development Engineer} \hfill {Apr. 2011 -- Aug. 2012}
+\begin{outerlist}
+    \item[] \href{https://web.archive.org/web/20160704123950/http://www.tayait.com/#}{Taya IT}, Cairo, Egypt
+    \begin{innerlist}
+      \item Led a team to develop computer players for the iOS backgammon game \href{https://itunes.apple.com/us/app/tawla-backgammon-game-arabian/id441574632?mt=8}{Tawla}.
+      \item Designed and developed algorithms for several software products.
+      \item Investigated and collaborated on UX/UI and product design and development.
+      \item Investigated game design and collaborated in the production of the 3D physics-based puzzle game \href{https://itunes.apple.com/us/app/save-bomb-addictive-challenging/id532135849?mt=8}{Save The Bomb}.\\
+%      \item Investigated trends in \textit{semantic web} and \textit{information architecture}.\\
+	\end{innerlist}
+\end{outerlist}
+
+
+\textbf{Information Retrieval \& Extraction Developer} \hfill {Jul. 2005 -- Nov. 2005}
+\begin{outerlist}
+    \item[] Alzoa.com. An Arabic news portal (Currently offline; \href{http://web.archive.org/web/20120310211501/http://www.alzoa.com/}{archived version})
+    \begin{innerlist}
+		\item Assisted in the development of an Arabic search engine using Lucene in Java.
+		\item Built web-crawlers (using Perl) to collect and archive articles from news websites.
+    \end{innerlist}
+\end{outerlist} 
+
+\section{Language}
+\textbf{Programming Languages}\vspace{1mm}
+
+High Proficiency: Python.\vspace{1mm}
+
+
+Past Proficiency: Java, lisp (functional), perl, prolog, microcontroller programming, C++.\vspace{2mm}
+
+
+\textbf{Spoken Languages}\vspace{1mm}
+
+Arabic:~~~Native
+
+English: ~Fluent (Full proficiency in reading, writing, and speaking)
+
+German: Basic ~(A1)
+
+
+%\textbf{Software Development}\vspace{1mm}
+%
+%~~~Object-Oriented Analysis and Design, UML, Iterative Software Development.\vspace{2mm}
+%
+%\textbf{Technologies / OSs}\vspace{1mm}
+%
+%~~~iOS Technologies, Windows, Mac.
+
+
+\section{Publications}
+
+\begin{bibenum}
+	
+	\item \textbf{Nasr Kasrin}, et al.: Data-Sharing Markets for Integrating IoT Data Processing Functionalities,  CCF Trans. Pervasive Comp. Interact. 3, 76–93 (2021).
+	
+    \item \textbf{Nasr Kasrin}, et al.: Semantic Data Management for Experimental Manufacturing Technologies, \emph{Datenbank-Spektrum 18(1): 27-37}, 2018. 
+	
+    \item Haythem O. Ismail and \textbf{Nasr Kasrin}: \href{http://met.guc.edu.eg/Repository/Faculty/Publications/317/KI2010-62.pdf}{Focused Belief Revision as a Model of Fallible Relevance-Sensitive Perception} , \emph{33rd German AI Conference KI}, 2010. 
+
+    \item Haythem O. Ismail and \textbf{Nasr Kasrin} : \href{http://met.guc.edu.eg/Repository/Faculty/Publications/319/ECAI-510.pdf}{High-Level Perception as Grounded Focused Belief Revision}, \emph{European Conference on Artificial Intelligence ECAI}, 2010. 
+
+    \item Ahmed Y. Tawfik and \textbf{Nasr Kasrin} : Integrating Causal Knowledge in Case-based Retrieval: Causal Decomposition of Cases , \emph{In Proceedings of the Thirteenth UK Workshop on Case Based Reasoning UKCBR}, 2008.
+\end{bibenum}
+
+%\section{Conferences}
+%Attended and presented research findings at ECAI 2010, Lisbon, Portugal. 
+
+%\section{Presentations}
+%
+%``\textbf{Planning: A Hard Problem?}  \textit{Past to Present}'' (2011).  A look at popular planning systems in AI, comparing their strengths and limitations. \textit{Presented to the Computational Logic and Cognitive Systems research group (CLoCS) at the GUC}, Cairo, Egypt.\\
+%
+%``\textbf{The Muse in the Machine:} \textit{Artificial Creativity and Art}'' (2008). A lecture on algorithmic / computational art with a case study on algorithmic composition. \textit{Presented in the multi-disciplinary lecture series ``Mathematics and Art'' at the GUC}, Cairo, Egypt.
+
+%``\textbf{Java3D}'' (2005). A lecture on Java3D technology, which was still under-documented and with a small online community at the time. \textit{Presented at the GUC}, Cairo, Egypt. %
+
+% Add a little space to nudge next ``Conference Publications'' marginpar
+% down to make room for tall ``Submitted Journal Publications''
+% marginpar. If there are enough submitted journal publications, this
+% space will not be needed (and should be removed).
+%\vspace{0.1in}
+
+
+%\thispagestyle{thirdstyle}
+
+
+% $~~\bullet$     Regularly participated in meetings about computational logic.
+
+
+%\textit{Very good analytical skills}. Have the ability to think (very) abstractly when needed and not to think pragmatically when needed.\\
+
+%\textit{Very good communication of knowledge and presentation skills}. Gave a couple of public lectures about topics such as: Artificial Intelligence and ``Artificial Creativity and Art'', the second of which contained some original research. Have given 14 hours of tutorials every week for the last four years. I have gained experience on the art and craft of presentation and communication of information and knowledge. I have gave presentations and tutorials to audience of ranging backgrounds: first year university students in introductory courses, 5th year university students in pre-masters courses, and some public lectures which contained professors from fields such as Art, Mathematics and computer science.\\
+
+%\textit{Very good writing skills}. I have very good technical writing skills, and very good literary writing skills. I have written a technical Master's thesis which included disciplines such as Computer Science, Cognitive Science, Analytical Philosophy, and Mathematics. Additionally, have been a co-author of three technical papers published in worldwide peer-reviewed conferences and many technical blog articles and short essays. For literary skills, I have been consistently active in writing poetry for the last 8 years, and have occasionally written short stories and film scripts.\\
+
+
+% The ``More Info'' section may not be necessary; make sure it's short
+% so it doesn't prevent people from seeing references available to
+% contact.
+
+
+\section{References}
+Professional as well as academic references are furnished upon request.
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% End CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------%
+% The following is copyright and licensing information for
+% redistribution of this LaTeX source code; it also includes a liability
+% statement. If this source code is not being redistributed to others,
+% it may be omitted. It has no effect on the function of the above code.
+%----------------------------------------------------------------------%
+% Copyright (c) 2007, 2008, 2009, 2010, 2011 by Theodore P. Pavlic
+%
+% Unless otherwise expressly stated, this work is licensed under the
+% Creative Commons Attribution-Noncommercial 3.0 United States License. To
+% view a copy of this license, visit
+% http://creativecommons.org/licenses/by-nc/3.0/us/ or send a letter to
+% Creative Commons, 171 Second Street, Suite 300, San Francisco,
+% California, 94105, USA.
+%
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+% MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+% IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+% CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+% TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+% SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+%----------------------------------------------------------------------%
