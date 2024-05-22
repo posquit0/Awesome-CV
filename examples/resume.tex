@@ -13,14 +13,16 @@
 % CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
 %
 
+
 %-------------------------------------------------------------------------------
 % CONFIGURATIONS
 %-------------------------------------------------------------------------------
 % A4 paper size by default, use 'letterpaper' for US letter
 \documentclass[11pt, a4paper]{awesome-cv}
-\usepackage{fontspec}
-\usepackage{fontawesome}
-\usepackage{xltxtra}
+
+
+\newcommand*\sq{\mathbin{\vcenter{\hbox{\rule{.3ex}{.3ex}}}}}
+\newcommand*\sqbig{\hspace{0.5em}\mathbin{\vcenter{\hbox{\rule{.3ex}{.3ex}}}}\hspace{0.5em}}
 
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
@@ -33,11 +35,11 @@
 %                 awesome-nephritis, awesome-concrete, awesome-darknight
 \colorlet{awesome}{awesome-red}
 % Uncomment if you would like to specify your own color
-% \definecolor{awesome}{HTML}{3E6D9C}
+% \definecolor{awesome}{HTML}{CA63A8}
 
 % Colors for text
 % Uncomment if you would like to specify your own color
-\definecolor{darktext}{HTML}{414141}
+% \definecolor{darktext}{HTML}{414141}
 % \definecolor{text}{HTML}{333333}
 % \definecolor{graytext}{HTML}{5D5D5D}
 % \definecolor{lighttext}{HTML}{999999}
@@ -55,16 +57,16 @@
 %	Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
 % Available options: circle|rectangle,edge/noedge,left/right
-\photo[left]{../../../images/grum.png}
+%\photo[left]{../../../images/grum.png}
 \name{Romain}{Gallet}
-\position{Software Architecture{\enskip\cdotp\enskip}Data engineering}
+\position{software architecture $\sq$ data engineering $\sq$ devops $\sq$ aws certified}
 %\address{42-8, Bangbae-ro 15-gil, Seocho-gu, Seoul, 00681, Rep. of KOREA}
 
-\cpyname{Grum}{Ltd}
+%\cpyname{Grum}{Ltd}
 
-\mobile{(+44) 787 243 6423 }
-\email{info@grumlimited.co.uk}
-\homepage{grumlimited.co.uk}
+\mobile{(+352) 661\,54\,72\,73}
+\email{romain.gallet@gmail.com}
+%\homepage{grumlimited.co.uk}
 \github{grumlimited}
 \linkedin{romaingallet}
 % \gitlab{gitlab-id}
@@ -72,24 +74,24 @@
 % \twitter{@twit}
 % \skype{skype-id}
 % \reddit{reddit-id}
-% \medium{madium-id}
+% \medium{medium-id}
 % \kaggle{kaggle-id}
-% \hackerrank{hackerrank-id}
 % \googlescholar{googlescholar-id}{name-to-display}
 %% \firstname and \lastname will be used
 % \googlescholar{googlescholar-id}{}
 % \extrainfo{extra information}
 
-\quote{ %\textcolor{awesome}{\textbf{CONTRACTS ONLY - LONDON ONLY}}\\
-\vspace{1em}
-Engineering and consultancy services within the media, financial and publishing industries.\\
-\textbf{Grum Ltd} provides expertise in high availability architectures around streaming data pipelines.}
+%\quote{ %\textcolor{awesome}{\textbf{CONTRACTS ONLY - LONDON ONLY}}\\
+%\vspace{1em}
+% Engineering and consultancy services within the media, financial and publishing industries.\\
+%\textbf{Grum Ltd} provides expertise in high availability architectures around streaming data pipelines.
+%}
 
 \hypersetup{%
-  pdftitle={Grum Limited~~~·~~~Consultancy},
+  pdftitle={Romain GALLET~~~·~~~Consultant},
   pdfauthor={Romain Gallet},
-  pdfsubject={Grum Limited~~~·~~~Consultancy},
-  pdfkeywords={CV, Grum, Consultancy}
+  pdfsubject={Romain GALLET~~~·~~~Consultant},
+  pdfkeywords={CV, Consultant}
 }
 
 %-------------------------------------------------------------------------------
@@ -97,14 +99,14 @@ Engineering and consultancy services within the media, financial and publishing 
 
 % Print the header with above personal information
 % Give optional argument to change alignment(C: center, L: left, R: right)
-\makecvheader[C]
+\makecvheader
 
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
 \makecvfooter
   %{\today}
   {}
-  {Grum Limited~~~·~~~Consultancy}
+  {Romain GALLET~~~·~~~Consultant}
   {\thepage}
 
 
@@ -112,8 +114,10 @@ Engineering and consultancy services within the media, financial and publishing 
 %	CV/RESUME CONTENT
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
-%\input{resume/summary.tex}
+\input{resume/summary.tex}
+\input{resume/skills.tex}
 \input{resume/experience.tex}
+\newpage
 \input{resume/education.tex}
 \input{resume/honors.tex}
 %\input{resume/presentation.tex}
