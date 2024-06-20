@@ -740,13 +740,30 @@
 \newenvironment{cvitems}{%
   \vspace{-4.0mm}
   \begin{justify}
-  \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
-    \setlength{\parskip}{0pt}
-    \renewcommand{\labelitemi}{\bullet}
-}{%
-  \end{itemize}
+    \begin{itemize}[leftmargin=2ex, nosep, noitemsep, label=]
+      \setlength\itemsep{0pt}
+      \setlength\parskip{0pt}
+      \setlength\parsep{0pt}
+      \renewcommand\labelitemi{\hspace{0.2em}\textbullet\hspace{0.2em}}
+     }{%
+    \end{itemize}
   \end{justify}
   \vspace{-4.0mm}
+}
+
+% Define an environment for cvsubitems (Same as the above but without retaking vertical space)
+\newenvironment{cvsubitems}{%
+  \begin{justify}
+    \begin{itemize}[leftmargin=2ex, nosep, noitemsep, label=]
+      \setlength\itemsep{0pt}
+      \setlength\parskip{0pt}
+      \setlength\parsep{0pt}
+      \renewcommand\labelitemi{\hspace{0.2em}\textbullet\hspace{0.2em}}
+      \renewcommand\labelitemii{\hspace{0.2em}\textopenbullet\hspace{0.2em}}
+      \renewcommand\labelitemiii{\hspace{0.2em}\textasteriskcentered\hspace{0.2em}}
+      }{%
+    \end{itemize}
+  \end{justify}
 }
 
 
