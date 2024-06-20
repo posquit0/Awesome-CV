@@ -744,7 +744,7 @@
       \setlength\itemsep{0pt}
       \setlength\parskip{0pt}
       \setlength\parsep{0pt}
-      \renewcommand\labelitemi{\hspace{0.2em}\textbullet\hspace{0.2em}}
+      \renewcommand{\labelitemi}{\hspace{0.2em}\textbullet\hspace{0.2em}}
      }{%
     \end{itemize}
   \end{justify}
@@ -758,9 +758,9 @@
       \setlength\itemsep{0pt}
       \setlength\parskip{0pt}
       \setlength\parsep{0pt}
-      \renewcommand\labelitemi{\hspace{0.2em}\textbullet\hspace{0.2em}}
-      \renewcommand\labelitemii{\hspace{0.2em}\textopenbullet\hspace{0.2em}}
-      \renewcommand\labelitemiii{\hspace{0.2em}\textasteriskcentered\hspace{0.2em}}
+      \renewcommand{\labelitemi}{\hspace{0.2em}\textbullet\hspace{0.2em}}
+      \renewcommand{\labelitemii}{\hspace{0.2em}\textopenbullet\hspace{0.2em}}
+      \renewcommand{\labelitemiii}{\hspace{0.2em}\textasteriskcentered\hspace{0.2em}}
       }{%
     \end{itemize}
   \end{justify}
