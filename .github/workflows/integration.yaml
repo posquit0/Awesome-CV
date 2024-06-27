@@ -20,13 +20,13 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
     - name: Get Changed Files
       id: changed-files
-      uses: dorny/paths-filter@v2
+      uses: dorny/paths-filter@v3
       with:
         list-files: json
         filters: |
@@ -49,7 +49,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Lint YAML Files
       id: yaml-lint
