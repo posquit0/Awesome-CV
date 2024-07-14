@@ -75,7 +75,6 @@
 % Needed to manage math fonts
 \RequirePackage{unicode-math}
 % Needed to use icons from font-awesome
-% (https://github.com/posquit0/latex-fontawesome)
 \RequirePackage{fontawesome5}
 \RequirePackage{roboto}
 \RequirePackage[default,opentype]{sourcesanspro}
@@ -160,7 +159,6 @@
   \ifbool{acvSectionColorHighlight}{{\color{awesome}#1#2#3}}{#1#2#3}%
 }
 
-\definecolor{highlight}{rgb}{0.5,0.5,0.5}% for web links
 
 %-------------------------------------------------------------------------------
 %                Configuration for fonts
@@ -187,16 +185,12 @@
 \newcommand*{\subsectionstyle}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
 \newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}}
 
-\newcommand*{\headerfirstcpystyle}[1]{{\fontsize{16pt}{1em}\headerfontlight\color{graytext} #1}}
-\newcommand*{\headerlastcpystyle}[1]{{\fontsize{16pt}{1em}\headerfont\bfseries\color{text} #1}}
-
 % For elements of entry
-\newcommand*{\entrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{black} #1}}
-\newcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\bfseries\scshape\color{black} #1}}
-\newcommand*{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\color{black} #1}}
-\newcommand*{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{awesome} #1}}
-\newcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\textcolor{highlight}{#1}}}
-\newcommand*{\highlight}[1]{{\fontsize{8pt}{1em}\textcolor{highlight}{\textit{#1}}}}
+\newcommand*{\entrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
+\newcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{graytext} #1}}
+\newcommand*{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
+\newcommand*{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
+\newcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 
 % For elements of subentry
 \newcommand*{\subentrytitlestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\mdseries\color{graytext} #1}}
@@ -256,10 +250,6 @@
 \newcommand*{\lastname}[1]{\def\@lastname{#1}}
 \newcommand*{\familyname}[1]{\def\@lastname{#1}}
 \def\@familyname{\@lastname}
-
-\newcommand*{\cpyname}[2]{\def\@firstcpyname{#1}\def\@lastcpyname{#2}}
-\newcommand*{\firstcpyname}[1]{\def\@firstcpyname{#1}}
-\newcommand*{\lastcpyname}[1]{\def\@lastcpyname{#1}}
 
 % Define writer's address
 % Usage: \address{<address>}
@@ -481,14 +471,8 @@
   \end{minipage}
   \begin{minipage}[c]{\headertextwidth}
     \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
-    
-    \setlength{\tabcolsep}{3pt}
-    \begin{tabular}{ r l }
-        \headerfirstnamestyle{\@firstname} & \headerlastnamestyle{\@lastname}\\ 
-        \headerfirstcpystyle{\@firstcpyname} & \headerlastcpystyle{\@lastcpyname}
-    \end{tabular}
+    \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname}%
     \\[\acvHeaderAfterNameSkip]%
-    
     \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\[\acvHeaderAfterPositionSkip]}}%
     \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\[\acvHeaderAfterAddressSkip]}}%
     \headersocialstyle{%
@@ -677,21 +661,18 @@
 }
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
-\newcommand*{\cventry}[6]{%
-  \vspace{0.0mm}
+\newcommand*{\cventry}[5]{%
+  \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
     \ifempty{#2#3}
-      {\entrypositionstyle{#1} & \entrydatestyle{#4}}
+      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
-      \entrypositionstyle{#1} & \entrydatestyle{#4}}
-    \ifempty{#5}
+      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+    \ifstrempty{#5}
       {}
-      {\\\multicolumn{2}{L{\textwidth}}{\highlight{#5}}}
-    \ifempty{#6}
-      {}
-      {\\\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#6}}}
+      {\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}} \\}
   \end{tabular*}%
 }
 
@@ -740,7 +721,7 @@
 % Define an environment for cvskill
 \newenvironment{cvskills}{%
   \vspace{\acvSectionContentTopSkip}
-  \vspace{2.0mm}
+  \vspace{-2.0mm}
   \begin{center}
     \setlength\tabcolsep{1ex}
     \setlength{\extrarowheight}{0pt}
