@@ -19,31 +19,70 @@ I leave the banner in this README as a hyperlink to the original template for an
 
 <br />
 
-
-## How to Use
-
-#### Requirements
+## Requirements
 
 A full TeX distribution is assumed.  [Various distributions for different operating systems (Windows, Mac, \*nix) are available](http://tex.stackexchange.com/q/55437) but TeX Live is recommended.
 You can [install TeX from upstream](https://tex.stackexchange.com/q/1092) (recommended; most up-to-date) or use `sudo apt-get install texlive-full` if you really want that.  (It's generally a few years behind.)
 
 If you don't want to install the dependencies on your system, this can also be obtained via [Docker](https://docker.com).
 
-#### Usage
+## Usage
 
-At a command prompt, run
+This Makefile is designed to help you quickly generate personal documents (such as your CV, resume, and cover letter) as well as example documents for demonstration purposes. Below are the available modes and commands you can use.
 
+### 1. Generate Personal Documents (Default Mode)
+
+By default, running `make` will generate your personal CV, resume, and cover letter.
+
+#### Command:
 ```bash
-xelatex {your-cv}.tex
+make
 ```
 
-Or using docker:
+#### Output:
+- `cv.pdf` – Your personal CV.
+- `resume.pdf` – Your personal resume.
+- `coverletter.pdf` – Your personal cover letter.
 
+You can also generate these files individually:
+
+- To generate only your CV:
+  ```bash
+  make cv
+  ```
+
+- To generate only your resume:
+  ```bash
+  make resume
+  ```
+
+- To generate only your cover letter:
+  ```bash
+  make coverletter
+  ```
+
+### 2. Generate Example Documents
+
+You can also generate example CV, resume, and cover letter files located in the `examples` directory by running the following command:
+
+#### Command:
 ```bash
-docker run --rm --user $(id -u):$(id -g) -i -w "/doc" -v "$PWD":/doc thomasweise/texlive make
+make examples
 ```
 
-In either case, this should result in the creation of ``{your-cv}.pdf``
+#### Output:
+- `examples/cv.pdf` – Example CV.
+- `examples/resume.pdf` – Example resume.
+- `examples/coverletter.pdf` – Example cover letter.
+
+### 3. Clean Up Generated Files
+
+If you want to remove all generated PDF files (both personal and example), you can use the `clean` command.
+
+#### Command:
+```bash
+make clean
+```
 
 
 ## Credit
