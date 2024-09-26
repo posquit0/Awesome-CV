@@ -105,7 +105,7 @@ docker run --rm -i -w "/tex" -v ${PWD}:/tex git.supanadit.com/supanadit/docker-t
 
 # Powershell ( Docker Hub )
 docker run --rm -it -w "/tex" -v %cd%:/tex supanadit/docker-texlive:1.0.0-ubuntu-full.1 make
-# CMD
+# CMD ( Direct from git.supanadit.com )
 docker run --rm -it -w "/tex" -v %cd%:/tex git.supanadit.com/supanadit/docker-texlive:1.0.0-ubuntu-full.1 make
 ```
 
