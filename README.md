@@ -90,23 +90,23 @@ Or using docker:
 
 ```bash
 # Docker Hub
-docker run --rm --user $(id -u):$(id -g) -i -w "/tex" -v "$PWD":/tex supanadit/docker-texlive:0.0.2-awesome-cv.1 make
+docker run --rm --user $(id -u):$(id -g) -i -w "/tex" -v "$PWD":/tex supanadit/docker-texlive:0.0.2-awesome-cv.2 make
 # Direct from git.supanadit.com
-docker run --rm --user $(id -u):$(id -g) -i -w "/tex" -v "$PWD":/tex git.supanadit.com/supanadit/docker-texlive:0.0.2-awesome-cv.1 make
+docker run --rm --user $(id -u):$(id -g) -i -w "/tex" -v "$PWD":/tex git.supanadit.com/supanadit/docker-texlive:0.0.2-awesome-cv.2 make
 ```
 
 ##### Windows
 
 ```bash
 # Powershell ( Docker Hub )
-docker run --rm -i -w "/tex" -v ${PWD}:/tex supanadit/docker-texlive:0.0.2-awesome-cv.1 make
+docker run --rm -i -w "/tex" -v ${PWD}:/tex supanadit/docker-texlive:0.0.2-awesome-cv.2 make
 # Powershell ( Direct from git.supanadit.com )
-docker run --rm -i -w "/tex" -v ${PWD}:/tex git.supanadit.com/supanadit/docker-texlive:0.0.2-awesome-cv.1 make
+docker run --rm -i -w "/tex" -v ${PWD}:/tex git.supanadit.com/supanadit/docker-texlive:0.0.2-awesome-cv.2 make
 
 # Powershell ( Docker Hub )
-docker run --rm -it -w "/tex" -v %cd%:/tex supanadit/docker-texlive:0.0.2-awesome-cv.1 make
+docker run --rm -it -w "/tex" -v %cd%:/tex supanadit/docker-texlive:0.0.2-awesome-cv.2 make
 # CMD ( Direct from git.supanadit.com )
-docker run --rm -it -w "/tex" -v %cd%:/tex git.supanadit.com/supanadit/docker-texlive:0.0.2-awesome-cv.1 make
+docker run --rm -it -w "/tex" -v %cd%:/tex git.supanadit.com/supanadit/docker-texlive:0.0.2-awesome-cv.2 make
 ```
 
 In either case, this should result in the creation of `{your-cv}.pdf`
