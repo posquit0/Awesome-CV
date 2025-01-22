@@ -347,7 +347,7 @@
 \newcommand*{\hackerrank}[1]{\def\@hackerrank{#1}}
 
 % Defines writer's Telegram (optional)
-% Usage: \hackerrank{<Telegram profile name>}
+% Usage: \telegram{<Telegram username>}
 \newcommand*{\telegram}[1]{\def\@telegram{#1}}
 
 % Defines writer's google scholar profile (optional)
