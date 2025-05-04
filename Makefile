@@ -1,22 +1,120 @@
+.DEFAULT_GOAL := all
+.SHELLFLAGS := -e -c
+SHELL := $(shell command -v sh)
+
+## Enviroment overridable variables
+CURDIR ?= {PWD}
+OUT ?= $(CURDIR)/outputs
+out ?= $(OUT)
+SRC ?= $(CURDIR)
+VERBOSE ?= 1
+FORCE ?= 0
+LANG ?= C.UTF-8
+XETEX ?= xelatex
+
+## Commandline overridable (internal) variables
+src = $(SRC)
+
+examples_dir = $(src)/examples
+
+coverletter_dir = $(examples_dir)
+coverletter_srcs =
+coverletter_srcs += $(coverletter_dir)/coverletter.tex
+coverletter_srcs += $(src)/awesome-cv.cls
+coverletter_deps = $(patsubst $(src)/%,$(out)/%,$(coverletter_srcs))
+
+resume_dir = $(examples_dir)/resume
+resume_srcs =
+resume_srcs += $(shell find "$(resume_dir)" -name "*.tex")
+resume_srcs += $(src)/awesome-cv.cls
+resume_deps = $(patsubst $(src)/%,$(out)/%,$(resume_srcs))
+
+cv_dir = $(examples_dir)/cv
+cv_srcs =
+cv_srcs += $(shell find "$(cv_dir)" -name "*.tex")
+cv_srcs += $(src)/awesome-cv.cls
+cv_deps = $(patsubst $(src)/%,$(out)/%,$(cv_srcs))
+
+out_dirs = $(sort $(dir \
+$(coverletter_deps) \
+$(resume_deps) \
+$(cv_deps) \
+))
+
+force =
+ifneq ($(strip $(filter-out 0,$(FORCE))),)
+force = .force_non_existing
+endif
+
+silent =
+ifeq ($(strip $(filter-out 0,$(VERBOSE))),)
+silent = @
+endif
+
+## Resolve lazy variables
+force := $(force)
+silent := $(silent)
+src := $(src)
+out := $(out)
+out_dirs := $(out_dirs)
+
+## Sentinel checks
+ifeq ($(strip $(out)),)
+$(error Output directory should be set to a value (OUT=))
+endif
+ifeq ($(strip $(src)),)
+$(error Source directory should be set to a value (SRC=))
+endif
+ifeq ($(realpath $(out)),$(realpath $(src)))
+$(error Output directory should not point to source tree (OUT <=> SRC='$(src)'))
+endif
+
+## (Re-)Exported variables
+export LANG
+
+.DELETE_ON_ERROR:
+
+.ONE_SHELL:
+
+.SUFFIXES:
+
 .PHONY: examples
+examples: \
+$(out)/examples/coverletter.pdf \
+$(out)/examples/cv.pdf \
+$(out)/examples/resume.pdf
 
-CC = xelatex
-EXAMPLES_DIR = examples
-RESUME_DIR = examples/resume
-CV_DIR = examples/cv
-RESUME_SRCS = $(shell find $(RESUME_DIR) -name '*.tex')
-CV_SRCS = $(shell find $(CV_DIR) -name '*.tex')
+$(out)/%/resume.pdf: $(out)/%/resume.tex $(resume_deps) $(force) | $(out_dirs)
+	$(silent)"$(XETEX)" -output-directory="$(dir $@)" "$<"
 
-examples: $(foreach x, coverletter cv resume, $x.pdf)
+$(out)/%/cv.pdf: $(out)/%/cv.tex $(cv_deps) $(force) | $(out_dirs)
+	$(silent)"$(XETEX)" -output-directory="$(dir $@)" "$<"
 
-resume.pdf: $(EXAMPLES_DIR)/resume.tex $(RESUME_SRCS)
-	$(CC) -output-directory=$(EXAMPLES_DIR) $<
+$(out)/%/coverletter.pdf: $(out)/%/coverletter.tex $(coverletter_deps) $(force) | $(out_dirs)
+	$(silent)"$(XETEX)" -output-directory="$(dir $@)" "$<"
 
-cv.pdf: $(EXAMPLES_DIR)/cv.tex $(CV_SRCS)
-	$(CC) -output-directory=$(EXAMPLES_DIR) $<
+$(out)/%.cls : $(src)/%.cls | $(out_dirs)
+	$(silent)ln -sf "$<" "$@"
 
-coverletter.pdf: $(EXAMPLES_DIR)/coverletter.tex
-	$(CC) -output-directory=$(EXAMPLES_DIR) $<
+$(out)/%.tex : $(src)/%.tex | $(out_dirs)
+	$(silent)ln -sf "$<" "$@"
 
+$(out_dirs):
+	$(silent)mkdir -p "$@"
+
+$(force): ;
+
+.PHONY: pdf
+pdf: examples
+
+.PHONY: all
+all: pdf
+
+.PHONY: clean
 clean:
-	rm -rf $(EXAMPLES_DIR)/*.pdf
+	$(silent)rm -rf "$(out)"
+
+.PHONY: println-%
+println-%:
+	@printf -- '%s\n' "$*" 1>&2
+	@printf -- '%s\n' $(foreach v,$($*),"$(v)")
