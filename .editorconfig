@@ -1,0 +1,39 @@
+root = true
+
+[*]
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.md]
+trim_trailing_whitespace = false
+insert_final_newline = false
+
+[*.nix]
+indent_style = space
+indent_size = 2
+
+# Match diffs, avoid to trim trailing whitespace
+[*.{diff,patch}]
+trim_trailing_whitespace = false
+
+[*.{vim,sh,bats}]
+indent_style = space
+indent_size = 4
+max_line_length = 80
+
+[*.{yml,json}]
+indent_style = space
+indent_size = 2
+
+[Makefile]
+indent_style = tab
+
+[*.{mk}]
+indent_style = tab
+
+[*.tex]
+indent_style = space
+indent_size = 2
+
