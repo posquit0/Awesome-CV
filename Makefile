@@ -84,14 +84,14 @@ $(out)/examples/coverletter.pdf \
 $(out)/examples/cv.pdf \
 $(out)/examples/resume.pdf
 
-$(out)/%/resume.pdf: $(out)/%/resume.tex $(resume_deps) $(force) | $(out_dirs)
-	$(silent)"$(XETEX)" -output-directory="$(dir $@)" "$<"
+$(out)/%/resume.pdf: $(out)/%/resume.tex $(resume_deps) $(force) $(MAKEFILE_LIST) | $(out_dirs)
+	$(silent)"$(XETEX)" -output-directory="$(patsubst %/,%,$(dir $@))" "$<"
 
-$(out)/%/cv.pdf: $(out)/%/cv.tex $(cv_deps) $(force) | $(out_dirs)
-	$(silent)"$(XETEX)" -output-directory="$(dir $@)" "$<"
+$(out)/%/cv.pdf: $(out)/%/cv.tex $(cv_deps) $(force) $(MAKEFILE_LIST) | $(out_dirs)
+	$(silent)"$(XETEX)" -output-directory="$(patsubst %/,%,$(dir $@))" "$<"
 
-$(out)/%/coverletter.pdf: $(out)/%/coverletter.tex $(coverletter_deps) $(force) | $(out_dirs)
-	$(silent)"$(XETEX)" -output-directory="$(dir $@)" "$<"
+$(out)/%/coverletter.pdf: $(out)/%/coverletter.tex $(coverletter_deps) $(force) $(MAKEFILE_LIST) | $(out_dirs)
+	$(silent)"$(XETEX)" -output-directory="$(patsubst %/,%,$(dir $@))" "$<"
 
 $(out)/%.cls : $(src)/%.cls | $(out_dirs)
 	$(silent)ln -sf "$<" "$@"
