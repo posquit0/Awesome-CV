@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "editorconfig.editorconfig",
+    "mhutchie.git-graph",
+    "donjayamanne.githistory",
+    "codezombiech.gitignore",
+    "waderyan.gitblame",
+    "gruntfuggly.todo-tree",
+    "bbenoist.nix",
+    "ms-vscode.makefile-tools",
+    "tomoki1207.pdf"
+  ]
+}
