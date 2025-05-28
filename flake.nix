@@ -10,17 +10,17 @@
     };
   };
 
-  outputs =
-    { nixpkgs, flake-utils, ... }:
-    flake-utils.lib.eachDefaultSystem (
-      system:
+  outputs = { self, nixpkgs, flake-utils, ... }:
+    flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = nixpkgs.legacyPackages.${system};
-        tex = (pkgs.texlive.combine {
-          inherit (pkgs.texlive)
-            scheme-basic
+        pkgs = import nixpkgs { inherit system; };
+
+        tex = pkgs.texlive.combine {
+          inherit (pkgs.texlive.pkgs)
             xetex
             xetexref
+            scheme-minimal
+            mathtools
             enumitem
             ragged2e
             geometry
@@ -43,21 +43,50 @@
             hyperref
             bookmark
             ;
-        });
+        };
+
         src = ./.;
         nativeBuildInputs = with pkgs; [
           coreutils
           bashInteractive
           gnumake
           tex
+          line-awesome
+          fontconfig
+          poppler-utils # for pdffonts
         ];
-        buildInputs = with pkgs; [
+        buildInputs = with pkgs; [ ];
 
+        systemfontdirs = with pkgs; map toString [
+          line-awesome
         ];
+
+        # used by xetex and mtx-fonts (context)
+        generatedFontsConf = pkgs.makeFontsConf {
+          fontDirectories = systemfontdirs ++ [ tex.fonts ];
+        };
+
+        customFontConf = pkgs.writeText "custom-fonts.conf" ''
+          <?xml version="1.0"?>
+          <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+          <fontconfig/>
+        '';
+
+        fontsConf = pkgs.writeText "fonts.conf" ''
+          <?xml version="1.0"?>
+          <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+          <fontconfig>
+            <include>${customFontConf}</include>
+            <include>${generatedFontsConf}</include>
+            <include ignore_missing="yes">/etc/fonts/fonts.conf</include>
+          </fontconfig>
+        '';
+
+        FONTCONFIG_FILE = fontsConf;
       in
       {
         devShells.default = pkgs.mkShellNoCC {
-          inherit buildInputs nativeBuildInputs;
+          inherit buildInputs nativeBuildInputs FONTCONFIG_FILE;
         };
       }
     );
