@@ -14,6 +14,7 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
+        pname = "awesome-cv";
 
         tex = pkgs.texlive.combine {
           inherit (pkgs.texlive.pkgs)
@@ -87,6 +88,35 @@
       {
         devShells.default = pkgs.mkShellNoCC {
           inherit buildInputs nativeBuildInputs FONTCONFIG_FILE;
+        };
+
+        packages.default = pkgs.stdenvNoCC.mkDerivation {
+          inherit pname;
+          version = "1.0.0";
+          inherit src nativeBuildInputs buildInputs FONTCONFIG_FILE;
+
+          buildPhase = ''
+            make all OUT=$out/build SRC=$src VERBOSE=1
+          '';
+
+          installPhase = ''
+            make install \
+              DESTDIR=$out \
+              PREFIX="" \
+              DOCDIR="share/doc/${pname}" \
+              EXAMPLEDIR="share/doc/${pname}/examples" \
+              OUT=$out/build \
+              SRC=$src \
+              VERBOSE=1
+          '';
+
+          meta = with pkgs.lib; {
+            description = "Awesome LaTeX CV and resume class";
+            homepage = "https://github.com/posquit0/Awesome-CV";
+            license = licenses.lppl13c;
+            platforms = platforms.all;
+            maintainers = [];
+          };
         };
       }
     );

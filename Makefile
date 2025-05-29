@@ -12,6 +12,12 @@ FORCE ?= 0
 LANG ?= C.UTF-8
 XETEX ?= xelatex
 
+### Installation paths
+PREFIX ?= usr/local
+DOCDIR ?= share/doc/awesome-cv
+EXAMPLEDIR ?= $(addsuffix /examples,$(DOCDIR))
+DESTDIR ?= $(PREFIX)/
+
 ## Commandline overridable (internal) variables
 src = $(SRC)
 
@@ -41,6 +47,10 @@ $(resume_deps) \
 $(cv_deps) \
 ))
 
+install_dest_dir = $(DESTDIR)
+install_doc_dir = $(install_dest_dir)$(DOCDIR)
+install_example_dir = $(install_dest_dir)$(EXAMPLEDIR)
+
 force =
 ifneq ($(strip $(filter-out 0,$(FORCE))),)
 force = .force_non_existing
@@ -54,6 +64,9 @@ endif
 ## Resolve lazy variables
 force := $(force)
 silent := $(silent)
+install_dest_dir := $(install_dest_dir)
+install_doc_dir := $(install_doc_dir)
+install_example_dir := $(install_example_dir)
 src := $(src)
 out := $(out)
 out_dirs := $(out_dirs)
@@ -118,3 +131,42 @@ clean:
 println-%:
 	@printf -- '%s\n' "$*" 1>&2
 	@printf -- '%s\n' $(foreach v,$($*),"$(v)")
+
+.PHONY: install
+install: all
+	$(silent)install -d "$(install_doc_dir)"
+	$(silent)install -d "$(install_example_dir)"
+	$(silent)install -m 644 $(out)/examples/*.pdf "$(install_example_dir)/"
+	$(silent)install -m 644 README.md "$(install_doc_dir)/"
+	$(silent)install -m 644 awesome-cv.cls "$(install_doc_dir)/"
+
+.PHONY: uninstall
+uninstall:
+	$(silent)rm -rf "$(install_doc_dir)" "$(install_example_dir)"
+
+.PHONY: help
+help:
+	@{ \
+		echo "Usage: make [target] [VARIABLE=value]"; \
+		echo "Available targets:"; \
+		echo "  all          - Build all examples (default)"; \
+		echo "  pdf          - Build PDF files"; \
+		echo "  examples     - Build all example PDFs"; \
+		echo "  clean        - Clean output directory"; \
+		echo "  install      - Install the documentation and examples"; \
+		echo "  uninstall    - Uninstall the documentation and examples"; \
+		echo "  help         - Show this help message"; \
+		echo ""; \
+		echo "Overridable variables:"; \
+		echo "  OUT          - Output directory (default: outputs)"; \
+		echo "  SRC          - Source directory (default: current directory)"; \
+		echo "  VERBOSE      - Verbosity level (0 for silent, default: 1)"; \
+		echo "  FORCE        - Force rebuild (0 for no, default: 0)"; \
+		echo "  LANG         - Language setting for LaTeX (default: C.UTF-8)"; \
+		echo "  XETEX        - LaTeX engine to use (default: xelatex)"; \
+		echo ""; \
+		echo "Example usage:"; \
+		echo "  make pdf OUT=outputs SRC=src VERBOSE=1 FORCE=1"; \
+		echo "  make install DESTDIR=/usr/local"; \
+		echo "  make uninstall DESTDIR=/usr/local"; \
+	}
