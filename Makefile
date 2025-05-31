@@ -138,8 +138,9 @@ install: all
 	$(silent)install -d "$(install_doc_dir)"
 	$(silent)install -d "$(install_example_dir)"
 	$(silent)install -m 644 $(out)/examples/*.pdf "$(install_example_dir)/"
-	$(silent)install -m 644 README.md "$(install_doc_dir)/"
-	$(silent)install -m 644 awesome-cv.cls "$(install_doc_dir)/"
+	$(silent)install -m 644 $(src)/README.md "$(install_doc_dir)/"
+	$(silent)install -m 644 $(src)/LICENSE "$(install_doc_dir)/"
+	$(silent)install -m 644 $(out)/awesome-cv.cls "$(install_doc_dir)/"
 
 .PHONY: uninstall
 uninstall:
