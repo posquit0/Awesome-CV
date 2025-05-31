@@ -3,24 +3,25 @@
 SHELL := $(shell command -v sh)
 
 ## Enviroment overridable variables
+out ?= $(CURDIR)/outputs
+src ?= $(CURDIR)
+
 CURDIR ?= {PWD}
-OUT ?= $(CURDIR)/outputs
-out ?= $(OUT)
-SRC ?= $(CURDIR)
 VERBOSE ?= 1
 FORCE ?= 0
 LANG ?= C.UTF-8
 XETEX ?= xelatex
 
 ### Installation paths
-PREFIX ?= usr/local
 DOCDIR ?= share/doc/awesome-cv
 EXAMPLEDIR ?= $(addsuffix /examples,$(DOCDIR))
-DESTDIR ?= $(PREFIX)/
+DESTDIR ?= /usr/local
 
-## Commandline overridable (internal) variables
-src = $(SRC)
+## Commandline overridable
+SRC = $(src)
+OUT = $(out)
 
+### Internal variables
 examples_dir = $(src)/examples
 
 coverletter_dir = $(examples_dir)
@@ -47,9 +48,9 @@ $(resume_deps) \
 $(cv_deps) \
 ))
 
-install_dest_dir = $(DESTDIR)
-install_doc_dir = $(install_dest_dir)$(DOCDIR)
-install_example_dir = $(install_dest_dir)$(EXAMPLEDIR)
+install_dest_dir = $(addsuffix /,$(DESTDIR))
+install_doc_dir = $(addprefix $(install_dest_dir),$(DOCDIR))
+install_example_dir = $(addprefix $(install_dest_dir),$(EXAMPLEDIR))
 
 force =
 ifneq ($(strip $(filter-out 0,$(FORCE))),)
@@ -64,12 +65,12 @@ endif
 ## Resolve lazy variables
 force := $(force)
 silent := $(silent)
+src := $(SRC)
+out := $(OUT)
+out_dirs := $(out_dirs)
 install_dest_dir := $(install_dest_dir)
 install_doc_dir := $(install_doc_dir)
 install_example_dir := $(install_example_dir)
-src := $(src)
-out := $(out)
-out_dirs := $(out_dirs)
 
 ## Sentinel checks
 ifeq ($(strip $(out)),)

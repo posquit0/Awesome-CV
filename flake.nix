@@ -96,17 +96,15 @@
           inherit src nativeBuildInputs buildInputs FONTCONFIG_FILE;
 
           buildPhase = ''
-            make all OUT=$out/build SRC=$src VERBOSE=1
+            make all OUT=. VERBOSE=1
           '';
 
           installPhase = ''
             make install \
               DESTDIR=$out \
-              PREFIX="" \
               DOCDIR="share/doc/${pname}" \
               EXAMPLEDIR="share/doc/${pname}/examples" \
-              OUT=$out/build \
-              SRC=$src \
+              OUT=. \
               VERBOSE=1
           '';
 
