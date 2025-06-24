@@ -21,3 +21,6 @@
 ## Mac OS X metadata files:
 *.DS_Store
 
+# Generated files
+*.pdf
+*.ps
