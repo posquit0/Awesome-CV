@@ -82,6 +82,8 @@
 \RequirePackage[skins]{tcolorbox}
 % Needed to deal a paragraphs
 \RequirePackage{parskip}
+% Needed to improve tables for subentry
+\RequirePackage{multirow}
 % Needed to deal hyperlink
 \RequirePackage[hidelinks,unicode,pdfpagelabels=false]{hyperref}
 \hypersetup{%
@@ -193,8 +195,8 @@
 \newcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 
 % For elements of subentry
+\newcommand*{\subentryorganizationstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{graytext} #1}}
 \newcommand*{\subentrytitlestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\mdseries\color{graytext} #1}}
-\newcommand*{\subentrypositionstyle}[1]{{\fontsize{7pt}{1em}\bodyfont\scshape\color{graytext} #1}}
 \newcommand*{\subentrydatestyle}[1]{{\fontsize{7pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\subentrylocationstyle}[1]{{\fontsize{7pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
 \newcommand*{\subdescriptionstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\upshape\color{text} #1}}
@@ -428,6 +430,7 @@
 % Others
 \newcommand{\acvSectionTopSkip}{3mm}
 \newcommand{\acvSectionContentTopSkip}{2.5mm}
+\newcommand{\acvSubsectionContentTopSkip}{2.0mm}
 
 
 %-------------------------------------------------------------------------------
@@ -680,7 +683,7 @@
   \end{center}
 }
 % Define an entry of cv information
-% Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
+% Usage: \cventry{<position>}{<organization>}{<location>}{<date>}{<description>}
 \newcommand*{\cventry}[5]{%
   \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
@@ -698,25 +701,40 @@
 
 % Define an environment for cvsubentry
 \newenvironment{cvsubentries}{%
+  \vspace{-2.0mm}
   \begin{center}
 }{%
   \end{center}
 }
 % Define a subentry of cv information
-% Usage: \cvsubentry{<position>}{<title>}{<date>}{<description>}
+% Usage: \cvsubentry{<title>}{<organization>}{<date>}{<description>}
 \newcommand*{\cvsubentry}[4]{%
-  \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
-    \setlength\leftskip{0.2cm}
-    \subentrytitlestyle{#2} & \ifthenelse{\equal{#1}{}}
-      {\subentrydatestyle{#3}}{}
-    \ifthenelse{\equal{#1}{}}
+  \setlength\tabcolsep{0pt}%
+  \setlength{\extrarowheight}{0pt}%
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}L{\textwidth - 4.5cm}  R{4.5cm}}
+    \ifempty{#2}{%
+      % organization is empty, line date up with title but use organization style
+      \subentryorganizationstyle{#1} & \subentrydatestyle{#3} \\
+    }{%
+      % organization exists
+      \ifempty{#1}{%
+        % Organization exists but title doesn't
+        \subentryorganizationstyle{#2} & \subentrydatestyle{#3} \\ 
+      }
+      {%
+        % both organization and title exist
+        \subentryorganizationstyle{#2} & \multirow[b]{2}{*}{\subentrydatestyle{#3}} \\
+        \subentrytitlestyle{#1} & \\ 
+      }
+    }
+    \ifstrempty{#4}
       {}
-      {\subentrypositionstyle{#1} & \subentrydatestyle{#3} \\}
-    \ifthenelse{\equal{#4}{}}
-      {}
-      {\multicolumn{2}{L{17.0cm}}{\subdescriptionstyle{#4}} \\}
+      {%
+        \multicolumn{2}{L{\textwidth}}{%
+          \vspace{1.5mm}
+          \subdescriptionstyle{#4}
+        } \\
+      }
   \end{tabular*}
 }
 
