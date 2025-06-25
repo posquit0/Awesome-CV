@@ -1,3 +1,7 @@
+/.direnv
+/outputs
+/result
+
 ### TeX ###
 ## Core latex/pdflatex auxiliary files:
 *.aux
