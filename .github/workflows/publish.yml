@@ -1,0 +1,34 @@
+name: Publish on GitHub Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    container: texlive/texlive:latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+    - name: Compile
+      run: make
+    - name: Move PDF to deploy folder
+      run: |
+        mkdir deploy
+        cp documents/*.pdf deploy/
+    - name: Publish to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: deploy
+        publish_branch: gh-pages
+        allow_empty_commit: true
+        enable_jekyll: false
+        keep_files: false
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
+    - name: Clean up
+      run: rm -rf deploy
