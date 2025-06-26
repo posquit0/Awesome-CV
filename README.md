@@ -95,6 +95,23 @@ docker run --rm --user $(id -u):$(id -g) -i -w "/doc" -v "$PWD":/doc thomasweise
 
 In either case, this should result in the creation of ``{your-cv}.pdf``
 
+##### List of Publications
+
+You can generate list of publication from [**BibTeX**](http://www.bibtex.org/) source files.
+[**BibLaTeX**](https://www.ctan.org/pkg/biblatex) and [**biber**](https://www.ctan.org/pkg/biber) should be available.
+
+To include your publications, add the entries to [`examples/cv/references.bib`](examples/cv/references.bib),
+and cite them in [`examples/cv/publications.tex`](examples/cv/publications.tex).
+Update the sections in [`examples/cv.tex`](examples/cv.tex) to include the publications.
+
+To generate document with the list of publications, at a command prompt, run
+
+```bash
+$ xelatex {your-cv}.tex
+$ biber {your-cv}
+$ xelatex {your-cv}.tex
+```
+
 
 ## Credit
 
