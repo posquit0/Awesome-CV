@@ -34,14 +34,13 @@
 
 **Awesome CV** is LaTeX template for a **CV(Curriculum Vitae)**, **Résumé** or **Cover Letter** inspired by [Fancy CV](https://www.sharelatex.com/templates/cv-or-resume/fancy-cv). It is easy to customize your own template, especially since it is really written by a clean, semantic markup.
 
-
 ## Donate
 
 Please help keep this project alive! Donations are welcome and will go towards further development of this project.
 
     PayPal: paypal.me/posquit0
 
-*Thank you for your support!*
+_Thank you for your support!_
 
 ## Preview
 
@@ -49,33 +48,31 @@ Please help keep this project alive! Donations are welcome and will go towards f
 
 You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)
 
-| Page. 1 | Page. 2 |
-|:---:|:---:|
-| [![Résumé](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-0.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)  | [![Résumé](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf) |
+|                                                                                      Page. 1                                                                                      |                                                                                      Page. 2                                                                                      |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [![Résumé](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-0.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf) | [![Résumé](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf) |
 
 #### Cover Letter
 
 You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf)
 
-| Without Sections | With Sections |
-|:---:|:---:|
-| [![Cover Letter(Traditional)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-0.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf)  | [![Cover Letter(Awesome)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf) |
-
+|                                                                                                Without Sections                                                                                                |                                                                                               With Sections                                                                                                |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [![Cover Letter(Traditional)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-0.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf) | [![Cover Letter(Awesome)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf) |
 
 ## Quick Start
 
-* [**Edit Résumé on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv/tvmzpvdjfqxp)
-* [**Edit Cover Letter on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv-cover-letter/pfzzjspkthbk)
+- [**Edit Résumé on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv/tvmzpvdjfqxp)
+- [**Edit Cover Letter on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv-cover-letter/pfzzjspkthbk)
 
 **_Note:_ Above services do not guarantee up-to-date source code of Awesome CV**
-
 
 ## How to Use
 
 #### Requirements
 
-A full TeX distribution is assumed.  [Various distributions for different operating systems (Windows, Mac, \*nix) are available](http://tex.stackexchange.com/q/55437) but TeX Live is recommended.
-You can [install TeX from upstream](https://tex.stackexchange.com/q/1092) (recommended; most up-to-date) or use `sudo apt-get install texlive-full` if you really want that.  (It's generally a few years behind.)
+A full TeX distribution is assumed. [Various distributions for different operating systems (Windows, Mac, \*nix) are available](http://tex.stackexchange.com/q/55437) but TeX Live is recommended.
+You can [install TeX from upstream](https://tex.stackexchange.com/q/1092) (recommended; most up-to-date) or use `sudo apt-get install texlive-full` if you really want that. (It's generally a few years behind.)
 
 If you don't want to install the dependencies on your system, this can also be obtained via [Docker](https://docker.com).
 
@@ -89,12 +86,30 @@ xelatex {your-cv}.tex
 
 Or using docker:
 
+##### Linux / Mac / WSL ( Windows Subsystem for Linux )
+
 ```bash
-docker run --rm --user $(id -u):$(id -g) -i -w "/doc" -v "$PWD":/doc thomasweise/texlive make
+# Docker Hub
+docker run --rm --user $(id -u):$(id -g) -i -w "/tex" -v "$PWD":/tex supanadit/docker-texlive:0.0.3-awesome-cv.1 make
+# Direct from git.supanadit.com
+docker run --rm --user $(id -u):$(id -g) -i -w "/tex" -v "$PWD":/tex git.supanadit.com/supanadit/docker-texlive:0.0.3-awesome-cv.1 make
 ```
 
-In either case, this should result in the creation of ``{your-cv}.pdf``
+##### Windows
 
+```bash
+# Powershell ( Docker Hub )
+docker run --rm -i -w "/tex" -v ${PWD}:/tex supanadit/docker-texlive:0.0.3-awesome-cv.1 make
+# Powershell ( Direct from git.supanadit.com )
+docker run --rm -i -w "/tex" -v ${PWD}:/tex git.supanadit.com/supanadit/docker-texlive:0.0.3-awesome-cv.1 make
+
+# Powershell ( Docker Hub )
+docker run --rm -it -w "/tex" -v %cd%:/tex supanadit/docker-texlive:0.0.3-awesome-cv.1 make
+# CMD ( Direct from git.supanadit.com )
+docker run --rm -it -w "/tex" -v %cd%:/tex git.supanadit.com/supanadit/docker-texlive:0.0.3-awesome-cv.1 make
+```
+
+In either case, this should result in the creation of `{your-cv}.pdf`
 
 ## Credit
 
@@ -106,7 +121,6 @@ In either case, this should result in the creation of ``{your-cv}.pdf``
 
 [**Source Sans Pro**](https://github.com/adobe-fonts/source-sans-pro) is a set of OpenType fonts that have been designed to work well in user interface (UI) environments.
 
-
 ## Contact
 
 You are free to take my `.tex` file and modify it to create your own resume. Please don't use my resume for anything else without my permission, though!
@@ -115,12 +129,11 @@ If you have any questions, feel free to join me at [`#posquit0` on Freenode](irc
 
 Good luck!
 
-
 ## Maintainers
+
 - [posquit0](https://github.com/posquit0)
 - [OJFord](https://github.com/OJFord)
 
-
 ## See Also
 
-* [Awesome Identity](https://github.com/posquit0/hugo-awesome-identity) - A single-page Hugo theme to introduce yourself.
+- [Awesome Identity](https://github.com/posquit0/hugo-awesome-identity) - A single-page Hugo theme to introduce yourself.
