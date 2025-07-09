@@ -444,6 +444,9 @@
 % Use to execute conditional statements by checking empty string
 \newcommand*{\ifempty}[3]{\ifthenelse{\isempty{#1}}{#2}{#3}}
 
+% Provide support for text in multiple languages
+\providecommand{\cvlang}{en}
+\newcommand{\cvmultilang}[2]{\ifthenelse{\equal{#1}{\cvlang}}{#2}{}}
 
 %-------------------------------------------------------------------------------
 %                Commands for elements of CV structure
