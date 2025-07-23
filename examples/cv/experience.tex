@@ -172,14 +172,24 @@
     {S.Korea} % Location
     {Sep. 2013, Mar. 2011 - Oct. 2011} % Date(s)
     {
-      \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Conducted penetration testing on SAMSUNG KNOX, which is solution for enterprise mobile security.}
-        \item {Conducted penetration testing on SAMSUNG Smart TV.}
-      \end{cvitems}
-      %\begin{cvsubentries}
-      %  \cvsubentry{}{KNOX(Solution for Enterprise Mobile Security) Penetration Testing}{Sep. 2013}{}
-      %  \cvsubentry{}{Smart TV Penetration Testing}{Mar. 2011 - Oct. 2011}{}
-      %\end{cvsubentries}
+      % \begin{cvitems} % Description(s) of tasks/responsibilities
+      %  \item {Conducted penetration testing on SAMSUNG KNOX, which is solution for enterprise mobile security.}
+      %  \item {Conducted penetration testing on SAMSUNG Smart TV.}
+      % \end{cvitems}
+      \begin{cvsubentries}
+        \cvsubentry{}{KNOX(Solution for Enterprise Mobile Security) Penetration Testing}{Sep. 2013}
+        {Conducted penetration testing on SAMSUNG KNOX, which is solution for enterprise mobile security.}
+        %This entry has another title to test the logic for multiple lines
+        \cvsubentry{Penetration Tester}{Smart TV Penetration Testing}{Mar. 2011 - Oct. 2011}
+        {
+          % These are dummy descriptions of work, since previously the subentry would not compile
+          % if you added any description to the subentry.
+					\begin{cvitems}
+						\item One Thing I did at Samsung Smart TV
+						\item Another thing I did at Samsung Smart TV
+					\end{cvitems}
+				}
+      \end{cvsubentries}
     }
 
 %---------------------------------------------------------
