@@ -654,11 +654,11 @@
   \end{center}
 }
 % Define a line of cv information(honor, award or something else)
-% Usage: \cvhonor{<position>}{<title>}{<location>}{<date>}
+% Usage: \cvhonor{<name>}{<issuer>}{<url-or-location>}{<date>}
 % For certificates, #3 is the credential URL. For awards, #3 is location.
 \newcommand*{\cvhonor}[4]{%
-  \honorpositionstyle{#1}~\honortitlestyle{\ifempty{#3}{#2}{\href{#3}{#2}}} & \entrydatestyle{#4} \\
-}}
+~\ifempty{#3}{\honorpositionstyle{#1}~\honortitlestyle{#2}}{\honorpositionstyle{\href{#3}{#1}}~\honortitlestyle{#2}} & \entrydatestyle{#4} \\
+}
 
 % Define an environment for cvskill
 \newenvironment{cvskills}{%
