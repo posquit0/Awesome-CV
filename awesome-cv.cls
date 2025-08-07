@@ -303,8 +303,8 @@
 \newcommand*{\stackoverflow}[2]{\def\@stackoverflowid{#1}\def\@stackoverflowname{#2}}
 
 % Defines writer's linked-in (optional)
-% Usage: \linkedin{<linked-in-nick>}
-\newcommand*{\linkedin}[1]{\def\@linkedin{#1}}
+% Usage: \linkedin[<linked-in-nick-display>]{<linked-in-nick>}
+\NewDocumentCommand\linkedin{O{#2} m}{\def\@linkedindisplay{#1}\def\@linkedin{#2}}
 
 % Defines writer's orcid (optional)
 % Usage: \orcid{<orcid-num>}
@@ -539,7 +539,7 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedin\acvHeaderIconSep\@linkedin}%
+          \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedin\acvHeaderIconSep\@linkedindisplay}%
         }%
       \ifthenelse{\isundefined{\@orcid}}%
         {}%
