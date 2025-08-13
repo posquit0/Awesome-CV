@@ -1,0 +1,47 @@
+\documentclass[11pt, a4paper]{awesome-cv}
+\usepackage{xeCJK}
+
+% 设置中文字体 - 不指定路径，使用通用字体名称
+\setCJKmainfont{SimSun}[
+  BoldFont = SimHei,
+  ItalicFont = KaiTi
+]
+\setCJKsansfont{Microsoft YaHei}
+
+% 个人信息
+\name{张}{三}
+\position{软件工程师}
+\address{北京市海淀区}
+\mobile{(+86) 138-1234-5678}
+\email{zhangsan@example.com}
+\github{ZhangSan}
+
+\begin{document}
+
+\makecvheader
+
+\section{教育背景}
+\cventry{2018-2022}{计算机科学与技术 学士}{清华大学}{北京}{}{
+  \begin{cvitems}
+    \item {GPA: 3.8/4.0 (专业前5\%)}
+    \item {主修课程: 数据结构, 算法设计, 操作系统, 计算机网络}
+  \end{cvitems}
+}
+
+\section{技能}
+\begin{cvskills}
+  \cvskill{编程语言}{Python, C++, Java, LaTeX}
+  \cvskill{开发工具}{Git, Docker, VS Code, PyCharm}
+  \cvskill{语言能力}{英语(CET-6 580), 普通话(母语)}
+\end{cvskills}
+
+\section{项目经验}
+\cventry{2021.06-2021.09}{在线教育平台开发}{清华大学计算机系}{北京}{}{
+  \begin{cvitems}
+    \item {基于Django开发的在线学习管理系统}
+    \item {实现用户认证、课程管理和在线测试功能}
+    \item {项目获校级优秀毕业设计奖}
+  \end{cvitems}
+}
+
+\end{document}

@@ -93,6 +93,10 @@
 % Solves issues Warning: File `cv.out' has changed
 \RequirePackage{bookmark}
 
+% Ruth - Needed for Chinese support
+\RequirePackage{xeCJK}
+\RequirePackage[slantfont,boldfont]{xeCJK} % 允许斜体和粗体
+
 %-------------------------------------------------------------------------------
 %                Configuration for directory locations
 %-------------------------------------------------------------------------------
@@ -168,6 +172,13 @@
 \newcommand*{\footerfont}{\sourcesanspro}
 \newcommand*{\bodyfont}{\sourcesanspro}
 \newcommand*{\bodyfontlight}{\sourcesansprolight}
+
+\setCJKmainfont{SimSun}[
+  BoldFont = SimHei,
+  ItalicFont = KaiTi
+]
+\setCJKsansfont{Microsoft YaHei}
+
 
 %-------------------------------------------------------------------------------
 %                Configuration for styles
