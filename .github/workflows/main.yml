@@ -30,6 +30,11 @@ jobs:
         name: examples
         path: examples/*.pdf
 
+    - name: Rename PDFs with date
+      run: |
+        cp examples/cv.pdf examples/cv-${{ env.DATE }}.pdf
+        cp examples/resume.pdf examples/resume-${{ env.DATE }}.pdf
+
     
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v1
