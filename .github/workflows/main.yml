@@ -16,8 +16,12 @@ jobs:
     - name: Set DATE env var
       run: echo "DATE=$(date +%F)" >> $GITHUB_ENV
 
-    - name: Compile
-      run: make cv.pdf resume.pdf
+    - name: Compile cv
+      run: make cv.pdf
+
+    - name: Compile resume
+      run: make resume.pdf
+
 
     - uses: actions/upload-artifact@v4
       with:
