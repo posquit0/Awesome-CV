@@ -27,4 +27,4 @@ jobs:
     - name: Create GitHub Release and upload PDFs
       uses: softprops/action-gh-release@v1
       with:
-        files: example/cv-${DATE}.pdf example/resume-${DATE}.pdf 
+        files: example/cv-${DATE}.pdf example/resume-${DATE}.pdf
