@@ -14,7 +14,9 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Set DATE env var
-      run: echo "DATE=$(date +%F)" >> $GITHUB_ENV
+      run: |
+        echo "DATE=$(date +%F)" >> $GITHUB_ENV
+        echo "TAG=release-$(date +%F)" >> $GITHUB_ENV
 
     - name: Compile cv
       run: make cv.pdf
@@ -28,7 +30,11 @@ jobs:
         name: examples
         path: examples/*.pdf
 
-    - name: Create GitHub Release and upload PDFs
+    
+    - name: Create GitHub Release
       uses: softprops/action-gh-release@v1
       with:
-        files: example/cv-${DATE}.pdf example/resume-${DATE}.pdf
+        tag_name: ${{ env.TAG }}
+        files: |
+          examples/cv-${{ env.DATE }}.pdf
+          examples/resume-${{ env.DATE }}.pdf
