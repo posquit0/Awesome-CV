@@ -13,10 +13,18 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v4
 
+    - name: Set DATE env var
+      run: echo "DATE=$(date +%F)" >> $GITHUB_ENV
+
     - name: Compile
-      run: make
+      run: make cv.pdf resume.pdf
 
     - uses: actions/upload-artifact@v4
       with:
         name: examples
         path: examples/*.pdf
+
+    - name: Create GitHub Release and upload PDFs
+      uses: softprops/action-gh-release@v1
+      with:
+        files: example/cv-${DATE}.pdf example/resume-${DATE}.pdf 
