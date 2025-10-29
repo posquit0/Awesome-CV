@@ -1,0 +1,95 @@
+% --- Preamble Protocol for Arabic LaTeX CV (moderncv class) ---
+\documentclass[11pt, a4paper, arabic]{moderncv}
+
+% Required packages for font and bidirectional text support
+\usepackage{fontspec}
+\usepackage{geometry}
+\geometry{a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+
+% Use babel for language support and bidirectional text
+\usepackage[arabic, english, bidi=basic, provide=*]{babel}
+
+% Set the default font to Noto Sans Arabic for professional appearance and Arabic support
+% moderncv handles its own font sizing, we just need to set the family.
+\babelfont{rm}{Noto Sans Arabic}
+% Define English for specific entries if needed (not strictly necessary here but good practice)
+\babelprovide[import, onchar=ids fonts]{english}
+
+% Set Arabic as the main document language
+\AtBeginDocument{\setdefaultlanguage[calendar=gregorian]{arabic}}
+
+% Moderncv settings
+\moderncvstyle{classic} % Classic style (suitable for academic/professional)
+\moderncvcolor{blue}   % Choose a color theme
+
+% Set personal information
+\name{محمد رفيق}{محمد}
+\title{اختصاصي فيزيائي علاج}
+\address{Gaziantep, Şahinbey, İSTİKLAL MAH.}{تركيا}
+\mobile{+90 534 310 8770}
+\email{hgghvu76@gmail.com}
+% \social[linkedin]{Your-LinkedIn-ID} % Uncomment and fill if available
+% \extrainfo{تاريخ الميلاد: 24/01/2000 | الجنسية: سورية | الحالة الاجتماعية: أعزب}
+
+% Ensure hyperref is the last loaded package
+\usepackage{hyperref}
+
+\begin{document}
+
+% The CV header
+\makecvtitle
+% \vspace*{-1.5cm} % Optional: adjust space if needed
+
+% --- الملخص المهني (Professional Summary) ---
+\section{الملخص المهني}
+حائز على شهادة الدبلوم في العلاج الطبي الاختصاصي في إعادة تأهيل إصابات الدماغ والحبل الشوكي والجهاز العصبي والعضلي والهيكل العظمي، أطفال الشلل الدماغي، الفالج الشقي، باركنسون، التصلب اللويحي، إعادة تأهيل (ضمور العضلات، الإصابات الرياضية والدافع). مستعد لتسخير ما أملك من إحساس قوي بالمسؤولية للعمل والاستفادة من المؤهلات والمهارات التي حصلت عليها من خلال تحصيلي الأكاديمي في خدمة وتطوير العمل.
+
+% --- التعليم الأكاديمي (Education) ---
+\section{التعليم الأكاديمي والشهادات}
+
+% Note: The cventry command requires exactly 6 arguments: Year(s), Degree, Institution, City, Grade/Notes, Description.
+% We use {} for missing fields to prevent compilation errors.
+
+\cventry{2022 -- مستمر}{طالب بكالوريوس في العلاج الفيزيائي (سنة ثالثة)}{جامعة غازي عنتاب}{غازي عنتاب}{}{}
+\cventry{2020 -- 2022}{شهادة دبلوم في العلاج الفيزيائي}{جامعة الحياه للعلوم الطبية}{}{}{}
+\cventry{2018 -- 2020}{شهادة دبلوم في العلاج الفيزيائي}{جامعة توكات غازي عثمان باشا}{توكات}{}{}
+\cventry{}{فيزيائي علاج دبلوم}{المعهد الأكاديمي للعلاج الفيزيائي}{}{}{}
+
+% --- الخبرات العملية (Professional Experience) ---
+\section{الخبرات العملية}
+
+\cventry{2021 -- الآن}{معالج فيزيائي}{مركز شفاء للعلاج الفيزيائي}{}{}{توفير العلاج الفيزيائي الشامل لمرضى الحالات العصبية والعضلية والهيكلية المختلفة (الشلل الدماغي، التصلب اللويحي، إصابات الحبل الشوكي، إعادة التأهيل الرياضي).}
+\cventry{6 أشهر (تطوع)}{فيزيائي معالج (متطوع)}{المركز الأكاديمي للعلاج الفيزيائي}{}{}{تطبيق برامج إعادة التأهيل تحت الإشراف المباشر، واكتساب خبرة عملية في إدارة حالات إعادة التأهيل بعد إصابات الدماغ.}
+
+% --- التدريب والدورات (Training and Courses) ---
+\section{التدريب والتطوير}
+
+\cvlistitem{دورة الإسعافات الأولية (شاملة)}
+\cvlistitem{دورات تدريبية متقدمة في التقرير التلفزيوني ومعايير العمل الصحفي.}
+\cvlistitem{90 يوم ستاج تطوعي في المركز الأكاديمي للعلاج الفيزيائي.}
+
+% --- المهارات (Skills) ---
+\section{المهارات}
+
+\subsection{المهارات التقنية}
+\cvlistitem{إجادة استخدام الحاسوب وبرامج تصميم البروشورات.}
+\cvlistitem{خبرة في إعادة تأهيل إصابات الدماغ والحبل الشوكي والجهاز العصبي.}
+
+\subsection{المهارات الشخصية والقيادية}
+\cvlistitem{مهارات تواصل وقيادة قوية (قيادي، روح التعاون، تحديد الأهداف).}
+\cvlistitem{قدرة عالية على اتخاذ القرارات وحل المشاكل (تخطيط وتحليل المشاكل، صنع القرار).}
+\cvlistitem{دافع ذاتي وإنتاجية عالية (التفكير الإبداعي، الفاعلية، الدافع الذاتي).}
+\cvlistitem{إدارة المشاريع والتخطيط الاستراتيجي.}
+
+% --- اللغات (Languages) ---
+\section{اللغات}
+\cvlanguage{العربية}{اللغة الأم}{}
+\cvlanguage{التركية}{جيد}{}
+\cvlanguage{الإنجليزية}{مبتدئ}{}
+
+% --- الهوايات (Interests) ---
+\section{الهوايات والاهتمامات}
+\cvlistitem{ممارسة الرياضة}
+\cvlistitem{القراءة والمطالعة}
+
+\end{document}
