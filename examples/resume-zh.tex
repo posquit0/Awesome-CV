@@ -1,0 +1,93 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for CV/Resume - 中文版
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% 中文版修改说明：
+% 本模板已添加中文支持，使用 xeCJK 包和 Noto Sans CJK SC 字体
+% 如果编译出错，请确保系统已安装 Noto Sans CJK 字体
+%
+
+%-------------------------------------------------------------------------------
+% 配置
+%-------------------------------------------------------------------------------
+% A4纸张大小，使用 'letterpaper' 切换美国信纸尺寸
+\documentclass[11pt, a4paper]{awesome-cv}
+
+% 页面边距配置
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% 高亮颜色
+% Awesome 颜色: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%               awesome-nephritis, awesome-concrete, awesome-darknight
+\colorlet{awesome}{awesome-skyblue}
+
+% 是否高亮章节标题
+\setbool{acvSectionColorHighlight}{true}
+
+% 社交信息分隔符
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+
+%-------------------------------------------------------------------------------
+%	个人信息
+%	注释掉不需要的行
+%-------------------------------------------------------------------------------
+% 头像选项: circle|rectangle,edge/noedge,left/right
+% \photo[rectangle,edge,right]{./examples/profile}
+\name{王}{小明}
+\position{高级软件工程师{\enskip\cdotp\enskip}系统架构师}
+\address{北京市海淀区中关村大街1号，100080}
+
+\mobile{138-0000-0000}
+\email{xiaoming.wang@example.com}
+%\dateofbirth{1990年1月1日}
+\homepage{www.example.com}
+\github{xiaoming}
+\linkedin{xiaoming-wang}
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+% \twitter{@twit}
+% \x{x-id}
+% \skype{skype-id}
+% \reddit{reddit-id}
+% \medium{madium-id}
+% \kaggle{kaggle-id}
+% \hackerrank{hackerrank-id}
+% \telegram{telegram-username}
+% \googlescholar{googlescholar-id}{name-to-display}
+
+\quote{``不积跬步，无以至千里；不积小流，无以成江海。"}
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% 打印头部个人信息
+% 可选参数用于对齐方式(C: 居中, L: 左对齐, R: 右对齐)
+\makecvheader[C]
+
+% 打印页脚
+% 三个参数分别对应<左>、<中>、<右>
+\makecvfooter
+  {\today}
+  {王小明~~~·~~~个人简历}
+  {\thepage}
+
+
+%-------------------------------------------------------------------------------
+%	简历内容
+%	各部分单独导入，修改对应文件即可更新内容
+%-------------------------------------------------------------------------------
+\input{resume-zh/summary.tex}
+\input{resume-zh/experience.tex}
+\input{resume-zh/skills.tex}
+\input{resume-zh/honors.tex}
+\input{resume-zh/certificates.tex}
+\input{resume-zh/education.tex}
+
+
+%-------------------------------------------------------------------------------
+\end{document}

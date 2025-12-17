@@ -78,6 +78,20 @@
 \RequirePackage{fontawesome6}
 \RequirePackage{roboto}
 \RequirePackage[default,opentype]{sourcesanspro}
+% Needed for Chinese language support
+\RequirePackage{xeCJK}
+% Configure Chinese fonts (using system fonts or Noto CJK)
+\setCJKmainfont{Noto Sans CJK SC}[
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Regular,
+  BoldItalicFont=*-Bold
+]
+\setCJKsansfont{Noto Sans CJK SC}[
+  UprightFont=*-Regular,
+  BoldFont=*-Bold
+]
+\setCJKmonofont{Noto Sans Mono CJK SC}
 % Needed for the photo ID
 \RequirePackage[skins]{tcolorbox}
 % Needed to deal a paragraphs
