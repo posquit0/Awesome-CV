@@ -80,11 +80,11 @@
 \defaultfontfeatures{
   Renderer=HarfBuzz,
 }
-\setmainfont{SourceSansPro}[
+\setmainfont{SourceSans3}[
   FontFace={l}{n}{Font=*-Light},
   FontFace={l}{it}{Font=*-LightItalic},
 ]
-\setsansfont{SourceSansPro}[
+\setsansfont{SourceSans3}[
   FontFace={l}{n}{Font=*-Light},
   FontFace={l}{it}{Font=*-LightItalic},
 ]
