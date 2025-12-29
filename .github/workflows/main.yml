@@ -13,6 +13,14 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v4
 
+    - name: Install fonts
+      run: |
+        apt update
+        apt install --yes \
+          fonts-roboto \
+          fonts-sourcesanspro \
+          ;
+
     - name: Compile
       run: make
 
