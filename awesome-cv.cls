@@ -76,6 +76,7 @@
 \RequirePackage{unicode-math}
 % Needed to use icons from font-awesome
 \RequirePackage{fontawesome6}
+\RequirePackage{accsupp}
 \defaultfontfeatures{
   Renderer=HarfBuzz,
 }
@@ -434,7 +435,7 @@
 \newcommand{\acvHeaderAfterPositionSkip}{.4mm}
 \newcommand{\acvHeaderAfterAddressSkip}{-.5mm}
 \newcommand{\acvHeaderIconSep}{\space}
-\newcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+\newcommand{\acvHeaderSocialSep}{\BeginAccSupp{ActualText={}}\quad\textbar\quad\EndAccSupp{}}
 \newcommand{\acvHeaderAfterSocialSkip}{6mm}
 \newcommand{\acvHeaderAfterQuoteSkip}{5mm}
 
@@ -457,6 +458,11 @@
 % Use to execute conditional statements by checking empty string
 \newcommand*{\ifempty}[3]{\ifthenelse{\isempty{#1}}{#2}{#3}}
 
+\newcommand{\faAlt}[3]{%
+  \BeginAccSupp{ActualText={#1}}%
+    \mbox{#2\acvHeaderIconSep#3}%
+  \EndAccSupp{}%
+}
 
 %-------------------------------------------------------------------------------
 %                Commands for elements of CV structure
@@ -502,135 +508,134 @@
       \ifthenelse{\isundefined{\@mobile}}%
         {}%
         {%
-          \href{\@teluri}{\faMobile\acvHeaderIconSep\@mobile}%
+          \href{\@teluri}{\faAlt{tel:\@mobile}{\faMobile}{\@mobile}}%
           \setbool{isstart}{false}%
         }%
       \ifthenelse{\isundefined{\@email}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{mailto:\@email}{\faEnvelope\acvHeaderIconSep\@email}%
+          \href{mailto:\@email}{\faAlt{mailto:\@email}{\faEnvelope}{\@email}}%
         }%
       \ifthenelse{\isundefined{\@dateofbirth}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          % \mbox prevents wrapping of elements%
-          \mbox{\faCakeCandles\acvHeaderIconSep\@dateofbirth}%
+          \faAlt{DoB: \@dateofbirth}{\faCakeCandles}{\@dateofbirth}%
         }%
       \ifthenelse{\isundefined{\@homepage}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{\@homepage}{\faHouseChimney\acvHeaderIconSep\@homepage}%
+          \href{\@homepage}{\faAlt{homepage: \@homepage}{\faHouseChimney}{\@homepage}}%
         }%
       \ifthenelse{\isundefined{\@github}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://github.com/\@github}{\faSquareGithub\acvHeaderIconSep\@github}%
+          \href{https://github.com/\@github}{\faAlt{GitHub: @\@github}{\faSquareGithub}{\@github}}%
         }%
       \ifthenelse{\isundefined{\@gitlab}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://gitlab.com/\@gitlab}{\faGitlab\acvHeaderIconSep\@gitlab}%
+          \href{https://gitlab.com/\@gitlab}{\faAlt{GitLab: @\@gitlab}{\faGitlab}{\@gitlab}}%
         }%
       \ifthenelse{\isundefined{\@bitbucket}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://bitbucket.com/\@bitbucket}{\faBitbucket\acvHeaderIconSep\@bitbucket}%
+          \href{https://bitbucket.com/\@bitbucket}{\faAlt{BitBucket: @\@bitbucket}{\faBitbucket}{\@bitbucket}}%
         }%
       \ifthenelse{\isundefined{\@stackoverflowid}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://stackoverflow.com/users/\@stackoverflowid}{\faStackOverflow\acvHeaderIconSep\@stackoverflowname}%
+          \href{https://stackoverflow.com/users/\@stackoverflowid}{\faAlt{StackOverflow: @\@stackoverflowname}{\faStackOverflow}{\@stackoverflowname}}%
         }%
       \ifthenelse{\isundefined{\@linkedin}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedin\acvHeaderIconSep\@linkedin}%
+          \href{https://www.linkedin.com/in/\@linkedin}{\faAlt{LinkedIn: /in/\@linkedin}{\faLinkedin}{\@linkedin}}%
         }%
       \ifthenelse{\isundefined{\@orcid}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://orcid.org/\@orcid}{\faOrcid\acvHeaderIconSep\@orcid}%
+          \href{https://orcid.org/\@orcid}{\faAlt{OrcID: \@orcid}{\faOrcid}{\@orcid}}%
         }%
       \ifthenelse{\isundefined{\@twitter}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://twitter.com/\@twitter}{\faTwitter\acvHeaderIconSep\@twitter}%
+          \href{https://twitter.com/\@twitter}{\faAlt{Twitter: @\@twitter}{\faTwitter}{\@twitter}}%
         }%
       \ifthenelse{\isundefined{\@x}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://x.com/\@x}{\faXTwitter\acvHeaderIconSep\@x}%
+          \href{https://x.com/\@x}{\faAlt{X: @\@x}{\faXTwitter}{\@x}}%
         }%
       \ifthenelse{\isundefined{\@mastodonname}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://\@mastodoninstance/@\@mastodonname}{\faMastodon\acvHeaderIconSep\@mastodonname}%
+          \href{https://\@mastodoninstance/@\@mastodonname}{\faAlt{Mastodon: \@mastodonname{}@\@mastodoninstance}{\faMastodon}{\@mastodonname}}%
         }%
       \ifthenelse{\isundefined{\@skype}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \faSkype\acvHeaderIconSep\@skype%
+          \faAlt{Skype: \@skype}{\faSkype}{\@skype}%
         }%
       \ifthenelse{\isundefined{\@reddit}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.reddit.com/user/\@reddit}{\faReddit\acvHeaderIconSep\@reddit}%
+          \href{https://www.reddit.com/user/\@reddit}{\faAlt{Reddit: /u/\@reddit}{\faReddit}{\@reddit}}%
         }%
       \ifthenelse{\isundefined{\@researchgate}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.researchgate.net/profile/\@researchgate}{\faResearchgate\acvHeaderIconSep\@researchgate}%
+          \href{https://www.researchgate.net/profile/\@researchgate}{\faAlt{ResearchGate: \@researchgate}{\faResearchgate}{\@researchgate}}%
         }%
       \ifthenelse{\isundefined{\@xing}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.xing.com/profile/\@xing}{\faSquareXing\acvHeaderIconSep\@xing}
+          \href{https://www.xing.com/profile/\@xing}{\faAlt{Xing: \@xing}{\faSquareXing}{\@xing}}
         }%
       \ifthenelse{\isundefined{\@medium}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://medium.com/@\@medium}{\faMedium\acvHeaderIconSep\@medium}%
+          \href{https://medium.com/@\@medium}{\faAlt{Medium: @\@medium}{\faMedium}{\@medium}}%
         }%
       \ifthenelse{\isundefined{\@kaggle}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://kaggle.com/\@kaggle}{\faKaggle\acvHeaderIconSep\@kaggle}%
+          \href{https://kaggle.com/\@kaggle}{\faAlt{Kaggle: \@kaggle}{\faKaggle}{\@kaggle}}%
         }%
       \ifthenelse{\isundefined{\@hackerrank}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.hackerrank.com/\@hackerrank}{\faHackerrank\acvHeaderIconSep\@hackerrank}%
+          \href{https://www.hackerrank.com/\@hackerrank}{\faAlt{HackerRank: \@hackerrank}{\faHackerrank}{\@hackerrank}}%
         }%
       \ifthenelse{\isundefined{\@telegram}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://t.me/\@telegram}{\faTelegram\acvHeaderIconSep\@telegram}%
+          \href{https://t.me/\@telegram}{\faAlt{Telegram: \@telegram}{\faTelegram}{\@telegram}}%
         }%
       \ifthenelse{\isundefined{\@googlescholarid}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://scholar.google.com/citations?user=\@googlescholarid}{\faGraduationCap\acvHeaderIconSep\@googlescholarname}%
+          \href{https://scholar.google.com/citations?user=\@googlescholarid}{\faAlt{Google Scholar: \@googlescholarid}{\faGraduationCap}{\@googlescholarname}}%
         }%
       \ifthenelse{\isundefined{\@extrainfo}}%
         {}%
