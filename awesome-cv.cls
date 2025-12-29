@@ -76,8 +76,21 @@
 \RequirePackage{unicode-math}
 % Needed to use icons from font-awesome
 \RequirePackage{fontawesome6}
-\RequirePackage{roboto}
-\RequirePackage[default,opentype]{sourcesanspro}
+\defaultfontfeatures{
+  Renderer=HarfBuzz,
+}
+\setmainfont{SourceSansPro}[
+  FontFace={l}{n}{Font=*-Light},
+  FontFace={l}{it}{Font=*-LightItalic},
+]
+\setsansfont{SourceSansPro}[
+  FontFace={l}{n}{Font=*-Light},
+  FontFace={l}{it}{Font=*-LightItalic},
+]
+\newfontfamily\roboto{Roboto}[
+  FontFace={l}{n}{Font=*-Light},
+  FontFace={l}{it}{Font=*-LightItalic},
+]
 % Needed for the photo ID
 \RequirePackage[skins]{tcolorbox}
 % Needed to deal a paragraphs
@@ -163,11 +176,11 @@
 %-------------------------------------------------------------------------------
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
-\newcommand*{\headerfont}{\roboto}
-\newcommand*{\headerfontlight}{\robotolight}
-\newcommand*{\footerfont}{\sourcesanspro}
-\newcommand*{\bodyfont}{\sourcesanspro}
-\newcommand*{\bodyfontlight}{\sourcesansprolight}
+\newcommand*{\headerfont}{\roboto\selectfont}
+\newcommand*{\headerfontlight}{\roboto\fontseries{l}\selectfont}
+\newcommand*{\footerfont}{\sffamily}
+\newcommand*{\bodyfont}{\sffamily}
+\newcommand*{\bodyfontlight}{\sffamily\fontseries{l}\selectfont}
 
 %-------------------------------------------------------------------------------
 %                Configuration for styles
