@@ -90,10 +90,16 @@ xelatex {your-cv}.tex
 Or using docker:
 
 ```bash
-docker run --rm --user $(id -u):$(id -g) -i -w "/doc" -v "$PWD":/doc texlive/texlive:latest make
+IMAGE_NAME="texlive-with-fonts"
+
+# Build Docker image if needed
+docker build -t "$IMAGE_NAME" .
+
+# Compile all
+docker run --rm --user "$(id -u):$(id -g)" -i -w "/doc" -v "$PWD":/doc "$IMAGE_NAME:latest" make
 ```
 
-In either case, this should result in the creation of ``{your-cv}.pdf``
+In either case, this should result in the creation of `{your-cv}.pdf`.
 
 
 ## Credit
