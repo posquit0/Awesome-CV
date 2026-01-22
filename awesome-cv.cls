@@ -795,6 +795,24 @@
   \skilltypestyle{#1} & \leavevmode\skillsetstyle{#2} \\
 }
 
+% Define an environment for cvreferences
+\newenvironment{cvreferences}{
+    \vspace{\acvSectionContentTopSkip}
+    \vspace{-2.0mm}
+    \begin{center}
+        \setlength\tabcolsep{1ex}
+        \setlength{\extrarowheight}{0pt}
+        \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth * \real{0.4}} L{\textwidth * \real{0.9}}}
+        }{
+        \end{tabular*}
+    \end{center}
+}
+% Define a line of cv information(reference)
+% Usage: \cvreference{<name>}{<phone number / email>}
+\newcommand*{\cvreference}[2]{
+    \skilltypestyle{#1} & \skillsetstyle{#2} \\
+}
+
 % Define an environment for cvitems(for cventry)
 \newenvironment{cvitems}{%
   \vspace{-4.0mm}
