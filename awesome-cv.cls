@@ -551,7 +551,7 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{\@wameuri}{\faSquareWhatsapp\acvHeaderIconSep\@whatsapp}%
+          \href{\@wameuri}{\faAlt{WhatsApp: \@whatsapp}{\faSquareWhatsapp}{\@whatsapp}}%
         }%
       \ifthenelse{\isundefined{\@email}}%
         {}%
