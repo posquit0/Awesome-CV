@@ -307,6 +307,20 @@
   \StrDel{\@teluri}{)}[\@teluri]%
 }
 
+% Defines writer's WhatsApp (optional)
+% Usage: \whatsapp{<mobile number>}
+\newcommand*{\whatsapp}[1]
+{
+  \def\@whatsapp{#1}
+  \def\@wameuri{https://wa.me/\@whatsapp}
+  % Strip unwanted characters
+  \StrDel{\@wameuri}{ }[\@wameuri]%
+  \StrDel{\@wameuri}{+}[\@wameuri]%
+  \StrDel{\@wameuri}{-}[\@wameuri]%
+  \StrDel{\@wameuri}{(}[\@wameuri]%
+  \StrDel{\@wameuri}{)}[\@wameuri]%
+}
+
 % Defines writer's email (optional)
 % Usage: \email{<email address>}
 \newcommand*{\email}[1]{\def\@email{#1}}
@@ -532,6 +546,12 @@
         {%
           \href{\@teluri}{\faAlt{tel:\@mobile}{\faMobile}{\@mobile}}%
           \setbool{isstart}{false}%
+        }%
+      \ifthenelse{\isundefined{\@whatsapp}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{\@wameuri}{\faAlt{WhatsApp: \@whatsapp}{\faSquareWhatsapp}{\@whatsapp}}%
         }%
       \ifthenelse{\isundefined{\@email}}%
         {}%
