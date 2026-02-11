@@ -76,7 +76,7 @@
 % Needed to manage math fonts
 \RequirePackage{unicode-math}
 % Needed to use icons from font-awesome
-\RequirePackage{fontawesome6}
+\RequirePackage{fontawesome7}
 \RequirePackage{accsupp}
 \defaultfontfeatures{
   Renderer=HarfBuzz,
