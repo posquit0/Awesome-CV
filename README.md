@@ -66,6 +66,7 @@ You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/e
 
 * [**Edit Résumé on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv/tvmzpvdjfqxp)
 * [**Edit Cover Letter on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv-cover-letter/pfzzjspkthbk)
+* [**Edit on SpicyChai LaTeX**](https://latex.spicychai.com/) — Online LaTeX editor with AI-powered templates and real-time PDF preview
 
 **_Note:_ Above services do not guarantee up-to-date source code of Awesome CV**
 
