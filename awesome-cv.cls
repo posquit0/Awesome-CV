@@ -81,22 +81,41 @@
 \defaultfontfeatures{
   Renderer=HarfBuzz,
 }
-\setmainfont{Source Sans 3}[
-  UprightFont=*,
-  ItalicFont=* Italic,
-  BoldFont=* Bold,
-  BoldItalicFont=* Bold Italic,
-  FontFace={l}{n}{Font=* Light},
-  FontFace={l}{it}{Font=* Light Italic},
-]
-\setsansfont{Source Sans 3}[
-  UprightFont=*,
-  ItalicFont=* Italic,
-  BoldFont=* Bold,
-  BoldItalicFont=* Bold Italic,
-  FontFace={l}{n}{Font=* Light},
-  FontFace={l}{it}{Font=* Light Italic},
-]
+% Support both "Source Sans 3" (variable or static, from Adobe/Homebrew/distro
+% packages) and "Source Sans Pro" (static, bundled with TeX Live).
+\IfFontExistsTF{Source Sans 3}{%
+  \setmainfont{Source Sans 3}[
+    RawFeature={+axis={wght=400}},
+    BoldFont={Source Sans 3},
+    BoldFeatures={RawFeature={+axis={wght=700}}},
+    ItalicFont={Source Sans 3 Italic},
+    ItalicFeatures={RawFeature={+axis={wght=400}}},
+    BoldItalicFont={Source Sans 3 Italic},
+    BoldItalicFeatures={RawFeature={+axis={wght=700}}},
+    FontFace={l}{n}{Font=Source Sans 3, RawFeature={+axis={wght=300}}},
+    FontFace={l}{it}{Font=Source Sans 3 Italic, RawFeature={+axis={wght=300}}},
+  ]
+  \setsansfont{Source Sans 3}[
+    RawFeature={+axis={wght=400}},
+    BoldFont={Source Sans 3},
+    BoldFeatures={RawFeature={+axis={wght=700}}},
+    ItalicFont={Source Sans 3 Italic},
+    ItalicFeatures={RawFeature={+axis={wght=400}}},
+    BoldItalicFont={Source Sans 3 Italic},
+    BoldItalicFeatures={RawFeature={+axis={wght=700}}},
+    FontFace={l}{n}{Font=Source Sans 3, RawFeature={+axis={wght=300}}},
+    FontFace={l}{it}{Font=Source Sans 3 Italic, RawFeature={+axis={wght=300}}},
+  ]
+}{%
+  \setmainfont{Source Sans Pro}[
+    FontFace={l}{n}{Font=*-Light},
+    FontFace={l}{it}{Font=*-LightItalic},
+  ]
+  \setsansfont{Source Sans Pro}[
+    FontFace={l}{n}{Font=*-Light},
+    FontFace={l}{it}{Font=*-LightItalic},
+  ]
+}
 \newfontfamily\roboto{Roboto}[
   UprightFont=*,
   ItalicFont=* Italic,
