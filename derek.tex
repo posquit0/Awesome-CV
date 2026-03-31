@@ -1,0 +1,60 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for CV/Resume
+%
+% Template: https://github.com/posquit0/Awesome-CV
+% License: CC BY-SA 4.0
+
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+\documentclass[10pt, a4paper]{awesome-cv}
+
+% Tighter margins to fit 2 pages
+\geometry{left=1.4cm, top=.6cm, right=1.4cm, bottom=1.4cm, footskip=.5cm}
+
+% Color for highlights
+\colorlet{awesome}{awesome-skyblue}
+
+\setbool{acvSectionColorHighlight}{true}
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+\name{Derek}{Thomas}
+\position{AI Solutions Architect{\enskip\cdotp\enskip}ML Success Engineer}
+\address{Abu Dhabi, UAE}
+
+\mobile{+971 56 997 0806}
+\email{datavistics@gmail.com}
+\homepage{datavistics.github.io}
+\github{datavistics}
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% Print the header with above personal information
+\makecvheader[C]
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+\makecvfooter
+  {\today}
+  {Derek Thomas~~~·~~~Curriculum Vitae}
+  {\thepage}
+
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%-------------------------------------------------------------------------------
+\input{cv/summary.tex}
+\input{cv/experience.tex}
+\input{cv/publications.tex}
+\input{cv/education.tex}
+
+
+%-------------------------------------------------------------------------------
+\end{document}
