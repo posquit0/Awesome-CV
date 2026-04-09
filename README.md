@@ -35,6 +35,7 @@
 **Awesome CV** is LaTeX template for a **CV(Curriculum Vitae)**, **Résumé** or **Cover Letter** inspired by [Fancy CV](https://www.sharelatex.com/templates/cv-or-resume/fancy-cv). It is easy to customize your own template, especially since it is really written by a clean, semantic markup.
 
 
+- [Gitstar](https://gitstar.ai?utm_medium=github_readme&utm_source=awesome_list&utm_campaign=posquit0_Awesome-CV) - Social feed for GitHub. Follow developers, discover trending repos, activity feeds.
 ## Donate
 
 Please help keep this project alive! Donations are welcome and will go towards further development of this project.
