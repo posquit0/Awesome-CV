@@ -195,8 +195,8 @@
 %-------------------------------------------------------------------------------
 % Configure styles for each CV elements
 % For fundamental structures
-\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{32pt}{1em}\headerfontlight\color{graytext} #1}}
-\newcommand*{\headerlastnamestyle}[1]{{\fontsize{32pt}{1em}\headerfont\bfseries\color{text} #1}}
+\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{25pt}{1em}\headerfontlight\color{graytext} #1}}
+\newcommand*{\headerlastnamestyle}[1]{{\fontsize{25pt}{1em}\headerfont\bfseries\color{text} #1}}
 \newcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\scshape\color{awesome} #1}}
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
 \newcommand*{\headersocialstyle}[1]{{\fontsize{6.8pt}{1em}\headerfont\color{text} #1}}
@@ -815,13 +815,43 @@
   \skilltypestyle{#1} & \leavevmode\skillsetstyle{#2} \\
 }
 
+% Mehdi --------------------------------------------------
+
+% For elements of publications
+\newcommand*{\publinamestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{darktext} #1}}
+\newcommand*{\publititlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
+\newcommand*{\publipublistyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
+\newcommand*{\publidatestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
+
+% Define an environment for
+\newenvironment{cvpublications}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-2mm}
+  \begin{center}
+    \setlength\tabcolsep{0pt}
+    \setlength{\extrarowheight}{8pt}
+    % \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{15cm} L{\textwidth - 40.0cm} R{25cm}}
+\begin{tabular*}{\textwidth}{L{\textwidth - 2cm} C{2cm}}
+}{%
+    \end{tabular*}
+  \end{center}
+}
+
+\newcommand*{\cvpublication}[4]{
+  \publinamestyle{#1}, \publititlestyle{#2}, \publipublistyle{#3} & \publidatestyle{#4} \\
+}
+
 % Define an environment for cvitems(for cventry)
-\newenvironment{cvitems}{%
+\newenvironment{cvitems}[1][]{%
   \vspace{-4.0mm}
   \begin{justify}
-  \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
+  \renewcommand{\labelitemi}{\bullet}
+  \ifstrempty{#1}{%
+    \begin{itemize}[leftmargin=2ex, nosep, noitemsep]%
+  }{%
+    \begin{itemize}[leftmargin=2ex, nosep, noitemsep, #1]%  
+  }%
     \setlength{\parskip}{0pt}
-    \renewcommand{\labelitemi}{\bullet}
 }{%
   \end{itemize}
   \end{justify}
