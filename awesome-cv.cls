@@ -842,12 +842,16 @@
 }
 
 % Define an environment for cvitems(for cventry)
-\newenvironment{cvitems}{%
+\newenvironment{cvitems}[1][]{%
   \vspace{-4.0mm}
   \begin{justify}
-  \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
+  \renewcommand{\labelitemi}{\bullet}
+  \ifstrempty{#1}{%
+    \begin{itemize}[leftmargin=2ex, nosep, noitemsep]%
+  }{%
+    \begin{itemize}[leftmargin=2ex, nosep, noitemsep, #1]%  
+  }%
     \setlength{\parskip}{0pt}
-    \renewcommand{\labelitemi}{\bullet}
 }{%
   \end{itemize}
   \end{justify}
