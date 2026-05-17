@@ -21,3 +21,10 @@
 ## Mac OS X metadata files:
 *.DS_Store
 
+### Fonts ###
+## Local font files (see LPG/README.md for setup instructions)
+fonts/
+
+### Generated files ###
+LPG/resume.pdf
+
