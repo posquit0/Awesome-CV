@@ -28,3 +28,6 @@ fonts/
 ### Generated files ###
 LPG/resume.pdf
 
+### Claude Code ###
+.claude/
+
