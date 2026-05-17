@@ -9,7 +9,11 @@
 \usepackage{fontspec}
 
 % Define shortcut to load the Font Awesome font.
-\newfontfamily{\FA}{FontAwesome}
+% Default to a local "fonts/" directory if the host class/document hasn't
+% already defined \@fontdir; this lets the bundled FontAwesome.ttf be picked
+% up without requiring a system-wide install.
+\providecommand*{\@fontdir}{fonts/}
+\newfontfamily{\FA}[Path=\@fontdir]{FontAwesome}
 % Generic command displaying an icon by its name.
 \newcommand*{\faicon}[1]{{
   \FA\csname faicon@#1\endcsname
