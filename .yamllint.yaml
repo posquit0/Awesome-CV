@@ -1,0 +1,53 @@
+yaml-files:
+- '*.yaml'
+- '*.yml'
+
+rules:
+  braces:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+    min-spaces-inside-empty: 0
+    max-spaces-inside-empty: 0
+  brackets:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+    min-spaces-inside-empty: 0
+    max-spaces-inside-empty: 0
+  colons:
+    max-spaces-before: 0
+    max-spaces-after: 1
+  commas:
+    max-spaces-before: 0
+  comments:
+    level: warning
+    require-starting-space: true
+    min-spaces-from-content: 1
+  comments-indentation: disable
+  document-end: disable
+  document-start: disable
+  empty-lines:
+    level: warning
+    max: 2
+    max-start: 0
+    max-end: 1
+  empty-values:
+    forbid-in-block-mappings: true
+    forbid-in-flow-mappings: true
+  hyphens:
+    max-spaces-after: 1
+  indentation:
+    spaces: consistent
+    indent-sequences: false
+  key-duplicates: enable
+  key-ordering: disable
+  line-length: disable
+  new-line-at-end-of-file: enable
+  # Use UNIX new line characters `\n` instead of DOS new line characters `\r\n`
+  new-lines:
+    type: unix
+  octal-values: disable
+  quoted-strings:
+    quote-type: any
+    required: false
+  trailing-spaces: enable
+  truthy: disable

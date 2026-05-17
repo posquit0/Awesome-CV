@@ -18,20 +18,17 @@
 % CONFIGURATIONS
 %-------------------------------------------------------------------------------
 % A4 paper size by default, use 'letterpaper' for US letter
-\documentclass[11pt, letterpaper]{awesome-cv}
+\documentclass[11pt, a4paper]{awesome-cv}
 
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
 
-% Specify the location of the included fonts
-\fontdir[fonts/]
-
 % Color for highlights
 % Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
 %                 awesome-nephritis, awesome-concrete, awesome-darknight
-\colorlet{awesome}{awesome-skyblue}
+\colorlet{awesome}{awesome-red}
 % Uncomment if you would like to specify your own color
-% \definecolor{awesome}{HTML}{CA63A8}
+% \definecolor{awesome}{HTML}{3E6D9C}
 
 % Colors for text
 % Uncomment if you would like to specify your own color
@@ -39,17 +36,13 @@
 % \definecolor{text}{HTML}{333333}
 % \definecolor{graytext}{HTML}{5D5D5D}
 % \definecolor{lighttext}{HTML}{999999}
+% \definecolor{sectiondivider}{HTML}{5D5D5D}
 
 % Set false if you don't want to highlight section with awesome color
 \setbool{acvSectionColorHighlight}{true}
 
 % If you would like to change the social information separator from a pipe (|) to something else
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
-
-\frenchspacing
-
-\newcommand{\CC}{C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\tiny\bf +}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\tiny\bf +}}
-\newcommand{\CS}{C\nolinebreak\hspace{-.05em}\raisebox{.6ex}{\scriptsize\bf \#}}
 
 
 %-------------------------------------------------------------------------------
@@ -58,33 +51,39 @@
 %-------------------------------------------------------------------------------
 % Available options: circle|rectangle,edge/noedge,left/right
 % \photo[rectangle,edge,right]{./examples/profile}
-\name{Lawrence P.}{Gouger}
-\position{Lead Software Engineer}
-\address{566 Irish Hill Rd., Shelburne, VT, 05482, USA}
+\name{Byungjin}{Park}
+\position{DevOps Engineer{\enskip\cdotp\enskip}Software Architect}
+\address{Mapo-gu, Seoul, Republic of Korea}
 
-\mobile{+1 (310) 989-5684}
-\email{larry.gouger@gmail.com}
-\homepage{www.bunimo.com}
-\github{lgouger}
-\linkedin{lgouger}
+\mobile{(+82) 10-9030-1843}
+%\whatsapp{(+82) 10-9030-1843}
+\email{posquit0.bj@gmail.com}
+%\dateofbirth{January 1st, 1970}
+\homepage{www.posquit0.com}
+\github{posquit0}
+\linkedin{posquit0}
 % \gitlab{gitlab-id}
 % \stackoverflow{SO-id}{SO-name}
-\twitter{@lgouger}
+% \twitter{@twit}
+% \x{x-id}
 % \skype{skype-id}
 % \reddit{reddit-id}
 % \medium{madium-id}
+% \kaggle{kaggle-id}
+% \hackerrank{hackerrank-id}
+% \telegram{telegram-username}
 % \googlescholar{googlescholar-id}{name-to-display}
 %% \firstname and \lastname will be used
 % \googlescholar{googlescholar-id}{}
-% \extrainfo{extra informations}
+% \extrainfo{extra information}
 
-%% \quote{``Be the change that you want to see in the world."}
+\quote{``Be the change that you want to see in the world."}
 
 
 %-------------------------------------------------------------------------------
 \begin{document}
 
-% Print the header with above personal informations
+% Print the header with above personal information
 % Give optional argument to change alignment(C: center, L: left, R: right)
 \makecvheader[C]
 
@@ -92,7 +91,7 @@
 % Leave any of these blank if they are not needed
 \makecvfooter
   {\today}
-  {Lawrence P. Gouger~~~·~~~Résumé}
+  {Byungjin Park~~~·~~~Résumé}
   {\thepage}
 
 
@@ -101,14 +100,14 @@
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
 \input{resume/summary.tex}
-\input{resume/skills.tex}
 \input{resume/experience.tex}
+\input{resume/honors.tex}
+\input{resume/certificates.tex}
+% \input{resume/presentation.tex}
+% \input{resume/writing.tex}
+% \input{resume/committees.tex}
 \input{resume/education.tex}
-%% \input{resume/honors.tex}
-%% \input{resume/presentation.tex}
-%% \input{resume/writing.tex}
-%% \input{resume/committees.tex}
-%% \input{resume/extracurricular.tex}
+% \input{resume/extracurricular.tex}
 
 
 %-------------------------------------------------------------------------------
