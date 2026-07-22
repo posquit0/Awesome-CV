@@ -1,45 +1,57 @@
 <h1 align="center">
-  <a href="https://github.com/posquit0/Awesome-CV" title="AwesomeCV Documentation">
-    <img alt="AwesomeCV" src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png" width="200px" height="200px" />
+  <a href="https://github.com/grafanaKibana/LatexCV" title="LatexCV">
+    <img alt="LatexCV" src="https://github.com/grafanaKibana/LatexCV/raw/master/icon.png" width="200px" height="200px" />
   </a>
   <br />
-  Awesome CV
+  LatexCV
 </h1>
 
 <p align="center">
-  LaTeX template for your outstanding job application
+  My personal résumé, CV and cover letter, built with LaTeX and published automatically on every merge to <code>master</code>.
 </p>
 
 <div align="center">
   <a href="https://github.com/grafanaKibana/LatexCV/actions/workflows/main.yml">
-    <img alt="GitHub Actions" src="https://github.com/grafanaKibana/LatexCVactions/workflows/main.yml/badge.svg" />
+    <img alt="GitHub Actions" src="https://github.com/grafanaKibana/LatexCV/actions/workflows/main.yml/badge.svg" />
   </a>
-  <a href="https://raw.githubusercontent.com/grafanaKibana/LatexCV/master/compiled/resume.pdf">
-    <img alt="Example Resume" src="https://img.shields.io/badge/resume-pdf-green.svg" />
+  <a href="https://github.com/grafanaKibana/LatexCV/releases/latest">
+    <img alt="Latest Release" src="https://img.shields.io/github/v/release/grafanaKibana/LatexCV?label=latest%20release" />
   </a>
-  <a href="https://raw.githubusercontent.com/grafanaKibana/LatexCV/master/compiled/cv.pdf">
-    <img alt="Example CV" src="https://img.shields.io/badge/cv-pdf-green.svg" />
+</div>
+
+<div align="center">
+  <a href="https://github.com/grafanaKibana/LatexCV/releases/latest/download/resume.pdf">
+    <img alt="Download Résumé" src="https://img.shields.io/badge/résumé-download%20pdf-green.svg" />
   </a>
-  <a href="https://raw.githubusercontent.com/grafanaKibana/LatexCV/master/compiled/coverletter.pdf">
-    <img alt="Example Coverletter" src="https://img.shields.io/badge/coverletter-pdf-green.svg" />
+  <a href="https://github.com/grafanaKibana/LatexCV/releases/latest/download/cv.pdf">
+    <img alt="Download CV" src="https://img.shields.io/badge/cv-download%20pdf-green.svg" />
+  </a>
+  <a href="https://github.com/grafanaKibana/LatexCV/releases/latest/download/coverletter.pdf">
+    <img alt="Download Cover Letter" src="https://img.shields.io/badge/cover%20letter-download%20pdf-green.svg" />
   </a>
 </div>
 
 <br />
 
-## What is Awesome CV?
+## About
 
-**Awesome CV** is LaTeX template for a **CV(Curriculum Vitae)**, **Résumé** or **Cover Letter** inspired by [Fancy CV](https://www.sharelatex.com/templates/cv-or-resume/fancy-cv). It is easy to customize your own template, especially since it is really written by a clean, semantic markup.
+This repository holds my personal **résumé**, **CV (Curriculum Vitae)** and **cover letter**. It is a fork of [posquit0/Awesome-CV](https://github.com/posquit0/Awesome-CV) — the original LaTeX template — customized for my own profile.
 
-## Quick Start
+The badges above always link to the freshest documents: every push to `master` compiles the LaTeX sources and publishes a new [GitHub Release](https://github.com/grafanaKibana/LatexCV/releases/latest) with `resume.pdf`, `cv.pdf` and `coverletter.pdf` attached. There is no need to dig through the Actions tab to find the latest build — just click a download badge.
 
-* [**Edit Résumé on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv/tvmzpvdjfqxp)
-* [**Edit Cover Letter on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv-cover-letter/pfzzjspkthbk)
+## Download
 
-**_Note:_ Above services do not guarantee up-to-date source code of Awesome CV**
+The latest compiled documents are always available from the newest release:
 
+| Document | Download |
+| --- | --- |
+| Résumé | [resume.pdf](https://github.com/grafanaKibana/LatexCV/releases/latest/download/resume.pdf) |
+| CV | [cv.pdf](https://github.com/grafanaKibana/LatexCV/releases/latest/download/cv.pdf) |
+| Cover Letter | [coverletter.pdf](https://github.com/grafanaKibana/LatexCV/releases/latest/download/coverletter.pdf) |
 
-## How to Use
+The `releases/latest/download/<file>` links resolve to the assets of the most recent release, so they never go stale.
+
+## How to Build Locally
 
 #### Requirements
 
@@ -53,21 +65,40 @@ If you don't want to install the dependencies on your system, this can also be o
 At a command prompt, run
 
 ```bash
+make
+```
+
+This compiles all documents into the `compiled/` directory. To build a single document you can also run `xelatex` directly:
+
+```bash
 xelatex {your-cv}.tex
 ```
 
-Or using docker:
+Or, without installing anything locally, using Docker:
 
 ```bash
 docker run --rm --user $(id -u):$(id -g) -i -w "/doc" -v "$PWD":/doc texlive/texlive:latest make
 ```
 
-In either case, this should result in the creation of ``{your-cv}.pdf``
+In either case, this results in the creation of the corresponding ``.pdf`` files.
 
+## Releases
+
+Releases are produced automatically by the [Compile PDFs workflow](https://github.com/grafanaKibana/LatexCV/actions/workflows/main.yml):
+
+1. On every push and pull request the LaTeX sources are compiled and uploaded as workflow artifacts.
+2. On a push to `master`, the compiled PDFs are additionally attached to a new GitHub Release tagged `vYYYY.MM.DD-<run number>`.
 
 ## Credit
 
-[**Original Repository**](https://github.com/posquit0/Awesome-CV) by posquit0 that I forked. This is personal repository for my profile.
+[**Original Repository — Awesome-CV**](https://github.com/posquit0/Awesome-CV) by posquit0, which this repository is forked from. This is a personal repository for my own profile.
+
+**Awesome CV** is a LaTeX template for a **CV**, **Résumé** or **Cover Letter** inspired by [Fancy CV](https://www.sharelatex.com/templates/cv-or-resume/fancy-cv). It is easy to customize, especially since it is written with clean, semantic markup.
+
+* [**Edit Résumé on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv/tvmzpvdjfqxp)
+* [**Edit Cover Letter on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv-cover-letter/pfzzjspkthbk)
+
+**_Note:_ The above services do not guarantee up-to-date source code of Awesome CV.**
 
 [**LaTeX**](https://www.latex-project.org) is a fantastic typesetting program that a lot of people use these days, especially the math and computer science people in academia.
 
