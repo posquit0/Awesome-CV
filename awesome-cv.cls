@@ -35,6 +35,9 @@
 % Options for draft or final
 \DeclareOption{draft}{\setlength\overfullrule{5pt}}
 \DeclareOption{final}{\setlength\overfullrule{0pt}}
+% Option to disable active links
+\newif\ifacv@noactivelinks
+\DeclareOption{noactivelinks}{\acv@noactivelinkstrue}
 % Inherit options of article
 \DeclareOption*{%
   \PassOptionsToClass{\CurrentOption}{article}
@@ -110,7 +113,12 @@
 % Needed to deal a paragraphs
 \RequirePackage{parskip}
 % Needed to deal hyperlink
-\RequirePackage[hidelinks,unicode,pdfpagelabels=false]{hyperref}
+\ifacv@noactivelinks
+  % Load hyperref with draft option to disable links
+  \RequirePackage[draft,unicode,pdfpagelabels=false]{hyperref}
+\else
+  \RequirePackage[hidelinks,unicode,pdfpagelabels=false]{hyperref}
+\fi
 \hypersetup{%
   pdftitle={},
   pdfauthor={},
