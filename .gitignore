@@ -8,6 +8,11 @@
 *.out
 *.toc
 
+## BibLaTeX auxiliary files:
+*.bbl
+*.bcf
+*.blg
+
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
