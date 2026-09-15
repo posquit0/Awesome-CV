@@ -275,6 +275,10 @@
 \def\@photoedge{edge}
 \def\@photoalign{left}
 
+% Overrides the size of the photo ID if needed.
+% Usage: \photosize{<new height/width/diameter>}
+\newcommand*{\photosize}[1]{\def\@photosize{#1}}
+
 % Define writer's name
 % Usage: \name{<firstname>}{<lastname>}
 % Usage: \firstname{<firstname>}
@@ -509,9 +513,11 @@
   \newcommand*{\drawphoto}{%
     \ifthenelse{\isundefined{\@photo}}{}{%
       \newlength{\photodim}
-      \ifthenelse{\equal{\@photoshape}{circle}}%
-        {\setlength{\photodim}{1.3cm}}%
-        {\setlength{\photodim}{1.8cm}}%
+      \ifthenelse{\isundefined{\@photosize}}%
+        {\ifthenelse{\equal{\@photoshape}{circle}}%
+          {\setlength{\photodim}{1.3cm}}%
+          {\setlength{\photodim}{1.8cm}}}
+        {\setlength{\photodim}{\@photosize}}%
       \ifthenelse{\equal{\@photoedge}{edge}}%
         {\def\@photoborder{darkgray}}%
         {\def\@photoborder{none}}%
