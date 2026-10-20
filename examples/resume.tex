@@ -1,4 +1,4 @@
-%!TEX TS-program = xelatex
+%!TEX TS-program = lualatex
 %!TEX encoding = UTF-8 Unicode
 % Awesome CV LaTeX Template for CV/Resume
 %
@@ -16,6 +16,7 @@
 
 %-------------------------------------------------------------------------------
 % CONFIGURATIONS
+% Build from the repository root with: latexmk examples/resume.tex
 %-------------------------------------------------------------------------------
 % A4 paper size by default, use 'letterpaper' for US letter
 \documentclass[11pt, a4paper]{awesome-cv}
@@ -99,15 +100,15 @@
 %	CV/RESUME CONTENT
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
-\input{resume/summary.tex}
-\input{resume/experience.tex}
-\input{resume/honors.tex}
-\input{resume/certificates.tex}
-% \input{resume/presentation.tex}
-% \input{resume/writing.tex}
-% \input{resume/committees.tex}
-\input{resume/education.tex}
-% \input{resume/extracurricular.tex}
+\input{examples/resume/summary.tex}
+\input{examples/resume/experience.tex}
+\input{examples/resume/honors.tex}
+\input{examples/resume/certificates.tex}
+% \input{examples/resume/presentation.tex}
+% \input{examples/resume/writing.tex}
+% \input{examples/resume/committees.tex}
+\input{examples/resume/education.tex}
+% \input{examples/resume/extracurricular.tex}
 
 
 %-------------------------------------------------------------------------------
