@@ -7,7 +7,8 @@ Compile PDFs workflow. `latexmkrc` remains the shared compiler configuration.
 | --- | --- |
 | TeX Live and base operating system | Multi-platform SHA-256 digest in `FROM` |
 | Additional fonts, Make, and their dependencies | Dated Debian archive URL and suite in `Dockerfile` |
-| Direct GitHub Actions and reusable workflow references | Full commit SHAs |
+| Direct build actions | Full commit SHAs |
+| tedilabs reusable workflows | `@main`, following upstream updates |
 | Workflow validation tools | Explicit version inputs on the reusable workflows |
 | GitHub runner OS | `ubuntu-24.04` (the hosted runner image still receives updates) |
 
@@ -50,13 +51,13 @@ Use a clean checkout or `make distclean` before comparing builds.
 ## Shared GitHub automation
 
 The repository calls the public
-[`tedilabs/github-actions`](https://github.com/tedilabs/github-actions/tree/ab5fbc9e95adfef4fb8a391813222757410dc502)
-workflows at a reviewed commit:
+[`tedilabs/github-actions`](https://github.com/tedilabs/github-actions/tree/main)
+workflows through `@main`:
 
 | Local workflow | Shared workflow | Behavior |
 | --- | --- | --- |
-| `integration.yaml` | `yaml.yamllint.yaml` | YAML lint with the repository configuration |
-| `integration.yaml` | `github-actions.integration.yaml` | jactionlint, ShellCheck, and workflow schema validation |
+| `yaml.integration.yaml` | `yaml.yamllint.yaml` | YAML lint with the repository configuration |
+| `github-actions.integration.yaml` | `github-actions.integration.yaml` | jactionlint, ShellCheck, and workflow schema validation |
 | `pull-request-labeler.yaml` | `github.pr.auto-label.yaml` | Area labels and PR size labels |
 | `welcome.yaml` | `github.issue.welcome.yaml` | Separate first-issue and first-PR greetings |
 | `sync-labels.yaml` | `github.repo.sync-labels.yaml` | Read-only preview on PRs, updates on master; preserve other labels |
@@ -72,13 +73,14 @@ The shared PR-size workflow counts changed files using its own defaults; unlike
 the previous local action, it does not exclude examples, fonts, or image files.
 The existing size thresholds remain 20/100/500/1000 lines.
 
-The shared workflows currently reference some nested actions through `@main`
-or version tags. Pinning the caller does **not** freeze those transitive
-references. Review the upstream implementation when updating its SHA; fully
-immutable shared automation would also require upstream to pin nested actions.
-The TeX image and Debian package snapshot do not depend on these nested refs.
+The shared workflows intentionally track upstream `main`, including their nested
+composite actions. Upstream changes can therefore affect automation without a
+commit here. The TeX image and Debian package snapshot remain pinned separately.
+YAML and GitHub Actions validation have separate workflow files, path filters,
+and concurrency groups, following the tedilabs layout.
 
-For local workflow checks, use the same versions as `integration.yaml`:
+For local workflow checks, use the versions in `yaml.integration.yaml` and
+`github-actions.integration.yaml`:
 
 ```sh
 mise exec jactionlint@2.1.0 shellcheck@0.11.0 -- jactionlint --profile=correctness

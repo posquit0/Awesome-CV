@@ -18,7 +18,7 @@ permissions: {}
 jobs:
   preview:
     if: github.event_name == 'pull_request'
-    uses: tedilabs/github-actions/.github/workflows/github.repo.sync-labels.yaml@ab5fbc9e95adfef4fb8a391813222757410dc502
+    uses: tedilabs/github-actions/.github/workflows/github.repo.sync-labels.yaml@main
     permissions:
       contents: read
       issues: read
@@ -32,7 +32,7 @@ jobs:
 
   sync:
     if: github.event_name != 'pull_request'
-    uses: tedilabs/github-actions/.github/workflows/github.repo.sync-labels.yaml@ab5fbc9e95adfef4fb8a391813222757410dc502
+    uses: tedilabs/github-actions/.github/workflows/github.repo.sync-labels.yaml@main
     permissions:
       contents: read
       issues: write

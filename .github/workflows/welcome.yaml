@@ -13,7 +13,7 @@ permissions: {}
 jobs:
   welcome-issue:
     if: github.event_name == 'issues'
-    uses: tedilabs/github-actions/.github/workflows/github.issue.welcome.yaml@ab5fbc9e95adfef4fb8a391813222757410dc502
+    uses: tedilabs/github-actions/.github/workflows/github.issue.welcome.yaml@main
     permissions:
       issues: write
     with:
@@ -26,7 +26,7 @@ jobs:
 
   welcome-pr:
     if: github.event_name == 'pull_request_target'
-    uses: tedilabs/github-actions/.github/workflows/github.issue.welcome.yaml@ab5fbc9e95adfef4fb8a391813222757410dc502
+    uses: tedilabs/github-actions/.github/workflows/github.issue.welcome.yaml@main
     permissions:
       issues: read
       pull-requests: write

@@ -7,7 +7,7 @@ permissions: {}
 
 jobs:
   auto-label:
-    uses: tedilabs/github-actions/.github/workflows/github.pr.auto-label.yaml@ab5fbc9e95adfef4fb8a391813222757410dc502
+    uses: tedilabs/github-actions/.github/workflows/github.pr.auto-label.yaml@main
     permissions:
       contents: read
       issues: write
