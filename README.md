@@ -45,6 +45,8 @@ Please help keep this project alive! Donations are welcome and will go towards f
 
 ## Preview
 
+These committed PDFs and images are historical previews, not outputs rebuilt on every commit. The current examples may have different content or pagination. Build the checkout locally or download the `examples` artifact from a successful [Compile PDFs run](https://github.com/posquit0/Awesome-CV/actions/workflows/main.yml) to inspect the current source.
+
 #### Résumé
 
 You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)
@@ -146,6 +148,8 @@ The root `awesome-cv.cls` is the source of truth. `examples/awesome-cv.cls` is a
 
 #### Contributing
 
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the source layout, validation commands, and bug-report requirements. [CHANGELOG.md](CHANGELOG.md) records unreleased behavior changes; the [release guide](docs/releases.md) describes version metadata and the manual release process.
+
 Run `make test` before submitting changes. The Docker image includes the PDF inspection dependency; append `make test` to the Docker command above to run the same checks as CI. The suite checks page counts, text extraction, links, embedded fonts, compiler font warnings, and focused layout regressions. See [the test guide](tests/README.md) for native prerequisites and coverage.
 
 CI uploads PDFs, compiler logs, a JSON report, and page images from `build/` for review, including available diagnostics after a failure. Check the page images for layout changes; automated checks do not cover every visual detail. When changing build settings, keep `latexmkrc`, the editor configuration, the Dockerfile, and these instructions aligned.
@@ -166,7 +170,7 @@ CI uploads PDFs, compiler logs, a JSON report, and page images from `build/` for
 
 You are free to take my `.tex` file and modify it to create your own resume. Please don't use my resume for anything else without my permission, though!
 
-If you have any questions, feel free to join me at [`#posquit0` on Freenode](irc://irc.freenode.net/posquit0) and ask away. Click [here](https://kiwiirc.com/client/irc.freenode.net/posquit0) to connect.
+For questions or bug reports, search the [GitHub issues](https://github.com/posquit0/Awesome-CV/issues) first. If the problem is not already tracked, open an issue with a minimal example and the build details listed in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Good luck!
 
