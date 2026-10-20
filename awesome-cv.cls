@@ -21,7 +21,8 @@
 %-------------------------------------------------------------------------------
 %                Identification
 %-------------------------------------------------------------------------------
-\ProvidesClass{awesome-cv}[2017/02/05 v1.6.1 Awesome Curriculum Vitae Class]
+% Development snapshot; see CHANGELOG.md and the Git commit for provenance.
+\ProvidesClass{awesome-cv}[2026/10/21 development Awesome Curriculum Vitae Class]
 \NeedsTeXFormat{LaTeX2e}
 
 % LuaLaTeX is required for the HarfBuzz font renderer used below.
@@ -131,6 +132,7 @@
 %-------------------------------------------------------------------------------
 % Configure an optional directory location for fonts(default: 'fonts/')
 % Not required anymore but left in place for backward compatability.
+% Retained for source compatibility; fonts are resolved by family name.
 \newcommand*{\fontdir}[1][fonts/]{\def\@fontdir{#1}}
 
 %-------------------------------------------------------------------------------
