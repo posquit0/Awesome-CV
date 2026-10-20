@@ -7,6 +7,9 @@
 *.fls
 *.out
 *.toc
+*.fdb_latexmk
+*.synctex.gz
+/build/
 
 ## Intermediate documents:
 *.dvi
