@@ -1,0 +1,12 @@
+runOnDraft: false
+skipKeywords:
+- wip
+
+addReviewers: true
+numberOfReviewers: 1
+reviewers:
+- posquit0
+- OJFord
+
+addAssignees: 'author'
+useAssigneeGroups: false

@@ -7,10 +7,10 @@ Compile PDFs workflow. `latexmkrc` remains the shared compiler configuration.
 | --- | --- |
 | TeX Live and base operating system | Multi-platform SHA-256 digest in `FROM` |
 | Additional fonts, Make, and their dependencies | Dated Debian archive URL and suite in `Dockerfile` |
-| Direct build actions | Full commit SHAs |
+| Direct build actions | Major version tags, maintained by Dependabot |
 | tedilabs reusable workflows | `@main`, following upstream updates |
-| Workflow validation tools | Explicit version inputs on the reusable workflows |
-| GitHub runner OS | `ubuntu-24.04` (the hosted runner image still receives updates) |
+| Workflow validation tools | tedilabs workflow defaults (`latest` where specified) |
+| GitHub runner OS | `ubuntu-latest`, following the tedilabs convention |
 
 The base image supplies TeX Live 2026, LuaHBTeX 1.24.0, and latexmk 4.88.
 The snapshot supplies Source Sans 3 3.052 and Roboto 3.016. Both Linux amd64
@@ -44,8 +44,8 @@ Use a clean checkout or `make distclean` before comparing builds.
    examples from a clean output directory, and inspect their PDFs. Record the
    old and new compiler/font versions and any pagination or layout changes in
    the PR.
-4. Keep action SHAs and their version comments together. Dependabot checks
-   Actions daily and the Docker digest weekly; review those PRs and rerun CI.
+4. Dependabot checks action version tags daily and the Docker digest weekly;
+   review those PRs and rerun CI.
    The Debian snapshot date requires a separate, deliberate update.
 
 ## Shared GitHub automation
@@ -58,35 +58,45 @@ workflows through `@main`:
 | --- | --- | --- |
 | `yaml.integration.yaml` | `yaml.yamllint.yaml` | YAML lint with the repository configuration |
 | `github-actions.integration.yaml` | `github-actions.integration.yaml` | jactionlint, ShellCheck, and workflow schema validation |
-| `pull-request-labeler.yaml` | `github.pr.auto-label.yaml` | Area labels and PR size labels |
-| `welcome.yaml` | `github.issue.welcome.yaml` | Separate first-issue and first-PR greetings |
-| `sync-labels.yaml` | `github.repo.sync-labels.yaml` | Read-only preview on PRs, updates on master; preserve other labels |
+| `github.pr.yaml` | `github.pr.auto-assign.yaml` | Assign the author and request a maintainer review |
+| `github.pr.yaml` | `github.pr.auto-label.yaml` | Area labels and PR size labels |
+| `github.pr.yaml`, `github.issue.yaml` | `github.issue.welcome.yaml` | Separate first-issue and first-PR greetings |
+| `github.repo.yaml` | `github.repo.sync-labels.yaml` | Preview on PRs, updates on master; preserve other labels |
 
-No organization secrets are needed. Metadata jobs receive only the necessary
-permissions and `GITHUB_TOKEN`. `pull_request_target` is used only for labels and
-greetings; these jobs do not check out or execute PR code. Build and validation
-jobs run on `pull_request` with read-only repository permissions, including for
-forks. Integration reports go to the job summary, without a PR comment.
+These callers follow the layout used by
+[`tedilabs/terraform-aws-network`](https://github.com/tedilabs/terraform-aws-network/tree/main/.github/workflows),
+with `master` as this repository's default branch, English greetings, and the
+existing CODEOWNERS as reviewer candidates. `ubuntu-latest`, validation tool
+versions, and PR-size thresholds use the shared defaults. The LaTeX build remains
+project-specific and runs inside the pinned Docker environment.
 
-Area rules in `.github/labeler.yaml` use labels declared in `.github/labels.yaml`.
-The shared PR-size workflow counts changed files using its own defaults; unlike
-the previous local action, it does not exclude examples, fonts, or image files.
-The existing size thresholds remain 20/100/500/1000 lines.
+No organization secrets are needed for these workflows; they use `GITHUB_TOKEN`.
+`pull_request_target` is used for PR metadata only and does not execute PR code.
+Build and validation run on `pull_request`. The shared Actions integration posts
+a report comment when permitted; on fork PRs, GitHub restricts the token to read
+access and the shared reporting action tolerates inability to post a comment.
+
+Project area labels are in `.github/labels.yaml`; common labels follow tedilabs
+in `.github/labels.common.yaml`. The label-sync matrix previews both files on PRs
+and applies them after merge, preserving labels not listed in either file.
+The shared PR-size workflow uses its own counting defaults, including the
+15/100/500/1000 thresholds, without the previous exclusions for examples/fonts.
 
 The shared workflows intentionally track upstream `main`, including their nested
-composite actions. Upstream changes can therefore affect automation without a
-commit here. The TeX image and Debian package snapshot remain pinned separately.
-YAML and GitHub Actions validation have separate workflow files, path filters,
-and concurrency groups, following the tedilabs layout.
+composite actions. Tool and runner defaults also follow upstream. Automation can
+therefore change without a commit here; the TeX image and Debian package
+snapshot remain pinned separately. YAML and GitHub Actions validation have
+separate files, path filters, and concurrency groups.
 
-For local workflow checks, use the versions in `yaml.integration.yaml` and
-`github-actions.integration.yaml`:
+For local workflow checks, the commands below use the current shared conventions.
+Consult the CI job log and upstream workflow for exact versions when reproducing
+a lint failure; these tools are intentionally not locked in this repository.
 
 ```sh
-mise exec jactionlint@2.1.0 shellcheck@0.11.0 -- jactionlint --profile=correctness
-uvx --from yamllint==1.38.0 yamllint --config-file .yamllint.yaml .
-uvx --from check-jsonschema==0.38.2 check-jsonschema \
-  --builtin-schema vendor.github-workflows .github/workflows/*.yaml .github/workflows/*.yml
+mise exec jactionlint@2.1.0 shellcheck@latest -- jactionlint --profile=correctness
+uvx yamllint --config-file .yamllint.yaml .
+uvx check-jsonschema --builtin-schema vendor.github-workflows \
+  .github/workflows/*.yaml .github/workflows/*.yml
 ```
 
 Digest pinning follows [Docker's build guidance](https://docs.docker.com/build/building/best-practices/#pin-base-image-versions).

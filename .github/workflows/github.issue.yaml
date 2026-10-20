@@ -1,0 +1,24 @@
+name: GitHub - Issue
+
+
+on:
+  issues:
+    types:
+    - opened
+
+
+jobs:
+  welcome:
+    name: Welcome for First Issue
+    uses: tedilabs/github-actions/.github/workflows/github.issue.welcome.yaml@main
+
+    permissions:
+      issues: write
+
+    with:
+      issue_message: |
+        ### :wave: Welcome! Thanks for your first issue.
+
+        For a rendering problem, please include a minimal TeX example, the compiler log, and your build environment.
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}

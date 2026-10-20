@@ -1,5 +1,6 @@
 name: Integration - YAML
 
+
 on:
   push:
     branches:
@@ -7,25 +8,28 @@ on:
     paths:
     - "**.yaml"
     - "**.yml"
+
   pull_request:
     paths:
     - "**.yaml"
     - "**.yml"
+
   workflow_dispatch: {}
 
-permissions:
-  contents: read
 
 concurrency:
   group: integration-yaml-${{ github.ref }}
   cancel-in-progress: true
 
+
 jobs:
   lint:
     name: Lint (yamllint)
     uses: tedilabs/github-actions/.github/workflows/yaml.yamllint.yaml@main
+
     with:
-      runs_on: '"ubuntu-24.04"'
-      yamllint_version: "1.38.0"
+      yamllint_version: latest
       yamllint_config_file: .yamllint.yaml
       yamllint_target_dir: ./
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
