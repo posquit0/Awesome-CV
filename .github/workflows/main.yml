@@ -20,7 +20,7 @@ jobs:
         docker run --rm --user "$(id -u):$(id -g)" \
           --volume "$PWD:/doc" awesome-cv
 
-    - uses: actions/upload-artifact@v6
+    - uses: actions/upload-artifact@v7
       with:
         name: examples
         path: build/*.pdf
