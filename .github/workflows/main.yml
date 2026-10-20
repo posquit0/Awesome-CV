@@ -7,24 +7,21 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: texlive/texlive:latest
 
     steps:
     - name: Checkout repo
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
 
-    - name: Install fonts
-      run: |
-        apt update
-        apt install --yes \
-          fonts-roboto \
-          fonts-adobe-sourcesans3 \
-          ;
+    - name: Build TeX environment
+      run: docker build --tag awesome-cv .
 
     - name: Compile
-      run: make
+      run: |
+        docker run --rm --user "$(id -u):$(id -g)" \
+          --volume "$PWD:/doc" awesome-cv
 
     - uses: actions/upload-artifact@v6
       with:
         name: examples
-        path: examples/*.pdf
+        path: build/*.pdf
+        if-no-files-found: error
