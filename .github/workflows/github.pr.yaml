@@ -1,0 +1,60 @@
+name: GitHub - Pull Request
+
+
+on:
+  pull_request_target: {}
+
+
+jobs:
+  auto-assign:
+    name: Auto Assign
+    uses: tedilabs/github-actions/.github/workflows/github.pr.auto-assign.yaml@main
+    if: ${{ github.event_name == 'pull_request_target' }}
+
+    permissions:
+      contents: read
+      pull-requests: write
+
+    with:
+      config_file: .github/auto-assign.yaml
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
+
+  auto-label:
+    name: Auto Label
+    uses: tedilabs/github-actions/.github/workflows/github.pr.auto-label.yaml@main
+    if: ${{ github.event_name == 'pull_request_target' }}
+
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+
+    with:
+      labeler_config_file: .github/labeler.yaml
+      labeler_dot_included: true
+      labeler_sync_labels: true
+      pr_size_xs_label: 'size/XS'
+      pr_size_s_label: 'size/S'
+      pr_size_m_label: 'size/M'
+      pr_size_l_label: 'size/L'
+      pr_size_xl_label: 'size/XL'
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
+
+  welcome:
+    name: Welcome for First Pull Request
+    uses: tedilabs/github-actions/.github/workflows/github.issue.welcome.yaml@main
+    if: ${{ github.event_name == 'pull_request_target' && github.event.action == 'opened' }}
+
+    permissions:
+      issues: read
+      pull-requests: write
+
+    with:
+      pr_message: |
+        ### :wave: Welcome! Thanks for your first pull request.
+
+        Please describe the change and how you checked the generated PDFs. We will review it as soon as we can.
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
