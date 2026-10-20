@@ -67,33 +67,84 @@ You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/e
 * [**Edit Résumé on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv/tvmzpvdjfqxp)
 * [**Edit Cover Letter on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv-cover-letter/pfzzjspkthbk)
 
-**_Note:_ Above services do not guarantee up-to-date source code of Awesome CV**
+**_Note:_ These gallery templates may contain older source code. For this repository's version, upload its files and follow the Overleaf instructions below.**
 
 
 ## How to Use
 
 #### Requirements
 
-A full TeX distribution is assumed.  [Various distributions for different operating systems (Windows, Mac, \*nix) are available](http://tex.stackexchange.com/q/55437) but TeX Live is recommended.
-You can [install TeX from upstream](https://tex.stackexchange.com/q/1092) (recommended; most up-to-date) or use `sudo apt-get install texlive-full` if you really want that.  (It's generally a few years behind.)
+Awesome CV uses **LuaLaTeX with HarfBuzz**, driven by **latexmk**. XeLaTeX and pdfLaTeX are not supported by this version of the class.
 
-If you don't want to install the dependencies on your system, this can also be obtained via [Docker](https://docker.com).
+Install a current full [TeX Live](https://tug.org/texlive/) distribution (or [MacTeX](https://tug.org/mactex/) on macOS), including `lualatex`, `latexmk`, and `fontawesome6`. TeX Live 2026 is the recommended starting point. `latexmk` also requires Perl, which is included with TeX Live on Windows. Make is optional.
+
+Install the **Source Sans 3** and **Roboto** font families, including Regular, Italic, Bold, Bold Italic, Light, and Light Italic. Use the static desktop OTF/TTF fonts from [Source Sans 3](https://github.com/adobe-fonts/source-sans/releases) and [Roboto](https://github.com/googlefonts/roboto/releases); installing only a variable font may not provide the named faces required by the class. Fonts must be visible to LuaLaTeX under these family names. After installing fonts, run `luaotfload-tool --update` if they are not found.
+
+Alternatively, place the static font files in the repository root. The included [luaotfload.conf](luaotfload.conf) enables discovery of fonts in the working directory, including files uploaded to Overleaf.
+
+The [Dockerfile](Dockerfile) provides TeX Live and the required fonts together. It is also used by CI, so Docker is the simplest way to use the same installation recipe locally.
 
 #### Usage
 
-At a command prompt, run
+Run commands from the **repository root**, where `latexmkrc` and `awesome-cv.cls` are located. Paths in the examples are relative to this directory.
 
 ```bash
-xelatex {your-cv}.tex
+latexmk
 ```
 
-Or using docker:
+This builds the cover letter, CV, and résumé into `build/coverletter.pdf`, `build/cv.pdf`, and `build/resume.pdf`. `make` runs the same command. Generated PDFs, logs, and SyncTeX files stay in `build/`; the committed PDFs in `examples/` are previews and are not overwritten.
+
+To build one document, or rebuild it automatically while editing:
 
 ```bash
-docker run --rm --user $(id -u):$(id -g) -i -w "/doc" -v "$PWD":/doc texlive/texlive:latest make
+latexmk examples/resume.tex
+latexmk -pvc examples/resume.tex
 ```
 
-In either case, this should result in the creation of ``{your-cv}.pdf``
+The existing `make resume.pdf`, `make cv.pdf`, and `make coverletter.pdf` shortcuts also write to `build/`. For your own document, run `latexmk your-cv.tex` from the repository root; keep its input and image paths relative to that root.
+
+The shared [latexmkrc](latexmkrc) selects LuaLaTeX, enables SyncTeX, stops on compilation errors, and lets latexmk rerun the compiler and track dependencies. Repeating a build without changes skips compilation.
+
+Use `make clean` (or `latexmk -c`) to remove the examples' auxiliary files while keeping their PDFs. Use `make distclean` (or `latexmk -C`) to remove the generated example PDFs as well. To clean a custom document, pass its filename, for example `latexmk -C your-cv.tex`.
+
+#### Docker
+
+From the repository root, build the environment and compile:
+
+```bash
+docker build --tag awesome-cv .
+docker run --rm --user "$(id -u):$(id -g)" --volume "$PWD:/doc" awesome-cv
+```
+
+These commands work in a POSIX shell, including WSL on Windows. In PowerShell:
+
+```powershell
+docker build --tag awesome-cv .
+docker run --rm --volume "${PWD}:/doc" awesome-cv
+```
+
+The image runs `make` by default. To build one document, append `latexmk examples/resume.tex` to `docker run`. Outputs are written to the host's `build/` directory. The image provides writable font and TeX caches for the non-root user used by the POSIX command and CI.
+
+The base image currently tracks `texlive/texlive:latest`; rebuilding it can update TeX and font packages. This shares an installation recipe, not a frozen toolchain.
+
+#### Editors and Overleaf
+
+For **VS Code**, open the repository root as the workspace and install the recommended **LaTeX Workshop** extension. The committed workspace settings run latexmk from that root, use `latexmkrc`, and locate PDF/SyncTeX output in `build/`. Open `examples/resume.tex`, `examples/cv.tex`, or `examples/coverletter.tex` and run **Build LaTeX project**. Compilation magic comments are disabled in this workspace so they cannot bypass the shared recipe.
+
+For other editors, configure `latexmk` as the build command with the repository root as its working directory. The examples' `TS-program` comments identify LuaLaTeX for editors that use them; the full build settings live in `latexmkrc`.
+
+For **Overleaf**:
+
+1. Upload the repository contents, keeping `awesome-cv.cls`, `latexmkrc`, and `luaotfload.conf` at the project root and preserving the `examples/` directory.
+2. Copy the desired main file, such as `examples/resume.tex`, to `resume.tex` at the project root and select that copy as the **Main document**. Overleaf builds from the main file's directory, so a root-level main file keeps input, image, and configuration paths consistent.
+3. Select **LuaLaTeX** and a current available **TeX Live** version in the compiler settings. Overleaf manages its own output location.
+4. If the required font faces are unavailable, upload the static OTF/TTF files at the project root. `luaotfload.conf` lets LuaLaTeX discover their family names. Overleaf's environment is managed separately from the Docker image.
+
+The root `awesome-cv.cls` is the source of truth. `examples/awesome-cv.cls` is a convenience symlink to it; it is not a second class to edit. If a ZIP tool or Windows checkout turns that symlink into a text file, omit the example-directory copy and keep the real class at the project root.
+
+#### Contributing
+
+Use `make` or the Docker command above before submitting changes. CI builds the same Dockerfile, runs `make` with a non-root user, and uploads the PDFs from `build/`. When changing build settings, keep `latexmkrc`, the editor configuration, the Dockerfile, and these instructions aligned. Check generated PDFs for layout changes; compilation success alone does not verify visual quality.
 
 
 ## Credit
@@ -104,7 +155,7 @@ In either case, this should result in the creation of ``{your-cv}.pdf``
 
 [**Roboto**](https://github.com/google/roboto) is the default font on Android and ChromeOS, and the recommended font for Google’s visual language, Material Design.
 
-[**Source Sans Pro**](https://github.com/adobe-fonts/source-sans-pro) is a set of OpenType fonts that have been designed to work well in user interface (UI) environments.
+[**Source Sans 3**](https://github.com/adobe-fonts/source-sans) is a set of OpenType fonts that have been designed to work well in user interface (UI) environments.
 
 
 ## Contact

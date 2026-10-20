@@ -24,6 +24,14 @@
 \ProvidesClass{awesome-cv}[2017/02/05 v1.6.1 Awesome Curriculum Vitae Class]
 \NeedsTeXFormat{LaTeX2e}
 
+% LuaLaTeX is required for the HarfBuzz font renderer used below.
+\RequirePackage{iftex}
+\ifluatex\else
+  \ClassError{awesome-cv}{LuaLaTeX is required}
+    {Run latexmk from the repository root, or select LuaLaTeX in your editor.}
+  \expandafter\endinput
+\fi
+
 
 %-------------------------------------------------------------------------------
 %                Class options
@@ -59,8 +67,6 @@
 \RequirePackage{fancyhdr}
 % Needed to manage colors
 \RequirePackage{xcolor}
-% Needed to use \ifxetex-\else-\fi statement
-\RequirePackage{ifxetex}
 % Needed to use \if-\then-\else statement
 \RequirePackage{xifthen}
 % Needed to strip chars from telephone number
