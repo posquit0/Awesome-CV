@@ -1,0 +1,26 @@
+area/documentation:
+- changed-files:
+  - any-glob-to-any-file:
+    - "**/*.md"
+
+area/ci:
+- changed-files:
+  - any-glob-to-any-file:
+    - ".github/**"
+    - ".vscode/**"
+    - "Dockerfile"
+    - "Makefile"
+    - "latexmkrc"
+    - "luaotfload.conf"
+    - "tests/**"
+
+area/template:
+- changed-files:
+  - any-glob-to-any-file:
+    - "*.cls"
+    - "*.sty"
+
+area/examples:
+- changed-files:
+  - any-glob-to-any-file:
+    - "examples/**"

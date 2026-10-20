@@ -5,53 +5,31 @@ on:
     branches:
     - master
   pull_request: {}
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
 
 concurrency:
   group: integration-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  changed:
-    runs-on: ubuntu-latest
-
-    outputs:
-      yaml_changed: ${{ steps.filter-yaml.outputs.changed }}
-      yaml_files: ${{ steps.filter-yaml.outputs.files }}
-
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v7
-      with:
-        fetch-depth: 0
-
-    - name: Get Changed Files
-      id: changed-files
-      uses: dorny/paths-filter@v4
-      with:
-        list-files: json
-        filters: |
-          yaml:
-          - '**/*.yaml'
-          - '**/*.yml'
-
-    - name: Filter changed YAML files to outputs
-      id: filter-yaml
-      run: |
-        echo ::set-output name=changed::${{ steps.changed-files.outputs.yaml }}
-        echo ::set-output name=files::${{ steps.changed-files.outputs.yaml_files }}
-
-
   yaml:
-    needs:
-    - changed
-    if: ${{ needs.changed.outputs.yaml_changed != 'false' }}
-    runs-on: ubuntu-latest
+    name: YAML
+    uses: tedilabs/github-actions/.github/workflows/yaml.yamllint.yaml@ab5fbc9e95adfef4fb8a391813222757410dc502
+    with:
+      runs_on: '"ubuntu-24.04"'
+      yamllint_version: "1.38.0"
+      yamllint_config_file: .yamllint.yaml
+      yamllint_target_dir: ./
 
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v7
-
-    - name: Lint YAML Files
-      id: yaml-lint
-      run: |
-        yamllint .
+  workflows:
+    name: GitHub Actions
+    uses: tedilabs/github-actions/.github/workflows/github-actions.integration.yaml@ab5fbc9e95adfef4fb8a391813222757410dc502
+    with:
+      runs_on: '"ubuntu-24.04"'
+      actionlint_version: "2.1.0"
+      shellcheck_version: "0.11.0"
+      check_jsonschema_version: "0.38.2"
+      pr_comment_enabled: false

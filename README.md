@@ -82,7 +82,7 @@ Install the **Source Sans 3** and **Roboto** font families, including Regular, I
 
 Alternatively, place the static font files in the repository root. The included [luaotfload.conf](luaotfload.conf) enables discovery of fonts in the working directory, including files uploaded to Overleaf.
 
-The [Dockerfile](Dockerfile) provides TeX Live and the required fonts together. It is also used by CI, so Docker is the simplest way to use the same installation recipe locally.
+The [Dockerfile](Dockerfile) provides TeX Live and the required fonts together. It is also used by CI, so Docker is the reference environment for reproducing builds locally.
 
 #### Usage
 
@@ -125,7 +125,9 @@ docker run --rm --volume "${PWD}:/doc" awesome-cv
 
 The image runs `make` by default. To build one document, append `latexmk examples/resume.tex` to `docker run`. Outputs are written to the host's `build/` directory. The image provides writable font and TeX caches for the non-root user used by the POSIX command and CI.
 
-The base image currently tracks `texlive/texlive:latest`; rebuilding it can update TeX and font packages. This shares an installation recipe, not a frozen toolchain.
+The base image is pinned to a multi-platform digest, and additional Debian packages come from a dated snapshot. Rebuilding a checkout therefore uses the same TeX and font package sources. Native installations and Overleaf can differ from this baseline. CI uses Linux amd64; Docker on Apple Silicon uses the pinned arm64 image. To reproduce CI's architecture, add `--platform linux/amd64` to both Docker commands (emulation may be slower).
+
+This pins the toolchain, not the bytes of every PDF: examples use `\today`, and PDF metadata can include build timestamps. See [the build environment guide](docs/build-environment.md) for version inspection and dependency updates.
 
 #### Editors and Overleaf
 
