@@ -146,7 +146,9 @@ The root `awesome-cv.cls` is the source of truth. `examples/awesome-cv.cls` is a
 
 #### Contributing
 
-Use `make` or the Docker command above before submitting changes. CI builds the same Dockerfile, runs `make` with a non-root user, and uploads the PDFs from `build/`. When changing build settings, keep `latexmkrc`, the editor configuration, the Dockerfile, and these instructions aligned. Check generated PDFs for layout changes; compilation success alone does not verify visual quality.
+Run `make test` before submitting changes. The Docker image includes the PDF inspection dependency; append `make test` to the Docker command above to run the same checks as CI. The suite checks page counts, text extraction, links, embedded fonts, compiler font warnings, and focused layout regressions. See [the test guide](tests/README.md) for native prerequisites and coverage.
+
+CI uploads PDFs, compiler logs, a JSON report, and page images from `build/` for review, including available diagnostics after a failure. Check the page images for layout changes; automated checks do not cover every visual detail. When changing build settings, keep `latexmkrc`, the editor configuration, the Dockerfile, and these instructions aligned.
 
 
 ## Credit

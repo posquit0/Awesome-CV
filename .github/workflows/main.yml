@@ -18,13 +18,19 @@ jobs:
     - name: Build TeX environment
       run: docker build --tag awesome-cv .
 
-    - name: Compile
+    - name: Compile and check PDFs
       run: |
         docker run --rm --user "$(id -u):$(id -g)" \
-          --volume "$PWD:/doc" awesome-cv
+          --volume "$PWD:/doc" awesome-cv make test
 
     - uses: actions/upload-artifact@v7
+      if: always()
       with:
         name: examples
-        path: build/*.pdf
+        path: |
+          build/*.pdf
+          build/*.log
+          build/tests/*.pdf
+          build/tests/*.log
+          build/quality/
         if-no-files-found: error
