@@ -1,4 +1,4 @@
-FROM texlive/texlive:latest@sha256:e8148b126545105c4aeeaa212f8a7bd02d05b500351372881055e1e59ae67d33
+FROM texlive/texlive:latest@sha256:540d736c78e2803cdd7b6a196bd21339c30185948db55e04e75a415959102ca8
 
 # Freeze added packages and their dependencies as well as the TeX Live image.
 # Keep signature verification enabled; archived Release files have expired dates.
